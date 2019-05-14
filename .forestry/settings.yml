@@ -1,0 +1,27 @@
+---
+new_page_extension: md
+auto_deploy: false
+admin_path: static/admin
+webhook_url: 'https://api.stackbit.com/project/5cdaf2d790db6d0015dfb241/webhook/forestry'
+sections:
+  - type: document
+    label: Config
+    path: config.yaml
+    templates:
+      - config
+  - type: document
+    label: Home
+    path: content/_index.md
+    templates:
+      - home
+  - type: document
+    label: Elements
+    path: content/elements.md
+    templates:
+      - elements
+upload_dir: static/images
+public_path: /images
+front_matter_path: ''
+use_front_matter_path: false
+file_template: ':filename:'
+version: '0.47'

@@ -1,0 +1,69 @@
+---
+label: Spotlights Section
+hide_body: true
+is_partial: true
+display_field: title
+fields:
+  - type: textarea
+    name: title
+    label: Section Title
+    description: >-
+      The title displayed at the top of the section (Also used by the CMS, even
+      if no title is displayed in the section)
+    default: Spotlights Section
+    config:
+      required: true
+  - type: text
+    name: section_id
+    label: Section ID
+    default: two
+    config:
+      required: true
+  - type: text
+    name: component
+    label: Section Component
+    hidden: true
+    default: spotlights.html
+    config:
+      required: true
+  - type: field_group_list
+    name: spotlights
+    label: Spotlight Sections
+    config:
+      labelField: title
+    fields:
+      - type: text
+        name: title
+        label: Spotlight Title
+        config:
+          required: true
+      - type: textarea
+        name: text
+        label: Spotlight Text
+        description: The text displayed below the spotlight title
+        config:
+          wysiwyg: true
+          schema:
+            format: markdown
+      - type: file
+        name: image
+        label: Spotlight Image
+  - type: field_group_list
+    name: icons
+    label: Icons
+    description: Icons displayed at the bottom of the section
+    config:
+      labelField: title
+    fields:
+      - type: include
+        name: include_icon
+        label: Icon
+        template: icon
+  - type: text
+    name: type
+    label: Reference Type Name
+    description: Name of the object model if it was referenced
+    hidden: true
+    default: spotlights
+    config:
+      required: true

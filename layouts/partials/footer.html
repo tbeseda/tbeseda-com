@@ -1,0 +1,13 @@
+<!-- Footer -->
+<footer id="footer">
+    {{ if .Site.Params.footer.social_icons }}
+        <ul class="icons">
+            {{ range $item := .Site.Params.footer.social_icons }}
+                <li><a href="{{ $item.url }}" class="icon {{ $item.icon }}"><span class="label">{{ $item.title }}</span></a></li>
+            {{ end }}
+        </ul>
+    {{ end }}
+    {{ if .Site.Params.footer.copyright }}
+        <p class="copyright">{{ .Site.Params.footer.copyright | safeHTML }}</p>
+    {{ end }}
+</footer>

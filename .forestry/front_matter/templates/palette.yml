@@ -1,0 +1,12 @@
+---
+label: Palette
+hide_body: true
+is_partial: true
+fields:
+  - type: field_group
+    name: sass
+    label: SASS
+    fields:
+      - type: text
+        name: color
+        label: Color

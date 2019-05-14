@@ -1,0 +1,60 @@
+---
+label: Icons Section
+hide_body: true
+is_partial: true
+display_field: title
+fields:
+  - type: textarea
+    name: title
+    label: Section Title
+    description: >-
+      The title displayed at the top of the section (Also used by the CMS, even
+      if no title is displayed in the section)
+    default: Icons Section
+    config:
+      required: true
+  - type: text
+    name: section_id
+    label: Section ID
+    default: one
+    config:
+      required: true
+  - type: text
+    name: component
+    label: Section Component
+    hidden: true
+    default: icons.html
+    config:
+      required: true
+  - type: select
+    name: background_style
+    label: Background Style
+    description: The color style for the background
+    config:
+      required: true
+      source:
+        type: custom
+      options:
+        - style1
+        - style2
+        - style3
+        - style4
+  - type: field_group_list
+    name: icons
+    label: Icons
+    description: Icons displayed at the bottom of the section
+    config:
+      labelField: title
+    fields:
+      - type: include
+        name: include_icon
+        label: Icon
+        template: icon
+  - type: text
+    name: type
+    label: Reference Type Name
+    description: Name of the object model if it was referenced
+    hidden: true
+    default: icons
+    config:
+      required: true

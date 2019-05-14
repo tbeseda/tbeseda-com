@@ -1,0 +1,17 @@
+<!-- Header -->
+<header id="header">
+    <div class="content">
+        <h1><a href="{{ if strings.HasPrefix .Site.Params.header.title_url "#" }}{{ .Site.Params.header.title_url }}{{ else }}{{ .Site.Params.header.title_url | relURL }}{{ end }}">{{ .Site.Title }}</a></h1>
+        {{ partial "markdownify-block" .Site.Params.header.subtitle }}
+        {{ if .Site.Params.header.actions }}
+            <ul class="actions">
+                {{ range $action := .Site.Params.header.actions }}
+                    <li><a href="{{ if strings.HasPrefix $action.url "#" }}{{ $action.url }}{{ else }}{{ relref $ $action.url | relURL }}{{ end }}" class="button{{ if $action.is_primary }} primary{{ end }}{{ if $action.icon }} icon {{ $action.icon }}{{ end }}{{ if $action.is_scrolly }} scrolly{{ end }}">{{ $action.label }}</a></li>
+                {{ end }}
+            </ul>
+        {{ end }}
+    </div>
+    {{ if .Site.Params.header.img }}
+        <div class="image{{ if .Site.Params.header.img.phone_border }} phone{{ end }}"><div class="inner"><img src="{{ .Site.Params.header.img.path | relURL }}" alt="" /></div></div>
+    {{ end }}
+</header>
