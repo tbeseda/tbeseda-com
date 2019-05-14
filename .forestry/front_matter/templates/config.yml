@@ -1,155 +1,152 @@
 ---
 label: Config
 hide_body: true
-is_partial: false
 fields:
-  - type: text
-    name: title
-    label: Title
-    description: Site title
-    config:
-      required: true
-  - type: text
-    name: baseURL
-    label: Base URL
-    description: Hostname (and path) to the root
-    hidden: true
+- type: text
+  name: title
+  label: Title
+  description: Site title
+  config:
+    required: true
+- type: text
+  name: baseURL
+  label: Base URL
+  description: Hostname (and path) to the root
+  hidden: true
+- type: field_group
+  name: params
+  label: Params
+  description: Site parameters
+  config:
+    required: true
+  fields:
   - type: field_group
-    name: params
-    label: Params
-    description: Site parameters
+    name: header
+    label: Header Configuration
+    fields:
+    - type: text
+      name: title_url
+      label: Title URL
+      description: The link used in the page title
+    - type: textarea
+      name: subtitle
+      label: Header Subtitle
+      description: The text displayed below the page title
+      config:
+        wysiwyg: true
+        schema:
+          format: markdown
+    - type: field_group_list
+      name: actions
+      label: Header Actions
+      description: The action buttons displayed in the page header
+      config:
+        labelField: label
+      fields:
+      - type: include
+        name: include_action
+        label: Action
+        template: action
+    - type: field_group
+      name: img
+      label: Header Image
+      fields:
+      - type: file
+        name: path
+        label: Image
+      - type: boolean
+        name: phone_border
+        label: Header Image Phone Border
+        description: Puts a phone border around the header image
+        default: false
+  - type: select
+    name: palette
+    label: Color Palette
+    description: The color palette used in the theme
     config:
       required: true
-    fields:
-      - type: field_group
-        name: header
-        label: Header Configuration
-        fields:
-          - type: text
-            name: title_url
-            label: Title URL
-            description: The link used in the page title
-          - type: textarea
-            name: subtitle
-            label: Header Subtitle
-            description: The text displayed below the page title
-            config:
-              wysiwyg: true
-              schema:
-                format: markdown
-          - type: field_group_list
-            name: actions
-            label: Header Actions
-            description: The action buttons displayed in the page header
-            config:
-              labelField: label
-            fields:
-              - type: include
-                name: include_action
-                label: Action
-                template: action
-          - type: field_group
-            name: img
-            label: Header Image
-            fields:
-              - type: file
-                name: path
-                label: Image
-              - type: boolean
-                name: phone_border
-                label: Header Image Phone Border
-                description: Puts a phone border around the header image
-                default: false
-      - type: select
-        name: palette
-        label: Color Palette
-        description: The color palette used in the theme
-        config:
-          required: true
-          source:
-            type: custom
-          options:
-            - blue
-            - magenta
-            - purple
-      - type: field_group
-        name: footer
-        label: Footer Configuration
-        fields:
-          - type: field_group_list
-            name: social_icons
-            label: Social Media Icons
-            config:
-              labelField: title
-            fields:
-              - type: text
-                name: title
-                label: Icon Title
-                config:
-                  required: true
-              - type: text
-                name: icon
-                label: Icon
-                description: Font Awesome Icon
-              - type: text
-                name: url
-                label: Icon URL
-          - type: text
-            name: copyright
-            label: Footer Copyright
-            description: The copyright text displayed in the page footer.
-      - type: field_group
-        name: palettes
-        label: Palettes
-        hidden: true
-        fields:
-          - type: field_group
-            name: blue
-            label: Blue
-            fields:
-              - type: include
-                name: include_palette
-                label: Palette
-                template: palette
-          - type: field_group
-            name: magenta
-            label: Magenta
-            fields:
-              - type: include
-                name: include_palette
-                label: Palette
-                template: palette
-          - type: field_group
-            name: purple
-            label: Purple
-            fields:
-              - type: include
-                name: include_palette
-                label: Palette
-                template: palette
-  - type: list
-    name: disableKinds
-    label: Disable Kinds
-    description: Enable disabling of all pages of the specified Kinds.
-    hidden: true
-    config:
-      use_select: true
       source:
         type: custom
       options:
-        - page
-        - home
-        - section
-        - taxonomy
-        - taxonomyTerm
-        - RSS
-        - sitemap
-        - robotsTXT
-        - '404'
-  - type: boolean
-    name: uglyURLs
-    label: Ugly URLs
-    description: >-
-      When enabled, creates URL of the form /filename.html instead of
-      /filename/.
+      - blue
+      - magenta
+      - purple
+  - type: field_group
+    name: footer
+    label: Footer Configuration
+    fields:
+    - type: field_group_list
+      name: social_icons
+      label: Social Media Icons
+      config:
+        labelField: title
+      fields:
+      - type: text
+        name: title
+        label: Icon Title
+        config:
+          required: true
+      - type: text
+        name: icon
+        label: Icon
+        description: Font Awesome Icon
+      - type: text
+        name: url
+        label: Icon URL
+    - type: text
+      name: copyright
+      label: Footer Copyright
+      description: The copyright text displayed in the page footer.
+  - type: field_group
+    name: palettes
+    label: Palettes
     hidden: true
+    fields:
+    - type: field_group
+      name: blue
+      label: Blue
+      fields:
+      - type: include
+        name: include_palette
+        label: Palette
+        template: palette
+    - type: field_group
+      name: magenta
+      label: Magenta
+      fields:
+      - type: include
+        name: include_palette
+        label: Palette
+        template: palette
+    - type: field_group
+      name: purple
+      label: Purple
+      fields:
+      - type: include
+        name: include_palette
+        label: Palette
+        template: palette
+- type: list
+  name: disableKinds
+  label: Disable Kinds
+  description: Enable disabling of all pages of the specified Kinds.
+  hidden: true
+  config:
+    use_select: true
+    source:
+      type: custom
+    options:
+    - page
+    - home
+    - section
+    - taxonomy
+    - taxonomyTerm
+    - RSS
+    - sitemap
+    - robotsTXT
+    - '404'
+- type: boolean
+  name: uglyURLs
+  label: Ugly URLs
+  description: When enabled, creates URL of the form /filename.html instead of /filename/.
+  hidden: true

@@ -1,13 +1,12 @@
 ---
 label: Icon
 hide_body: true
-is_partial: true
 display_field: title
 fields:
-  - type: text
-    name: title
-    label: Icon Title
-  - type: text
-    name: icon
-    label: Icon
-    description: Font Awesome Icon
+- type: text
+  name: title
+  label: Icon Title
+- type: text
+  name: icon
+  label: Icon
+  description: Font Awesome Icon

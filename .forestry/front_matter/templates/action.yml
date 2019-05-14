@@ -1,26 +1,25 @@
 ---
 label: Action
 hide_body: true
-is_partial: true
 display_field: label
 fields:
-  - type: text
-    name: label
-    label: Button Label
-  - type: text
-    name: icon
-    label: Button Icon
-    description: Font Awesome Icon
-  - type: text
-    name: url
-    label: Button URL
-  - type: boolean
-    name: is_primary
-    label: Is Primary
-    description: Gives the button a primary color scheme
-    default: false
-  - type: boolean
-    name: is_scrolly
-    label: Is Scrolly
-    description: adds a scroll animation (enable if button URL is set to a section ID)
-    default: false
+- type: text
+  name: label
+  label: Button Label
+- type: text
+  name: icon
+  label: Button Icon
+  description: Font Awesome Icon
+- type: text
+  name: url
+  label: Button URL
+- type: boolean
+  name: is_primary
+  label: Is Primary
+  description: Gives the button a primary color scheme
+  default: false
+- type: boolean
+  name: is_scrolly
+  label: Is Scrolly
+  description: adds a scroll animation (enable if button URL is set to a section ID)
+  default: false
