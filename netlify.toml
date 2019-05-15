@@ -1,6 +1,6 @@
 [build]
-publish = "public"
-command = "./ssg-build.sh"
+  publish = "public"
+  command = "./ssg-build.sh"
 
 [[redirects]]
   from = "https://tbeseda-com.netlify.com"
