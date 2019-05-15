@@ -1,3 +1,19 @@
 [build]
 publish = "public"
 command = "./ssg-build.sh"
+
+[[redirects]]
+  from = "https://tbeseda-com.netlify.com"
+  to = "https://tbeseda.com"
+  status = 200
+  force = true
+[[redirects]]
+  from = "https://taylorbeseda.com"
+  to = "https://tbeseda.com"
+  status = 200
+  force = true
+[[redirects]]
+  from = "https://www.taylorbeseda.com"
+  to = "https://tbeseda.com"
+  status = 200
+  force = true
