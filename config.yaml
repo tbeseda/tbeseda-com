@@ -4,8 +4,7 @@ baseURL: "/"
 params:
   header:
     title_url: "#"
-    subtitle: "Nibh sed aliquam, cursus arcu aliquet  \nnatoque rhoncus ut non in
-      Aliquet"
+    subtitle: Testing Stackbit.com
     actions:
     - label: Download
       icon: fa-download
