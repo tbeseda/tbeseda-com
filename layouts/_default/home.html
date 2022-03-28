@@ -1,8 +1,0 @@
-{{ define "content" }}
-    
-    {{ range $section := .Params.sections }}
-        {{ $include_dict := dict "section" $section "page" $ }}
-        {{ partial $section.component $include_dict }}
-    {{ end }}
-
-{{ end }}
