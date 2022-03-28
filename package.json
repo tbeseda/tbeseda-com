@@ -1,0 +1,25 @@
+{
+  "name": "tbeseda-com",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "npx arc sandbox"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbeseda/tbeseda-com.git"
+  },
+  "keywords": [],
+  "author": "tbeseda",
+  "license": "ISC",
+  "homepage": "https://tbeseda.com",
+  "devDependencies": {
+    "@architect/architect": "^10.2.0",
+    "@architect/plugin-lambda-invoker": "^0.1.1",
+    "@types/node": "^17.0.23",
+    "tiny-json-http": "^7.4.2"
+  },
+  "dependencies": {
+    "@architect/functions": "^5.0.4"
+  }
+}
