@@ -5,17 +5,62 @@ const arc = require('@architect/functions');
 const tiny = require('tiny-json-http');
 
 exports.handler = async function scheduled() {
-  const query = `
+  const today = new Date();
+  const weekAgo = new Date();
+  weekAgo.setDate(today.getDate() - 7);
+
+  const query = `#graphql
 {
   user(login: "tbeseda") {
-    contributionsCollection {
+    avatarUrl
+    bio
+    company
+    location
+    login
+    name
+    url
+    itemShowcase {
+      items(last: 6) {
+        nodes {
+          __typename
+          ... on Repository {
+            descriptionHTML
+            primaryLanguage {
+              name
+            }
+            nameWithOwner
+            stargazerCount
+            url
+            repositoryTopics(first: 4) {
+              nodes {
+                topic {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    status {
+      createdAt
+      emoji
+      emojiHTML
+      indicatesLimitedAvailability
+      message
+      updatedAt
+    }
+    contributionsCollection(
+      from: "${weekAgo.toISOString()}"
+      to: "${today.toISOString()}"
+    ) {
       contributionCalendar {
-        totalContributions
         weeks {
+          firstDay
           contributionDays {
-            contributionCount
-            weekday
+            color
             date
+            contributionCount
           }
         }
       }
