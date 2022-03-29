@@ -1,6 +1,10 @@
 @app
 tbeseda-com
 
+@static
+
+@views
+
 @http
 get /
 
@@ -14,4 +18,8 @@ things
   thingID *String
 
 @plugins
+arc-plugin-tailwindcss
 architect/plugin-lambda-invoker
+
+@tailwindcss
+minify true

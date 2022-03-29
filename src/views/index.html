@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>tbeseda.com</title>
+  <link href="/_static/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+  <div class="container mx-auto">
+    <h1 class="text-3xl font-bold">Hello</h1>
+    <div class="grid grid-cols-3 gap-4">
+      <div class="bg-white drop-shadow-md">
+        <% if (it.github?.data) { %>
+          <%~ includeFile('./partials/github.html', it.github.data) %>
+            <% } %>
+      </div>
+      <div class="bg-white drop-shadow-md">
+        <% if (it.letterboxd?.data) { %>
+          <%~ includeFile('./partials/letterboxd.html', it.letterboxd.data) %>
+            <% } %>
+      </div>
+      <div class="bg-white drop-shadow-md">
+        <% if (it.fortnite?.data) { %>
+          <%~ includeFile('./partials/fortnite.html', it.fortnite.data) %>
+            <% } %>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

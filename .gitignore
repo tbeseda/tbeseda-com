@@ -2,3 +2,5 @@
 node_modules/
 .env
 sam.*
+public/style.css
+prefs.arc
