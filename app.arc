@@ -22,4 +22,5 @@ arc-plugin-tailwindcss
 architect/plugin-lambda-invoker
 
 @tailwindcss
+src src/styles/index.css
 minify true

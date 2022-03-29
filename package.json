@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "deploy": "npx arc deploy --production",
+    "deploy": "npx arc deploy --production --prune -v",
     "start": "npx arc sandbox"
   },
   "repository": {
