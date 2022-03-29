@@ -13,13 +13,14 @@
   "author": "tbeseda",
   "license": "ISC",
   "homepage": "https://tbeseda.com",
+  "dependencies": {
+    "@architect/functions": "^5.0.4",
+    "rss-url-parser": "^2.2.3",
+    "tiny-json-http": "^7.4.2"
+  },
   "devDependencies": {
     "@architect/architect": "^10.2.0",
     "@architect/plugin-lambda-invoker": "^0.1.1",
-    "@types/node": "^17.0.23",
-    "tiny-json-http": "^7.4.2"
-  },
-  "dependencies": {
-    "@architect/functions": "^5.0.4"
+    "@types/node": "^17.0.23"
   }
 }

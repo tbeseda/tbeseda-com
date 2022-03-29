@@ -21,13 +21,11 @@ exports.handler = async function scheduled() {
       const client = await arc.tables();
       const tbesedaThings = client.things;
 
-      const fortniteThing = await tbesedaThings.put({
+      await tbesedaThings.put({
         thingID: 'fortnite',
         data: response.body,
         updatedAt: Date.now(),
       });
-
-      console.log(fortniteThing);
     } else {
       console.log('Broken response', response);
     }
