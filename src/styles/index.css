@@ -37,3 +37,16 @@ footer {
 .color-green-pickup {
   color: var(--green-pickup);
 }
+
+.bg-begin-coral {
+  background-color: var(--begin-coral);
+}
+.bg-begin-orange {
+  background-color: var(--begin-orange);
+}
+.bg-colorado-blue {
+  background-color: var(--colorado-blue);
+}
+.bg-green-pickup {
+  background-color: var(--green-pickup);
+}

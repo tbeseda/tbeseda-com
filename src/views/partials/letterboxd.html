@@ -1,9 +1,20 @@
-<div>
-  <!-- <%~ it.description %> -->
-</div>
+<!-- prettier-ignore -->
+<% const parsed=it.description.match(/<p>(.*?)<\/p?>/gim) %>
 
-<h2 class="mb-2">
-  <a class="underline" target="_blank" href="<%= it.link %>">
-    <%= it.title.replace(/★/g, '⭐' ) %>
-  </a>
-</h2>
+<div class="flex flex-row">
+  <div class="flex-1">
+    <div class="mb-2">
+      <%~ parsed[0] %>
+    </div>
+  </div>
+  <div class="flex-1">
+    <h2 class="mb-2">
+      <a class="underline" target="_blank" href="<%= it.link %>">
+        <%= it.title.replace(/★/g, '⭐' ) %>
+      </a>
+    </h2>
+    <div class="mb-2">
+      <%~ parsed[1] %>
+    </div>
+  </div>
+</div>

@@ -9,9 +9,9 @@ tbeseda-com
 get /
 
 @scheduled
-update-fortnite rate(5 minutes)
-update-github rate(5 minutes)
-update-letterboxd rate(5 minutes)
+update-fortnite rate(1 hour)
+update-github rate(1 hour)
+update-letterboxd rate(1 hour)
 
 @tables
 things
