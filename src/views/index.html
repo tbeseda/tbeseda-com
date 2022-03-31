@@ -10,7 +10,12 @@
   <title>
     <%= it.profile.name %> (@<%= it.profile.login %>)
   </title>
-  <link href="/_static/style.css" rel="stylesheet">
+  <link href="<%= it.static('/style.css') %>" rel="stylesheet">
+  <style>
+    footer {
+      background-image: url(<%= it.static('/peaks.svg') %>);
+    }
+  </style>
 </head>
 
 <body class="min-h-screen font-source-sans-pro bg-colorado-blue text-gray-200">

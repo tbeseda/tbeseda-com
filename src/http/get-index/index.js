@@ -30,6 +30,7 @@ async function handler() {
 
   return {
     html: await eta.renderFile('index.html', {
+      static: arc.static,
       fortnite,
       github,
       letterboxd,
