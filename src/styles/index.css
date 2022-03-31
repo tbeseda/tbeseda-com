@@ -4,49 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
-:root {
-  --font-family: 'Source Sans Pro', sans-serif;
-  /* colors */
-  --begin-coral: #fd6d6dff;
-  --begin-orange: #fe8e20ff;
-  --colorado-blue: #002147ff;
-  --green-pickup: #007932ff;
-}
-
-body {
-  background: var(--colorado-blue);
-}
-
 footer {
   background-image: url('/_static/peaks.svg');
 }
 
 .font-source-sans-pro {
   font-family: var(--font-family);
-}
-
-.color-begin-coral {
-  color: var(--begin-coral);
-}
-.color-begin-orange {
-  color: var(--begin-orange);
-}
-.color-colorado-blue {
-  color: var(--colorado-blue);
-}
-.color-green-pickup {
-  color: var(--green-pickup);
-}
-
-.bg-begin-coral {
-  background-color: var(--begin-coral);
-}
-.bg-begin-orange {
-  background-color: var(--begin-orange);
-}
-.bg-colorado-blue {
-  background-color: var(--colorado-blue);
-}
-.bg-green-pickup {
-  background-color: var(--green-pickup);
 }

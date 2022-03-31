@@ -1,20 +1,22 @@
 <!-- prettier-ignore -->
-<% const parsed=it.description.match(/<p>(.*?)<\/p?>/gim) %>
+<% const parsed = it.description.match(/<p>(.*?)<\/p?>/gim) %>
+<% const imageSrc = parsed[0].match(/<img.*?src="(.*?)"/)[1] %>
+<% const description = parsed[1]%>
 
-<div class="flex flex-row">
-  <div class="flex-1">
-    <div class="mb-2">
-      <%~ parsed[0] %>
-    </div>
+<div class="grid grid-flow-col auto-cols-auto gap-x-3 justify-center">
+  <div class="">
+    <img alt="movie poster" class="object-cover object-center rounded-sm inline-block bg-gray-100"
+  src="<%= imageSrc %>" />
   </div>
-  <div class="flex-1">
-    <h2 class="mb-2">
+
+  <div class="">
+    <h2 class="mb-2 text-l">
       <a class="underline" target="_blank" href="<%= it.link %>">
         <%= it.title.replace(/★/g, '⭐' ) %>
       </a>
     </h2>
-    <div class="mb-2">
-      <%~ parsed[1] %>
+    <div class="text-left text-sm text-gray-400 mb-2">
+      <%~ description %>
     </div>
   </div>
 </div>
