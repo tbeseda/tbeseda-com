@@ -1,20 +1,22 @@
-<div class="text-center">
-  <img alt="avatar" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block bg-gray-100"
-    src="<%= it.user.avatarUrl %>" />
-  <p class="mb-2">
-    <a href="<%= it.user.url %>" target="_blank" class="underline font-semibold text-begin-orange">
-      @<%= it.user.login %>
-    </a>
-  </p>
-  <h2 class="text-gray-400 font-medium title-font tracking-wider text-sm mb-1">
-    <%= it.user.company %>
-  </h2>
-  <div class="grid grid-flow-col auto-cols-auto gap-x-1 justify-center">
-    <div class="">
-      <%~ it.user.status.emojiHTML %>
-    </div>
-    <div class="text-gray-300">
-      <%= it.user.status.message %>
-    </div>
-  </div>
+<div class="flex-1 md:text-center">
+  <h2 class="text-xl">GitHub Contributions</h2>
+
+  <h3 class="tracking-wider text-sm text-gray-400 mb-4">Last 7 days</h3>
+
+  <ul class="text-gray-300 text-left md:w-1/2 mx-auto mb-2">
+    <li>
+      <span class="text-gray-400">commits:</span>
+      <%= it.user.contributionsCollection.totalCommitContributions %>
+    </li>
+    <li>
+      <span class="text-gray-400">issues:</span>
+      <%= it.user.contributionsCollection.totalIssueContributions %>
+    </li>
+    <li>
+      <span class="text-gray-400">PRs:</span>
+      <%= it.user.contributionsCollection.totalPullRequestContributions %>
+    </li>
+  </ul>
+
+  <h4 class="text-sm italic text-gray-400">"<%= it.user.status.message %>"</h4>
 </div>

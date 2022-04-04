@@ -1,9 +1,9 @@
 const LETTERBOXD_RSS_URL = 'https://letterboxd.com/tbeseda/rss/';
 
-const arc = require('@architect/functions');
-const parser = require('rss-url-parser');
+import arc from '@architect/functions';
+import parser from 'rss-url-parser';
 
-exports.handler = async function scheduled() {
+export async function handler() {
   try {
     const response = await parser(LETTERBOXD_RSS_URL);
 
@@ -31,4 +31,4 @@ exports.handler = async function scheduled() {
   }
 
   return;
-};
+}

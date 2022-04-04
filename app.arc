@@ -2,7 +2,6 @@
 tbeseda-com
 
 @static
-folder public
 fingerprint true
 
 @views

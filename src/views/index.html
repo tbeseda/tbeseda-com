@@ -20,18 +20,7 @@
 
 <body class="min-h-screen font-source-sans-pro bg-colorado-blue text-gray-200">
   <div class="flex flex-col h-screen">
-    <header class="flex flex-col gap-1 md:mb-12 mb-8 md:mt-14 mt-8 px-5 text-center">
-      <h2 class="text-sm text-gray-400">
-        @ <span class="uppercase tracking-widest font-bold text-begin-coral">
-          <%= it.profile.login %>
-        </span>
-      </h2>
-      <h1 class="text-5xl font-bold text-white">
-        <%= it.profile.name %>
-      </h1>
-      <h2 class="text-lg">Software Developer & General Technologist</h2>
-      <h3 class="text-base text-gray-400">Colorado Front Range and all over the Internet.</h3>
-    </header>
+    <%~ includeFile('./partials/header.html', it.profile) %>
 
     <main class="flex flex-col gap-5 mb-16 md:px-0 px-5">
       <figure class="md:w-3/5 md:mx-auto mb-5 bg-gray-400 bg-opacity-40 p-6 rounded">
@@ -47,7 +36,8 @@
       <nav class="md:w-4/5 md:mx-auto mb-5 md:text-center">
         <ul class="list-none flex md:flex-row flex-col gap-5">
           <li class="flex-1 text-xl">
-            <a href="<%= it.profile.url %>" target="_blank" class="underline font-semibold text-begin-orange">
+            <a href="https://github.com/tbeseda" target="_blank" 
+              class="underline font-semibold text-begin-orange">
               github.com/tbeseda
             </a>
             <p class="text-sm">
@@ -55,7 +45,8 @@
             </p>
           </li>
           <li class="flex-1 text-xl">
-            <a href="https://dev.to/tbeseda" target="_blank" class="underline font-semibold text-begin-orange">
+            <a href="https://dev.to/tbeseda" target="_blank" 
+              class="underline font-semibold text-begin-orange">
               dev.to/tbeseda
             </a>
             <p class="text-sm">
@@ -68,67 +59,27 @@
               polywork.com/tbeseda
             </a>
             <p class="text-sm">
-              A newer professional space without the grifty hustle.
+              A newer professional space with less "hustle".
             </p>
           </li>
         </ul>
       </nav>
-
-      <h2 class="md:hidden text-2xl font-bold text-gray-200">What I specialize in:</h2>
-
-      <section class="md:w-4/5 md:mx-auto flex flex-wrap">
-        <aside class="xl:w-1/4 lg:w-1/2 md:w-full p-5 border-l-2 border-opacity-20">
-          <h3 class="text-gray-100 text-xl font-semibold mb-3">System Integration</h3>
-          <p class="text-gray-300">
-            Connecting the dots with reliable and pliable pipelines. ETL, warehousing, data
-            portability, reporting, real-time updates. From one platform to another. Custom or
-            off-the-shelf, I make sure orgs have the right information in the right place.
-          </p>
-        </aside>
-
-        <aside class="xl:w-1/4 lg:w-1/2 md:w-full p-5 border-l-2 border-opacity-20">
-          <h3 class="text-gray-100 text-xl font-semibold mb-3">Server-side Javascript</h3>
-          <p class="text-gray-300">
-            Though I'm a fan of several programming languages, nothing is as prevalent today as
-            JS. I jumped on the Node.js train early on and have enjoyed the ever-evolving
-            (sometimes chaotic) ecosystem ever since: monolithic Express APIs, serverless
-            architecture, Typescript, Deno, et. all.
-          </p>
-        </aside>
-
-        <aside class="xl:w-1/4 lg:w-1/2 md:w-full p-5 border-l-2 border-opacity-20">
-          <h3 class="text-gray-100 text-xl font-semibold mb-3">Technical Writing</h3>
-          <p class="text-gray-300">
-            Taking complex software systems down to their fundamentals to effectively explain how
-            something works and how to use it. Whether it's a guided blog post or technical
-            documentation, I like to create reference material to help other developers understand
-            a piece of software.
-          </p>
-        </aside>
-
-        <aside class="xl:w-1/4 lg:w-1/2 md:w-full p-5 border-l-2 border-opacity-20">
-          <h3 class="text-gray-100 text-xl font-semibold mb-3">Interactive Applications</h3>
-          <p class="text-gray-300">
-            It can't all be back-end magic. At the end of the day, humans are why we build things
-            and they need to be able to use our software. I enjoy building interactive programs of
-            all sizes. From robust customer-facing apps to slim command line interfaces for
-            developers.
-          </p>
-        </aside>
-      </section>
+      
+      <!-- <%~ includeFile('./partials/words.html') %> -->
+      <hr class="md:w-4/5 md:mx-auto border-gray-600 mb-5" />
 
       <% if (it.github && it.letterboxd && it.fortnite) { %>
-        <section class="container p-12 mx-auto grid grid-cols-3 gap-10 justify-center">
+        <section class="md:w-4/5 md:mx-auto mb-5 md:text-center flex md:flex-row flex-col gap-y-7">
           <%~ includeFile('./partials/github.html', it.github.data) %>
-            <%~ includeFile('./partials/letterboxd.html', it.letterboxd.data) %>
-              <%~ includeFile('./partials/fortnite.html', it.fortnite.data) %>
+          <%~ includeFile('./partials/letterboxd.html', it.letterboxd.data) %>
+          <%~ includeFile('./partials/fortnite.html', it.fortnite.data) %>
         </section>
-        <% } %>
+      <% } %>
     </main>
 
     <footer class="flex-1 flex-grow text-center bg-bottom bg-no-repeat bg-cover pb-44">
       <span class="p-3 bg-colorado-blue bg-opacity-20">
-        Say hi: <code>tbeseda</code> @ Google's email service.
+        Say hi: <code class="text-green-pickup">tbeseda</code> @ gmail
       </span>
     </footer>
   </div>
