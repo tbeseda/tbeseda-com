@@ -1,6 +1,9 @@
 @app
 tbeseda-com
 
+@aws
+region us-east-1
+
 @static
 fingerprint true
 
