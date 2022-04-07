@@ -6,6 +6,7 @@ region us-east-1
 
 @static
 fingerprint true
+prune true
 
 @views
 
