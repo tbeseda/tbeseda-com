@@ -22,7 +22,7 @@ export default function App({ data }) {
         <title>
           ${profile.name} (@${profile.login})
         </title>
-        <link href="${arc.static('/style.css')}" rel="stylesheet">
+        <link href="${arc.static('/style.css')}" rel="stylesheet" />
         <style>
           footer {
             background-image: url(${arc.static('/peaks.svg')});
