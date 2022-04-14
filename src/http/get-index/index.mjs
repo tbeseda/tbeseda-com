@@ -1,5 +1,5 @@
 import arc from '@architect/functions';
-import document from '@architect/views/document.mjs';
+import Document from '@architect/views/Document.mjs';
 import defaultProfile from '@architect/views/default-profile.mjs';
 
 async function http() {
@@ -13,7 +13,7 @@ async function http() {
   const profile = github?.data?.user || defaultProfile;
 
   return {
-    html: document({
+    html: Document({
       profile,
       github,
       fortnite,
