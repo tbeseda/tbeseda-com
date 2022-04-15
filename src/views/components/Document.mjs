@@ -1,6 +1,6 @@
 import Nano, { Helmet, jsx } from 'nano-jsx';
 
-import App from './components/App.mjs';
+import App from './App.mjs';
 
 export default function Document(data) {
   const app = Nano.renderSSR(jsx`<${App} data=${data}></${App}>`);

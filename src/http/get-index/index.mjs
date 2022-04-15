@@ -1,5 +1,5 @@
 import arc from '@architect/functions';
-import Document from '@architect/views/Document.mjs';
+import Document from '@architect/views/components/Document.mjs';
 import defaultProfile from '@architect/views/default-profile.mjs';
 
 async function http() {
