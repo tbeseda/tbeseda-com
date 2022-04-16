@@ -12,7 +12,6 @@ prune true
 
 @http
 get /
-get /enhanced
 
 @scheduled
 update-fortnite rate(1 hour)

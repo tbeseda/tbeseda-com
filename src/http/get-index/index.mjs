@@ -1,25 +1,34 @@
 import arc from '@architect/functions';
-import Document from '@architect/views/components/Document.mjs';
+import render from '@architect/views/render.mjs';
 import defaultProfile from '@architect/views/default-profile.mjs';
 
 async function http() {
-  const client = await arc.tables();
-  const tbesedaThings = client.things;
+  let fortnite, github, letterboxd, profile;
 
-  const fortnite = await tbesedaThings.get({ thingID: 'fortnite' });
-  const github = await tbesedaThings.get({ thingID: 'github' });
-  const letterboxd = await tbesedaThings.get({ thingID: 'letterboxd' });
+  try {
+    const tbThings = (await arc.tables()).things;
 
-  const profile = github?.data?.user || defaultProfile;
+    fortnite = (await tbThings.get({ thingID: 'fortnite' })).data;
+    github = (await tbThings.get({ thingID: 'github' })).data;
+    letterboxd = (await tbThings.get({ thingID: 'letterboxd' })).data;
 
-  return {
-    html: Document({
-      profile,
-      github,
+    profile = github?.user;
+  } catch (error) {
+    console.log(error);
+    profile = defaultProfile;
+  }
+
+  const html = render({
+    initialState: {
       fortnite,
+      github,
       letterboxd,
-    }),
-  };
+      profile,
+    },
+    body: `<tb-main></tb-main>`,
+  });
+
+  return { html };
 }
 
 export const handler = arc.http.async(http);

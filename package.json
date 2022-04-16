@@ -18,7 +18,6 @@
     "@architect/functions": "^5.0.5",
     "@enhance/ssr": "^2.0.3",
     "got": "^12.0.3",
-    "nano-jsx": "^0.0.30",
     "rss-url-parser": "^2.2.3"
   },
   "devDependencies": {

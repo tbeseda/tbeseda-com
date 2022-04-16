@@ -6,7 +6,7 @@ export default function TbGitHub({ html, state }) {
   ) || ['', '?'];
   const emoji = parsedEmoji[1];
 
-  return html/* html */ `
+  return html`
     <div>
       <h2 class="text-xl">GitHub Contributions</h2>
 
