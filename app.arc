@@ -12,11 +12,10 @@ prune true
 
 @http
 get /
+post /
 
 @scheduled
-update-fortnite rate(1 hour)
-update-github rate(1 hour)
-update-letterboxd rate(1 hour)
+update-things rate(1 hour)
 
 @tables
 things

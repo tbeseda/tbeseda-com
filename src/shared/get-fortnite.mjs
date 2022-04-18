@@ -1,11 +1,13 @@
+import arc from '@architect/functions';
+import got from 'got';
+
 const { TRN_API_KEY } = process.env;
 const FORTNITE_API_URL =
   'https://api.fortnitetracker.com/v1/profile/gamepad/troutsoda';
 
-import arc from '@architect/functions';
-import got from 'got';
+export default async function () {
+  let thing = null;
 
-export async function handler() {
   try {
     const response = await got({
       url: FORTNITE_API_URL,
@@ -17,10 +19,11 @@ export async function handler() {
     if (response?.accountId) {
       const client = await arc.tables();
       const tbesedaThings = client.things;
+      thing = response;
 
       await tbesedaThings.put({
         thingID: 'fortnite',
-        data: response,
+        data: thing,
         updatedAt: Date.now(),
       });
     } else {
@@ -30,5 +33,5 @@ export async function handler() {
     console.log('Error', error);
   }
 
-  return;
+  return thing;
 }

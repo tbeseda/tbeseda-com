@@ -1,15 +1,14 @@
-const { GITHUB_KEY } = process.env;
-const GITHUB_API_URL = 'https://api.github.com/graphql';
-
 import arc from '@architect/functions';
 import got from 'got';
 
-export async function handler() {
-  const today = new Date();
-  const weekAgo = new Date();
-  weekAgo.setDate(today.getDate() - 7);
+const { GITHUB_KEY } = process.env;
+const GITHUB_API_URL = 'https://api.github.com/graphql';
 
-  const query = `#graphql
+const today = new Date();
+const weekAgo = new Date();
+weekAgo.setDate(today.getDate() - 7);
+
+const query = /* gql */ `
 {
   user(login: "tbeseda") {
     avatarUrl
@@ -76,6 +75,9 @@ export async function handler() {
 }
   `.trim();
 
+export default async function () {
+  let thing = null;
+
   try {
     const response = await got
       .post({
@@ -90,6 +92,7 @@ export async function handler() {
     if (response?.data) {
       const client = await arc.tables();
       const tbesedaThings = client.things;
+      thing = response.data;
 
       await tbesedaThings.put({
         thingID: 'github',
@@ -103,5 +106,5 @@ export async function handler() {
     console.log('Error', error);
   }
 
-  return;
+  return thing;
 }
