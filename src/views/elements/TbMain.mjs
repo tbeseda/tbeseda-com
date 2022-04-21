@@ -46,7 +46,7 @@ export default function Main({ html, state }) {
 
         <main class="flex flex-col gap-5 mb-16 md:px-0 px-5">
           <figure
-            class="md:w-3/5 md:mx-auto mb-5 bg-gray-400 bg-opacity-40 p-6 rounded"
+            class="md:w-3/5 md:mx-auto mb-5 bg-colorado-blue-100 bg-opacity-40 p-6 rounded"
           >
             <blockquote class="text-2xl italic text-gray-200">
               "I love putting the pieces together. Be it existing parts,
@@ -167,7 +167,7 @@ export default function Main({ html, state }) {
           <hr class="md:w-4/5 md:mx-auto border-gray-600 mb-5" />
 
           <section
-            class="md:w-4/5 md:mx-auto mb-5 md:text-center flex md:flex-row flex-col gap-y-7"
+            class="md:w-4/5 md:mx-auto mb-5 md:text-center flex md:flex-row flex-col gap-x-8"
           >
             <tb-github class="flex-1 md:text-center"></tb-github>
             <tb-letterboxd class="flex-1 md:text-center"></tb-letterboxd>
