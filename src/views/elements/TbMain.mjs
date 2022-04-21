@@ -167,7 +167,7 @@ export default function Main({ html, state }) {
           <hr class="md:w-4/5 md:mx-auto border-gray-600 mb-5" />
 
           <section
-            class="md:w-4/5 md:mx-auto mb-5 md:text-center flex md:flex-row flex-col gap-x-8"
+            class="md:w-4/5 md:mx-auto mb-5 text-center flex md:flex-row flex-col gap-6"
           >
             <tb-github class="flex-1 md:text-center"></tb-github>
             <tb-letterboxd class="flex-1 md:text-center"></tb-letterboxd>
