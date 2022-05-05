@@ -7,10 +7,7 @@ export default function TbLetterboxd({ html, state }) {
 
   return html`
     <flip-card>
-      <div
-        slot="front"
-        class="p-6 shadow-md bg-colorado-blue-400 text-gray-400 rounded-md"
-      >
+      <div slot="front">
         <h2 class="text-xl text-gray-100">Movie Activity</h2>
         <h2 class="tracking-wider text-sm text-gray-500 mb-4">
           via Letterboxd
@@ -23,10 +20,8 @@ export default function TbLetterboxd({ html, state }) {
         </h2>
         <div class="text-left text-sm text-gray-300 mb-2">${review}</div>
       </div>
-      <div
-        slot="back"
-        class="p-6 shadow-lg bg-gray-100 text-gray-500 rounded-md"
-      >
+
+      <div slot="back">
         <img
           alt="movie poster"
           class="object-cover object-center rounded-sm inline-block bg-gray-500 mb-2"

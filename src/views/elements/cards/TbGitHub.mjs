@@ -8,10 +8,7 @@ export default function TbGitHub({ html, state }) {
 
   return html`
     <flip-card>
-      <div
-        slot="front"
-        class="p-6 shadow-md bg-colorado-blue-400 text-gray-400 rounded-md"
-      >
+      <div slot="front">
         <h2 class="text-xl text-gray-100">GitHub Contributions</h2>
 
         <h3 class="tracking-wider text-sm text-gray-500 mb-4">Last 7 days</h3>
@@ -31,13 +28,11 @@ export default function TbGitHub({ html, state }) {
           </li>
         </ul>
       </div>
-      <div
-        slot="back"
-        class="p-6 shadow-lg bg-gray-100 text-gray-500 rounded-md"
-      >
+
+      <div slot="back">
         <h4 class="text-sm">
-          <span class="text-gray-600">Status:</span> ${emoji}
-          "${user.status.message}"
+          <span class="text-gray-600">Status:</span>
+          ${emoji} "${user.status.message}"
         </h4>
       </div>
     </flip-card>

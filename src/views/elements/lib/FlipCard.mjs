@@ -1,42 +1,37 @@
 export default function FlipCard({ html }) {
   return html`
-    <style>
-      :host {
-        display: block;
-        position: relative;
-      }
-      [slot='front'] {
-        /* this works, but... */
-      }
-    </style>
+    <div class="relative">
+      <slot name="flipper">
+        <a
+          class="absolute bottom-1 right-2 cursor-pointer text-colorado-blue-100"
+        >
+          ↯
+        </a>
+      </slot>
 
-    <slot name="flipper">
-      <a class="absolute bottom-1 right-2 cursor-pointer text-colorado-blue-100"
-        >↯</a
+      <div
+        class="front p-6 shadow-md bg-colorado-blue-400 text-gray-400 rounded-md"
       >
-    </slot>
+        <slot name="front">✋</slot>
+      </div>
 
-    <slot name="front">
-      <h2>Default Front</h2>
-    </slot>
-    <slot name="back" style="display: none;">
-      <h2>Default Back</h2>
-    </slot>
+      <div
+        class="back hidden p-6 shadow-lg bg-gray-100 text-gray-500 rounded-md"
+      >
+        <slot name="back">🤚</slot>
+      </div>
+    </div>
 
     <script type="module">
       class FlipCard extends HTMLElement {
         constructor() {
           super();
 
-          const template = document.getElementById('flip-card-template');
-          const shadowRoot = this.attachShadow({ mode: 'open' });
-
-          shadowRoot.appendChild(template.content.cloneNode(true));
-
           let flipped = false;
-          const button = shadowRoot.querySelector('slot[name="flipper"]');
-          const front = shadowRoot.querySelector('slot[name="front"]');
-          const back = shadowRoot.querySelector('slot[name="back"]');
+
+          const button = this.querySelector('[slot="flipper"]');
+          const front = this.querySelector('.front');
+          const back = this.querySelector('.back');
 
           button.addEventListener('click', () => {
             flipped = !flipped;
