@@ -6,7 +6,7 @@ module.exports = {
         'begin-coral': '#fd6d6d',
         'begin-orange': '#fe8e20',
         'green-pickup': '#007932',
-        'colorado-blue': {
+        'CO-blue': {
           DEFAULT: '#002147',
           50: '#00418C',
           100: '#003D84',

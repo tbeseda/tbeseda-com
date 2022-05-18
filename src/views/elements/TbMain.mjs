@@ -46,7 +46,7 @@ export default function Main({ html, state }) {
 
         <main class="flex flex-col gap-5 mb-16 md:px-0 px-5">
           <figure
-            class="md:w-3/5 md:mx-auto mb-5 bg-colorado-blue-100 bg-opacity-40 p-6 rounded"
+            class="md:w-3/5 md:mx-auto mb-5 bg-CO-blue-100 bg-opacity-40 p-6 rounded"
           >
             <blockquote class="text-2xl italic text-gray-200">
               "I love putting the pieces together. Be it existing parts,
@@ -178,7 +178,7 @@ export default function Main({ html, state }) {
         <footer
           class="flex-1 flex-grow text-center bg-bottom bg-no-repeat bg-cover pb-44"
         >
-          <span class="p-3 bg-colorado-blue bg-opacity-20">
+          <span class="p-3 bg-CO-blue bg-opacity-20">
             Say hi: <code class="text-green-pickup">tbeseda</code> @ gmail
           </span>
         </footer>
