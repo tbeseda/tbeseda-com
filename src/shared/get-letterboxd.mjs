@@ -1,5 +1,8 @@
 import arc from '@architect/functions';
-import parser from 'rss-url-parser';
+import * as rssToJson from 'rss-to-json';
+
+// @ts-ignore these types are not it
+const parse = rssToJson.default.parse;
 
 const LETTERBOXD_RSS_URL = 'https://letterboxd.com/tbeseda/rss/';
 
@@ -7,12 +10,12 @@ export default async function () {
   let thing = null;
 
   try {
-    const response = await parser(LETTERBOXD_RSS_URL);
+    const response = await parse(LETTERBOXD_RSS_URL);
 
     if (response) {
       const client = await arc.tables();
       const tbesedaThings = client.things;
-      const recentEntry = response[0];
+      const recentEntry = response.items[0];
       thing = {
         title: recentEntry.title,
         description: recentEntry.description,

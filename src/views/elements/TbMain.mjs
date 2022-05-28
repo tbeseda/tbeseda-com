@@ -187,8 +187,13 @@ export default function Main({ html, state }) {
           "
         >
           <p class="p-1 bg-CO-blue bg-opacity-50">
-            Say hi: <code class="text-green-pickup">tbeseda</code> @ gmail<br>
-            or on <a class="text-begin-coral" rel="me" href="https://indieweb.social/@tbeseda">Mastodon</a>
+            Say hi: <code class="text-green-pickup">tbeseda</code> @ gmail or on
+            <a
+              class="text-begin-coral"
+              rel="me"
+              href="https://indieweb.social/@tbeseda"
+              >Mastodon</a
+            >
           </p>
         </footer>
       </div>

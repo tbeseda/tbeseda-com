@@ -16,9 +16,12 @@
   "homepage": "https://tbeseda.com",
   "dependencies": {
     "@architect/functions": "^5.1.0",
-    "@enhance/ssr": "^2.1.4",
-    "got": "^12.0.4",
-    "rss-url-parser": "^2.2.4"
+    "@architect/plugin-bundles": "^1.1.1",
+    "@enhance/base-element": "^1.0.0",
+    "@enhance/import-transform": "^1.0.1",
+    "@enhance/ssr": "^2.2.0",
+    "got": "^12.1.0",
+    "rss-to-json": "^2.0.2"
   },
   "devDependencies": {
     "@architect/architect": "^10.3.3",
