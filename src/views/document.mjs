@@ -23,7 +23,6 @@ export default function document({
 
       <body class="min-h-screen font-source-sans-pro bg-CO-blue text-gray-200">
         ${body}
-        <script async src="//gc.zgo.at/count.js" data-goatcounter="https://tbeseda.goatcounter.com/count"></script>
       </body>
     </html>
   `;

@@ -1,4 +1,5 @@
 import arc from '@architect/functions';
+// import countGoats from '@architect/shared/count-goats.mjs';
 import render from '@architect/views/render.mjs';
 import defaultProfile from '@architect/views/default-profile.mjs';
 
