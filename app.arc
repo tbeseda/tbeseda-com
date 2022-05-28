@@ -8,8 +8,6 @@ region us-east-1
 fingerprint true
 prune true
 
-@views
-
 @http
 get /
 post /
@@ -23,7 +21,11 @@ things
 
 @plugins
 arc-plugin-tailwindcss
+architect/plugin-bundles
 architect/plugin-lambda-invoker
+
+@bundles
+"base-element" "/node_modules/@enhance/base-element/index.mjs"
 
 @tailwindcss
 src src/styles/index.css

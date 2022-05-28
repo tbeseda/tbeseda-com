@@ -1,4 +1,4 @@
-export default function FlipCard({ html }) {
+export default function NewFlipCard({ html }) {
   return html`
     <div class="relative">
       <slot name="flipper">
@@ -17,7 +17,6 @@ export default function FlipCard({ html }) {
 
       <div
         class="
-          front
           p-6
           shadow-md
           bg-CO-blue-400
@@ -25,12 +24,11 @@ export default function FlipCard({ html }) {
           rounded-md
         "
       >
-        <slot name="front">✋ front</slot>
+        <slot name="front" class="front">✋ front</slot>
       </div>
 
       <div
         class="
-          back
           hidden
           p-6
           shadow-lg
@@ -39,20 +37,24 @@ export default function FlipCard({ html }) {
           rounded-md
         "
       >
-        <slot name="back">🤚 back</slot>
+        <slot name="back" class="back">🤚 back</slot>
       </div>
     </div>
 
     <script type="module">
-      class FlipCard extends HTMLElement {
+      import BaseElement from '/_bundles/base-element.mjs';
+
+      class NewFlipCard extends BaseElement {
         constructor() {
           super();
 
           let flipped = false;
 
-          const button = this.querySelector('[slot="flipper"]');
-          const front = this.querySelector('.front');
-          const back = this.querySelector('.back');
+          const button = this.querySelector('a.absolute');
+          const front = this.querySelector('[slot="front"]');
+          const back = this.querySelector('[slot="back"]');
+
+          console.log({ element: this, button, front, back });
 
           button.addEventListener('click', () => {
             flipped = !flipped;
@@ -62,7 +64,7 @@ export default function FlipCard({ html }) {
         }
       }
 
-      customElements.define('flip-card', FlipCard);
+      customElements.define('new-flip-card', NewFlipCard);
     </script>
   `;
 }

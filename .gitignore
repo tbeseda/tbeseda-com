@@ -5,3 +5,4 @@ sam.*
 public/style.css
 public/static.json
 src/shared/static.json
+src/views/_bundles
