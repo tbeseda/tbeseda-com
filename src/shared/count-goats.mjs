@@ -2,11 +2,10 @@ import got from 'got';
 
 const { GOATCOUNTER_DOMAIN, GOATCOUNTER_API_KEY } = process.env;
 
-export default async function (request, context) {
+export default async function (request) {
   const { headers, path, rawQueryString } = request;
-  const { referer } = headers;
-  const ip = context.identity?.sourceIp;
-  const userAgent = context.identity?.userAgent;
+  const { referer, 'x-forwarded-for': ip, 'user-agent': userAgent } = headers;
+  console.log(headers);
 
   console.log({ ip, userAgent, referer });
 
@@ -21,10 +20,10 @@ export default async function (request, context) {
           {
             path,
             ip,
-            ref: 'LAMBDA',
-            session: 'LAMBDA',
+            ref: referer,
+            session: ip ? null : 'LAMBDA',
             user_agent: userAgent,
-            query: '?' + rawQueryString,
+            // query: '?' + rawQueryString,
           },
         ],
       },

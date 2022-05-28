@@ -12,6 +12,7 @@ prune true
 @http
 get /
 post /
+get /echo
 
 @scheduled
 update-things rate(1 hour)

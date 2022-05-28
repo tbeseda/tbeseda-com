@@ -48,7 +48,7 @@ export default function Main({ html, state }) {
           <figure
             class="md:w-3/5 md:mx-auto mb-5 bg-CO-blue-100 bg-opacity-40 p-6 rounded"
           >
-            <blockquote class="text-2xl italic text-gray-200">
+            <blockquote class="text-2xl text-justify font-serif text-gray-200">
               "I love putting the pieces together. Be it existing parts,
               services I've built, or teaching others how; making things work
               better for people."
