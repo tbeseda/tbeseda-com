@@ -78,32 +78,28 @@ const query = /* gql */ `
 export default async function () {
   let thing = null;
 
-  try {
-    const response = await got
-      .post({
-        url: GITHUB_API_URL,
-        json: { query },
-        headers: {
-          Authorization: `Bearer ${GITHUB_KEY}`,
-        },
-      })
-      .json();
+  const response = await got
+    .post({
+      url: GITHUB_API_URL,
+      json: { query },
+      headers: {
+        Authorization: `Bearer ${GITHUB_KEY}`,
+      },
+    })
+    .json();
 
-    if (response?.data) {
-      const client = await arc.tables();
-      const tbesedaThings = client.things;
-      thing = response.data;
+  if (response?.data) {
+    const client = await arc.tables();
+    const tbesedaThings = client.things;
+    thing = response.data;
 
-      await tbesedaThings.put({
-        thingID: 'github',
-        data: response.data,
-        updatedAt: Date.now(),
-      });
-    } else {
-      console.log('Broken response', response);
-    }
-  } catch (error) {
-    console.log('Error', error);
+    await tbesedaThings.put({
+      thingID: 'github',
+      data: response.data,
+      updatedAt: Date.now(),
+    });
+  } else {
+    console.log('Broken response', response);
   }
 
   return thing;

@@ -1,5 +1,7 @@
 export default function TbFortnite({ html, state }) {
-  const { fortnite } = state?.store || {};
+  const {
+    fortnite: { data: fortnite = {}, updatedAt },
+  } = state.store;
   const currentStats = fortnite.stats?.p9;
 
   return html`
@@ -20,6 +22,7 @@ export default function TbFortnite({ html, state }) {
           ${currentStats?.kd?.value || '?'}
         </h3>
         <p class="leading-relaxed text-gray-600">K/D</p>
+        <p class="text-xs">${new Date(updatedAt).toLocaleString()}</p>
       </div>
     </flip-card>
   `;

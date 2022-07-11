@@ -1,5 +1,5 @@
 export default function Main({ html, state }) {
-  const { profile } = state?.store || {};
+  const { profile } = state.store || {};
 
   return html`
     <div>

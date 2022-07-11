@@ -1,6 +1,8 @@
 export default function TbGitHub({ html, state }) {
-  const { github } = state?.store || {};
-  const { user } = github || {};
+  const {
+    github: { data: github, updatedAt },
+  } = state.store;
+  const { user } = github;
   const parsedEmoji = user?.status?.emojiHTML.match(
     /<g-emoji .*?>(.*?)<\/g-emoji>/im
   ) || ['', '?'];
@@ -16,15 +18,15 @@ export default function TbGitHub({ html, state }) {
         <ul class="text-left md:w-1/2 mx-auto">
           <li>
             <span class="text-gray-200">commits:</span>
-            ${user.contributionsCollection.totalCommitContributions}
+            ${user.contributionsCollection?.totalCommitContributions}
           </li>
           <li>
             <span class="text-gray-200">issues:</span>
-            ${user.contributionsCollection.totalIssueContributions}
+            ${user.contributionsCollection?.totalIssueContributions}
           </li>
           <li>
             <span class="text-gray-200">PRs:</span>
-            ${user.contributionsCollection.totalPullRequestContributions}
+            ${user.contributionsCollection?.totalPullRequestContributions}
           </li>
         </ul>
       </div>
@@ -32,8 +34,9 @@ export default function TbGitHub({ html, state }) {
       <div slot="back">
         <h4 class="text-sm">
           <span class="text-gray-600">Status:</span>
-          ${emoji} "${user.status.message}"
+          ${emoji} "${user.status?.message}"
         </h4>
+        <p class="text-xs">${new Date(updatedAt).toLocaleString()}</p>
       </div>
     </flip-card>
   `;

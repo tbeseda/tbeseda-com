@@ -4,28 +4,31 @@ import render from '@architect/views/render.mjs';
 import defaultProfile from '@architect/views/default-profile.mjs';
 
 async function http() {
-  let fortnite, github, letterboxd, profile;
+  let initialState = {
+    fortnite: {},
+    github: {},
+    letterboxd: {},
+    profile: defaultProfile,
+  };
 
   try {
     const tbThings = (await arc.tables()).things;
 
-    fortnite = (await tbThings.get({ thingID: 'fortnite' })).data;
-    github = (await tbThings.get({ thingID: 'github' })).data;
-    letterboxd = (await tbThings.get({ thingID: 'letterboxd' })).data;
+    const fortnite = await tbThings.get({ thingID: 'fortnite' });
+    const github = await tbThings.get({ thingID: 'github' });
+    const letterboxd = await tbThings.get({ thingID: 'letterboxd' });
 
-    profile = github?.user;
+    initialState.fortnite = fortnite || {};
+    initialState.github = github;
+    initialState.letterboxd = letterboxd;
+
+    if (github?.data?.user) initialState.profile = github.data.user;
   } catch (error) {
     console.log(error);
-    profile = defaultProfile;
   }
 
   const html = render({
-    initialState: {
-      fortnite,
-      github,
-      letterboxd,
-      profile,
-    },
+    initialState,
     body: `<tb-main></tb-main>`,
   });
 

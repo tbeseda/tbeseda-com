@@ -15,18 +15,18 @@
   "license": "ISC",
   "homepage": "https://tbeseda.com",
   "dependencies": {
-    "@architect/functions": "^5.1.0",
-    "@architect/plugin-bundles": "^1.1.1",
+    "@architect/functions": "^5.2.1",
+    "@architect/plugin-bundles": "^3.0.1",
     "@enhance/base-element": "^1.0.0",
-    "@enhance/import-transform": "^1.0.1",
-    "@enhance/ssr": "^2.3.2",
+    "@enhance/import-transform": "^4.0.0",
+    "@enhance/ssr": "^2.3.3",
     "got": "^12.1.0",
     "rss-to-json": "^2.0.2"
   },
   "devDependencies": {
     "@architect/architect": "^10.3.3",
     "@architect/plugin-lambda-invoker": "^0.1.1",
-    "@types/node": "^17.0.40",
+    "@types/node": "^18.0.3",
     "arc-plugin-tailwindcss": "^0.1.1"
   }
 }

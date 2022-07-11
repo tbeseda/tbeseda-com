@@ -8,29 +8,25 @@ const FORTNITE_API_URL =
 export default async function () {
   let thing = null;
 
-  try {
-    const response = await got({
-      url: FORTNITE_API_URL,
-      headers: {
-        'TRN-Api-Key': TRN_API_KEY,
-      },
-    }).json();
+  const response = await got({
+    url: FORTNITE_API_URL,
+    headers: {
+      'TRN-Api-Key': TRN_API_KEY,
+    },
+  }).json();
 
-    if (response?.accountId) {
-      const client = await arc.tables();
-      const tbesedaThings = client.things;
-      thing = response;
+  if (response?.accountId) {
+    const client = await arc.tables();
+    const tbesedaThings = client.things;
+    thing = response;
 
-      await tbesedaThings.put({
-        thingID: 'fortnite',
-        data: thing,
-        updatedAt: Date.now(),
-      });
-    } else {
-      console.log('Broken response', response);
-    }
-  } catch (error) {
-    console.log('Error', error);
+    await tbesedaThings.put({
+      thingID: 'fortnite',
+      data: thing,
+      updatedAt: Date.now(),
+    });
+  } else {
+    console.log('Broken fn response', response);
   }
 
   return thing;

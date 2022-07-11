@@ -1,5 +1,7 @@
 export default function TbLetterboxd({ html, state }) {
-  const { letterboxd } = state?.store || {};
+  const {
+    letterboxd: { data: letterboxd, updatedAt },
+  } = state.store;
   const { description, link, title } = letterboxd;
   const parsed = description.match(/<p>(.*?)<\/p?>/gim);
   const imageSrc = parsed[0].match(/<img.*?src="(.*?)"/)[1];
@@ -27,6 +29,7 @@ export default function TbLetterboxd({ html, state }) {
           class="object-cover object-center rounded-sm inline-block bg-gray-500 mb-2"
           src="${imageSrc}"
         />
+        <p class="text-xs">${new Date(updatedAt).toLocaleString()}</p>
       </div>
     </flip-card>
   `;
