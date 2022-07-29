@@ -2,6 +2,7 @@
 node_modules/
 .env
 sam.*
+cdk.ts
 public/style.css
 public/static.json
 src/shared/static.json
