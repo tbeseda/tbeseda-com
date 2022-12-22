@@ -1,32 +1,32 @@
 {
   "name": "tbeseda-com",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Taylor's homepage",
   "scripts": {
-    "deploy": "npx arc deploy --production -v",
+    "deploy:production": "npx arc deploy --production -v",
+    "deploy": "npx arc deploy -v",
     "start": "npx arc sandbox"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tbeseda/tbeseda-com.git"
   },
-  "keywords": [],
+  "keywords": [
+    "homepage",
+    "enhance"
+  ],
   "author": "tbeseda",
   "license": "ISC",
   "homepage": "https://tbeseda.com",
   "dependencies": {
-    "@architect/functions": "^5.2.1",
-    "@architect/plugin-bundles": "^3.0.2",
-    "@enhance/base-element": "^1.0.0",
-    "@enhance/import-transform": "^4.0.0",
-    "@enhance/ssr": "^2.3.6",
-    "got": "^12.3.0",
-    "rss-to-json": "^2.0.2"
+    "@enhance/arc-plugin-enhance": "4.3.3",
+    "got": "^12.5.3",
+    "rss-to-json": "^2.1.0"
   },
   "devDependencies": {
-    "@architect/architect": "^10.3.4",
+    "@architect/architect": "^10.8.2",
     "@architect/plugin-lambda-invoker": "^0.1.1",
-    "@types/node": "^18.6.2",
-    "arc-plugin-tailwindcss": "^0.1.1"
+    "@enhance/arc-plugin-styles": "^2.2.1",
+    "@enhance/types": "^0.5.0"
   }
 }
