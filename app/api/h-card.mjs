@@ -9,20 +9,6 @@ async function getHandler(req) {
 			icon: req.state.icon || '😵',
 			// @ts-ignore
 			hCards: req.state.hCards,
-			links: [
-				{
-					url: 'github.com/tbeseda',
-					description: 'Public and open source work.',
-				},
-				{
-					url: 'indieweb.social/@tbeseda',
-					description: 'In the Fediverse on Mastodon.',
-				},
-				{
-					url: 'dev.to/tbeseda',
-					description: 'Technical docs, snippets, and guides.',
-				},
-			],
 		},
 	}
 }

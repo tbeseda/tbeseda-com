@@ -2,6 +2,8 @@
 export default function TbHeader({ html, state: { attrs } }) {
 	const expanded = typeof attrs.expanded !== 'undefined'
 
+	// TODO: use HCardPresenter
+
 	return expanded
 		? html`
     <header class="flex flex-col items-center text-center gap-4">

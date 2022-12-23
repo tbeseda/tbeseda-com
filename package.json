@@ -11,7 +11,7 @@
     "rome:format": "npx rome format .",
     "rome:format:write": "npx rome format . --write",
     "start": "npx arc sandbox",
-    "test": "npm run rome"
+    "test": "npm run rome && node --test | tap-arc"
   },
   "repository": {
     "type": "git",
@@ -31,8 +31,11 @@
   "devDependencies": {
     "@architect/architect": "^10.8.2",
     "@architect/plugin-lambda-invoker": "^0.1.1",
+    "@architect/sandbox": "^5.4.1",
     "@enhance/arc-plugin-styles": "^2.2.1",
     "@enhance/types": "^0.5.0",
-    "rome": "^11.0.0"
+    "microformats-parser": "^1.4.1",
+    "rome": "^11.0.0",
+    "tap-arc": "^0.3.5"
   }
 }

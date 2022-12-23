@@ -7,6 +7,6 @@ export default function ({ html, state: { store } }) {
 			${article.content}
 		</div>
 
-		<pre class="text-1 font-mono opacity-25">/articles/${article.slug}</pre>
+		<code class="text-1 font-mono opacity-25">/articles/${article.slug}</code>
 	`
 }

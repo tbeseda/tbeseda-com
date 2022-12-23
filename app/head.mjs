@@ -39,6 +39,6 @@ export default function Head(state) {
         }
       </style>
     </head>
-    <body class="m-auto mb1 font-sans">
+    <body class="m-auto pb1 font-sans">
   `
 }
