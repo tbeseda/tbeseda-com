@@ -25,6 +25,11 @@ export default function Head(state) {
           color: var(--greenpickup-500);
           text-decoration: underline;
         }
+        hr {
+          height: 1px;
+          width: 75%;
+          background: var(--dark);
+        }
       </style>
     </head>
     <body class="font-sans">
