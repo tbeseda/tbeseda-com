@@ -1,0 +1,47 @@
+{
+  "base": 18,
+  "scale": {
+    "ratio": "perfectFourth",
+    "steps": 12
+  },
+  "fonts": {
+    "sans": "-apple-system,BlinkMacSystemFont,avenir next,avenir,segoe ui,helvetica neue,helvetica,Ubuntu,roboto,noto,arial,sans-serif",
+    "serif": "Iowan Old Style,Apple Garamond,Baskerville,Times New Roman,Droid Serif,Times,Source Serif Pro,serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+    "mono": "Menlo,Consolas,Monaco,Liberation Mono,Lucida Console,monospace"
+  },
+  "theme": {
+    "light": "#f8f9fa",
+    "dark": "#1d2d35",
+    "black": "#1d2d35",
+    "begincoral": "#fd6d6d",
+    "beginorange": "#fe8e20",
+    "coblue": "#002147",
+    "greenpickup": "#007932"
+  },
+  "color": {
+    "white": "#fff"
+  },
+  "properties": {
+    "gradient": "linear-gradient(var(--primary), var(--secondary))"
+  },
+  "grid": {
+    "steps": 6
+  },
+  "queries": {
+    "lg": "48em"
+  },
+  "borders": {
+    "widths": [
+      1,
+      2,
+      4,
+      8
+    ]
+  },
+  "radii": [
+    2,
+    8,
+    16,
+    9999
+  ]
+}

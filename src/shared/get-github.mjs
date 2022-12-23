@@ -8,7 +8,7 @@ const today = new Date();
 const weekAgo = new Date();
 weekAgo.setDate(today.getDate() - 7);
 
-const query = /* gql */ `
+const query = /* gql */`
 {
   user(login: "tbeseda") {
     avatarUrl

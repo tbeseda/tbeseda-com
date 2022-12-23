@@ -1,9 +1,8 @@
-.DS_Store
 node_modules/
 .env
 sam.*
-cdk.ts
-public/style.css
+
+.enhance/
 public/static.json
-src/shared/static.json
-src/views/_bundles
+
+.DS_Store

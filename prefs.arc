@@ -2,4 +2,4 @@
 livereload true
 
 @sandbox-startup
-node scripts/run-scheduled.mjs
+# node scripts/run-scheduled.mjs
