@@ -19,6 +19,11 @@ export default function Head(state) {
         body > * {
           max-width: 55rem;
           margin: 0 auto;
+          color: var(--dark);
+        }
+        a {
+          color: var(--greenpickup-500);
+          text-decoration: underline;
         }
       </style>
     </head>

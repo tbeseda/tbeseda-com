@@ -15,7 +15,7 @@ config ./enhance-styles.json
 post /
 
 @scheduled
-update-things rate(1 hour)
+# update-things rate(1 hour)
 
 @tables
 things
