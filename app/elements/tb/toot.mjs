@@ -1,28 +1,56 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function Toot({ html, state: { store } }) {
-	const { iwSocialMe, iwSocialOutbox } = store
-	const recentItem = iwSocialOutbox.orderedItems.find(
-		(item) =>
-			item.type === 'Create' &&
-			item.actor === iwSocialMe.id &&
-			item.object.type === 'Note' &&
-			item.object.inReplyTo === null &&
-			item.object.content,
-	)
-	const recentToot = recentItem.object
-	const imgAttachments = recentToot.attachment
-		.filter((a) => a.mediaType.startsWith('image/'))
-		.map((a) => `<img src="${a.url}" width="300px" alt="${a.name}" />`)
-
+export default function Toot({ html }) {
 	return html`
-    <div class="mb1 leading1 font-serif">${recentToot.content}</div>
+		<h2 class="text1 font-semibold">Most recently...</h2>
+		<div class="toot-content leading1 font-serif">loading...</div>
+		<div class="toot-attachments hidden grid flow-col justify-start gap0"></div>
 
-    ${
-			imgAttachments.length > 0
-				? `<div class="grid flow-col justify-start gap0">${imgAttachments.join(
-						'',
-				  )}</div>`
-				: ''
-		}
+    <script type="module">
+			class TbToot extends HTMLElement {
+				toot
+				constructor() {
+					super()
+					this.content = this.querySelector('.toot-content')
+					this.attachments = this.querySelector('.toot-attachments')
+				}
+
+				connectedCallback() {
+					this.render()
+				}
+
+				async render() {
+					const getRecent = await fetch(
+						'/toot/get?handle=tbeseda',
+						{ headers: { 'Accept': 'application/json' } }
+					)
+					this.toot = await getRecent.json()
+
+					this.content.innerHTML = this.toot.content
+
+					const link = document.createElement('a')
+					link.href = this.toot.url
+					link.textContent = 'View original'
+					link.target = '_blank'
+					link.classList.add('text-1', 'font-sans')
+					this.append(link)
+
+					if (this.toot.attachment?.length) {
+						const imgAttachments = this.toot.attachment
+						.filter((a) => a.mediaType.startsWith('image/'))
+						.map((a) => {
+							const img = document.createElement('img')
+							img.src = a.url
+							img.width = 300
+							img.alt = a.name
+							return img
+						})
+						this.attachments.append(...imgAttachments)
+						this.attachments.classList.remove('hidden')
+					}
+				}
+			}
+
+			customElements.define('tb-toot', TbToot)
+		</script>
   `
 }

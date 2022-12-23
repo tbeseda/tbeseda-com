@@ -22,7 +22,7 @@ export default function Head(state) {
         body {
           max-width: 55rem;
         }
-        body > * {
+        body > *:not(script) {
           display: block;
           margin: 0 auto;
           padding: 0 1rem;
