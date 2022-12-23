@@ -2,12 +2,12 @@ import { getStyles } from '@enhance/arc-plugin-styles'
 
 /** @type {import('@enhance/types').EnhanceHeadFn} */
 export default function Head(state) {
-  const { req, store } = state
-  const { path } = req
-  const { icon } = store
-  const title = `Taylor Beseda ${path}`
+	const { req, store } = state
+	const { path } = req
+	const { icon } = store
+	const title = `Taylor Beseda ${path}`
 
-  return /* html */`
+	return /* html */ `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -19,10 +19,13 @@ export default function Head(state) {
       ${process.env.ARC_SANDBOX ? getStyles.linkTag() : getStyles.styleTag()}
 
       <style>
+        body {
+          max-width: 55rem;
+        }
         body > * {
           display: block;
-          max-width: 55rem;
           margin: 0 auto;
+          padding: 0 1rem;
           color: var(--dark);
         }
         a {
@@ -30,12 +33,12 @@ export default function Head(state) {
           text-decoration: underline;
         }
         hr {
-          height: 0.1rem;
-          width: 75%;
-          background: var(--coblue-500);
+          width: 65%;
+          padding: 0 10rem;
+          border-bottom: 1px solid var(--black-100);
         }
       </style>
     </head>
-    <body class="font-sans">
+    <body class="m-auto mb1 font-sans">
   `
 }

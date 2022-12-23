@@ -5,7 +5,13 @@
   "scripts": {
     "deploy:production": "npx arc deploy --production -v",
     "deploy": "npx arc deploy -v",
-    "start": "npx arc sandbox"
+    "rome": "npx rome ci .",
+    "rome:check": "npx rome check .",
+    "rome:check:apply": "npx rome check . --apply-suggested",
+    "rome:format": "npx rome format .",
+    "rome:format:write": "npx rome format . --write",
+    "start": "npx arc sandbox",
+    "test": "npm run rome"
   },
   "repository": {
     "type": "git",
@@ -20,13 +26,13 @@
   "homepage": "https://tbeseda.com",
   "dependencies": {
     "@enhance/arc-plugin-enhance": "4.3.3",
-    "got": "^12.5.3",
     "rss-to-json": "^2.1.0"
   },
   "devDependencies": {
     "@architect/architect": "^10.8.2",
     "@architect/plugin-lambda-invoker": "^0.1.1",
     "@enhance/arc-plugin-styles": "^2.2.1",
-    "@enhance/types": "^0.5.0"
+    "@enhance/types": "^0.5.0",
+    "rome": "^11.0.0"
   }
 }

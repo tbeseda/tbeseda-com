@@ -1,7 +1,7 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExpertiseAreas({ html }) {
-  return html`
-    <section class="grid col-2 gap1">
+export default function TbExpertise({ html }) {
+	return html`
+    <section class="grid col-1 col-2-lg gap1">
       <aside class="">
         <h3 class="text1 font-semibold mb-3">
           Server-side Javascript

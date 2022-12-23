@@ -1,14 +1,14 @@
-import arc from '@architect/functions';
-import got from 'got';
+import arc from '@architect/functions'
+import got from 'got'
 
-const { GITHUB_KEY } = process.env;
-const GITHUB_API_URL = 'https://api.github.com/graphql';
+const { GITHUB_KEY } = process.env
+const GITHUB_API_URL = 'https://api.github.com/graphql'
 
-const today = new Date();
-const weekAgo = new Date();
-weekAgo.setDate(today.getDate() - 7);
+const today = new Date()
+const weekAgo = new Date()
+weekAgo.setDate(today.getDate() - 7)
 
-const query = /* gql */`
+const query = /* gql */ `
 {
   user(login: "tbeseda") {
     avatarUrl
@@ -73,34 +73,34 @@ const query = /* gql */`
     }
   }
 }
-  `.trim();
+  `.trim()
 
 export default async function () {
-  let thing = null;
+	let thing = null
 
-  const response = await got
-    .post({
-      url: GITHUB_API_URL,
-      json: { query },
-      headers: {
-        Authorization: `Bearer ${GITHUB_KEY}`,
-      },
-    })
-    .json();
+	const response = await got
+		.post({
+			url: GITHUB_API_URL,
+			json: { query },
+			headers: {
+				Authorization: `Bearer ${GITHUB_KEY}`,
+			},
+		})
+		.json()
 
-  if (response?.data) {
-    const client = await arc.tables();
-    const tbesedaThings = client.things;
-    thing = response.data;
+	if (response?.data) {
+		const client = await arc.tables()
+		const tbesedaThings = client.things
+		thing = response.data
 
-    await tbesedaThings.put({
-      thingID: 'github',
-      data: response.data,
-      updatedAt: Date.now(),
-    });
-  } else {
-    console.log('Broken response', response);
-  }
+		await tbesedaThings.put({
+			thingID: 'github',
+			data: response.data,
+			updatedAt: Date.now(),
+		})
+	} else {
+		console.log('Broken response', response)
+	}
 
-  return thing;
+	return thing
 }
