@@ -7,9 +7,9 @@ const { mf2 } = require('microformats-parser')
 const sandbox = require('@architect/sandbox')
 
 const PORT = 6661
-const URL = `http://localhost:${PORT}/h-card`
+const URL = `http://localhost:${PORT}`
 
-describe('get and parse h-card', async (t) => {
+describe('smoke and microformats', async (t) => {
 	let parsedHCard
 
 	before(async () => {
@@ -25,8 +25,28 @@ describe('get and parse h-card', async (t) => {
 		console.log('Sandbox ended')
 	})
 
+	it('fetches key routes', async () => {
+		for (const route of [
+			URL,
+			`${URL}/articles`,
+			`${URL}/articles/smoke-test`,
+			`${URL}/toot`,
+			`${URL}/h-card`,
+		]) {
+			try {
+				const res = await fetch(route)
+				assert.ok(
+					res.ok,
+					`Route ${route} returned status ${res.status} instead of 200 OK`,
+				)
+			} catch (error) {
+				assert.fail(`Route ${route} failed with error: ${error.message}`)
+			}
+		}
+	})
+
 	it('fetches the index and parses an h-card', async () => {
-		const res = await fetch(URL)
+		const res = await fetch(`${URL}/h-card`)
 		const body = await res.text()
 		const parsed = mf2(body, { baseUrl: URL })
 		parsedHCard = parsed.items[0]
@@ -35,7 +55,9 @@ describe('get and parse h-card', async (t) => {
 	})
 
 	it('matches original h-card data', async () => {
-		const { default: myHCardData } = await import('../app/middleware/add-h-cards.mjs')
+		const { default: myHCardData } = await import(
+			'../app/middleware/add-h-cards.mjs'
+		)
 		const fakeReq = {}
 		await myHCardData(fakeReq)
 		const {
@@ -57,7 +79,11 @@ describe('get and parse h-card', async (t) => {
 			const hCardVal = parsedHCard.properties[key][0]
 			const myHCardVal = myHCard.properties[key][0]
 
-			assert.equal(hCardVal, myHCardVal, `"${key}" mismatch: ${hCardVal} !== ${myHCardVal}`)
+			assert.equal(
+				hCardVal,
+				myHCardVal,
+				`"${key}" mismatch: ${hCardVal} !== ${myHCardVal}`,
+			)
 		}
 	})
 })
