@@ -1,5 +1,4 @@
-import randomIconMiddleWare from '../../middleware/random-icon.mjs'
-import addHCards from '../../middleware/add-h-cards.mjs'
+import standardMiddleware from '../../middleware/standard.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler(req) {
@@ -13,4 +12,4 @@ async function getHandler(req) {
 	}
 }
 
-export const get = [addHCards, randomIconMiddleWare, getHandler]
+export const get = [...standardMiddleware, getHandler]

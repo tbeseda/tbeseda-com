@@ -2,7 +2,8 @@ import arc from '@architect/functions'
 import got from 'got'
 
 const { TRN_API_KEY } = process.env
-const FORTNITE_API_URL = 'https://api.fortnitetracker.com/v1/profile/gamepad/troutsoda'
+const FORTNITE_API_URL =
+	'https://api.fortnitetracker.com/v1/profile/gamepad/troutsoda'
 
 export default async function () {
 	let thing = null

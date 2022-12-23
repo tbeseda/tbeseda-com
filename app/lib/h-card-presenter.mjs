@@ -10,7 +10,9 @@ class HCardPresenter {
 	// properties proxy for #data
 	props = new Proxy(this, {
 		get(obj, key) {
-			return obj.#data[key] && Array.isArray(obj.#data[key]) ? obj.#data[key][0] : null
+			return obj.#data[key] && Array.isArray(obj.#data[key])
+				? obj.#data[key][0]
+				: null
 		},
 	})
 	// microformat proxy
@@ -169,6 +171,19 @@ export const pProperties = new Set([
 	'street-address',
 	'tel',
 ])
-export const uProperties = new Set(['logo', 'uid', 'geo', 'key', 'impp', 'email', 'photo', 'url'])
+export const uProperties = new Set([
+	'logo',
+	'uid',
+	'geo',
+	'key',
+	'impp',
+	'email',
+	'photo',
+	'url',
+])
 export const dtProperties = new Set(['anniversary', 'bday'])
-export const properties = new Set([...dtProperties, ...pProperties, ...uProperties])
+export const properties = new Set([
+	...dtProperties,
+	...pProperties,
+	...uProperties,
+])

@@ -3,7 +3,9 @@ export default function ({ html, state: { store } }) {
 	const { article } = store
 
 	return html`
-    <time class="dt-published" datetime="${article.published}">${article.published}</time>
+    <time class="dt-published" datetime="${article.published}">${
+		article.published
+	}</time>
     ${
 			article.edited
 				? /* html */ `
