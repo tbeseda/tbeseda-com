@@ -1,33 +1,32 @@
+import HCardPresenter from '../../lib/h-card-presenter.mjs'
+
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function TbHeader({ html, state: { attrs } }) {
-	const expanded = typeof attrs.expanded !== 'undefined'
+export default function TbHeader({ html, state }) {
+	const {
+		store: { hCards: { items: [myHCard] } },
+	} = state
+	const card = new HCardPresenter(myHCard)
 
-	// TODO: use HCardPresenter
+	return html`
+    <header class="h-card flex flex-col flex-row-lg items-center justify-center gap0">
+      <a href="${card.props.url}" class="u-url">
+        <img class="u-photo radius-100" width="150px" src="${card.props.photo}">
+      </a>
 
-	return expanded
-		? html`
-    <header class="flex flex-col items-center text-center gap-4">
-      <img class="radius-100" width="100px" src="https://github.com/tbeseda.png">
-      <h2 class="text0 uppercase font-semibold">@<a href="/">tbeseda</a></h2>
-      <h1 class="mb-1 text3">Taylor Beseda</h1>
-      <h3 class="mb-3 text1">Web Engineer, DX, & General Technologist</h3>
-      <h4 class="text0 font-serif">
-        Colorado Front Range and all over the Internet.
-        Working at <a href="https://begin.com" target="_blank">Begin.com</a>.
-      </h4>
+      <div>
+        <h1 class="mb-1 text3">${card.name}</h1>
+        <h3 class="mb-2 text1">${card.note}</h3>
+        <h4 class="text0 leading1 font-serif">
+          ${card.region} Front Range and all over the Internet.<br>
+          ${card.role} at <a href="https://begin.com" target="_blank">${card.org}</a>.
+        </h4>
+      </div>
+
+      <nav class="flex flex-row flex-col-lg gap-3 text1 font-semibold">
+        <a href="/">/.</a>
+        <a href="/articles">/articles</a>
+        <a href="/knowledge">/knowledge</a>
+      </nav>
     </header>
   `
-		: html`
-      <header class="flex items-center justify-center gap-2">
-        <img class="radius-100" width="100px" src="https://github.com/tbeseda.png">
-        <div>
-          <ul class="flex flex-row gap-1 list-none text0">
-            <li class="uppercase font-semibold">@<a href="/">tbeseda</a></li>
-            <li><a href="/articles">/articles</a></li>
-          </ul>
-          <h1 class="mb-4 text3">Taylor Beseda</h1>
-          <h3 class="text0">Web Engineer, DX, & General Technologist</h3>
-        </div>
-      </header>
-    `
 }
