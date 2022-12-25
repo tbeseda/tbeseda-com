@@ -26,6 +26,7 @@
   "homepage": "https://tbeseda.com",
   "dependencies": {
     "@enhance/arc-plugin-enhance": "4.3.3",
+    "arcdown": "^2.1.0",
     "rss-to-json": "^2.1.0"
   },
   "devDependencies": {

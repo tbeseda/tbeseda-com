@@ -3,10 +3,69 @@ export default function ({ html, state: { store } }) {
 	const { article } = store
 
 	return html`
-		<div class="mb1 font-serif">
-			${article.content}
-		</div>
+		<style>
+			:host {
+				display: block;
+				font-size: 1.1rem;
+				line-height: 1.25;
+				font-family: var(--font-serif);
+			}
+			:host > * {
+				margin-bottom: 1.25rem;
+			}
+			h1, h2, h3, h4 {
+				margin-bottom: 1rem;
+				font-family: var(--font-sans);
+				font-weight: 600;
+			}
+			h1 {
+				font-size: 2rem;
+			}
+			h2 {
+				font-size: 1.75rem;
+			}
+			h3 {
+				font-size: 1.5rem;
+			}
+			h4 {
+				font-size: 1.25rem;
+			}
 
-		<code class="text-1 font-mono opacity-25">/articles/${article.slug}</code>
+			p {
+			}
+
+			ul, ol {
+				margin-left: 1.5rem;
+			}
+
+			code {
+				font-family: var(--font-mono);
+			}
+
+			p img {
+				margin: 0 auto;
+			}
+
+			pre.hljs {
+				padding: 1rem;
+				font-family: var(--font-mono);
+				line-height: 1.15;
+				tab-size: 2;
+				border: 1px solid var(--begincoral-500);
+			}
+
+			.side-by-side {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				gap: 2rem;
+			}
+			.side-by-side > * {
+				flex: 1;
+			}
+		</style>
+
+		${article.html}
 	`
 }

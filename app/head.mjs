@@ -15,6 +15,7 @@ export default function Head(state) {
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>${title}</title>
       <link rel="icon" href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${icon}</text></svg>'/>
+      <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/night-owl.min.css">
 
       ${process.env.ARC_SANDBOX ? getStyles.linkTag() : getStyles.styleTag()}
 
@@ -33,7 +34,7 @@ export default function Head(state) {
           text-decoration: underline;
         }
         hr {
-          width: 65%;
+          width: 85%;
           padding: 0 10rem;
           border-bottom: 1px solid var(--black-100);
         }
