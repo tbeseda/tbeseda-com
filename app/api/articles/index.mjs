@@ -1,4 +1,4 @@
-import standardMiddleware from '../../middleware/standard.mjs'
+import standardMiddleware from '../../middleware/common.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler(req) {

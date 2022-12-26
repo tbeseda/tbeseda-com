@@ -2,7 +2,7 @@ import { join } from 'node:path'
 import { readFileSync } from 'node:fs'
 import { URL } from 'node:url'
 import { Arcdown } from 'arcdown'
-import standardMiddleware from '../../../../middleware/standard.mjs'
+import standardMiddleware from '../../../../middleware/common.mjs'
 
 class HljsLineWrapper {
 	constructor(options) {

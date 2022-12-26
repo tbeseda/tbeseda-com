@@ -3,6 +3,7 @@ tbeseda-com
 
 @plugins
 enhance/arc-plugin-enhance
+# create-posts-manifest
 
 @static
 fingerprint true
@@ -10,12 +11,6 @@ prune true
 
 @enhance-styles
 config ./enhance-styles.json
-
-@http
-post /
-
-@scheduled
-# update-things rate(1 hour)
 
 @tables
 things
