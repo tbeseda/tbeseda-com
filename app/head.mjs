@@ -21,13 +21,11 @@ export default function Head(state) {
 
       <style>
         body {
-          max-width: 55rem;
+          max-width: 50rem;
+          color: var(--dark);
+          padding: 0 1.25rem;
         }
         body > *:not(script) {
-          display: block;
-          margin: 0 auto;
-          padding: 0 1rem;
-          color: var(--dark);
         }
         a {
           color: var(--greenpickup-500);
@@ -35,11 +33,12 @@ export default function Head(state) {
         }
         hr {
           width: 85%;
+          margin: 0 auto;
           padding: 0 10rem;
           border-bottom: 1px solid var(--black-100);
         }
       </style>
     </head>
-    <body class="m-auto pb1 font-sans">
+    <body class="grid content-start m-auto pb1 font-sans">
   `
 }

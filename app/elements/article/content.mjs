@@ -5,16 +5,13 @@ export default function ({ html, state: { store } }) {
 	return html`
 		<style>
 			:host {
-				display: block;
+				display: grid;
+				gap: 1.15rem;
 				font-size: 1.1rem;
-				line-height: 1.25;
+				line-height: 1.2;
 				font-family: var(--font-serif);
 			}
-			:host > * {
-				margin-bottom: 1.25rem;
-			}
 			h1, h2, h3, h4 {
-				margin-bottom: 1rem;
 				font-family: var(--font-sans);
 				font-weight: 600;
 			}
