@@ -68,17 +68,14 @@ async function getHandler({ params, ...req }) {
 	const articleMd = readFileSync(articleFilePath.pathname, 'utf-8')
 	const article = await arcdown.render(articleMd)
 
-	const cacheControl =
-		process.env.ARC_ENV === 'production'
-			? 'max-age=3600;'
-			: 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+	const cacheControl = process.env.ARC_SANDBOX
+		? 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+		: 'max-age=3600;'
 
 	return {
 		cacheControl,
 		json: {
-			// @ts-ignore
 			icon: req.state.icon || '😵',
-			// @ts-ignore
 			hCards: req.state.hCards,
 			article: {
 				path: { year, month, slug },

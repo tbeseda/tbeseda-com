@@ -3,8 +3,9 @@
   "version": "2.0.0",
   "description": "Taylor's homepage",
   "scripts": {
-    "deploy:production": "npx arc deploy --production -v",
     "deploy": "npx arc deploy -v",
+    "deploy:production": "npx arc deploy --production -v",
+    "deploy:both": "npm run deploy && npm run deploy:production",
     "rome": "npx rome ci .",
     "rome:check": "npx rome check .",
     "rome:check:apply": "npx rome check . --apply-suggested",

@@ -5,7 +5,7 @@ export default function Toot({ html }) {
 		<div class="toot-content leading1 font-serif">loading...</div>
 		<div class="toot-attachments hidden grid flow-col justify-start gap0"></div>
 
-    <script type="module">
+		<script type="module">
 			class TbToot extends HTMLElement {
 				toot
 				constructor() {
@@ -52,5 +52,5 @@ export default function Toot({ html }) {
 
 			customElements.define('tb-toot', TbToot)
 		</script>
-  `
+	`
 }
