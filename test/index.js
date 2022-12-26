@@ -29,7 +29,8 @@ describe('smoke and microformats', async (t) => {
 		for (const route of [
 			URL,
 			`${URL}/articles`,
-			`${URL}/articles/smoke-test`,
+			`${URL}/articles/2022/12/hello-world`,
+			`${URL}/articles/rss`,
 			`${URL}/toot`,
 			`${URL}/h-card`,
 		]) {
