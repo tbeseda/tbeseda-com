@@ -1,6 +1,9 @@
 @app
 tbeseda-com
 
+@http
+get /bench
+
 @plugins
 enhance/arc-plugin-enhance
 render-articles
