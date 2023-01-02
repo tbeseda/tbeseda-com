@@ -3,7 +3,7 @@ tbeseda-com
 
 @plugins
 enhance/arc-plugin-enhance
-create-articles-index
+render-articles
 
 @static
 fingerprint true

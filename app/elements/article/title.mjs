@@ -1,11 +1,7 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function ({ html, state: { store } }) {
 	const { article } = store
-	const {
-		path: { year, month, slug },
-	} = article
-
-	const path = ['/articles', year, month, slug].join('/')
+	const { path } = article
 
 	return html`
 		<h1 class="flex flex-row justify-start items-center gap-4">

@@ -1,7 +1,8 @@
 const { readdirSync, readFileSync, writeFileSync } = require('node:fs')
 const { join } = require('node:path')
+const { createArcdown } = require('./renderer')
 
-const articlesPath = join(process.cwd(), 'app', '_md', 'articles')
+const articlesPath = join(process.cwd(), 'markdown', 'articles')
 
 function readFileTree(dirPath) {
 	return readdirSync(dirPath, { withFileTypes: true })
@@ -13,17 +14,16 @@ function readFileTree(dirPath) {
 }
 
 async function parseArticles(articlePaths) {
-	const { Arcdown } = await import('arcdown')
-	const arcdown = new Arcdown({})
+	const arcdown = await createArcdown()
 
 	return await Promise.all(
 		articlePaths.map(async (path) => {
 			const file = readFileSync(path, 'utf8')
+			const result = await arcdown.render(file)
 			return {
-				filepath: path,
 				path: path.replace(articlesPath, '/articles').replace('.md', ''),
-				filename: path.split('/').at(-1).replace('.md', ''),
-				result: await arcdown.render(file),
+				...result,
+				...result.frontmatter,
 			}
 		}),
 	)
@@ -31,17 +31,25 @@ async function parseArticles(articlePaths) {
 
 async function createIndex({ onlyPublished = false } = {}) {
 	console.log('Indexing articles...')
-	const articlePaths = readFileTree(articlesPath)
-	console.log(`Found ${articlePaths.length} articles.`)
 
-	const articles = await parseArticles(articlePaths)
+	const articlePaths = readFileTree(articlesPath)
+	let articles = await parseArticles(articlePaths)
+
 	console.log(`Parsed ${articles.length} articles.`)
-	console.log(articles.map((article) => article.path))
+
+	articles = onlyPublished ? articles.filter((a) => a.published) : articles
+
+	articles.sort((a, b) => {
+		const aPub = a.published
+		const bPub = b.published
+		return bPub?.localeCompare(aPub) || 1
+	})
 
 	writeFileSync(
 		`${process.cwd()}/app/_data/articles.json`,
 		JSON.stringify(articles),
 	)
+	console.log(`Index created for ${articles.length} articles.`)
 }
 
 module.exports = {
