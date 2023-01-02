@@ -1,4 +1,4 @@
 export default function () {
-	const emojis = ['🛻', '👢', '🎮', '🏔️', '🏕️', '🦬', '🦌', '🖋️']
+	const emojis = ['🛻', '👢', '🎮', '🏔️', '🏕️', '🦬', '🦌', '⚾️']
 	return emojis[Math.floor(Math.random() * emojis.length)]
 }
