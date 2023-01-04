@@ -3,6 +3,12 @@ tbeseda-com
 
 @http
 get /bench
+get /.well-known/webfinger
+get /tbeseda       # ActivityPub actor
+get /api/inbox     #      •      inbox
+get /api/outbox    #      •      outbox
+get /api/followers #      •      followers
+get /api/following #      •      following
 
 @plugins
 enhance/arc-plugin-enhance

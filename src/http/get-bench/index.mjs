@@ -6,14 +6,14 @@ async function http(request) {
 	return {
 		html: `
 <html>
-  <head>
-    <title>${article.title}</title>
-  </head>
-  <body>
-    ${article.html}
-  </body>
+	<head>
+		<title>${article.title}</title>
+	</head>
+	<body>
+		${article.html}
+	</body>
 </html>
-    `,
+		`,
 	}
 }
 
