@@ -1,31 +1,29 @@
-// TODO: use ESM
-// TODO: use tape
-const { after, before, describe, it } = require('node:test')
-const assert = require('node:assert/strict')
-
-const { mf2 } = require('microformats-parser')
-const sandbox = require('@architect/sandbox')
+import test from 'tape'
+import { mf2 } from 'microformats-parser'
+import sandbox from '@architect/sandbox'
 
 const PORT = 6661
 const URL = `http://localhost:${PORT}`
 
-describe('smoke and microformats', async (t) => {
+async function before() {
+	await sandbox.start({
+		quiet: true,
+		port: PORT,
+	})
+	console.log('Sandbox started')
+}
+
+test.onFinish(async () => {
+	await sandbox.end()
+	console.log('Sandbox ended')
+})
+
+test('smoke and microformats', async (t) => {
+	await before()
+
 	let parsedHCard
 
-	before(async () => {
-		await sandbox.start({
-			quiet: true,
-			port: PORT,
-		})
-		console.log('Sandbox started')
-	})
-
-	after(async () => {
-		await sandbox.end()
-		console.log('Sandbox ended')
-	})
-
-	it('fetches key routes', async () => {
+	t.test('fetches key routes', async (st) => {
 		for (const route of [
 			URL,
 			`${URL}/articles`,
@@ -36,26 +34,26 @@ describe('smoke and microformats', async (t) => {
 		]) {
 			try {
 				const res = await fetch(route)
-				assert.ok(
+				st.ok(
 					res.ok,
 					`Route ${route} returned status ${res.status} instead of 200 OK`,
 				)
 			} catch (error) {
-				assert.fail(`Route ${route} failed with error: ${error.message}`)
+				st.fail(`Route ${route} failed with error: ${error.message}`)
 			}
 		}
 	})
 
-	it('fetches the index and parses an h-card', async () => {
+	t.test('fetches the index and parses an h-card', async (st) => {
 		const res = await fetch(`${URL}/h-card`)
 		const body = await res.text()
 		const parsed = mf2(body, { baseUrl: URL })
 		parsedHCard = parsed.items[0]
 
-		assert.equal(parsedHCard.type?.[0], 'h-card', 'h-card is an h-card')
+		st.equal(parsedHCard.type?.[0], 'h-card', 'h-card is an h-card')
 	})
 
-	it('matches original h-card data', async () => {
+	t.test('matches original h-card data', async (st) => {
 		const { default: myHCardData } = await import(
 			'../app/middleware/add-h-cards.mjs'
 		)
@@ -80,7 +78,7 @@ describe('smoke and microformats', async (t) => {
 			const hCardVal = parsedHCard.properties[key][0]
 			const myHCardVal = myHCard.properties[key][0]
 
-			assert.equal(
+			st.equal(
 				hCardVal,
 				myHCardVal,
 				`"${key}" mismatch: ${hCardVal} !== ${myHCardVal}`,

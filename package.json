@@ -13,7 +13,7 @@
     "rome:format:write": "npx rome format . --write",
     "start": "npx arc sandbox",
     "tape": "npx tape ./**/*.mjs | tap-arc",
-    "test": "npm run rome && node --test | tap-arc"
+    "test": "npm run rome && npm run tape"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,7 @@
   "homepage": "https://tbeseda.com",
   "dependencies": {
     "@architect/functions": "^5.3.3",
-    "@enhance/arc-plugin-enhance": "4.3.3",
+    "@enhance/arc-plugin-enhance": "4.3.4",
     "arcdown": "^2.1.0",
     "rss-to-json": "^2.1.0"
   },
