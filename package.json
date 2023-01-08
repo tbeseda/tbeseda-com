@@ -29,7 +29,7 @@
   "dependencies": {
     "@architect/functions": "^5.3.3",
     "@enhance/arc-plugin-enhance": "4.3.4",
-    "arcdown": "^2.1.0",
+    "feed": "^4.2.2",
     "rss-to-json": "^2.1.0"
   },
   "devDependencies": {
@@ -38,6 +38,7 @@
     "@architect/sandbox": "^5.4.1",
     "@enhance/arc-plugin-styles": "^2.2.1",
     "@enhance/types": "^0.5.0",
+    "arcdown": "^2.1.0",
     "microformats-parser": "^1.4.1",
     "rome": "^11.0.0",
     "tap-arc": "^0.3.5",
