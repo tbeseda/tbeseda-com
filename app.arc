@@ -7,10 +7,10 @@ get /.well-known/webfinger
 get /tbeseda       # ActivityPub actor
 get /api/followers #      •      followers
 get /api/following #      •      following
-get /api/outbox    #      •      outbox
-post /api/outbox   #      •      outbox
-get /api/inbox     #      •      inbox
-post /api/inbox    #      •      inbox
+get /api/inbox     #      •      admin inbox log
+get /api/outbox    #      •      outbox activities
+post /api/inbox    #      •      inbound activity
+post /api/outbox   #      •      create activity
 
 @plugins
 enhance/arc-plugin-enhance
