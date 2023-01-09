@@ -1,5 +1,6 @@
 ---
 title: gitclean zsh command
+summary: A command to run git clean with a confirmation step
 published: 2022-07-27 00:01 -0700
 edited: 2023-01-08 19:30 -0700
 ---

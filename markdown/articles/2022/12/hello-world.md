@@ -2,6 +2,7 @@
 title: Hello, World
 published: 2022-12-24 23:10 -0700
 edited: 2022-12-25 00:50 -0700
+summary: Back at it. My first entry on tbeseda.com. I can't remember all the places I've published content, but I'm motivated to centralize it. It may not always look like this, but it will always be here.
 links:
   - IndieWeb.social: https://indieweb.social/@tbeseda
   - Begin: https://begin.com

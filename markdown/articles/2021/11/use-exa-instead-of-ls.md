@@ -1,5 +1,6 @@
 ---
 title: I use exa instead of ls
+summary: List directories at the command line with exa
 published: 2021-11-21 00:01 -0700
 edited: 2023-01-08 19:30 -0700
 ---

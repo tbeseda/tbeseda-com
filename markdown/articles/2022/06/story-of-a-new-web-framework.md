@@ -1,5 +1,6 @@
 ---
 title: A Story About the Evolution of a New Web Framework
+summary: The original web was a revelation...
 published: 2022-06-29 00:01 -0700
 edited: 2023-01-08 19:30 -0700
 ---
