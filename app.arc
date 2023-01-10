@@ -18,6 +18,7 @@ webmention-receive
 
 @plugins
 enhance/arc-plugin-enhance
+architect/plugin-lambda-invoker
 render-articles
 
 @static

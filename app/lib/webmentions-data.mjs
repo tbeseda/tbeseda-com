@@ -6,11 +6,11 @@ const webmentions = data.webmentions
 export default webmentions
 
 export async function mentionsByPath(path) {
-  const mentions = await webmentions.query({
-    IndexName: 'mentionsByPath',
-    KeyConditionExpression: 'targetPath = :targetPath',
-    ExpressionAttributeValues: { ':targetPath': path },
-  })
+	const mentions = await webmentions.query({
+		IndexName: 'mentionsByPath',
+		KeyConditionExpression: 'targetPath = :targetPath',
+		ExpressionAttributeValues: { ':targetPath': path },
+	})
 
-  return mentions.Items
+	return mentions.Items
 }

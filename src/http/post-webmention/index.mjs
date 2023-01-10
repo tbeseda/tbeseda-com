@@ -1,7 +1,8 @@
 import arc from '@architect/functions'
 
 export const handler = arc.http.async(async function (req) {
-	const { target, source } = req.body
+	const { body, headers } = req
+	const { target, source } = body
 
 	// validate incoming webmention
 	const errors = []
@@ -28,7 +29,7 @@ export const handler = arc.http.async(async function (req) {
 
 	await arc.events.publish({
 		name: 'webmention-receive',
-		payload: req.body,
+		payload: { body, headers },
 	})
 	return {
 		code: 202,
