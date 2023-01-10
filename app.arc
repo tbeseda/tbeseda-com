@@ -3,14 +3,18 @@ tbeseda-com
 
 @http
 get /bench
-get /.well-known/webfinger
-get /tbeseda       # ActivityPub actor
-get /api/followers #      •      followers
-get /api/following #      •      following
-get /api/inbox     #      •      admin inbox log
-get /api/outbox    #      •      outbox activities
-post /api/inbox    #      •      inbound activity
-post /api/outbox   #      •      create activity
+get /.well-known/webfinger #
+get /tbeseda               # ActivityPub actor
+get /api/followers         #      •      followers
+get /api/following         #      •      following
+get /api/inbox             #      •      admin inbox log
+get /api/outbox            #      •      outbox activities
+post /api/inbox            #      •      inbound activity
+post /webmention           # inbound webmention
+
+@events
+# webmention-send
+webmention-receive
 
 @plugins
 enhance/arc-plugin-enhance
@@ -24,8 +28,16 @@ prune true
 config ./enhance-styles.json
 
 @tables
-things
-  thingID *String
+webmentions
+  id *String
+  targetPath **String
+things # misc storage
+  key *String
+
+@tables-indexes
+webmentions
+  targetPath *String
+  name mentionsByPath
 
 @aws
 region us-east-1

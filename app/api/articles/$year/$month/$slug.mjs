@@ -1,11 +1,13 @@
 import standardMiddleware from '../../../../middleware/common.mjs'
 import { articleFromPath } from '../../../../lib/articles-data.mjs'
+import { mentionsByPath } from '../../../../lib/webmentions-data.mjs'
 
-/** @type {import('@enhance/types').EnhanceApiFn} */
+// /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler({ params, state }) {
 	const { proxy } = params
 	const path = `/${proxy}`
 	const article = articleFromPath(path)
+	const mentions = await mentionsByPath(article.path)
 
 	const cacheControl = process.env.ARC_SANDBOX
 		? 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
@@ -17,6 +19,7 @@ async function getHandler({ params, state }) {
 			icon: state.icon || '😵',
 			hCards: state.hCards,
 			article,
+			mentions,
 		},
 	}
 }

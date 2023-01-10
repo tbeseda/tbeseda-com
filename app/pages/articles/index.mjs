@@ -21,17 +21,17 @@ export default function ({ html, state }) {
 		<h2 class="mb1 text3">Articles</h2>
 		<ul class="mb3 list-none text1 grid gap1">
 			${articles
-			.map(
-				(a) => `
-					<li class="grid flow-row gap-2 justify-start items-end">
-						<div class="grid flow-col gap-1 items-end">
+				.map(
+					(a) => `
+					<li class="grid flow-row gap-2">
+						<div class="grid flow-col gap-1 justify-start items-end">
 							<a href="${a.path}">${a.title}</a>
 							<time class="text-1">${presentDate(a.published)}</time>
 						</div>
 						<p class="text0 leading1">${a.summary}</p>
 					</li>`,
-			)
-			.join('')}
+				)
+				.join('')}
 		</ul>
 
 		<hr class="mb2">

@@ -1,47 +1,47 @@
 {
-  "name": "tbeseda-com",
-  "version": "2.0.0",
-  "description": "Taylor's homepage",
-  "scripts": {
-    "deploy": "npx arc deploy -v",
-    "deploy:production": "npx arc deploy --production -v",
-    "deploy:both": "npm run deploy && npm run deploy:production",
-    "rome": "npx rome ci .",
-    "rome:check": "npx rome check .",
-    "rome:check:apply": "npx rome check . --apply-suggested",
-    "rome:format": "npx rome format .",
-    "rome:format:write": "npx rome format . --write",
-    "start": "npx arc sandbox",
-    "tape": "npx tape ./**/*.mjs | tap-arc",
-    "test": "npm run rome && npm run tape"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tbeseda/tbeseda-com.git"
-  },
-  "keywords": [
-    "homepage",
-    "enhance"
-  ],
-  "author": "tbeseda",
-  "license": "ISC",
-  "homepage": "https://tbeseda.com",
-  "dependencies": {
-    "@architect/functions": "^5.3.3",
-    "@enhance/arc-plugin-enhance": "4.3.4",
-    "feed": "^4.2.2",
-    "rss-to-json": "^2.1.0"
-  },
-  "devDependencies": {
-    "@architect/architect": "^10.8.3",
-    "@architect/plugin-lambda-invoker": "^0.1.1",
-    "@architect/sandbox": "^5.4.1",
-    "@enhance/arc-plugin-styles": "^2.2.1",
-    "@enhance/types": "^0.5.0",
-    "arcdown": "^2.1.0",
-    "microformats-parser": "^1.4.1",
-    "rome": "^11.0.0",
-    "tap-arc": "^0.3.5",
-    "tape": "^5.6.1"
-  }
+	"name": "tbeseda-com",
+	"version": "2.0.0",
+	"description": "Taylor's homepage",
+	"scripts": {
+		"deploy": "npx arc deploy -v",
+		"deploy:production": "npx arc deploy --production -v",
+		"deploy:both": "npm run deploy && npm run deploy:production",
+		"rome": "npx rome ci .",
+		"rome:check": "npx rome check .",
+		"rome:check:apply": "npx rome check . --apply-suggested",
+		"rome:format": "npx rome format .",
+		"rome:format:write": "npx rome format . --write",
+		"start": "npx arc sandbox",
+		"tape": "npx tape ./**/*.mjs | tap-arc",
+		"test": "npm run rome && npm run tape"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tbeseda/tbeseda-com.git"
+	},
+	"keywords": [
+		"homepage",
+		"enhance"
+	],
+	"author": "tbeseda",
+	"license": "ISC",
+	"homepage": "https://tbeseda.com",
+	"dependencies": {
+		"@architect/functions": "^5.3.3",
+		"@enhance/arc-plugin-enhance": "4.3.4",
+		"feed": "^4.2.2",
+		"rss-to-json": "^2.1.0"
+	},
+	"devDependencies": {
+		"@architect/architect": "^10.8.3",
+		"@architect/plugin-lambda-invoker": "^0.1.1",
+		"@architect/sandbox": "^5.4.1",
+		"@enhance/arc-plugin-styles": "^2.2.1",
+		"@enhance/types": "^0.5.0",
+		"arcdown": "^2.1.0",
+		"microformats-parser": "^1.4.1",
+		"rome": "^11.0.0",
+		"tap-arc": "^0.3.5",
+		"tape": "^5.6.1"
+	}
 }
