@@ -19,7 +19,13 @@ webmention-receive
 @plugins
 enhance/arc-plugin-enhance
 architect/plugin-lambda-invoker
+arc-plugin-lightningcss
 render-articles
+
+@lightningcss # optional config
+targets '>= 0.25%' # default
+input src/css/style.css # default
+output public/style.css # default
 
 @static
 fingerprint true
