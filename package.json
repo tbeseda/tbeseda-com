@@ -38,11 +38,11 @@
 		"@architect/sandbox": "^5.4.1",
 		"@enhance/arc-plugin-styles": "^2.2.1",
 		"@enhance/types": "^0.5.0",
-		"arc-plugin-lightningcss": "^0.0.1-alpha.1",
+		"arc-plugin-lightningcss": "^0.0.1-alpha.2",
 		"arcdown": "^2.1.0",
 		"microformats-parser": "^1.4.1",
 		"rome": "^11.0.0",
 		"tap-arc": "^0.3.5",
-		"tape": "^5.6.1"
+		"tape": "^5.6.3"
 	}
 }

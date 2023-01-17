@@ -4,6 +4,7 @@ sam.*
 
 .enhance/
 public/static.json
+public/style.css
 app/_data/
 
 .DS_Store

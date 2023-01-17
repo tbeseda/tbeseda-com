@@ -2,8 +2,6 @@
 export default function ({ html, state: { store } }) {
 	const { mentions } = store
 
-	console.log(mentions)
-
 	return mentions?.length > 0
 		? html`
 		<h2 class="mb-1 text0 font-bold">Article Webmentions</h2>
