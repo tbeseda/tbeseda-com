@@ -1,5 +1,7 @@
-import articles from '../../lib/articles-data.mjs'
+import articlesData from '../../lib/articles-data.mjs'
 import standardMiddleware from '../../middleware/common.mjs'
+
+const articles = articlesData.filter((a) => !a.hidden)
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler(req) {

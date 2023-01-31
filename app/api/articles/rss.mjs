@@ -1,5 +1,7 @@
 import { Feed } from 'feed'
-import articles from '../../lib/articles-data.mjs'
+import articlesData from '../../lib/articles-data.mjs'
+
+const articles = articlesData.filter((a) => !a.hidden)
 
 const feed = new Feed({
 	title: 'tbeseda (Taylor Beseda)',
