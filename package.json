@@ -12,7 +12,7 @@
 		"rome:format": "npx rome format .",
 		"rome:format:write": "npx rome format . --write",
 		"start": "npx arc sandbox",
-		"tape": "npx tape ./**/*.mjs | tap-arc",
+		"tape": "npx tape ./test/**/*.mjs | tap-arc",
 		"test": "npm run rome && npm run tape"
 	},
 	"repository": {

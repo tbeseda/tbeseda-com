@@ -1,18 +1,11 @@
-import { readFileSync } from 'node:fs'
-import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import articlesData from '../_data/articles.json' assert { type: 'json' }
 
 const today = new Date()
-const here = dirname(fileURLToPath(import.meta.url))
-
-const articles = JSON.parse(
-	readFileSync(join(here, '..', '_data', 'articles.json'), 'utf8'),
-)
 
 export default process.env.ARC_SANDBOX
-	? articles
-	: articles.filter((a) => (a.published ? new Date(a.published) < today : true))
+	? articlesData
+	: articlesData.filter((a) => a.published && new Date(a.published) < today)
 
 export function articleFromPath(path) {
-	return articles.find((a) => a.path === path)
+	return articlesData.find((a) => a.path === path)
 }
