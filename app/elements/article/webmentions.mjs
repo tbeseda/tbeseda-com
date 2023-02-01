@@ -17,6 +17,7 @@ export default function ({ html, state: { store } }) {
 							<small class="ml-4 text-1">${
 								m.sourceAuthor ? `(${m.sourceAuthor})` : ''
 							}</small>
+							<details><pre>${JSON.stringify(m, null, 2)}</pre></details>
 						</li>
 					`,
 				)

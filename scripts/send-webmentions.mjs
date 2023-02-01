@@ -11,6 +11,6 @@ const response = await fetch(WEBMENTION_ENDPOINT, {
 	body: new URLSearchParams(sampleWebMention),
 })
 
-const data = await response.json()
+const body = await response.text()
 
-console.log(data)
+console.log(body)

@@ -12,5 +12,5 @@ export async function mentionsByPath(path) {
 		ExpressionAttributeValues: { ':targetPath': path },
 	})
 
-	return mentions.Items
+	return mentions.Items.filter((mention) => mention.approved)
 }
