@@ -27,13 +27,12 @@
 	"license": "ISC",
 	"homepage": "https://tbeseda.com",
 	"dependencies": {
-		"@architect/functions": "^5.4.0",
+		"@architect/functions": "5.3.4",
 		"@enhance/arc-plugin-enhance": "5.0.1",
 		"feed": "^4.2.2",
 		"rss-to-json": "^2.1.1"
 	},
 	"devDependencies": {
-		"@architect/architect": "^10.10.2",
 		"@architect/plugin-lambda-invoker": "^1.0.0",
 		"@architect/sandbox": "^5.5.2",
 		"@enhance/arc-plugin-styles": "^2.2.1",
