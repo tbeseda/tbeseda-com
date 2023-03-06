@@ -29,27 +29,45 @@ export default function Head(state) {
 			</noscript>
 
 			${process.env.ARC_SANDBOX ? getStyles.linkTag() : getStyles.styleTag()}
+			<!-- <link rel="stylesheet" href="/_public/tufte.css"/> -->
 
 			<style>
+				/* adapted from https://github.com/edwardtufte/tufte-css/blob/gh-pages/tufte.css */
+				html {
+					font-size: 16px;
+				}
+
 				body {
-					max-width: 50rem;
-					color: var(--dark);
-					padding: 0 1.25rem;
+					width: 87.5%;
+					margin-left: auto;
+					margin-right: auto;
+					padding-left: 12.5%;
+					max-width: 1400px;
+					background-color: var(--light);
 				}
-				body > *:not(script) {
+
+				/* Adds dark mode */
+				@media (prefers-color-scheme: dark) {
+					body {
+						background-color: #151515;
+						color: #ddd;
+					}
 				}
+
+				@media (max-width: 760px) {
+					body {
+						width: 100%;
+						padding-left: 4%;
+						padding-right: 4%;
+					}
+				}
+
 				a {
 					color: var(--greenpickup-500);
 					text-decoration: underline;
 				}
-				hr {
-					width: 85%;
-					margin: 0 auto;
-					padding: 0 10rem;
-					border-bottom: 1px solid var(--black-100);
-				}
 			</style>
 		</head>
-		<body class="grid content-start m-auto pb1 font-sans">
+		<body class="grid content-start font-sans">
 	`
 }
