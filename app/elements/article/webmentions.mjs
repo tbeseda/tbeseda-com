@@ -14,9 +14,7 @@ export default function ({ html, state: { store } }) {
 							<a href="${m.source}">
 								${m.sourceTitle || m.source}
 							</a>
-							<small>${
-								m.sourceAuthor ? `(${m.sourceAuthor})` : ''
-							}</small>
+							<small>${m.sourceAuthor ? `(${m.sourceAuthor})` : ''}</small>
 							<details><pre>${JSON.stringify(m, null, 2)}</pre></details>
 						</li>
 					`,
