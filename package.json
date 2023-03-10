@@ -33,9 +33,9 @@
 		"rss-to-json": "^2.1.1"
 	},
 	"devDependencies": {
-		"@architect/architect": "^10.10.2",
+		"@architect/architect": "^10.10.3",
 		"@architect/plugin-lambda-invoker": "^1.0.0",
-		"@architect/sandbox": "^5.5.3",
+		"@architect/sandbox": "^5.5.4",
 		"@enhance/arc-plugin-styles": "^2.2.1",
 		"@enhance/types": "^0.5.0",
 		"arcdown": "^2.1.0",
