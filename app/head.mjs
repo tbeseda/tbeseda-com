@@ -15,6 +15,7 @@ export default function Head(state) {
 		<head>
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta name="color-scheme" content="dark light">
 
 			<title>${title}</title>
 
@@ -28,7 +29,41 @@ export default function Head(state) {
 				<link rel="stylesheet" href="${hljsThemeCss}"/>
 			</noscript>
 
-			<style></style>
+			<link rel="stylesheet" href="/_public/typesafe.css">
+
+			<style>
+				body {
+					background-color: #efefef;
+					color: #333;
+				}
+				a {
+					color: #000;
+				}
+				a:visited {
+					color: #000;
+				}
+
+				.hidden {
+					display: none;
+				}
+
+				pre {
+					border: none;
+				}
+
+				@media (prefers-color-scheme: dark) {
+					body {
+						background-color: #151515;
+						color: #ccc;
+					}
+					a {
+						color: #fff;
+					}
+					a:visited {
+						color: #fff;
+					}
+				}
+			</style>
 		</head>
 		<body>
 	`

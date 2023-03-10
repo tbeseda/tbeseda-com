@@ -9,12 +9,7 @@ async function getHandler({ params, state }) {
 	const article = articleFromPath(path)
 	const mentions = await mentionsByPath(article.path)
 
-	const cacheControl = process.env.ARC_SANDBOX
-		? 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
-		: 'max-age=3600;'
-
 	return {
-		cacheControl,
 		json: {
 			icon: state.icon || '😵',
 			hCards: state.hCards,

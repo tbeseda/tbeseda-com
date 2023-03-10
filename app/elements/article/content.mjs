@@ -3,7 +3,9 @@ export default function ({ html, state: { store } }) {
 	const { article } = store
 
 	return html`
-		<style></style>
+		<style>
+
+		</style>
 
 		${article.html}
 	`

@@ -11,7 +11,6 @@ export default function Card({ html, state }) {
 		<style>
 			img {
 				height: 120px;
-				border-radius: 2rem;
 			}
 		</style>
 

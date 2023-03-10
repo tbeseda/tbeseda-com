@@ -2,8 +2,7 @@
 tbeseda-com
 
 @http
-get /bench
-get /.well-known/webfinger #
+get /.well-known/webfinger
 get /tbeseda               # ActivityPub actor
 get /api/followers         #      •      followers
 get /api/following         #      •      following
@@ -19,20 +18,7 @@ webmention-receive
 @plugins
 enhance/arc-plugin-enhance
 architect/plugin-lambda-invoker
-arc-plugin-lightningcss
 render-articles
-
-@lightningcss # optional config
-targets '>= 0.25%' # default
-input src/css/style.css # default
-output public/style.css # default
-
-@static
-fingerprint true
-prune true
-
-@enhance-styles
-config ./enhance-styles.json
 
 @tables
 webmentions
@@ -50,7 +36,6 @@ webmentions
 region us-east-1
 runtime nodejs18.x
 architecture arm64
-timeout 10 # unsure if this works at project level
 
 @begin
 appID D1M9ZCD5

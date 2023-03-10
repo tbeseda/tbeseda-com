@@ -57,17 +57,17 @@ _Arcdown_ ships with highlight.js to provide syntax highlighting for code blocks
 ```javascript
 // render some .md to HTML with Arcdown
 const arcdown = new Arcdown({
-	pluginOverrides: {
-		markdownItToc: {
-			containerClass: 'toc mb2 ml-2',
-			listType: 'ul',
-		},
-	},
-	plugins: [],
-	hljs: {
-		sublanguages: { javascript: ['xml', 'css'] },
-		plugins: [new HljsLineWrapper({ className: 'line' })],
-	},
+  pluginOverrides: {
+    markdownItToc: {
+      containerClass: 'toc mb2 ml-2',
+      listType: 'ul',
+    },
+  },
+  plugins: [],
+  hljs: {
+    sublanguages: { javascript: ['xml', 'css'] },
+    plugins: [new HljsLineWrapper({ className: 'line' })],
+  },
 })
 
 const articleMd = readFileSync('./hello-world.md', 'utf-8')
