@@ -4,12 +4,12 @@ export default function ({ html, state: { store } }) {
 	const { path, title } = article
 
 	return html`
-		<h1 class="flex flex-row justify-start items-center gap-4">
-			<span class="p-name text3 font-semibold">
+		<h1>
+			<span class="p-name">
 				<slot></slot>
 				${title}
 			</span>
-			<a class="text-1 opacity-50 no-underline" href="${path}">🔗</a>
+			<a href="${path}">🔗</a>
 		</h1>
 	`
 }

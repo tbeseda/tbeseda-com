@@ -1,15 +1,15 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function TbFooter({ html, state: { store } }) {
 	return html`
-		<footer class="flex flex-row justify-center items-end gap-4">
+		<footer>
 			${store.icon}
 			•
-			<span class="text-1">
-				Say "hi" on <a class="" rel="me" href="https://indieweb.social/@tbeseda">Mastodon</a>
+			<span>
+				Say "hi" on <a rel="me" href="https://indieweb.social/@tbeseda">Mastodon</a>
 			</span>
 			•
-			<code class="text-1 font-mono opacity-50">
-				<a href="/h-card" class="no-underline">/h-card</a>
+			<code>
+				<a href="/h-card">/h-card</a>
 			</code>
 		</footer>
 	`

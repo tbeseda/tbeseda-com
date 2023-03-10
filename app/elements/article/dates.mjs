@@ -17,13 +17,13 @@ export default function ({ html, state: { store } }) {
 	}
 
 	return html`
-		<time class="dt-published text-1" datetime="${published}">
+		<time class="dt-published" datetime="${published}">
 			${presentDate(published)}
 		</time>
 		${
 			edited
 				? /* html */ `
-						<div class="mt-4 text-2" style="color: var(--black-300);">
+						<div>
 							Edited:
 							<time class="dt-updated" datetime="${edited}">
 								${presentDate(edited)}

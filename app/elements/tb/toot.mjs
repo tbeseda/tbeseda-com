@@ -8,9 +8,9 @@ export default function Toot({ html }) {
 			}
 		</style>
 
-		<h2 class="text1 font-semibold">Most recently...</h2>
-		<div class="toot-content leading1 font-serif">loading...</div>
-		<div class="toot-attachments hidden grid flow-col justify-start gap0"></div>
+		<h2>Most recently...</h2>
+		<div class="toot-content">loading...</div>
+		<div class="toot-attachments"></div>
 
 		<script type="module">
 			class TbToot extends HTMLElement {

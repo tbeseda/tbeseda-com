@@ -28,46 +28,8 @@ export default function Head(state) {
 				<link rel="stylesheet" href="${hljsThemeCss}"/>
 			</noscript>
 
-			${process.env.ARC_SANDBOX ? getStyles.linkTag() : getStyles.styleTag()}
-			<!-- <link rel="stylesheet" href="/_public/tufte.css"/> -->
-
-			<style>
-				/* adapted from https://github.com/edwardtufte/tufte-css/blob/gh-pages/tufte.css */
-				html {
-					font-size: 16px;
-				}
-
-				body {
-					width: 87.5%;
-					margin-left: auto;
-					margin-right: auto;
-					padding-left: 12.5%;
-					max-width: 1400px;
-					background-color: var(--light);
-				}
-
-				/* Adds dark mode */
-				@media (prefers-color-scheme: dark) {
-					body {
-						background-color: #151515;
-						color: #ddd;
-					}
-				}
-
-				@media (max-width: 760px) {
-					body {
-						width: 100%;
-						padding-left: 4%;
-						padding-right: 4%;
-					}
-				}
-
-				a {
-					color: var(--greenpickup-500);
-					text-decoration: underline;
-				}
-			</style>
+			<style></style>
 		</head>
-		<body class="grid content-start font-sans">
+		<body>
 	`
 }
