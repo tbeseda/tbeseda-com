@@ -35,6 +35,12 @@ export default function Head(state) {
 				body {
 					background-color: #efefef;
 					color: #333;
+					font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+					font-size: 1.1rem;
+				}
+				h1, h2, h3, h4, h5, h6 {
+					font-family: system-ui, sans-serif;
+					font-weight: 600;
 				}
 				a {
 					color: #000;

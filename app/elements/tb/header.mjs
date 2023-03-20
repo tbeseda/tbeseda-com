@@ -47,7 +47,9 @@ export default function TbHeader({ html, state }) {
 			</a>
 
 			<div>
-				<h1>${card.name}</h1>
+				<h1>
+					<a href="/">${card.name}</a>
+				</h1>
 				<h3>${card.note}</h3>
 				<h4>
 					${card.region}<br>
