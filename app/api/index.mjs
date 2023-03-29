@@ -2,6 +2,7 @@ import standardMiddleware from '../middleware/common.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler(req) {
+	console.log('GET /')
 	return {
 		json: {
 			// @ts-ignore
