@@ -6,8 +6,7 @@ export default function TbHeader({ html, state }) {
 		attrs: { expanded },
 		store: { hCards: { items: [myHCard] } },
 	} = state
-	const card = new HCardPresenter(myHCard)
-	const isExpanded = typeof expanded !== 'undefined'
+	const { card } = new HCardPresenter(myHCard)
 
 	return html`
 		<style>
