@@ -8,7 +8,7 @@
 		"deploy:both": "npm run deploy && npm run deploy:production",
 		"rome": "npx rome ci .",
 		"rome:check": "npx rome check .",
-		"rome:check:apply": "npx rome check . --apply-suggested",
+		"rome:check:apply": "npx rome check . --apply",
 		"rome:format": "npx rome format .",
 		"rome:format:write": "npx rome format . --write",
 		"start": "npx arc sandbox",
@@ -36,11 +36,11 @@
 		"@architect/architect": "^10.10.3",
 		"@architect/plugin-lambda-invoker": "^1.0.0",
 		"@architect/sandbox": "^5.5.4",
-		"@enhance/arc-plugin-styles": "^2.2.1",
+		"@enhance/arc-plugin-styles": "^2.2.2",
 		"@enhance/types": "^0.5.0",
-		"arcdown": "^2.1.0",
+		"arcdown": "^2.1.1",
 		"microformats-parser": "^1.4.1",
-		"rome": "^11.0.0",
+		"rome": "^12.0.0",
 		"tap-arc": "^0.3.5",
 		"tape": "^5.6.3"
 	}

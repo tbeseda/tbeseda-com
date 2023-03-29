@@ -81,7 +81,7 @@ test('smoke and microformats', async (t) => {
 			st.equal(
 				hCardVal,
 				myHCardVal,
-				`"${key}" mismatch: ${hCardVal} !== ${myHCardVal}`,
+				`"${key}" match: ${hCardVal} === ${myHCardVal}`,
 			)
 		}
 	})

@@ -5,7 +5,7 @@ export default function Card({ html, state }) {
 	const {
 		store: { hCards: { items: [myHCard] } },
 	} = state
-	const card = new HCardPresenter(myHCard)
+	const { card } = new HCardPresenter(myHCard)
 
 	return html`
 		<style>

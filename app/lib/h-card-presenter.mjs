@@ -40,12 +40,15 @@ class HCardPresenter {
 	constructor(data) {
 		if (data.type[0] === 'h-card') {
 			this.#data = data.properties
-			return this.#interface
+			// return this.#interface
 		} else {
 			throw 'Invalid h-card data'
 		}
 	}
 
+	get card() {
+		return this.#interface
+	}
 	// geo can be p- and/or u-
 	get geo() {
 		return `<span class="p-geo u-geo">${this.props['geo']}</span>`
