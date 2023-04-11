@@ -29,14 +29,14 @@
 	"homepage": "https://tbeseda.com",
 	"dependencies": {
 		"@architect/functions": "^5.4.0",
-		"@enhance/arc-plugin-enhance": "^5.0.3",
+		"@enhance/arc-plugin-enhance": "^5.0.5",
 		"feed": "^4.2.2",
 		"rss-to-json": "^2.1.1"
 	},
 	"devDependencies": {
-		"@architect/architect": "^10.10.3",
+		"@architect/architect": "^10.11.0",
 		"@architect/plugin-lambda-invoker": "^1.0.0",
-		"@architect/sandbox": "^5.5.4",
+		"@architect/sandbox": "^5.5.5",
 		"@enhance/arc-plugin-styles": "^2.2.2",
 		"@enhance/types": "^0.6.0",
 		"arcdown": "^2.1.1",
