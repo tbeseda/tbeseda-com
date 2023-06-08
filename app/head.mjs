@@ -1,5 +1,3 @@
-import { getStyles } from '@enhance/arc-plugin-styles'
-
 /** @type {import('@enhance/types').EnhanceHeadFn} */
 export default function Head(state) {
 	const { req, store } = state

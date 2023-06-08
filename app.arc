@@ -1,6 +1,11 @@
 @app
 tbeseda-com
 
+@plugins
+enhance/arc-plugin-enhance
+architect/plugin-lambda-invoker
+render-articles
+
 @http
 get /.well-known/webfinger
 get /tbeseda               # ActivityPub actor
@@ -15,10 +20,8 @@ post /webmention           # inbound webmention
 # webmention-send
 webmention-receive
 
-@plugins
-enhance/arc-plugin-enhance
-architect/plugin-lambda-invoker
-render-articles
+@scheduled
+aqi-update rate(1 hour)
 
 @tables
 webmentions
