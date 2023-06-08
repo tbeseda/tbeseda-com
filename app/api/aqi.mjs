@@ -1,9 +1,10 @@
 import arc from '@architect/functions'
+import standardMiddleware from '../middleware/common.mjs'
 
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get(req) {
+async function getHandler({ icon = '😵', hCards = [] }) {
 	const myAqi = await things.get({ key: 'my-aqi' })
 
 	delete myAqi?.iqAirData?.data?.location
@@ -14,5 +15,7 @@ export async function get(req) {
 		delete d?.ReportingArea
 	})
 
-	return { json: { myAqi } }
+	return { json: { icon, hCards, myAqi } }
 }
+
+export const get = [...standardMiddleware, getHandler]
