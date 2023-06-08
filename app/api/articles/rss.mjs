@@ -48,7 +48,7 @@ for (const article of articles) {
 feed.addCategory('Web development')
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get(req) {
+export async function get() {
 	return {
 		statusCode: 200,
 		headers: {

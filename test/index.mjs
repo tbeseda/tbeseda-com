@@ -34,10 +34,7 @@ test('smoke and microformats', async (t) => {
 		]) {
 			try {
 				const res = await fetch(route)
-				st.ok(
-					res.ok,
-					`Route ${route} returned status ${res.status} instead of 200 OK`,
-				)
+				st.ok(res.ok, `Route ${route} returned status ${res.status}`)
 			} catch (error) {
 				st.fail(`Route ${route} failed with error: ${error.message}`)
 			}
@@ -60,7 +57,7 @@ test('smoke and microformats', async (t) => {
 		const fakeReq = {}
 		await myHCardData(fakeReq)
 		const {
-			state: { hCards: { items: [myHCard] } },
+			hCards: { items: [myHCard] },
 		} = fakeReq
 
 		for (const key of [

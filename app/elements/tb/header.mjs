@@ -3,7 +3,6 @@ import HCardPresenter from '../../lib/h-card-presenter.mjs'
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function TbHeader({ html, state }) {
 	const {
-		attrs: { expanded },
 		store: { hCards: { items: [myHCard] } },
 	} = state
 	const { card } = new HCardPresenter(myHCard)

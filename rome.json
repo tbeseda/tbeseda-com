@@ -14,7 +14,10 @@
 		"enabled": true,
 		"ignore": [],
 		"rules": {
-			"recommended": true
+			"recommended": true,
+			"performance": {
+				"noDelete": "off"
+			}
 		}
 	}
 }
