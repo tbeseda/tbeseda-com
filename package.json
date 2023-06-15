@@ -28,8 +28,9 @@
 	"license": "ISC",
 	"homepage": "https://tbeseda.com",
 	"dependencies": {
-		"@architect/functions": "^6.0.0",
+		"@architect/functions": "^6.0.1",
 		"@enhance/arc-plugin-enhance": "^6.1.3",
+		"@vrite/sdk": "^2023.6.15-beta.4",
 		"feed": "^4.2.2",
 		"rss-to-json": "^2.1.1"
 	},

@@ -1,4 +1,8 @@
 import addHCards from './add-h-cards.mjs'
-import randomIcon from './random-icon.mjs'
+
+async function randomIcon(req) {
+	const emojis = ['🛻', '👢', '🎮', '🏔️', '🏕️', '🦬', '🦌', '⚾️']
+	req.icon = emojis[(emojis.length * Math.random()) | 0]
+}
 
 export default [addHCards, randomIcon]

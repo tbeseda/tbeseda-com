@@ -15,6 +15,7 @@ get /api/inbox             #      •      admin inbox log
 get /api/outbox            #      •      outbox activities
 post /api/inbox            #      •      inbound activity
 post /webmention           # inbound webmention
+post /webhooks/vrite       # vrite incoming
 
 @events
 # webmention-send
