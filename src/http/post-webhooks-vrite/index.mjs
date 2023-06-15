@@ -1,4 +1,5 @@
 import arc from '@architect/functions'
+import { createClient } from '@vrite/sdk/api'
 
 const { VRITE_KEY } = process.env
 const { things } = await arc.tables()
@@ -7,28 +8,20 @@ export async function handler({ body }) {
 	const json = JSON.parse(body)
 	const { id } = json
 
-	console.log(`Content id: ${id}`)
+	console.log(`Incoming content id: ${id}`)
 
 	if (!VRITE_KEY) throw new Error('Missing Vrite key')
+	const vrite = createClient({ token: VRITE_KEY })
 
-	const URL = [
-		'https://api.vrite.io/content-pieces',
-		'?content=true&description=text&id=',
-		id,
-	]
-
-	const response = await fetch(URL.join(''), {
-		method: 'GET',
-		headers: {
-			accept: 'application/json',
-			Authorization: `Bearer ${VRITE_KEY}`,
-		},
+	const contentPiece = await vrite.contentPieces.get({
+		id: '[CONTENT_PIECE_ID]',
+		content: true,
 	})
-	const content = await response.json()
 
 	await things.put({
-		key: `vrite:content:${content.id}`,
-		...content,
+		key: `vrite:content:${contentPiece.id}`,
+		updatedAt: new Date().toISOString(),
+		...contentPiece,
 	})
 
 	return {
