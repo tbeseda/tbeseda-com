@@ -16,7 +16,7 @@ export default function VriteIndex({ html, state: { store } }) {
 			.article > img {
 				width: 100%;
 			}
-			.article > a {
+			.article > .title {
 				font-size: 1.5rem;
 				font-weight: bold;
 			}
@@ -32,7 +32,7 @@ export default function VriteIndex({ html, state: { store } }) {
 				(article) => `
 					<div class="article">
 						<img src="${article.coverUrl}" alt="${article.coverAlt}">
-						<a href="/articles/vrite/${article.id}">${article.title}</a>
+						<a class="title" href="/articles/vrite/${article.id}">${article.title}</a>
 						<p>${article.description}</p>
 					</div>
 				`,
@@ -47,7 +47,7 @@ export default function VriteIndex({ html, state: { store } }) {
 				(article) => `
 					<div class="article">
 						<img src="${article.coverUrl}" alt="${article.coverAlt}">
-						<a href="/articles/vrite/${article.id}">${article.title}</a>
+						<a class="title" href="/articles/vrite/Drafts/${article.id}">${article.title}</a>
 						<p>${article.description}</p>
 					</div>
 				`,
@@ -62,7 +62,7 @@ export default function VriteIndex({ html, state: { store } }) {
 				(article) => `
 					<div class="article">
 						<img src="${article.coverUrl}" alt="${article.coverAlt}">
-						<a href="#">${article.title}</a>
+						<span class="title">${article.title}</span>
 						<p>${article.description}</p>
 					</div>
 				`,
