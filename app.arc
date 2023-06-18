@@ -35,6 +35,9 @@ things # misc storage
 webmentions
   targetPath *String
   name mentionsByPath
+things
+  type *String
+  name thingsByType
 
 @aws
 region us-east-1

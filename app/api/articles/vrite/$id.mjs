@@ -7,8 +7,6 @@ const { things } = await arc.tables()
 async function getHandler({ icon = '😵', hCards = [], params }) {
 	const { id } = params
 
-	if (!id) throw new Error('Missing id')
-
 	const content = await things.get({ key: `vrite:content:${id}` })
 
 	return {

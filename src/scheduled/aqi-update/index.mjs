@@ -15,6 +15,7 @@ export async function handler() {
 
 	const saved = await things.put({
 		key: 'my-aqi',
+		type: 'aqi',
 		iqAirData,
 		airNowData,
 	})

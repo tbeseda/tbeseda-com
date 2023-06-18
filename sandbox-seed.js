@@ -2,6 +2,7 @@ module.exports = {
 	things: [
 		{
 			key: 'my-aqi',
+			type: 'aqi',
 			airNowData: [
 				{
 					AQI: 58,
@@ -74,7 +75,8 @@ module.exports = {
 			},
 		},
 		{
-			key: 'vrite:content:123abc',
+			key: 'vrite:content:648a407ea2da16eedd81ef9d',
+			type: 'vrite:content',
 			canonicalLink: 'https://begin.com/blog/posts/2023-06-06-dbaas-in-lambda',
 			content: {
 				content: [
@@ -1092,6 +1094,262 @@ module.exports = {
 			slug: 'tested-database-providers-on-lambda',
 			tags: [],
 			title: 'Tested: Database Providers on Lambda',
+		},
+		{
+			key: 'vrite:content:648e584f9106221f30798432',
+			type: 'vrite:content',
+			content: {
+				content: [
+					{
+						content: [
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'Enhance builds on top of Architect.',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+								],
+								type: 'listItem',
+							},
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'Arc has some powerful (opt-in) features.',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+								],
+								type: 'listItem',
+							},
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'Enhance gets these features for free!',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+								],
+								type: 'listItem',
+							},
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'Powerful combo: Dynamo-powered cache + scheduled functions',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+								],
+								type: 'listItem',
+							},
+						],
+						type: 'bulletList',
+					},
+					{
+						content: [
+							{
+								text: 'With wildfire season well upon us in North America, it’s a good idea to keep an eye on local air quality. Let’s get some real time data from the US EPA’s AirNow program. Even with a limited API request budget, we can get snappy results by scheduling updates, caching, and refreshing data on demand. All with features already built into Enhance.',
+								type: 'text',
+							},
+						],
+						type: 'paragraph',
+					},
+					{
+						attrs: {
+							level: 2,
+						},
+						content: [
+							{
+								text: 'AirNow API',
+								type: 'text',
+							},
+						],
+						type: 'heading',
+					},
+					{
+						attrs: {
+							lang: 'plaintext',
+						},
+						content: [
+							{
+								text: 'https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=90210&API_KEY=ABC123',
+								type: 'text',
+							},
+						],
+						type: 'codeBlock',
+					},
+					{
+						content: [
+							{
+								text: 'That’s it, that’s the URL we’ll use to request the air quality index (AQI) for any given US zip code',
+								type: 'text',
+							},
+							{
+								marks: [
+									{
+										attrs: {},
+										type: 'superscript',
+									},
+								],
+								text: '1',
+								type: 'text',
+							},
+							{
+								text: '. We get back an array of one to three measurements if a weather station is found near the requested zip code.',
+								type: 'text',
+							},
+						],
+						type: 'paragraph',
+					},
+					{
+						attrs: {
+							lang: 'javascript',
+						},
+						content: [
+							{
+								text: "{\n  AQI: 58,\n  Category: {\n    Name: 'Moderate',\n    Number: 2,\n  },\n  DateObserved: '2023-06-08 ',\n  HourObserved: 10,\n  LocalTimeZone: 'MST',\n  ParameterName: 'O3',\n  ReportingArea: 'Denver-Boulder',\n  StateCode: 'CO',\n}",
+								type: 'text',
+							},
+						],
+						type: 'codeBlock',
+					},
+					{
+						content: [
+							{
+								text: 'We’ll need to keep in mind that ',
+								type: 'text',
+							},
+							{
+								marks: [
+									{
+										attrs: {
+											class: null,
+											href: 'https://docs.airnowapi.org/faq#rateLimits',
+											target: '_blank',
+										},
+										type: 'link',
+									},
+								],
+								text: 'this API limits us to 500 requests per hour',
+								type: 'text',
+							},
+							{
+								text: ', however the docs also let us know that most datapoints are updated once each hour. So if our application caches its copy of that data for 30 min, we can query 250 unique zip codes each hour - probably a good start, at least until it goes viral 😉',
+								type: 'text',
+							},
+						],
+						type: 'paragraph',
+					},
+					{
+						content: [
+							{
+								marks: [
+									{
+										attrs: {},
+										type: 'superscript',
+									},
+								],
+								text: '1',
+								type: 'text',
+							},
+							{
+								text: 'For simplicity, I’m sticking with US data, but international data is available. I recommend checking out ',
+								type: 'text',
+							},
+							{
+								marks: [
+									{
+										attrs: {
+											class: null,
+											href: 'https://api-docs.iqair.com/',
+											target: '_blank',
+										},
+										type: 'link',
+									},
+								],
+								text: 'IQAir',
+								type: 'text',
+							},
+							{
+								text: '.',
+								type: 'text',
+							},
+						],
+						type: 'paragraph',
+					},
+					{
+						attrs: {
+							level: 2,
+						},
+						content: [
+							{
+								text: 'Enhance App with DynamoDB',
+								type: 'text',
+							},
+						],
+						type: 'heading',
+					},
+					{
+						type: 'paragraph',
+					},
+					{
+						attrs: {
+							level: 2,
+						},
+						content: [
+							{
+								text: 'Add a Scheduled Function',
+								type: 'text',
+							},
+						],
+						type: 'heading',
+					},
+					{
+						type: 'paragraph',
+					},
+				],
+				type: 'doc',
+			},
+			contentGroupId: '648a4065a2da16eedd81ef9c',
+			coverUrl:
+				'https://assets.vrite.io/648a405da2da16eedd81ef95/tRhlpxDBpDuF65cW4R-XJ.jpeg',
+			coverWidth: '100%',
+			description: '<p>work in progress</p>',
+			id: '648e584f9106221f30798432',
+			locked: true,
+			members: [
+				{
+					id: '648a405da2da16eedd81ef99',
+					profile: {
+						avatar:
+							'https://assets.vrite.io/648a405da2da16eedd81ef95/5bRmAmx6WdQXcCeBkA1iD.jpeg',
+						email: 'tbeseda@gmail.com',
+						fullName: 'Taylor Beseda',
+						id: '648a405da2da16eedd81ef93',
+						username: 'tbeseda',
+					},
+				},
+			],
+			slug: 'enhance-aqi-example',
+			tags: [],
+			title: 'WIP: AQI Example',
+			updatedAt: '2023-06-18T01:35:42.531Z',
 		},
 	],
 	webmentions: [
