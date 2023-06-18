@@ -75,7 +75,7 @@ module.exports = {
 			},
 		},
 		{
-			key: 'vrite:content:648a407ea2da16eedd81ef9d',
+			key: 'content:Published:648a407ea2da16eedd81ef9d',
 			type: 'vrite:content',
 			canonicalLink: 'https://begin.com/blog/posts/2023-06-06-dbaas-in-lambda',
 			content: {
@@ -1096,7 +1096,7 @@ module.exports = {
 			title: 'Tested: Database Providers on Lambda',
 		},
 		{
-			key: 'vrite:content:648e584f9106221f30798432',
+			key: 'content:Drafts:648e584f9106221f30798432',
 			type: 'vrite:content',
 			content: {
 				content: [

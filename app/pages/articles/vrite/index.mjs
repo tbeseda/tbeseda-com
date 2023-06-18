@@ -1,8 +1,6 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function VriteIndex({ html, state: { store } }) {
-	const { articles = [] } = store
-
-	console.log('articles', articles)
+	const { published = [], drafts = [] } = store
 
 	return html`
 		<tb-header></tb-header>
@@ -12,11 +10,27 @@ export default function VriteIndex({ html, state: { store } }) {
 		<h1>Articles from Vrite.io</h1>
 
 		<ul>
-			${articles
+			${published
 				.map(
 					(article) => `
 					<li>
 						<a href="/articles/vrite/${article.id}">${article.title}</a>
+					</li>
+				`,
+				)
+				.join('')}
+		</ul>
+
+		<hr>
+
+		<h2>Drafts from Vrite.io</h2>
+
+		<ul>
+			${drafts
+				.map(
+					(article) => `
+					<li>
+						<a href="/articles/vrite/drafts/${article.id}">${article.title}</a>
 					</li>
 				`,
 				)

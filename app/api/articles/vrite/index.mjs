@@ -5,7 +5,7 @@ const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler({ icon = '😵', hCards = [] }) {
-	const query = await things.query({
+	const { Items: contentPieces } = await things.query({
 		IndexName: 'thingsByType',
 		KeyConditionExpression: '#type = :type',
 		ExpressionAttributeNames: {
@@ -16,8 +16,15 @@ async function getHandler({ icon = '😵', hCards = [] }) {
 		},
 	})
 
+	const published = contentPieces.filter((item) =>
+		item.key.startsWith('content:Published:'),
+	)
+	const drafts = contentPieces.filter((item) =>
+		item.key.startsWith('content:Drafts:'),
+	)
+
 	return {
-		json: { icon, hCards, articles: query.Items },
+		json: { icon, hCards, published, drafts },
 	}
 }
 
