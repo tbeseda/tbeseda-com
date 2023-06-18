@@ -1,41 +1,73 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function VriteIndex({ html, state: { store } }) {
-	const { published = [], drafts = [] } = store
+	const { published = [], drafts = [], ideas = [] } = store
 
 	return html`
+		<style>
+			.article {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+				margin-bottom: 1rem;
+			}
+			.article > * {
+				margin: 0;
+			}
+			.article > img {
+				width: 100%;
+			}
+			.article > a {
+				font-size: 1.5rem;
+				font-weight: bold;
+			}
+		</style>
+
 		<tb-header></tb-header>
 
 		<hr>
 
-		<h1>Articles from Vrite.io</h1>
-
-		<ul>
-			${published
-				.map(
-					(article) => `
-					<li>
+		<h1>Published</h1>
+		${published
+			.map(
+				(article) => `
+					<div class="article">
+						<img src="${article.coverUrl}" alt="${article.coverAlt}">
 						<a href="/articles/vrite/${article.id}">${article.title}</a>
-					</li>
+						<p>${article.description}</p>
+					</div>
 				`,
-				)
-				.join('')}
-		</ul>
+			)
+			.join('')}
 
 		<hr>
 
-		<h2>Drafts from Vrite.io</h2>
-
-		<ul>
-			${drafts
-				.map(
-					(article) => `
-					<li>
-						<a href="/articles/vrite/drafts/${article.id}">${article.title}</a>
-					</li>
+		<h2>Drafts</h2>
+		${drafts
+			.map(
+				(article) => `
+					<div class="article">
+						<img src="${article.coverUrl}" alt="${article.coverAlt}">
+						<a href="/articles/vrite/${article.id}">${article.title}</a>
+						<p>${article.description}</p>
+					</div>
 				`,
-				)
-				.join('')}
-		</ul>
+			)
+			.join('')}
+
+		<hr>
+
+		<h2>Ideas</h2>
+		${ideas
+			.map(
+				(article) => `
+					<div class="article">
+						<img src="${article.coverUrl}" alt="${article.coverAlt}">
+						<a href="#">${article.title}</a>
+						<p>${article.description}</p>
+					</div>
+				`,
+			)
+			.join('')}
 
 		<hr>
 

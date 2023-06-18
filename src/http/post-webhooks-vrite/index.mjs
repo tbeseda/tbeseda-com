@@ -4,21 +4,15 @@ import { createClient } from '@vrite/sdk/api'
 
 const { VRITE_KEY } = process.env
 if (!VRITE_KEY) throw new Error('Missing Vrite key')
+const syncedGroupNames = ['Ideas', 'Drafts', 'Published']
+const typeString = 'vrite:content'
 
 const { things } = await arc.tables()
 const vrite = createClient({ token: VRITE_KEY })
 
-async function deleteContent(groupName, id) {
-	try {
-		await things.delete({ key: `content:${groupName}:${id}` })
-		return true
-	} catch (error) {
-		console.log('Error deleting content', JSON.stringify(error, null, 2))
-		return false
-	}
-}
-
 async function http({ body }) {
+	// ? create event in order to respond faster
+
 	const { contentGroupId, id, title } = body
 
 	console.log(`Incoming content <${id}>: "${title}"`)
@@ -43,7 +37,7 @@ async function http({ body }) {
 
 	const contentGroupName = contentGroupsById[contentGroupId].name
 
-	console.log(`Content in group ${contentGroupName}`)
+	console.log(`Content previously in group "${contentGroupName}"`)
 
 	let contentPiece
 	try {
@@ -61,38 +55,53 @@ async function http({ body }) {
 			contentGroupsById[contentPiece.contentGroupId].name
 
 		if (currentContentGroupName) {
-			const newContent = Object.keys(contentPiece).reduce((acc, key) => {
-				const value = contentPiece[key]
-				if (value) acc[key] = value
-				return acc
-			}, {})
+			console.log(`Content currently in group "${currentContentGroupName}"`)
+			const keepContent = syncedGroupNames.includes(currentContentGroupName)
 
-			try {
-				const saved = await things.put({
-					key: `content:${currentContentGroupName}:${id}`,
-					type: 'vrite:content',
-					updatedAt: new Date().toISOString(),
-					...newContent,
-				})
+			if (keepContent) {
+				const newContent = Object.keys(contentPiece).reduce((acc, key) => {
+					const value = contentPiece[key]
+					if (value) acc[key] = value
+					return acc
+				}, {})
 
-				console.log(`Saved "${saved.key}"`)
-			} catch (err) {
-				console.log(
-					'Error saving content to db',
-					JSON.stringify(newContent, null, 2),
-					JSON.stringify(err, null, 2),
-				)
+				try {
+					const saved = await things.put({
+						key: `${typeString}:${currentContentGroupName}:${id}`,
+						type: typeString,
+						updatedAt: new Date().toISOString(),
+						...newContent,
+					})
+
+					console.log(`Saved "${saved.key}"`)
+				} catch (err) {
+					console.log(
+						'Error saving content to db',
+						JSON.stringify(newContent, null, 2),
+						JSON.stringify(err, null, 2),
+					)
+				}
+			} else {
+				console.log(`Content in "${currentContentGroupName}", not keeping`)
 			}
 
-			for (const groupName of contentGroupNames) {
-				if (groupName !== currentContentGroupName) {
-					const isDeleted = await deleteContent(groupName, id)
-					console.log(`Deleted content from ${groupName}: ${isDeleted}`)
-				}
+			// clean up other content groups
+			for (const groupName of syncedGroupNames) {
+				console.log(`Deleting content from ${groupName}`)
+
+				if (groupName !== currentContentGroupName)
+					try {
+						await things.delete({ key: `${typeString}:${groupName}:${id}` })
+					} catch (error) {
+						console.log(
+							'Error deleting content',
+							JSON.stringify(error, null, 2),
+						)
+					}
 			}
 		} else {
 			console.log(
-				'No content group found!',
+				'Unkonwn content group name',
 				JSON.stringify(contentPiece, null, 2),
 			)
 		}

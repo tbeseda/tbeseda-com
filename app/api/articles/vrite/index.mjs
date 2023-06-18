@@ -1,6 +1,7 @@
 import arc from '@architect/functions'
 import standardMiddleware from '../../../middleware/common.mjs'
 
+const typeString = 'vrite:content'
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
@@ -12,19 +13,22 @@ async function getHandler({ icon = '😵', hCards = [] }) {
 			'#type': 'type',
 		},
 		ExpressionAttributeValues: {
-			':type': 'vrite:content',
+			':type': typeString,
 		},
 	})
 
 	const published = contentPieces.filter((item) =>
-		item.key.startsWith('content:Published:'),
+		item.key.startsWith(`${typeString}:Published:`),
 	)
 	const drafts = contentPieces.filter((item) =>
-		item.key.startsWith('content:Drafts:'),
+		item.key.startsWith(`${typeString}:Drafts:`),
+	)
+	const ideas = contentPieces.filter((item) =>
+		item.key.startsWith(`${typeString}:Ideas:`),
 	)
 
 	return {
-		json: { icon, hCards, published, drafts },
+		json: { icon, hCards, published, drafts, ideas },
 	}
 }
 

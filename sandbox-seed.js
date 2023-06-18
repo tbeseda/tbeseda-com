@@ -75,7 +75,7 @@ module.exports = {
 			},
 		},
 		{
-			key: 'content:Published:648a407ea2da16eedd81ef9d',
+			key: 'vrite:content:Published:648a407ea2da16eedd81ef9d',
 			type: 'vrite:content',
 			canonicalLink: 'https://begin.com/blog/posts/2023-06-06-dbaas-in-lambda',
 			content: {
@@ -1096,7 +1096,7 @@ module.exports = {
 			title: 'Tested: Database Providers on Lambda',
 		},
 		{
-			key: 'content:Drafts:648e584f9106221f30798432',
+			key: 'vrite:content:Drafts:648e584f9106221f30798432',
 			type: 'vrite:content',
 			content: {
 				content: [
@@ -1350,6 +1350,278 @@ module.exports = {
 			tags: [],
 			title: 'WIP: AQI Example',
 			updatedAt: '2023-06-18T01:35:42.531Z',
+		},
+		{
+			key: 'vrite:content:Ideas:648e7f6e9106221f3079843f',
+			type: 'vrite:content',
+			content: {
+				content: [
+					{
+						attrs: {
+							start: 1,
+						},
+						content: [
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'Roll a new Enhance app with an item for sale',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+								],
+								type: 'listItem',
+							},
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'Set up Stripe',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+									{
+										attrs: {
+											start: 1,
+										},
+										content: [
+											{
+												content: [
+													{
+														content: [
+															{
+																text: 'Product with payment link in Test Mode. Copy.',
+																type: 'text',
+															},
+														],
+														type: 'paragraph',
+													},
+												],
+												type: 'listItem',
+											},
+											{
+												content: [
+													{
+														content: [
+															{
+																text: 'Endpoints for confirmation.',
+																type: 'text',
+															},
+														],
+														type: 'paragraph',
+													},
+												],
+												type: 'listItem',
+											},
+											{
+												content: [
+													{
+														content: [
+															{
+																text: 'Duplicate to Production Mode.',
+																type: 'text',
+															},
+														],
+														type: 'paragraph',
+													},
+												],
+												type: 'listItem',
+											},
+											{
+												content: [
+													{
+														content: [
+															{
+																text: 'Copy the keys.',
+																type: 'text',
+															},
+														],
+														type: 'paragraph',
+													},
+												],
+												type: 'listItem',
+											},
+										],
+										type: 'orderedList',
+									},
+								],
+								type: 'listItem',
+							},
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'Update Enhance app',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+									{
+										attrs: {
+											start: 1,
+										},
+										content: [
+											{
+												content: [
+													{
+														content: [
+															{
+																text: 'Add link to purchase button',
+																type: 'text',
+															},
+														],
+														type: 'paragraph',
+													},
+												],
+												type: 'listItem',
+											},
+											{
+												content: [
+													{
+														content: [
+															{
+																text: 'Create confirmation route',
+																type: 'text',
+															},
+														],
+														type: 'paragraph',
+													},
+												],
+												type: 'listItem',
+											},
+										],
+										type: 'orderedList',
+									},
+								],
+								type: 'listItem',
+							},
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'Back to Stripe',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+									{
+										attrs: {
+											start: 1,
+										},
+										content: [
+											{
+												content: [
+													{
+														content: [
+															{
+																text: 'Checkout completed webhook',
+																type: 'text',
+															},
+														],
+														type: 'paragraph',
+													},
+												],
+												type: 'listItem',
+											},
+										],
+										type: 'orderedList',
+									},
+								],
+								type: 'listItem',
+							},
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'Augment Enhance app',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+									{
+										attrs: {
+											start: 1,
+										},
+										content: [
+											{
+												content: [
+													{
+														content: [
+															{
+																text: 'Add API for webhook',
+																type: 'text',
+															},
+														],
+														type: 'paragraph',
+													},
+												],
+												type: 'listItem',
+											},
+											{
+												content: [
+													{
+														content: [
+															{
+																text: 'Send an email or similar',
+																type: 'text',
+															},
+														],
+														type: 'paragraph',
+													},
+												],
+												type: 'listItem',
+											},
+										],
+										type: 'orderedList',
+									},
+								],
+								type: 'listItem',
+							},
+						],
+						type: 'orderedList',
+					},
+					{
+						content: [],
+						type: 'paragraph',
+					},
+				],
+				type: 'doc',
+			},
+			contentGroupId: '648f3bae2af481ed2909d69a',
+			coverUrl:
+				'https://assets.vrite.io/648a405da2da16eedd81ef95/pIZeRTKty3u9KSv3ln52g.jpeg',
+			coverWidth: '100%',
+			description: 'work in progress',
+			id: '648e7f6e9106221f3079843f',
+			members: [
+				{
+					id: '648a405da2da16eedd81ef99',
+					profile: {
+						avatar:
+							'https://assets.vrite.io/648a405da2da16eedd81ef95/5bRmAmx6WdQXcCeBkA1iD.jpeg',
+						email: 'tbeseda@gmail.com',
+						fullName: 'Taylor Beseda',
+						id: '648a405da2da16eedd81ef93',
+						username: 'tbeseda',
+					},
+				},
+			],
+			slug: 'enhance-with-stripe-checkout',
+			tags: [],
+			title: 'Enhance with Stripe Checkout',
+			updatedAt: '2023-06-18T18:23:11.576Z',
 		},
 	],
 	webmentions: [
