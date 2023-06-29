@@ -79,994 +79,1301 @@ module.exports = {
 			type: 'vrite:content',
 			canonicalLink: 'https://begin.com/blog/posts/2023-06-06-dbaas-in-lambda',
 			content: {
+				type: 'doc',
 				content: [
 					{
+						type: 'paragraph',
 						content: [
 							{
+								type: 'text',
 								text: 'The last couple years have seen the rise of third party database providers, Database as a Service (DBaaS).',
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
+								type: 'text',
 								text: 'Instead of hosting your database on the same box as your primary application server, developers can use an external db host.',
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
+								type: 'text',
 								text: 'Often called "serverless" databases, these offerings offload the responsibility of maintaining a database appliance.',
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
-								text: 'Providers also often offer useful dashboards, data browsing, branching, schema versioning, and more.',
 								type: 'text',
+								text: 'Providers also often offer useful dashboards, data browsing, branching, schema versioning, and more.',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'heading',
+						content: [
+							{
+								type: 'text',
+								text: 'Selecting a Database',
+							},
+						],
 						attrs: {
 							level: 2,
 						},
-						content: [
-							{
-								text: 'Selecting a Database',
-								type: 'text',
-							},
-						],
-						type: 'heading',
 					},
 					{
-						content: [
-							{
-								text: 'When adding a data layer to any application, choosing a database type, engine, and, now, provider is an important choice.',
-								type: 'text',
-							},
-						],
 						type: 'paragraph',
+						content: [
+							{
+								type: 'text',
+								text: 'When adding a data layer to any application, choosing a database type, engine, and, now, provider is an important choice.',
+							},
+						],
 					},
 					{
+						type: 'heading',
+						content: [
+							{
+								type: 'text',
+								text: 'Database Paradigm + Speed',
+							},
+						],
 						attrs: {
 							level: 3,
 						},
-						content: [
-							{
-								text: 'Database Paradigm + Speed',
-								type: 'text',
-							},
-						],
-						type: 'heading',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
+								type: 'text',
 								text: 'Probably the most important factor when choosing a database is deciding on "relational" tables like SQL or "document" storage, often called NoSQL.',
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
+								type: 'text',
 								text: "But for this experiment, we'll set that aside and focus on the second most important consideration: access speed.",
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
-								text: "Specifically, we'll look at how fast the simplest queries are from a Lambda (deployed to AWS with the vanilla Node.js runtime) to various third party db vendors.",
 								type: 'text',
+								text: "Specifically, we'll look at how fast the simplest queries are from a Lambda (deployed to AWS with the vanilla Node.js runtime) to various third party db vendors.",
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'heading',
+						content: [
+							{
+								type: 'text',
+								text: 'The Tests',
+							},
+						],
 						attrs: {
 							level: 2,
 						},
-						content: [
-							{
-								text: 'The Tests',
-								type: 'text',
-							},
-						],
-						type: 'heading',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
-								text: "I've created an ",
 								type: 'text',
+								text: "I've created an ",
 							},
 							{
+								type: 'text',
+								text: 'Architect',
 								marks: [
 									{
+										type: 'link',
 										attrs: {
 											class: null,
 											href: 'https://arc.codes',
 											target: '_blank',
 										},
-										type: 'link',
 									},
 								],
-								text: 'Architect',
-								type: 'text',
 							},
 							{
+								type: 'text',
 								text: " application (hosted on Begin) that's made up of several functions: one for testing each provider and one to provide a web view of embedded ",
-								type: 'text',
 							},
 							{
+								type: 'text',
+								text: '<iframes>',
 								marks: [
 									{
-										attrs: {},
 										type: 'code',
+										attrs: {},
 									},
 								],
-								text: '<iframes>',
-								type: 'text',
 							},
 							{
-								text: ' with the results of each.',
 								type: 'text',
+								text: ' with the results of each.',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
-								text: 'Each test implementation performs essentially the same query:',
 								type: 'text',
+								text: 'Each test implementation performs essentially the same query:',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'codeBlock',
+						content: [
+							{
+								type: 'text',
+								text: 'SELECT * FROM things',
+							},
+						],
 						attrs: {
 							lang: 'sql',
 						},
-						content: [
-							{
-								text: 'SELECT * FROM things',
-								type: 'text',
-							},
-						],
-						type: 'codeBlock',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
-								text: 'The code and more technical explanation is available on ',
 								type: 'text',
+								text: 'The code and more technical explanation is available on ',
 							},
 							{
+								type: 'text',
+								text: 'the actual test page',
 								marks: [
 									{
+										type: 'link',
 										attrs: {
 											class: null,
 											href: 'https://awaken-un3.begin.app/',
 											target: '_blank',
 										},
-										type: 'link',
 									},
 								],
-								text: 'the actual test page',
-								type: 'text',
 							},
 							{
-								text: ':',
 								type: 'text',
+								text: ':',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'image',
 						attrs: {
 							alt: 'sample data',
-							src: 'https://assets.vrite.io/648a405da2da16eedd81ef95/cZ1CBRoHvvOzzSboefT6f.png',
 							width: '100%',
+							src: 'https://assets.vrite.io/648a405da2da16eedd81ef95/cZ1CBRoHvvOzzSboefT6f.png',
 						},
-						type: 'image',
 					},
 					{
+						type: 'heading',
+						content: [
+							{
+								type: 'text',
+								text: 'Sampled Speeds',
+							},
+						],
 						attrs: {
 							level: 3,
 						},
-						content: [
-							{
-								text: 'Sampled Speeds',
-								type: 'text',
-							},
-						],
-						type: 'heading',
 					},
 					{
+						type: 'table',
 						content: [
 							{
-								text: '| Provider | Driver | Approx. Query Time |',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: '|---|---|---|',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: '| ',
-								type: 'text',
-							},
-							{
-								marks: [
+								type: 'tableRow',
+								content: [
 									{
+										type: 'tableHeader',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'Provider',
+													},
+												],
+											},
+										],
 										attrs: {
-											class: null,
-											href: 'https://neon.tech',
-											target: '_blank',
+											colspan: 1,
+											rowspan: 1,
 										},
-										type: 'link',
 									},
-								],
-								text: 'Neon',
-								type: 'text',
-							},
-							{
-								text: ' ',
-								type: 'text',
-							},
-							{
-								marks: [
 									{
-										attrs: {},
-										type: 'superscript',
+										type: 'tableHeader',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'Driver',
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableHeader',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'Approx. Query Time',
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
 									},
 								],
+							},
+							{
+								type: 'tableRow',
+								content: [
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'Neon',
+														marks: [
+															{
+																type: 'link',
+																attrs: {
+																	class: null,
+																	href: 'https://neon.tech',
+																	target: '_blank',
+																},
+															},
+														],
+													},
+													{
+														type: 'text',
+														text: ' ',
+													},
+													{
+														type: 'text',
+														text: '1',
+														marks: [
+															{
+																type: 'superscript',
+																attrs: {},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'postgres',
+														marks: [
+															{
+																type: 'code',
+																attrs: {},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: '300ms',
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+								],
+							},
+							{
+								type: 'tableRow',
+								content: [
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: '@neondatabase/serverless',
+														marks: [
+															{
+																type: 'code',
+																attrs: {},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: '100ms',
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+								],
+							},
+							{
+								type: 'tableRow',
+								content: [
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'Supabase',
+														marks: [
+															{
+																type: 'link',
+																attrs: {
+																	class: null,
+																	href: 'https://supabase.com',
+																	target: '_blank',
+																},
+															},
+														],
+													},
+													{
+														type: 'text',
+														text: ' ',
+													},
+													{
+														type: 'text',
+														text: '2',
+														marks: [
+															{
+																type: 'superscript',
+																attrs: {},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'postgres',
+														marks: [
+															{
+																type: 'code',
+																attrs: {},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: '450ms',
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+								],
+							},
+							{
+								type: 'tableRow',
+								content: [
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'REST API via ',
+													},
+													{
+														type: 'text',
+														text: 'fetch',
+														marks: [
+															{
+																type: 'code',
+																attrs: {},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: '25',
+														marks: [
+															{
+																type: 'highlight',
+																attrs: {},
+															},
+														],
+													},
+													{
+														type: 'text',
+														text: ' - 375ms',
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+								],
+							},
+							{
+								type: 'tableRow',
+								content: [
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'PlanetScale',
+														marks: [
+															{
+																type: 'link',
+																attrs: {
+																	class: null,
+																	href: 'https://planetscale.com',
+																	target: '_blank',
+																},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'mysql2',
+														marks: [
+															{
+																type: 'code',
+																attrs: {},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: '125ms',
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+								],
+							},
+							{
+								type: 'tableRow',
+								content: [
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: '@planetscale/database',
+														marks: [
+															{
+																type: 'code',
+																attrs: {},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: '25',
+														marks: [
+															{
+																type: 'highlight',
+																attrs: {},
+															},
+														],
+													},
+													{
+														type: 'text',
+														text: ' - 150ms',
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+								],
+							},
+							{
+								type: 'tableRow',
+								content: [
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'MongoDB',
+														marks: [
+															{
+																type: 'link',
+																attrs: {
+																	class: null,
+																	href: 'https://mongodb.com',
+																	target: '_blank',
+																},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'mongodb',
+														marks: [
+															{
+																type: 'code',
+																attrs: {},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: '725ms',
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+								],
+							},
+							{
+								type: 'tableRow',
+								content: [
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: 'DynamoDB',
+														marks: [
+															{
+																type: 'link',
+																attrs: {
+																	class: null,
+																	href: 'https://aws.amazon.com/dynamodb/',
+																	target: '_blank',
+																},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: '@architect/functions',
+														marks: [
+															{
+																type: 'code',
+																attrs: {},
+															},
+														],
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+									{
+										type: 'tableCell',
+										content: [
+											{
+												type: 'paragraph',
+												content: [
+													{
+														type: 'text',
+														text: '10',
+														marks: [
+															{
+																type: 'highlight',
+																attrs: {},
+															},
+														],
+													},
+													{
+														type: 'text',
+														text: 'ms',
+													},
+												],
+											},
+										],
+										attrs: {
+											colspan: 1,
+											rowspan: 1,
+										},
+									},
+								],
+							},
+						],
+					},
+					{
+						type: 'paragraph',
+						content: [
+							{
+								type: 'text',
 								text: '1',
-								type: 'text',
-							},
-							{
-								text: ' | ',
-								type: 'text',
-							},
-							{
 								marks: [
 									{
-										attrs: {},
-										type: 'code',
-									},
-								],
-								text: 'postgres',
-								type: 'text',
-							},
-							{
-								text: ' | 300ms |',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: '| | ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'code',
-									},
-								],
-								text: '@neondatabase/serverless',
-								type: 'text',
-							},
-							{
-								text: ' | 100ms |',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: '| ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {
-											class: null,
-											href: 'https://supabase.com',
-											target: '_blank',
-										},
-										type: 'link',
-									},
-								],
-								text: 'Supabase',
-								type: 'text',
-							},
-							{
-								text: ' ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
 										type: 'superscript',
-									},
-								],
-								text: '2',
-								type: 'text',
-							},
-							{
-								text: ' | ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
 										attrs: {},
-										type: 'code',
 									},
 								],
-								text: 'postgres',
-								type: 'text',
 							},
 							{
-								text: ' | 450ms |',
 								type: 'text',
+								text: ' This does not include the cold start.',
 							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: '| | REST API via ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'code',
-									},
-								],
-								text: 'fetch',
-								type: 'text',
-							},
-							{
-								text: ' | ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'highlight',
-									},
-								],
-								text: '25',
-								type: 'text',
-							},
-							{
-								text: ' - 375ms |',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: '| ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {
-											class: null,
-											href: 'https://planetscale.com',
-											target: '_blank',
-										},
-										type: 'link',
-									},
-								],
-								text: 'PlanetScale',
-								type: 'text',
-							},
-							{
-								text: ' | ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'code',
-									},
-								],
-								text: 'mysql2',
-								type: 'text',
-							},
-							{
-								text: ' | 125ms |',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: '| | ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'code',
-									},
-								],
-								text: '@planetscale/database',
-								type: 'text',
-							},
-							{
-								text: ' | ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'highlight',
-									},
-								],
-								text: '25',
-								type: 'text',
-							},
-							{
-								text: ' - 150ms |',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: '| ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {
-											class: null,
-											href: 'https://mongodb.com',
-											target: '_blank',
-										},
-										type: 'link',
-									},
-								],
-								text: 'MongoDB',
-								type: 'text',
-							},
-							{
-								text: ' | ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'code',
-									},
-								],
-								text: 'mongodb',
-								type: 'text',
-							},
-							{
-								text: ' | 725ms |',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: '| ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {
-											class: null,
-											href: 'https://aws.amazon.com/dynamodb/',
-											target: '_blank',
-										},
-										type: 'link',
-									},
-								],
-								text: 'DynamoDB',
-								type: 'text',
-							},
-							{
-								text: ' | ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'code',
-									},
-								],
-								text: '@architect/functions',
-								type: 'text',
-							},
-							{
-								text: ' | ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'highlight',
-									},
-								],
-								text: '10',
-								type: 'text',
-							},
-							{
-								text: 'ms |',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
 							{
 								type: 'hardBreak',
 							},
 							{
-								marks: [
-									{
-										attrs: {},
-										type: 'superscript',
-									},
-								],
-								text: '1',
 								type: 'text',
-							},
-							{
-								text: ' This does not include the cold start.',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
 								text: 'The "wake" time can exceed 5s (5,000ms), but once active is 0.',
-								type: 'text',
 							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
 							{
+								type: 'hardBreak',
+							},
+							{
+								type: 'text',
 								text: 'Neon is in early access and is working on various (paid) ways to manage this penalty.',
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
-								marks: [
-									{
-										attrs: {},
-										type: 'superscript',
-									},
-								],
+								type: 'text',
 								text: '2',
-								type: 'text',
+								marks: [
+									{
+										type: 'superscript',
+										attrs: {},
+									},
+								],
 							},
 							{
+								type: 'text',
 								text: " Supabase's ",
-								type: 'text',
 							},
 							{
-								marks: [
-									{
-										attrs: {},
-										type: 'code',
-									},
-								],
+								type: 'text',
 								text: '@supabase/supabase-js',
-								type: 'text',
+								marks: [
+									{
+										type: 'code',
+										attrs: {},
+									},
+								],
 							},
 							{
-								text: " was not tested as it requires a build step on install (my CD environment, Lambda, doesn't have node-gyp).",
 								type: 'text',
+								text: " was not tested as it requires a build step on install (my CD environment, Lambda, doesn't have node-gyp). ",
 							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
 							{
+								type: 'hardBreak',
+							},
+							{
+								type: 'text',
 								text: 'I expect it would perform similarly to their REST API.',
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
-						attrs: {
-							level: 3,
-						},
+						type: 'heading',
 						content: [
 							{
+								type: 'text',
 								text: 'Regional Differences',
-								type: 'text',
 							},
 						],
-						type: 'heading',
-					},
-					{
-						content: [
-							{
-								text: 'The above sampling is for tests where the database provider is ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'italic',
-									},
-								],
-								text: 'always',
-								type: 'text',
-							},
-							{
-								text: ' in a different US region from the Lambdas that connect to them.',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: 'The only provider sharing a region with the Lambda is Dynamo since both resources will naturally be created in the same AWS region.',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'bold',
-									},
-								],
-								text: 'All providers get a significant speed boost',
-								type: 'text',
-							},
-							{
-								text: ' when in the same region as your Lambda and using the "native" driver.',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: 'For example, when both Lambda and Supabase are in ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'code',
-									},
-								],
-								text: 'us-east-1',
-								type: 'text',
-							},
-							{
-								text: ', the same query with ',
-								type: 'text',
-							},
-							{
-								marks: [
-									{
-										attrs: {},
-										type: 'code',
-									},
-								],
-								text: 'postgres',
-								type: 'text',
-							},
-							{
-								text: ' takes ~50ms: 9x faster 🔥',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
-						content: [
-							{
-								text: '(Limited tests were conducted in shared regions but are not demonstrated live.)',
-								type: 'text',
-							},
-						],
-						type: 'paragraph',
-					},
-					{
 						attrs: {
 							level: 3,
 						},
-						content: [
-							{
-								text: 'Considerations',
-								type: 'text',
-							},
-						],
-						type: 'heading',
 					},
 					{
-						content: [
-							{
-								text: 'These tests do not:',
-								type: 'text',
-							},
-						],
 						type: 'paragraph',
-					},
-					{
 						content: [
 							{
-								content: [
-									{
-										content: [
-											{
-												text: 'attempt to pool or keep-alive connections',
-												type: 'text',
-											},
-										],
-										type: 'paragraph',
-									},
-								],
-								type: 'listItem',
+								type: 'text',
+								text: 'The above sampling is for tests where the database provider is ',
 							},
 							{
-								content: [
+								type: 'text',
+								text: 'always',
+								marks: [
 									{
-										content: [
-											{
-												text: 'snapshot results or track variance over time',
-												type: 'text',
-											},
-										],
-										type: 'paragraph',
+										type: 'italic',
+										attrs: {},
 									},
 								],
-								type: 'listItem',
 							},
 							{
-								content: [
-									{
-										content: [
-											{
-												text: 'test subsequent queries',
-												type: 'text',
-											},
-										],
-										type: 'paragraph',
-									},
-								],
-								type: 'listItem',
-							},
-							{
-								content: [
-									{
-										content: [
-											{
-												text: 'use a large dataset or a variety of DB operations',
-												type: 'text',
-											},
-										],
-										type: 'paragraph',
-									},
-								],
-								type: 'listItem',
-							},
-							{
-								content: [
-									{
-										content: [
-											{
-												text: 'thoroughly consider resource regions',
-												type: 'text',
-											},
-										],
-										type: 'paragraph',
-									},
-								],
-								type: 'listItem',
+								type: 'text',
+								text: ' in a different US region from the Lambdas that connect to them.',
 							},
 						],
-						type: 'bulletList',
 					},
 					{
+						type: 'paragraph',
+						content: [
+							{
+								type: 'text',
+								text: 'The only provider sharing a region with the Lambda is Dynamo since both resources will naturally be created in the same AWS region.',
+							},
+						],
+					},
+					{
+						type: 'paragraph',
+						content: [
+							{
+								type: 'text',
+								text: 'All providers get a significant speed boost',
+								marks: [
+									{
+										type: 'bold',
+										attrs: {},
+									},
+								],
+							},
+							{
+								type: 'text',
+								text: ' when in the same region as your Lambda and using the "native" driver.',
+							},
+						],
+					},
+					{
+						type: 'paragraph',
+						content: [
+							{
+								type: 'text',
+								text: 'For example, when both Lambda and Supabase are in ',
+							},
+							{
+								type: 'text',
+								text: 'us-east-1',
+								marks: [
+									{
+										type: 'code',
+										attrs: {},
+									},
+								],
+							},
+							{
+								type: 'text',
+								text: ', the same query with ',
+							},
+							{
+								type: 'text',
+								text: 'postgres',
+								marks: [
+									{
+										type: 'code',
+										attrs: {},
+									},
+								],
+							},
+							{
+								type: 'text',
+								text: ' takes ~50ms: 9x faster 🔥',
+							},
+						],
+					},
+					{
+						type: 'paragraph',
+						content: [
+							{
+								type: 'text',
+								text: '(Limited tests were conducted in shared regions but are not demonstrated live.)',
+							},
+						],
+					},
+					{
+						type: 'heading',
+						content: [
+							{
+								type: 'text',
+								text: 'Considerations',
+							},
+						],
+						attrs: {
+							level: 3,
+						},
+					},
+					{
+						type: 'paragraph',
+						content: [
+							{
+								type: 'text',
+								text: 'These tests do not:',
+							},
+						],
+					},
+					{
+						type: 'bulletList',
+						content: [
+							{
+								type: 'listItem',
+								content: [
+									{
+										type: 'paragraph',
+										content: [
+											{
+												type: 'text',
+												text: 'attempt to pool or keep-alive connections',
+											},
+										],
+									},
+								],
+							},
+							{
+								type: 'listItem',
+								content: [
+									{
+										type: 'paragraph',
+										content: [
+											{
+												type: 'text',
+												text: 'snapshot results or track variance over time',
+											},
+										],
+									},
+								],
+							},
+							{
+								type: 'listItem',
+								content: [
+									{
+										type: 'paragraph',
+										content: [
+											{
+												type: 'text',
+												text: 'test subsequent queries',
+											},
+										],
+									},
+								],
+							},
+							{
+								type: 'listItem',
+								content: [
+									{
+										type: 'paragraph',
+										content: [
+											{
+												type: 'text',
+												text: 'use a large dataset or a variety of DB operations',
+											},
+										],
+									},
+								],
+							},
+							{
+								type: 'listItem',
+								content: [
+									{
+										type: 'paragraph',
+										content: [
+											{
+												type: 'text',
+												text: 'thoroughly consider resource regions',
+											},
+										],
+									},
+								],
+							},
+						],
+					},
+					{
+						type: 'heading',
+						content: [
+							{
+								type: 'text',
+								text: 'Conclusions',
+							},
+						],
 						attrs: {
 							level: 2,
 						},
-						content: [
-							{
-								text: 'Conclusions',
-								type: 'text',
-							},
-						],
-						type: 'heading',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
+								type: 'text',
 								text: "Not surprisingly, AWS's own DynamoDB is the fastest way to query data from a Lambda-based application.",
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
+								type: 'text',
 								text: "Its repeatable 10ms query latency is 2.5 times better than the closest competitor's best results.",
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
-								text: "We acknowledge that it may be intimidating to get started with a NoSQL database, and that's why we provide ",
 								type: 'text',
+								text: "We acknowledge that it may be intimidating to get started with a NoSQL database, and that's why we provide ",
 							},
 							{
+								type: 'text',
+								text: '`@begin/data`',
 								marks: [
 									{
+										type: 'link',
 										attrs: {
 											class: null,
 											href: 'https://www.npmjs.com/package/@begin/data',
 											target: '_blank',
 										},
-										type: 'link',
 									},
 								],
-								text: '`@begin/data`',
-								type: 'text',
 							},
 							{
-								text: ' as an abstraction layer on top of DynamoDB.',
 								type: 'text',
+								text: ' as an abstraction layer on top of DynamoDB.',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
-								text: 'For folks who want to learn more about DynamoDB we recommend ',
 								type: 'text',
+								text: 'For folks who want to learn more about DynamoDB we recommend ',
 							},
 							{
+								type: 'text',
+								text: "Alex DeBrie's The DynamoDB Book",
 								marks: [
 									{
+										type: 'link',
 										attrs: {
 											class: null,
 											href: 'https://www.dynamodbbook.com/',
 											target: '_blank',
 										},
-										type: 'link',
 									},
 								],
-								text: "Alex DeBrie's The DynamoDB Book",
-								type: 'text',
 							},
 							{
+								type: 'text',
 								text: '.',
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
+								type: 'text',
 								text: 'That said, all tested provider queries are less than half a second (except MongoDB - however, their paid tiers do reach that 500ms threshold)!',
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
+								type: 'text',
 								text: 'Ultimately any database is better than no database.',
-								type: 'text',
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
-								text: "Don't be paralyzed or resort to throwing the kitchen sink at the problem. Pick one and get to building the initial implementation.",
 								type: 'text',
+								text: "Don't be paralyzed or resort to throwing the kitchen sink at the problem. Pick one and get to building the initial implementation.",
 							},
 						],
-						type: 'paragraph',
 					},
 					{
+						type: 'paragraph',
 						content: [
 							{
 								type: 'hardBreak',
 							},
 						],
-						type: 'paragraph',
 					},
 				],
-				type: 'doc',
 			},
 			contentGroupId: '648a4065a2da16eedd81ef9c',
 			coverAlt: '',

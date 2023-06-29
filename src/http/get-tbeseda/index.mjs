@@ -3,7 +3,7 @@ import arc from '@architect/functions'
 async function http(request) {
 	const { headers } = request
 
-	if ('aaccept' in headers) {
+	if ('accept' in headers) {
 		const { accept } = headers
 
 		if (accept?.split(',').indexOf('text/html') > -1) {
