@@ -17,6 +17,9 @@ post /api/inbox            #      •      inbound activity
 post /webmention           # inbound webmention
 post /webhooks/vrite       # vrite incoming
 
+@bundles
+xterm './node_modules/xterm/css/xterm.css'
+
 @events
 # webmention-send
 webmention-receive

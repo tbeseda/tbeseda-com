@@ -3,6 +3,8 @@ node_modules/
 sam.*
 
 .enhance/
+public/bundles/
+public/browser/
 public/static.json
 public/style.css
 app/_data/

@@ -30,9 +30,11 @@
 	"dependencies": {
 		"@architect/functions": "^6.0.1",
 		"@enhance/arc-plugin-enhance": "^6.1.5",
-		"@vrite/sdk": "^2023.6.27-beta",
+		"@vrite/sdk": "^2023.6.30-beta",
 		"feed": "^4.2.2",
-		"rss-to-json": "^2.1.1"
+		"rss-to-json": "^2.1.1",
+		"xterm": "^5.2.1",
+		"xterm-addon-webgl": "^0.15.0"
 	},
 	"devDependencies": {
 		"@architect/architect": "^10.12.6",
