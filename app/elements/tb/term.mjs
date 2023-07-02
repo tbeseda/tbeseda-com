@@ -15,12 +15,34 @@ export default function TbTerm({ html, state: { store } }) {
 					super()
 
 					this.term = new SimpleXterm({
-						prompt: '${userIp}' + '@\x1B[1;3;31mtbeseda.com\x1B[0m > ',
+						user: '${userIp}',
+						host: 'tbeseda.com',
+						symbol: '> ',
 						elem: this.querySelector('tb-xterm'),
 					})
 				}
+
 				connectedCallback() {
-					this.term.init()
+					const commands = {
+						help() {
+							return ['Available commands:', ...Object.keys(this)]
+						},
+						ls() {
+							return ['index.html', 'index.js', 'index.css']
+						},
+						whoami() {
+							return ['${userIp}']
+						},
+						pwd() {
+							return [window.location.pathname]
+						},
+						nick: ({ args }) => {
+							if (args.length === 0) return ['nick: missing new nickname']
+							this.term.setUser(args[0])
+							return ['Changed nick to ' + args[0]]
+						}
+					}
+					this.term.init(commands)
 				}
 			}
 

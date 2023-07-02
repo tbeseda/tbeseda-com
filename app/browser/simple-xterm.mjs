@@ -1,28 +1,82 @@
-import xterm from 'xterm'
-import webglAddon from 'xterm-addon-webgl'
+import chalk from 'chalk'
+import { Terminal } from 'xterm'
+import { Readline } from 'xterm-readline'
 
 export class SimpleXterm {
-	constructor({ prompt, elem }) {
-		this.prompt = prompt || '> '
+	constructor({
+		elem,
+		user = '👻',
+		host = 'localhost',
+		symbol = '> ',
+		options = { cursorBlink: true },
+	}) {
+		if (!elem) throw new Error('No terminal element')
+
+		this.term = new Terminal(options)
+		this.rl = new Readline()
+
 		this.elem = elem
+		this.line = ''
+		this.prevLines = []
+		this.user = user
+		this.host = host
+		this.symbol = symbol
+		this.ps1 = symbol
+		this.setPs1()
 	}
 
-	init() {
-		if (!this.elem) throw new Error('No terminal element')
+	setPs1() {
+		this.ps1 = [
+			chalk.blueBright(this.user),
+			'@',
+			chalk.greenBright(this.host),
+			' ',
+			chalk.yellow(this.symbol),
+		].join('')
+	}
 
-		/** @type {import("xterm").Terminal} */
-		const term = new xterm.Terminal()
-		term.open(this.elem)
-		term.loadAddon(new webglAddon.WebglAddon())
-		term.write(this.prompt)
+	setUser(user) {
+		this.user = user
+		this.setPs1()
+	}
 
-		term.onKey((e) => {
-			console.log(e.key)
-			if (e.key === '\r') {
-				term.write(`\r\n${this.prompt}`)
+	write(text) {
+		this.rl.println(text)
+	}
+
+	async run(cmd) {
+		const [cmdName, ...args] = cmd.split(' ')
+
+		try {
+			const result = await this.commands[cmdName]({ args })
+			if (result) result.forEach(this.write.bind(this))
+		} catch (error) {
+			if (error instanceof TypeError) {
+				this.write(`command not found: ${cmdName}`)
 			} else {
-				term.write(e.key)
+				console.log(error)
+				this.write(`${error.message}}`)
 			}
-		})
+		}
+
+		this.write('')
+	}
+
+	async processLine(text) {}
+
+	async readLine() {
+		const text = await this.rl.read(this.ps1)
+		await this.run(text)
+		setTimeout(this.readLine.bind(this)) // tick
+	}
+
+	init(commands) {
+		this.commands = commands
+		this.term.loadAddon(this.rl)
+		this.term.open(this.elem)
+
+		this.write('Welcome!\r\n')
+		this.term.focus()
+		this.readLine()
 	}
 }
