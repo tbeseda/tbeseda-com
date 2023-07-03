@@ -33,11 +33,10 @@ export default function Head(state) {
 				body {
 					background-color: #efefef;
 					color: #333;
-					font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+					font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
 					font-size: 1.1rem;
 				}
 				h1, h2, h3, h4, h5, h6 {
-					font-family: system-ui, sans-serif;
 					font-weight: 600;
 				}
 				a {
@@ -53,6 +52,25 @@ export default function Head(state) {
 
 				pre {
 					border: none;
+				}
+
+				code {
+					font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+					color: aliceblue;
+				}
+
+				kbd {
+					display: inline-block;
+					min-width: 0.75rem;
+					margin: 0 0.2rem;
+					padding: 0.2rem 0.3rem 0.1rem;
+					border: 1px solid rgb(204, 204, 204);
+					border-radius: 0.25rem;
+					font-size: 0.8rem;
+					line-height: 1;
+					color: #333;
+					background-color: #eee;
+					text-shadow: 0 1px 0 #fff;
 				}
 
 				@media (prefers-color-scheme: dark) {

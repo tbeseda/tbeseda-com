@@ -43,7 +43,7 @@ export default function VriteIndex({ html, state: { store } }) {
 		<h1>Published:</h1>
 		${published
 			.map(
-				(article) => `
+				(article) => /*html*/ `
 					<div class="article">
 						<img src="${article.coverUrl}" alt="${article.coverAlt}">
 						<a class="title" href="/articles/vrite/${article.id}">${article.title}</a>
@@ -56,7 +56,7 @@ export default function VriteIndex({ html, state: { store } }) {
 		<h2>Drafts:</h2>
 		${drafts
 			.map(
-				(article) => `
+				(article) => /*html*/ `
 					<div class="article">
 						<img src="${article.coverUrl}" alt="${article.coverAlt}">
 						<a class="title" href="/articles/vrite/Drafts/${article.id}">${article.title}</a>
@@ -69,7 +69,7 @@ export default function VriteIndex({ html, state: { store } }) {
 		<h2>Ideas:</h2>
 		${ideas
 			.map(
-				(article) => `
+				(article) => /*html*/ `
 					<div class="article">
 						<img src="${article.coverUrl}" alt="${article.coverAlt}">
 						<span class="title">${article.title}</span>

@@ -33,6 +33,9 @@ webmentions
   targetPath **String
 things # misc storage
   key *String
+articles
+  articleID *String
+  ttl TTL
 
 @tables-indexes
 webmentions
