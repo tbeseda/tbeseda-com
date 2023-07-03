@@ -26,7 +26,21 @@ export default function VriteIndex({ html, state: { store } }) {
 
 		<hr>
 
-		<h1>Published</h1>
+		<p>
+			This is an experiment with Vrite.io where I have copied a few articles
+			from my contributions to <a href="https://begin.com/blog">Begin.com/blog</a>.
+		</p>
+		<p>
+			Vrite sends webhooks when content is moved to Published, Drafts, or Ideas.
+			The content is then fetched and stored in DynamoDB for quick retrieval and display here.
+		</p>
+		<p>See an early version in action below:</p>
+
+		<iframe width="614" height="345" src="https://www.youtube-nocookie.com/embed/HNYgy9CCdIU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+		<hr>
+
+		<h1>Published:</h1>
 		${published
 			.map(
 				(article) => `
@@ -39,9 +53,7 @@ export default function VriteIndex({ html, state: { store } }) {
 			)
 			.join('')}
 
-		<hr>
-
-		<h2>Drafts</h2>
+		<h2>Drafts:</h2>
 		${drafts
 			.map(
 				(article) => `
@@ -54,9 +66,7 @@ export default function VriteIndex({ html, state: { store } }) {
 			)
 			.join('')}
 
-		<hr>
-
-		<h2>Ideas</h2>
+		<h2>Ideas:</h2>
 		${ideas
 			.map(
 				(article) => `

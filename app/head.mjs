@@ -66,6 +66,9 @@ export default function Head(state) {
 					a:visited {
 						color: #fff;
 					}
+					a:hover {
+						color: #fff;
+					}
 				}
 			</style>
 		</head>
