@@ -9,6 +9,7 @@ export async function get(req) {
 		return { status: 401, json: { error: 'Unauthorized' } }
 	}
 
+	// ! broken. indieweb.social requires signed request now
 	const iwSocialReq = await fetch(`https://indieweb.social/@${handle}.json`)
 	const iwSocialRes = await iwSocialReq.json()
 	const iwSocialOutbox = await fetch(`${iwSocialRes.outbox}?page=true`)

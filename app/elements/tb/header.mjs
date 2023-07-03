@@ -67,6 +67,7 @@ export default function TbHeader({ html, state }) {
 					</div>
 					</div>
 					<div><a href="/knowledge">/knowledge</a></div>
+					<div><a href="/experiments">/experiments</a></div>
 				</ul>
 			</nav>
 		</header>
