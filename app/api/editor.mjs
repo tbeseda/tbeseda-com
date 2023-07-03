@@ -30,7 +30,7 @@ export async function post({ body }) {
 	const { content, date, description, published, slug, title } = body
 	const article = {
 		articleID: createID(),
-		content,
+		doc: JSON.parse(content),
 		date,
 		description,
 		published: !!published,
@@ -39,8 +39,7 @@ export async function post({ body }) {
 		ttl: Math.floor(Date.now() / 1000) + 60 * 15,
 	}
 
-	const newArticle = await articles.put(article)
-	console.log(newArticle)
+	await articles.put(article)
 
 	return {
 		status: 302,

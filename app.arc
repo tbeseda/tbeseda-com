@@ -20,6 +20,9 @@ post /webhooks/vrite       # vrite incoming
 @bundles
 xterm './node_modules/xterm/css/xterm.css'
 
+@static
+prune true
+
 @events
 # webmention-send
 webmention-receive

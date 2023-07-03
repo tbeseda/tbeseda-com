@@ -1,3 +1,13 @@
+import { Renderer, AddBreaksToEmptyTextblocks } from 'pm2html'
+import { getSchema } from '@tiptap/core'
+import StarterKit from '@tiptap/starter-kit'
+
+const schema = getSchema([StarterKit])
+const renderer = new Renderer({
+	schema,
+	transformers: [new AddBreaksToEmptyTextblocks()],
+})
+
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function ArticleList({ html, state: { store } }) {
 	const { articles = [] } = store
@@ -7,27 +17,23 @@ export default function ArticleList({ html, state: { store } }) {
 			:host {
 				display: block;
 			}
-			ul {
-				list-style: none;
-				padding: 0;
+			tr {
+				border-bottom: none;
 			}
-			ul li {
-				display: grid;
-				grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-				gap: 0.5rem;
-				align-items: center;
-				padding: 0.5rem;
-				border-bottom: 1px solid #eee;
+			thead tr,
+			tr:has(td[colspan]) {
+				border-bottom: 1px solid #ccc;
 			}
 		</style>
 
 		<h2>Fake Article List</h2>
-		<p>Articles have a TTL of 15 minutes.</p>
+		<p>Articles have a TTL of 15 minutes. Yes, the styling isn't great 😎</p>
 
 		<table>
 			<thead>
 				<tr>
 					<th>Title</th>
+					<th>Slug</th>
 					<th>Article ID</th>
 					<th>Published</th>
 					<th>Date</th>
@@ -39,6 +45,7 @@ export default function ArticleList({ html, state: { store } }) {
 					(article) => /*html*/ `
 				<tr>
 					<td>${article.title}</td>
+					<td>${article.slug}</td>
 					<td>${article.articleID}</td>
 					<td>
 						<input type="checkbox" disabled ${
@@ -46,14 +53,23 @@ export default function ArticleList({ html, state: { store } }) {
 						} />
 					</td>
 					<td>${article.date}</td>
-				</tr>`,
+				</tr>
+				<tr>
+					<td colspan="5">
+						<details>
+							<summary>${article.description}</summary>
+							${renderer.render(article.doc)}
+						</details>
+					</td>
+				</tr>
+				`,
 				)
 				.join('')}
 				${
 					articles.length === 0
 						? /*html*/ `
 				<tr>
-					<td colspan="4" style="text-align: center;">No articles found.</td>
+					<td colspan="5" style="text-align: center;">No articles found.</td>
 				</tr>`
 						: ''
 				}

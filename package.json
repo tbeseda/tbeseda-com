@@ -36,6 +36,7 @@
 		"@vrite/sdk": "^2023.6.30-beta",
 		"chalk": "^5.3.0",
 		"feed": "^4.2.2",
+		"pm2html": "^0.1.10",
 		"rss-to-json": "^2.1.1",
 		"xterm": "^5.2.1",
 		"xterm-readline": "^1.1.1"

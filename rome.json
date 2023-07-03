@@ -2,22 +2,22 @@
 	"$schema": "./node_modules/rome/configuration_schema.json",
 	"formatter": {
 		"enabled": true,
-		"ignore": []
-	},
-	"javascript": {
-		"formatter": {
-			"quoteStyle": "single",
-			"semicolons": "asNeeded"
-		}
+		"ignore": ["./public/browser", "./public/bundles"]
 	},
 	"linter": {
 		"enabled": true,
-		"ignore": [],
+		"ignore": ["./public/browser", "./public/bundles"],
 		"rules": {
 			"recommended": true,
 			"performance": {
 				"noDelete": "off"
 			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "asNeeded"
 		}
 	}
 }

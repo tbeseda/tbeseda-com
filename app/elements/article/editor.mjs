@@ -64,11 +64,9 @@ export default function ArticleEditor({ html, state: { store } }) {
 		<div class="editor-container"></div>
 
 		<p>
-			This is a custom instance of the TipTap editor.
-			You can use Markdown shortcuts for formatting.
-			Like <code>#</code> to create a heading.
-			Keyboard shortcuts are also available.
-			Like <kbd>⌘</kbd> + <kbd>B</kbd> to make text bold.
+			This is a custom instance of the Tiptap editor.<br>
+			You can use Markdown shortcuts for formatting: <code>#</code> to create a heading.<br>
+			Keyboard shortcuts are also available: <kbd>⌘</kbd> + <kbd>B</kbd> to make text bold.
 		</p>
 
 		<script type="module">
