@@ -75,7 +75,7 @@ export class SimpleXterm {
 		this.term.loadAddon(this.rl)
 		this.term.open(this.elem)
 
-		this.write('Welcome!\r\n')
+		this.write('welcome.\r\ntry "help".')
 		this.term.focus()
 		this.readLine()
 	}
