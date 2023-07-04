@@ -14,7 +14,5 @@ export default function VriteArticle({ html, state: { store } }) {
 				${htmlTransformer(content.content)}
 			</article>
 		</main>
-
-		<tb-footer></tb-footer>
 	`
 }

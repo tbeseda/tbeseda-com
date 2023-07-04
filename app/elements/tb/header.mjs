@@ -16,9 +16,10 @@ export default function TbHeader({ html, state: { store } }) {
 				margin: 0 auto;
 			}
 			header {
+				padding: 1rem 0;
 				display: flex;
 				justify-content: space-between;
-				padding: 1rem 0;
+				gap: 0.5rem;
 			}
 			.title {
 				display: flex;
@@ -42,6 +43,7 @@ export default function TbHeader({ html, state: { store } }) {
 				font-weight: 500;
 			}
 			h1 a {
+
 				text-decoration: none;
 			}
 			nav {
@@ -51,8 +53,8 @@ export default function TbHeader({ html, state: { store } }) {
 			}
 			@media (max-width: 600px) {
 				header {
+					padding: 1rem 1rem 0;
 					flex-direction: column;
-					align-items: center;
 				}
 			}
 		</style>

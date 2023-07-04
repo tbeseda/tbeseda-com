@@ -21,7 +21,7 @@
 	}
 	.hero p.personal-statement {
 		padding-right: 11rem;
-		font-size: 1.25rem;
+		font-size: 1.5rem;
 		line-height: 1.5;
 		margin-bottom: 0.5rem;
 	}
@@ -40,15 +40,19 @@
 	@media (max-width: 600px) {
 		.hero {
 			margin: 2rem 0;
-			padding: 0 1.5rem;
+			padding: 0 1rem;
 		}
 		.hero h2.headline {
+			padding-right: 0;
 			font-size: 1.75rem;
 		}
+		.hero p.personal-statement {
+			padding-right: 0;
+			font-size: 1.1rem;
+		}
 		.hero .showcase {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 1.5rem;
+			grid-template-columns: auto;
+			gap: 1rem;
 		}
 	}
 </style>

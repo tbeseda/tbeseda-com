@@ -73,7 +73,5 @@ export default function VriteIndex({ html, state: { store } }) {
 				)
 				.join('')}
 		</main>
-
-		<tb-footer></tb-footer>
 	`
 }
