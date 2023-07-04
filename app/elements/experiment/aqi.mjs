@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function TbAqi({ html, state: { store } }) {
+export default function ExperimentAqi({ html, state: { store } }) {
 	const { myAqi } = store
 	const { airNowData } = myAqi || { airNowData: [] }
 	const pm25 = airNowData?.find(

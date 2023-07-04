@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function Toot({ html }) {
+export default function ExperimentToot({ html }) {
 	return html`
 		<style>
 			/* Mastodon API sends back HTML with classes */
@@ -13,7 +13,7 @@ export default function Toot({ html }) {
 		<div class="toot-attachments"></div>
 
 		<script type="module">
-			class TbToot extends HTMLElement {
+			class ExperimentToot extends HTMLElement {
 				toot
 				constructor() {
 					super()
@@ -65,7 +65,7 @@ export default function Toot({ html }) {
 				}
 			}
 
-			customElements.define('tb-toot', TbToot)
+			customElements.define('experiment-toot', ExperimentToot)
 		</script>
 	`
 }

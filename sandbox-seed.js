@@ -1,4 +1,163 @@
 module.exports = {
+	articles: [
+		{
+			articleID: '2A8770F4',
+			date: '2023-07-03',
+			description: 'Just a test article with different types of content.',
+			doc: {
+				content: [
+					{
+						attrs: {
+							level: 2,
+						},
+						content: [
+							{
+								text: 'Subtitle',
+								type: 'text',
+							},
+						],
+						type: 'heading',
+					},
+					{
+						content: [
+							{
+								text: 'Write something here...',
+								type: 'text',
+							},
+						],
+						type: 'paragraph',
+					},
+					{
+						attrs: {
+							start: 1,
+						},
+						content: [
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'ordered',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+								],
+								type: 'listItem',
+							},
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'list',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+								],
+								type: 'listItem',
+							},
+						],
+						type: 'orderedList',
+					},
+					{
+						content: [
+							{
+								marks: [
+									{
+										type: 'bold',
+									},
+								],
+								text: 'And',
+								type: 'text',
+							},
+							{
+								text: ' ',
+								type: 'text',
+							},
+							{
+								marks: [
+									{
+										type: 'italic',
+									},
+								],
+								text: 'some',
+								type: 'text',
+							},
+							{
+								text: ' ',
+								type: 'text',
+							},
+							{
+								marks: [
+									{
+										type: 'code',
+									},
+								],
+								text: 'marks',
+								type: 'text',
+							},
+						],
+						type: 'paragraph',
+					},
+					{
+						content: [
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'unordered',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+								],
+								type: 'listItem',
+							},
+							{
+								content: [
+									{
+										content: [
+											{
+												text: 'list',
+												type: 'text',
+											},
+										],
+										type: 'paragraph',
+									},
+								],
+								type: 'listItem',
+							},
+						],
+						type: 'bulletList',
+					},
+					{
+						content: [
+							{
+								content: [
+									{
+										text: 'a blockquote even',
+										type: 'text',
+									},
+								],
+								type: 'paragraph',
+							},
+						],
+						type: 'blockquote',
+					},
+				],
+				type: 'doc',
+			},
+			published: true,
+			slug: 'test-article',
+			title: 'Test Article',
+		},
+	],
 	things: [
 		{
 			key: 'my-aqi',

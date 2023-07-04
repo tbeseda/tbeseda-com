@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function TbTerm({ html, state: { store } }) {
+export default function ExperimentTerm({ html, state: { store } }) {
 	const { userIp } = store
 
 	return html`
@@ -10,7 +10,7 @@ export default function TbTerm({ html, state: { store } }) {
 		<script type="module">
 			import { SimpleXterm } from '/_public/browser/simple-xterm.mjs'
 
-			class TbTerm extends HTMLElement {
+			class ExperimentTerm extends HTMLElement {
 				constructor() {
 					super()
 
@@ -46,7 +46,7 @@ export default function TbTerm({ html, state: { store } }) {
 				}
 			}
 
-			customElements.define('tb-term', TbTerm)
+			customElements.define('experiment-term', ExperimentTerm)
 		</script>
 	`
 }

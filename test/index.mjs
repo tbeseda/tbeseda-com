@@ -26,10 +26,10 @@ test('smoke and microformats', async (t) => {
 	t.test('fetches key routes', async (st) => {
 		for (const route of [
 			URL,
-			`${URL}/articles`,
-			`${URL}/articles/2022/12/hello-world`,
-			`${URL}/articles/rss`,
-			`${URL}/toot`,
+			`${URL}/blog`,
+			`${URL}/blog/test-article`,
+			`${URL}/blog/rss`,
+			`${URL}/experiments`,
 			`${URL}/h-card`,
 		]) {
 			try {

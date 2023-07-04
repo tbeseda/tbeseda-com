@@ -4,7 +4,6 @@ tbeseda-com
 @plugins
 enhance/arc-plugin-enhance
 architect/plugin-lambda-invoker
-render-articles
 
 @http
 get /.well-known/webfinger
