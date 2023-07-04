@@ -30,14 +30,25 @@ export default function Head(state) {
 			<link rel="stylesheet" href="/_public/typesafe.css">
 
 			<style>
+				html {
+					height: 100%;
+				}
 				body {
-					max-width: 88ch;
-					background-color: #efefef;
+					min-height: 100%;
+					max-width: 100%;
+					background-color: #f8f8f8;
 					color: #333;
 					font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
 					font-size: 1.1rem;
 				}
+				main {
+					width: 100%;
+					margin: 0 auto;
+					max-width: 88ch;
+				}
 				h1, h2, h3, h4, h5, h6 {
+					margin: 1rem 0;
+					font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
 					font-weight: 600;
 				}
 				a {
@@ -46,20 +57,13 @@ export default function Head(state) {
 				a:visited {
 					color: #000;
 				}
-
-				.hidden {
-					display: none;
-				}
-
 				pre {
 					border: none;
 				}
-
 				code {
 					font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
-					color: aliceblue;
+					color: navy;
 				}
-
 				kbd {
 					display: inline-block;
 					min-width: 0.75rem;
@@ -72,6 +76,10 @@ export default function Head(state) {
 					color: #333;
 					background-color: #eee;
 					text-shadow: 0 1px 0 #fff;
+				}
+
+				.hidden {
+					display: none;
 				}
 
 				@media (prefers-color-scheme: dark) {
@@ -87,6 +95,9 @@ export default function Head(state) {
 					}
 					a:hover {
 						color: #fff;
+					}
+					code {
+						color: aliceblue;
 					}
 				}
 			</style>

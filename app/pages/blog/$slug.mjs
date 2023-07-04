@@ -7,15 +7,13 @@ export default function Slug({ html, state: { store } }) {
 	return html`
 		<tb-header></tb-header>
 
-		<hr>
-
-		<article>
-			<h1>${article.title}</h1>
-			<p>${article.date}</p>
-			${renderer.render(article.doc)}
-		</article>
-
-		<hr>
+		<main>
+			<article>
+				<h1>${article.title}</h1>
+				<p>${article.date}</p>
+				${renderer.render(article.doc)}
+			</article>
+		</main>
 
 		<tb-footer></tb-footer>
 	`
