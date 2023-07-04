@@ -5,6 +5,7 @@ export default function TbFooter({ html, state: { store } }) {
 			:host {
 				display: block;
 				width: 100%;
+				max-width: 94ch;
 				margin: 0 auto;
 				padding: 2rem 1rem 0;
 			}

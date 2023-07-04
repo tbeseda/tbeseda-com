@@ -60,7 +60,7 @@ export default function TbHeader({ html, state: { store } }) {
 		<header class="h-card">
 			<div class="title">
 				<a href="${card.props.url}" class="u-url">
-					<img class="u-photo" width="64px" src="${card.props.photo}">
+					<img class="u-photo" width="64px" src="/_public/me.jpg">
 				</a>
 				<h1><a href="/">${card.name}</a></h1>
 			</div>

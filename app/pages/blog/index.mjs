@@ -6,7 +6,8 @@ export default function Index({ html, state: { store } }) {
 		<tb-header></tb-header>
 
 		<main>
-			<h1>WIP Blog</h1>
+			<h1>WIP Blog Rewrite</h1>
+			<p>I'm in the middle of rebuilding my blog to be based on a new editor and backed by DynamoDB💨</p>
 			<dl>
 				${articles
 					.map(
