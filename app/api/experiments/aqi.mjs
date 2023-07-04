@@ -1,5 +1,5 @@
 import arc from '@architect/functions'
-import standardMiddleware from '../middleware/common.mjs'
+import standardMiddleware from '../../middleware/common.mjs'
 
 const { things } = await arc.tables()
 

@@ -9,7 +9,7 @@ const renderer = new Renderer({
 })
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ArticleList({ html, state: { store } }) {
+export default function ExperimentFakeArticleList({ html, state: { store } }) {
 	const { articles = [] } = store
 
 	return html`

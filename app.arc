@@ -31,16 +31,21 @@ webmention-receive
 aqi-update rate(1 hour)
 
 @tables
+articles
+  articleID *String
 webmentions
   id *String
   targetPath **String
 things # misc storage
   key *String
-articles
+experiment-articles # /experiments/fake-articles
   articleID *String
   ttl TTL
 
 @tables-indexes
+articles
+  slug *String
+  name articlesBySlug
 webmentions
   targetPath *String
   name mentionsByPath

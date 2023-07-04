@@ -31,6 +31,7 @@ export default function Head(state) {
 
 			<style>
 				body {
+					max-width: 88ch;
 					background-color: #efefef;
 					color: #333;
 					font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;

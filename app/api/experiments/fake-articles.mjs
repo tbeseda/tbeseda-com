@@ -1,25 +1,15 @@
-import crypto from 'node:crypto'
 import arc from '@architect/functions'
-import standardMiddleware from '../middleware/common.mjs'
+import { createID } from '../../lib/create-id.mjs'
+import standardMiddleware from '../../middleware/common.mjs'
 
-const { articles } = await arc.tables()
-
-/**
- * @description Create uppercase alphanumeric ID
- * @param {number} length
- * @returns {string}
- */
-function createID(length = 8) {
-	return crypto
-		.randomBytes(length / 2)
-		.toString('hex')
-		.toUpperCase()
-}
+const { 'experiment-articles': articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler({ icon = '😵', hCards = [] }) {
+	const query = await articles.scan({})
+
 	return {
-		json: { icon, hCards, articles: (await articles.scan({})).Items },
+		json: { icon, hCards, articles: query.Items },
 	}
 }
 
@@ -43,6 +33,6 @@ export async function post({ body }) {
 
 	return {
 		status: 302,
-		headers: { location: '/editor' },
+		headers: { location: '/experiments/fake-articles' },
 	}
 }

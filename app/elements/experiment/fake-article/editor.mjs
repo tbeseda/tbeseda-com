@@ -1,5 +1,8 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ArticleEditor({ html, state: { store } }) {
+export default function ExperimentFakeArticleEditor({
+	html,
+	state: { store },
+}) {
 	return html`
 		<style>
 			:host {
@@ -72,11 +75,13 @@ export default function ArticleEditor({ html, state: { store } }) {
 		<script type="module">
 			import { MyEditor } from '/_public/browser/my-tiptap-editor.mjs'
 
-			class ArticleEditor extends HTMLElement {
+			class ExperimentFakeArticleEditor extends HTMLElement {
 				constructor() {
 					super()
 					this.container = this.querySelector('.editor-container')
 					this.form = this.querySelector('form.article-form')
+					this.titleInput = this.querySelector('input[name="title"]')
+					this.slugInput = this.querySelector('input[name="slug"]')
 					this.contentInput = this.querySelector('input[name="content"]')
 				}
 
@@ -84,6 +89,14 @@ export default function ArticleEditor({ html, state: { store } }) {
 					this.editor = new MyEditor({
 						element: this.container,
 						content: 'Write something here...',
+					})
+
+					this.titleInput.addEventListener('input', (e) => {
+						const slug = e.target.value
+							.toLowerCase()
+							.replace(/[^a-z0-9]+/g, '-') // remove invalid chars
+							.replace(/^-+|-+$/g, '') // trim leading & trailing dashes
+						this.slugInput.value = slug
 					})
 
 					this.form.addEventListener('submit', (e) => {
@@ -95,7 +108,7 @@ export default function ArticleEditor({ html, state: { store } }) {
 				}
 			}
 
-			customElements.define('article-editor', ArticleEditor)
+			customElements.define('experiment-fake-article-editor', ExperimentFakeArticleEditor)
 		</script>
 	`
 }
