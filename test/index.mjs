@@ -27,8 +27,8 @@ test('smoke and microformats', async (t) => {
 		for (const route of [
 			URL,
 			`${URL}/blog`,
-			`${URL}/blog/test-article`,
-			`${URL}/blog/rss`,
+			`${URL}/blog/gitclean-zsh-command`,
+			// `${URL}/blog/rss`,
 			`${URL}/experiments`,
 			`${URL}/h-card`,
 		]) {

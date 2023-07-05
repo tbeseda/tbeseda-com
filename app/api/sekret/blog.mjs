@@ -17,11 +17,22 @@ export async function get({ query, session }) {
 	let article
 	if (articleID) article = await articles.get({ articleID })
 
-	const result = await articles.scan({})
-	const articlesList = result.Items
+	// TODO: not scan
+	const articleQuery = await articles.scan({
+		Limit: 10,
+		FilterExpression: 'attribute_exists(published)',
+		ProjectionExpression: 'title, published, doc, description, #date',
+		ExpressionAttributeNames: {
+			'#date': 'date',
+		},
+	})
+
+	const sortedArticles = articleQuery.Items.sort(
+		(a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
+	)
 
 	return {
-		json: { authorized, article, articles: articlesList },
+		json: { authorized, article, articles: sortedArticles },
 	}
 }
 

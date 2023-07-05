@@ -6,8 +6,8 @@ export default function BlogArticle({ html, state: { store } }) {
 
 	return html`
 		<article>
-			<h1>${article.title}</h1>
 			<p>${article.date}</p>
+			<h1>${article.title}</h1>
 			${renderer.render(article.doc)}
 		</article>
 	`

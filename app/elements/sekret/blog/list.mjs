@@ -23,9 +23,7 @@ export default function SekretBlogList({ html, state: { store } }) {
 		<table>
 			<thead>
 				<tr>
-					<th>Article ID</th>
 					<th>Title</th>
-					<th>Slug</th>
 					<th>Published</th>
 					<th>Date</th>
 					<th></th>
@@ -36,9 +34,7 @@ export default function SekretBlogList({ html, state: { store } }) {
 				.map(
 					(article) => /*html*/ `
 				<tr>
-					<td>${article.articleID}</td>
 					<td>${article.title}</td>
-					<td>${article.slug}</td>
 					<td>
 						<input type="checkbox" disabled ${
 							article.published ? 'checked' : ''
