@@ -26,6 +26,7 @@ export default function Head(state) {
 			<noscript>
 				<link rel="stylesheet" href="${hljsThemeCss}"/>
 			</noscript>
+			<script type="module" src="/_public/highlighter.mjs" defer></script>
 
 			<link rel="stylesheet" href="/_public/typesafe.css">
 
