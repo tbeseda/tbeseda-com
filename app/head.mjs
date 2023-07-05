@@ -2,7 +2,7 @@
 export default function Head(state) {
 	const { req, store } = state
 	const { path } = req
-	const { icon } = store
+	const { icon = '💀' } = store
 	const title = `Taylor Beseda ${path}`
 	const hljsThemeCss =
 		'https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/night-owl.min.css'
@@ -29,79 +29,7 @@ export default function Head(state) {
 			<script type="module" src="/_public/highlighter.mjs" defer></script>
 
 			<link rel="stylesheet" href="/_public/typesafe.css">
-
-			<style>
-				html {
-					height: 100%;
-				}
-				body {
-					min-height: 100%;
-					max-width: 100%;
-					background-color: #f8f8f8;
-					color: #333;
-					font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
-					font-size: 1.1rem;
-				}
-				main {
-					width: 100%;
-					margin: 0 auto;
-					max-width: 88ch;
-				}
-				h1, h2, h3, h4, h5, h6 {
-					margin: 1rem 0;
-					font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
-					font-weight: 600;
-				}
-				a {
-					color: #000;
-				}
-				a:visited {
-					color: #000;
-				}
-				pre {
-					border: none;
-				}
-				code {
-					font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
-					color: navy;
-				}
-				kbd {
-					display: inline-block;
-					min-width: 0.75rem;
-					margin: 0 0.2rem;
-					padding: 0.2rem 0.3rem 0.1rem;
-					border: 1px solid rgb(204, 204, 204);
-					border-radius: 0.25rem;
-					font-size: 0.8rem;
-					line-height: 1;
-					color: #333;
-					background-color: #eee;
-					text-shadow: 0 1px 0 #fff;
-				}
-
-				.hidden {
-					display: none;
-				}
-
-				@media (prefers-color-scheme: dark) {
-					body {
-						background-color: #151515;
-						color: #ccc;
-					}
-					a {
-						color: #fff;
-					}
-					a:visited {
-						color: #fff;
-					}
-					a:hover {
-						color: #fff;
-					}
-					code {
-						color: aliceblue;
-					}
-				}
-			</style>
+			<link rel="stylesheet" href="/_public/styles.css">
 		</head>
 		<body>
 	`

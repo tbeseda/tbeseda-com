@@ -52,6 +52,7 @@ export async function post({ body, session }) {
 		await articles.delete({ articleID })
 	} else {
 		const article = {
+			updatedAt: new Date().toISOString(),
 			articleID: articleID || createID(),
 			doc: JSON.parse(content),
 			date,

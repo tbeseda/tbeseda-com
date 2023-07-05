@@ -1,6 +1,7 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function SekretBlogEditor({ html, state: { store } }) {
 	const { article = {} } = store
+	const tick = '`'
 
 	return html`
 		<style>
@@ -13,7 +14,6 @@ export default function SekretBlogEditor({ html, state: { store } }) {
 				gap: 0.5rem;
 				grid-template-columns: 1fr 2fr;
 			}
-			/* align labels to the right and input left */
 			form.article-form label {
 				text-align: right;
 			}
@@ -29,7 +29,7 @@ export default function SekretBlogEditor({ html, state: { store } }) {
 				border-radius: .5rem;
 				padding: 0.25rem;
 			}
-			.editor-container [contenteditable] {
+			.editor-container [contenteditable="true"] {
 				outline: none;
 				padding: 0.5rem;
 				min-height: 10rem;
@@ -76,6 +76,28 @@ export default function SekretBlogEditor({ html, state: { store } }) {
 		</form>
 
 		<div class="editor-container"></div>
+
+		<dl>
+			<dt>Keyboard shortcuts</dt>
+			<dd><kbd>⌘</kbd> + <kbd>b</kbd> | <kbd>i</kbd> | <kbd>.</kbd></dd>
+			<dt>Markdown-ish</dt>
+			<dd><code>></code> blockquote</dd>
+			<dd><code>-</code> list</dd>
+			<dd><code>1.</code> list</dd>
+			<dd><code>#</code> heading</dd>
+			<dd><code>##</code> heading</dd>
+			<dd><code>---</code> horizontal rule</dd>
+			<dd><code>~~<strike>strike</strike>~~</code> strike</dd>
+			<dd><code>${tick.repeat(3)}lang</code> code fence</dd>
+			<dt>mark highlight</dt>
+			<dd>==<mark>highlight</mark>==</dd>
+			<dt>mark super<sup>script</sup></dt>
+			<dd><kbd>⌘</kbd> + <kbd>.</kbd></dd>
+			<dt>text link</dt>
+			<dd>paste a URL over text</dd>
+		</dl>
+
+		<p><strong>WIP</strong>: Image upload and table editor</p>
 
 		<script type="module">
 			import { MyEditor } from '/_public/browser/my-tiptap-editor.mjs'
