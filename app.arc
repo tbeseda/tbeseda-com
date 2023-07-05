@@ -32,6 +32,7 @@ aqi-update rate(1 hour)
 @tables
 articles
   articleID *String
+  date *String
 webmentions
   id *String
   targetPath **String

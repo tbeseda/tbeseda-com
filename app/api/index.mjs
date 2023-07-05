@@ -5,15 +5,22 @@ const { articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler({ icon = '😵', hCards = [] }) {
+	// TODO: not scan
 	const query = await articles.scan({
+		Limit: 10,
 		FilterExpression: 'attribute_exists(published)',
-		Limit: 1,
+		ProjectionExpression: 'title, published, slug, description, #date',
+		ExpressionAttributeNames: {
+			'#date': 'date',
+		},
 	})
-	const recentArticle = query.Items[0]
-	delete recentArticle.doc
+
+	const sortedArticles = query.Items.filter(({ published }) => published).sort(
+		(a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
+	)
 
 	return {
-		json: { icon, hCards, recentArticle },
+		json: { icon, hCards, recentArticle: sortedArticles[0] },
 	}
 }
 
