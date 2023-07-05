@@ -4,7 +4,8 @@ import arc from '@architect/functions'
 export default function BlogRecentArticle({ html, state: { store } }) {
 	const { recentArticle } = store
 
-	return html`
+	return recentArticle
+		? html`
 		<style>
 			:host {
 				display: block;
@@ -15,4 +16,5 @@ export default function BlogRecentArticle({ html, state: { store } }) {
 		</h4>
 		<p>${recentArticle.description}</p>
 	`
+		: html`<p>no recent article</p>`
 }
