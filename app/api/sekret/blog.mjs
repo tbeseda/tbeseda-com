@@ -21,7 +21,8 @@ export async function get({ query, session }) {
 	const articleQuery = await articles.scan({
 		Limit: 10,
 		FilterExpression: 'attribute_exists(published)',
-		ProjectionExpression: 'title, published, doc, description, #date',
+		ProjectionExpression:
+			'articleID, title, published, doc, description, #date',
 		ExpressionAttributeNames: {
 			'#date': 'date',
 		},
