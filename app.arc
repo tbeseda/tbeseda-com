@@ -28,6 +28,8 @@ webmention-receive
 
 @scheduled
 aqi-update rate(1 hour)
+spotify-update rate(1 minute)
+spotify-token-refresh rate(50 minutes)
 
 @tables
 articles

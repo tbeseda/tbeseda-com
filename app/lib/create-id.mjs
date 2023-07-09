@@ -9,6 +9,6 @@ function createPart(size = 4) {
  * @param {number} length
  * @returns {string}
  */
-export function createID(length = 8) {
-	return `${createPart(length / 4)}-${createPart(length / 4)}`
+export function createID(length = 8, separator = '-') {
+	return `${createPart(length / 4)}${separator}${createPart(length / 4)}`
 }
