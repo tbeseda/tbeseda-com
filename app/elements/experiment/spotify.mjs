@@ -1,3 +1,9 @@
+function timestamp(duration) {
+	const minutes = Math.floor((duration / (1000 * 60)) % 60)
+	const seconds = Math.floor((duration / 1000) % 60)
+	return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
+}
+
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function ExperimentSpotify({ html, state: { store } }) {
 	const {
@@ -9,7 +15,6 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 	const playing = currentlyPlaying?.item
 	const mostRecent = recentlyPlayed.items[0]?.track
 	const nextRecent = recentlyPlayed.items.slice(1, 5).map(({ track }) => track)
-	console.log('currentlyPlaying', currentlyPlaying)
 
 	return html`
 		<style>
@@ -17,19 +22,51 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 				margin-top: 2rem;
 			}
 			.row {
-				display: flex;
+				background: rgba(210, 210, 255, 0.1);
+				display: grid;
+				grid-template-columns: auto 1fr auto auto;
 				align-items: center;
 				justify-content: space-between;
 				gap: 1rem;
-				padding: 0.5rem;
+				padding: 1rem;
+			}
+			.row.track {
+			}
+			.row.artist {
+				max-width: 20rem;
+				grid-template-columns: 1fr auto;
+				border-bottom: 1px solid #333;
+			}
+			.row.artist:last-of-type {
+				border-bottom: none;
+			}
+			.row.dense {
+			}
+			.row.denser {
+				background: none;
+				padding: 0.25rem 1rem;
 			}
 			img {
-				max-height: 100px;
-				max-width: 100px;
+				max-height: 120px;
+				max-width: 120px;
+			}
+			img.album-cover {
+				box-shadow: 0px 1px 1px rgba(3, 7, 18, 0.02),
+					0px 3px 4px rgba(3, 7, 18, 0.03),
+					0px 7px 9px rgba(3, 7, 18, 0.05),
+					0px 13px 15px rgba(3, 7, 18, 0.06),
+					0px 20px 24px rgba(3, 7, 18, 0.08);
 			}
 			.dense img {
+				max-height: 75px;
+				max-width: 75px;
+			}
+			.denser img {
 				max-height: 50px;
 				max-width: 50px;
+			}
+			.album-info {
+				text-align: right;
 			}
 			p.auth {
 				margin-top: 10rem;
@@ -39,26 +76,32 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 			}
 		</style>
 
-		<h2>Spotify Activity</h2>
+		<h2>My Spotify Activity</h2>
 
 		${messages?.map((message) => `<p>${message}</p>`).join('')}
 
 		${
 			playing
 				? `<h3>Currently Playing</h3>
-					<div class="row">
-						<span>
-							"<em>${playing.name}</em>"<br>
-							${playing.artists.map(({ name }) => name).join(', ')}
+					<div class="row track">
+						<img class="album-cover" src="${playing.album.images[0].url}" alt="album cover" />
+						<span class="track-info">
+							<span class="playing-progress">
+								${currentlyPlaying.is_playing ? '&#x23f5;' : '&#x23f8;'}
+								${timestamp(currentlyPlaying.progress_ms)} /
+								${timestamp(playing.duration_ms)}
+							</span><br>
+							<strong class="track-name">${playing.name}</strong>
+							<br>
+							<span class="artist">${playing.artists
+								.map(({ name }) => name)
+								.join(', ')}
+							</span>
 						</span>
-						<span>${playing.album.name}</span>
-						<span>
-							${currentlyPlaying.is_playing ? '▶️' : '⏸️'}
-							${Math.round(
-								(currentlyPlaying.progress_ms / playing.duration_ms) * 100,
-							)}%
+						<span class="album-info">
+							${playing.album.name}<br>
+							${playing.album.release_date.split('-')[0]}
 						</span>
-						<img src="${playing.album.images[0].url}" alt="album cover" />
 					</div>`
 				: ''
 		}
@@ -66,41 +109,38 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 		<h3>Recently Played</h3>
 		${
 			mostRecent
-				? `<div class="row">
-						<span>
-							"<em>${mostRecent.name}</em>"<br>
-							${mostRecent.artists.map(({ name }) => name).join(', ')}
+				? `<div class="row track">
+						<img class="album-cover" src="${mostRecent.album.images[0].url}" alt="album cover" />
+						<span class="track-info">
+							<strong class="track-name">${mostRecent.name}</strong><br>
+							<span class="artist">${mostRecent.artists
+								.map(({ name }) => name)
+								.join(', ')}</span>
 						</span>
-						<span>${mostRecent.album.name}</span>
-						<span>
-							${new Date(recentlyPlayed.items[0].played_at).toLocaleString(
-								'en-us',
-								{
-									timeZone: 'America/Denver',
-									weekday: 'short',
-									day: 'numeric',
-									month: 'long',
-									hour: 'numeric',
-									minute: 'numeric',
-								},
-							)}
+						<span class="album-info">
+							${mostRecent.album.name}<br>
+							${mostRecent.album.release_date.split('-')[0]}
 						</span>
-						<img src="${mostRecent.album.images[0].url}" alt="album cover" />
 					</div>`
-				: 'No recently played found'
+				: ''
 		}
 		${
 			nextRecent.length
 				? nextRecent
 						.map(
 							(track) => `
-						<div class="row dense">
-							<span>
-								"<em>${track.name}</em>"<br>
-								${track.artists.map(({ name }) => name).join(', ')}
+						<div class="row track dense">
+							<img class="album-cover" src="${track.album.images[0].url}" alt="album cover" />
+							<span class="track-info">
+								<strong class="track-name">${track.name}</strong><br>
+								<span class="artist">${track.artists
+									.map(({ name }) => name)
+									.join(', ')}</span>
 							</span>
-							<span>${track.album.name}</span>
-							<img src="${track.album.images[0].url}" alt="album cover" />
+							<span class="album-info">
+								${track.album.name}<br>
+								${track.album.release_date.split('-')[0]}
+							</span>
 						</div>
 					`,
 						)
@@ -112,7 +152,7 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 		${topArtists.items
 			.map(
 				({ name, images }, i) => `
-				<div class="row dense">
+				<div class="row artist denser">
 					<span>${i + 1}. ${name}</span>
 					${
 						images.length

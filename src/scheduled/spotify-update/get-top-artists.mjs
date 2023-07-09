@@ -7,7 +7,7 @@ export default async function getTopArtists(token) {
 	try {
 		const params = new URLSearchParams({
 			time_range: 'short_term',
-			limit: '5',
+			limit: '10',
 		})
 		const response = await fetch(
 			`https://api.spotify.com/v1/me/top/artists?${params.toString()}`,

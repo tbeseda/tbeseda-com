@@ -22,6 +22,7 @@ async function getHandler({ icon = '😵', hCards = [] }) {
 		recentlyPlayed = recentlyPlayedThing.recentlyPlayed
 		topArtists = topArtistsThing.topArtists
 	} catch (error) {
+		// populate helpful messages
 		if (!currentlyPlaying) messages.push('No currently playing found')
 		if (!recentlyPlayed) messages.push('No recently played found')
 		if (!topArtists) messages.push('No top artists found')
