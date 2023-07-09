@@ -1,8 +1,13 @@
 import addHCards from './add-h-cards.mjs'
+import spotifyPlaying from './spotify-playing.mjs'
+
+function simpleLog(req) {
+	console.log(req.method, req.path)
+}
 
 async function randomIcon(req) {
-	const emojis = ['🛻', '👢', '🎮', '🏔️', '🏕️', '🦬', '🦌', '⚾️']
+	const emojis = ['🛻', '👢', '🎮', '🏔️', '🏕️', '🦬', '🦌', '⚾️', '🎧']
 	req.icon = emojis[(emojis.length * Math.random()) | 0]
 }
 
-export default [addHCards, randomIcon]
+export default [simpleLog, addHCards, randomIcon, spotifyPlaying]

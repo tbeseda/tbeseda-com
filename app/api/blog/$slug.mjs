@@ -4,7 +4,7 @@ import standardMiddleware from '../../middleware/common.mjs'
 const { articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler({ icon = '😵', hCards = [], params }) {
+async function getHandler({ icon = '⛔️', hCards = [], currentlyPlaying, params }) {
 	const { slug } = params
 	const query = await articles.query({
 		IndexName: 'articlesBySlug',
@@ -15,7 +15,7 @@ async function getHandler({ icon = '😵', hCards = [], params }) {
 	})
 
 	return {
-		json: { icon, hCards, article: query.Items[0] },
+		json: { icon, hCards, currentlyPlaying, article: query.Items[0] },
 	}
 }
 

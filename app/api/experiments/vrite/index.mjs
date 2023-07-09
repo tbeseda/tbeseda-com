@@ -5,7 +5,7 @@ const typeString = 'vrite:content'
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler({ icon = '😵', hCards = [] }) {
+async function getHandler({ icon = '⛔️', hCards = [], currentlyPlaying }) {
 	const { Items: contentPieces } = await things.query({
 		IndexName: 'thingsByType',
 		KeyConditionExpression: '#type = :type',
@@ -28,7 +28,7 @@ async function getHandler({ icon = '😵', hCards = [] }) {
 	)
 
 	return {
-		json: { icon, hCards, published, drafts, ideas },
+		json: { icon, hCards, currentlyPlaying, published, drafts, ideas },
 	}
 }
 

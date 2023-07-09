@@ -1,9 +1,9 @@
 import standardMiddleware from '../../middleware/common.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler({ icon = '😵', hCards = [] }) {
+async function getHandler({ hCards = [], currentlyPlaying }) {
 	return {
-		json: { icon: '👨🏻‍🔬', hCards },
+		json: { icon: '👨🏻‍🔬', hCards, currentlyPlaying },
 	}
 }
 

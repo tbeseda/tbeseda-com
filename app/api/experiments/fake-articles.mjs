@@ -5,11 +5,11 @@ import standardMiddleware from '../../middleware/common.mjs'
 const { 'experiment-articles': articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler({ icon = '😵', hCards = [] }) {
+async function getHandler({ icon = '⛔️', hCards = [], currentlyPlaying }) {
 	const query = await articles.scan({})
 
 	return {
-		json: { icon, hCards, articles: query.Items },
+		json: { icon, hCards, currentlyPlaying, articles: query.Items },
 	}
 }
 

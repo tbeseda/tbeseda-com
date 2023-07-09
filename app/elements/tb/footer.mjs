@@ -1,5 +1,6 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function TbFooter({ html, state: { store } }) {
+	const { currentlyPlaying, icon } = store
 	return html`
 		<style>
 			:host {
@@ -10,6 +11,7 @@ export default function TbFooter({ html, state: { store } }) {
 				padding: 2rem 1rem 0;
 			}
 			footer {
+				margin-bottom: 1rem;
 				display: grid;
 				grid-template-columns: 1fr auto 1fr;
 				align-items: center;
@@ -31,14 +33,14 @@ export default function TbFooter({ html, state: { store } }) {
 				footer {
 					grid-template-columns: 1fr;
 					grid-template-rows: auto auto auto;
-					gap: 1rem;
-					grid-direction: column;
+					gap: 1.25rem;
 				}
 				footer > div,
 				footer > div.say-hi {
 					text-align: center;
 				}
-				footer > div.icon {
+				footer > div.icon,
+				footer > tb-spotify-playing {
 					grid-row: 1;
 				}
 				footer > div.say-hi {
@@ -58,13 +60,19 @@ export default function TbFooter({ html, state: { store } }) {
 
 		<footer>
 			<div class="copyright">
-				Copyright © Taylor Beseda ${new Date().getFullYear().toString()}.<br>
-				All rights reserved.
+				&copy; tbeseda ${new Date().getFullYear().toString()}.
 			</div>
-			<div class="icon">${store.icon}</div>
+
+			${
+				currentlyPlaying
+					? '<tb-spotify-playing></tb-spotify-playing>'
+					: `<div class="icon">${icon}</div>`
+			}
+
 			<div class="say-hi">
 				&nbsp;
-				Say "hi" on <a rel="me" href="https://indieweb.social/@tbeseda">Mastodon</a>
+				Say "hi" on<br>
+				<a rel="me" href="https://indieweb.social/@tbeseda">Mastodon</a>
 			</div>
 		</footer>
 	`
