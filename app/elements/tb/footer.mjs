@@ -16,10 +16,6 @@ export default function TbFooter({ html, state: { store } }) {
 				grid-template-columns: 1fr auto 1fr;
 				align-items: center;
 				font-size: 0.9rem;
-				opacity: 0.75;
-			}
-			footer:hover {
-				opacity: 1;
 			}
 			footer > div.icon {
 				text-align: center;
@@ -64,14 +60,13 @@ export default function TbFooter({ html, state: { store } }) {
 			</div>
 
 			${
-				currentlyPlaying
+				currentlyPlaying?.item
 					? '<tb-spotify-playing></tb-spotify-playing>'
 					: `<div class="icon">${icon}</div>`
 			}
 
 			<div class="say-hi">
-				&nbsp;
-				Say "hi" on<br>
+				<span>Say "hi" on</span>
 				<a rel="me" href="https://indieweb.social/@tbeseda">Mastodon</a>
 			</div>
 		</footer>

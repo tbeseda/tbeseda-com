@@ -5,9 +5,10 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function TbSpotifyPlaying({ html, state: { store } }) {
 	const { currentlyPlaying } = store
-	if (!currentlyPlaying) return ''
+	if (!currentlyPlaying?.item) return ''
 
 	const playing = currentlyPlaying.item
+	console.log(playing)
 
 	return html`
 		<style>
@@ -17,7 +18,10 @@ export default function TbSpotifyPlaying({ html, state: { store } }) {
 				align-items: center;
 				gap: 0.8rem;
 				cursor: pointer;
+				--m: 10;
+				--wavefreq: calc(100ms * var(--m));
 			}
+
 			.track {
 				display: flex;
 				flex-direction: column;
@@ -37,51 +41,39 @@ export default function TbSpotifyPlaying({ html, state: { store } }) {
 				font-weight: 300;
 				font-size: 0.75rem;
 			}
+
 			.waveform {
 				display: flex;
-				height: 1.5rem;
+				height: 1.25rem;
 				gap: 2px;
 			}
 			.bar {
-				transform: scaleY(.5);
 				height: 100%;
 				width: 2px;
 				background: #1DB954;
-				animation-duration: 2s;
-				animation-timing-function: ease-in-out;
-				animation-iteration-count: infinite;
 				border-radius: 2px;
+				animation: waveform var(--wavefreq)
+									 ease-in-out infinite forwards;
 			}
 			.bar:nth-child(1) {
-				animation-name: quiet;
+				--wavefreq: calc(200ms * var(--m));
 			}
 			.bar:nth-child(2) {
-				animation-name: normal;
+				--wavefreq: calc(300ms * var(--m));
 			}
 			.bar:nth-child(3) {
-				animation-name: quiet;
+				--wavefreq: calc(400ms * var(--m));
 			}
 			.bar:nth-child(4) {
-				animation-name: loud;
+				--wavefreq: calc(500ms * var(--m));
 			}
 			.bar:nth-child(5) {
-				animation-name: quiet;
+				--wavefreq: calc(600ms * var(--m));
 			}
-			@keyframes quiet {
-				25% { transform: scaleY(.6); }
-				50% { transform: scaleY(.4); }
-				75% { transform: scaleY(.8); }
-			}
-
-			@keyframes normal {
-				25% { transform: scaleY(1); }
-				50% { transform: scaleY(.4); }
-				75% { transform: scaleY(.6); }
-			}
-			@keyframes loud {
-				25% { transform: scaleY(1); }
-				50% { transform: scaleY(.4); }
-				75% { transform: scaleY(1.2); }
+			@keyframes waveform {
+				0% { transform: scaleY(0.5); }
+				50% { transform: scaleY(1); }
+				100% { transform: scaleY(0.5); }
 			}
 		</style>
 

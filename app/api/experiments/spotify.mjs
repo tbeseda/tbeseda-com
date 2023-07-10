@@ -4,7 +4,15 @@ import standardMiddleware from '../../middleware/common.mjs'
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler({ icon = '⛔️', hCards = [], currentlyPlaying }) {
+async function getHandler({
+	icon = '⛔️',
+	hCards = [],
+	session,
+	currentlyPlaying,
+}) {
+	let { authorized } = session
+	authorized = !!authorized
+
 	const messages = []
 	if (!currentlyPlaying) messages.push('Nothing currently playing')
 
@@ -31,6 +39,7 @@ async function getHandler({ icon = '⛔️', hCards = [], currentlyPlaying }) {
 
 	return {
 		json: {
+			authorized,
 			icon,
 			hCards,
 			currentlyPlaying,

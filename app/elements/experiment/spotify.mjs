@@ -7,6 +7,7 @@ function timestamp(duration) {
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function ExperimentSpotify({ html, state: { store } }) {
 	const {
+		authorized,
 		currentlyPlaying,
 		recentlyPlayed = { items: [] },
 		topArtists = { items: [] },
@@ -21,6 +22,14 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 			h3 {
 				margin-top: 2rem;
 			}
+			details {
+				margin-top: 2rem;
+			}
+			details > div {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				gap: 1rem;
+			}
 			.row {
 				background: rgba(210, 210, 255, 0.1);
 				display: grid;
@@ -33,7 +42,6 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 			.row.track {
 			}
 			.row.artist {
-				max-width: 20rem;
 				grid-template-columns: 1fr auto;
 				border-bottom: 1px solid #333;
 			}
@@ -68,13 +76,9 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 			.album-info {
 				text-align: right;
 			}
-			p.auth {
-				margin-top: 10rem;
-				text-align: right;
-				font-size: 0.75rem;
-				opacity: 0.1;
-			}
 		</style>
+
+		${authorized ? '<p><a href="/auth/spotify/login">re-auth</a></p>' : ''}
 
 		<h2>My Spotify Activity</h2>
 
@@ -87,7 +91,11 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 						<img class="album-cover" src="${playing.album.images[0].url}" alt="album cover" />
 						<span class="track-info">
 							<span class="playing-progress">
-								${currentlyPlaying.is_playing ? '&#x23f5;' : '&#x23f8;'}
+								${
+									currentlyPlaying.is_playing
+										? '&#9658;'
+										: '&#9616;&nbsp;&#9612;'
+								}
 								${timestamp(currentlyPlaying.progress_ms)} /
 								${timestamp(playing.duration_ms)}
 							</span><br>
@@ -148,22 +156,35 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 				: ''
 		}
 
-		<h3>Top Artists</h3>
-		${topArtists.items
-			.map(
-				({ name, images }, i) => `
-				<div class="row artist denser">
-					<span>${i + 1}. ${name}</span>
-					${
-						images.length
-							? `<img src="${images[0].url}" alt="image of ${name}" />`
-							: ''
-					}
+		<details>
+			<summary>More Stats</summary>
+			<div>
+				<div>
+					<h3>Top Artists</h3>
+					${topArtists.items
+						.map(
+							({ name, images }, i) => `
+							<div class="row artist denser">
+								<span>${i + 1}. ${name}</span>
+								${
+									images.length
+										? `<img src="${images[0].url}" alt="image of ${name}" />`
+										: ''
+								}
+							</div>
+						`,
+						)
+						.join('')}
 				</div>
-			`,
-			)
-			.join('')}
-
-		<p class="auth"><a href="/auth/spotify/login">auth</a></p>
+				<div>
+					<h3>Top Tracks</h3>
+					<p>wip</p>
+				</div>
+				<div>
+					<h3>Authored Playlists</h3>
+					<p>wip</p>
+				</div>
+			</div>
+		</details>
 	`
 }
