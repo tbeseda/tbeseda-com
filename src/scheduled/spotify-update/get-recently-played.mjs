@@ -5,7 +5,10 @@ const { things } = await arc.tables()
 
 export default async function getRecentlyPlayed(token) {
 	try {
-		const params = new URLSearchParams({ limit: '5' })
+		const params = new URLSearchParams({
+			limit: '6',
+			before: Date.now().toString(),
+		})
 		const response = await fetch(
 			`https://api.spotify.com/v1/me/player/recently-played?${params.toString()}`,
 			{
@@ -25,6 +28,7 @@ export default async function getRecentlyPlayed(token) {
 		const savedRecentlyPlayed = await things.put({
 			key: recentlyPlayedKey,
 			recentlyPlayed,
+			created: new Date().toISOString(),
 		})
 
 		console.log(`Saved ${savedRecentlyPlayed.key}`)

@@ -18,18 +18,22 @@ async function getHandler({
 
 	let recentlyPlayed
 	let topArtists
+	let topTracks
 	try {
 		const recentlyPlayedThing = await things.get({
 			key: 'spotify-recently-played',
 		})
 		const topArtistsThing = await things.get({ key: 'spotify-top-artists' })
+		const topTracksThing = await things.get({ key: 'spotify-top-tracks' })
 
 		recentlyPlayed = recentlyPlayedThing.recentlyPlayed
 		topArtists = topArtistsThing.topArtists
+		topTracks = topTracksThing.topTracks
 	} catch (error) {
 		// populate helpful messages
 		if (!recentlyPlayed) messages.push('No recently played found')
 		if (!topArtists) messages.push('No top artists found')
+		if (!topTracks) messages.push('No top tracks found')
 
 		const token = await things.get({ key: 'spotify-token' }) // double check token
 		if (token)
@@ -45,6 +49,7 @@ async function getHandler({
 			currentlyPlaying,
 			recentlyPlayed,
 			topArtists,
+			topTracks,
 			messages,
 		},
 	}

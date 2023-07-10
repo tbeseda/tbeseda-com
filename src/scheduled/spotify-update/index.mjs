@@ -1,5 +1,5 @@
 import arc from '@architect/functions'
-import getTopArtists from './get-top-artists.mjs'
+import getTop from './get-top-type.mjs'
 import getRecentlyPlayed from './get-recently-played.mjs'
 import getCurrentlyPlaying from './get-currently-playing.mjs'
 
@@ -24,7 +24,8 @@ export async function handler() {
 	}
 
 	await getCurrentlyPlaying(token)
-	await getTopArtists(token)
+	await getTop('artists', token)
+	await getTop('tracks', token)
 	await getRecentlyPlayed(token)
 
 	return

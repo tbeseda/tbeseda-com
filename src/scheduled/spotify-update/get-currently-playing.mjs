@@ -38,6 +38,7 @@ export default async function getCurrentlyPlaying(token) {
 		const savedCurrentlyPlaying = await things.put({
 			key: currentlyPlayingKey,
 			currentlyPlaying,
+			created: new Date().toISOString(),
 		})
 
 		console.log(`Saved ${savedCurrentlyPlaying.key}`)

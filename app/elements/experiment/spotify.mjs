@@ -11,11 +11,12 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 		currentlyPlaying,
 		recentlyPlayed = { items: [] },
 		topArtists = { items: [] },
+		topTracks = { items: [] },
 		messages,
 	} = store
 	const playing = currentlyPlaying?.item
-	const mostRecent = recentlyPlayed.items[0]?.track
-	const nextRecent = recentlyPlayed.items.slice(1, 5).map(({ track }) => track)
+	const mostRecent = recentlyPlayed.items?.shift()?.track
+	const nextRecent = recentlyPlayed.items.map(({ track }) => track)
 
 	return html`
 		<style>
@@ -27,8 +28,8 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 			}
 			details > div {
 				display: grid;
-				grid-template-columns: 1fr 1fr 1fr;
-				gap: 1rem;
+				grid-template-columns: 1fr 2fr;
+				gap: 1.5rem;
 			}
 			.row {
 				background: rgba(210, 210, 255, 0.1);
@@ -39,20 +40,21 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 				gap: 1rem;
 				padding: 1rem;
 			}
-			.row.track {
-			}
-			.row.artist {
-				grid-template-columns: 1fr auto;
-				border-bottom: 1px solid #333;
-			}
-			.row.artist:last-of-type {
-				border-bottom: none;
-			}
 			.row.dense {
 			}
 			.row.denser {
+				border-bottom: 1px solid #333;
 				background: none;
-				padding: 0.25rem 1rem;
+				padding: 0.25rem 0;
+			}
+			.row.track {
+				grid-template-columns: auto 1fr auto;
+			}
+			.row.artist {
+				grid-template-columns: 1fr auto;
+			}
+			.row.denser:last-of-type {
+				border-bottom: none;
 			}
 			img {
 				max-height: 120px;
@@ -101,9 +103,8 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 							</span><br>
 							<strong class="track-name">${playing.name}</strong>
 							<br>
-							<span class="artist">${playing.artists
-								.map(({ name }) => name)
-								.join(', ')}
+							<span class="artist">
+								${playing.artists.map(({ name }) => name).join(', ')}
 							</span>
 						</span>
 						<span class="album-info">
@@ -121,9 +122,9 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 						<img class="album-cover" src="${mostRecent.album.images[0].url}" alt="album cover" />
 						<span class="track-info">
 							<strong class="track-name">${mostRecent.name}</strong><br>
-							<span class="artist">${mostRecent.artists
-								.map(({ name }) => name)
-								.join(', ')}</span>
+							<span class="artist">
+								${mostRecent.artists.map(({ name }) => name).join(', ')}
+							</span>
 						</span>
 						<span class="album-info">
 							${mostRecent.album.name}<br>
@@ -141,9 +142,9 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 							<img class="album-cover" src="${track.album.images[0].url}" alt="album cover" />
 							<span class="track-info">
 								<strong class="track-name">${track.name}</strong><br>
-								<span class="artist">${track.artists
-									.map(({ name }) => name)
-									.join(', ')}</span>
+								<span class="artist">
+									${track.artists.map(({ name }) => name).join(', ')}
+								</span>
 							</span>
 							<span class="album-info">
 								${track.album.name}<br>
@@ -178,11 +179,19 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 				</div>
 				<div>
 					<h3>Top Tracks</h3>
-					<p>wip</p>
-				</div>
-				<div>
-					<h3>Authored Playlists</h3>
-					<p>wip</p>
+					${topTracks.items
+						.map(
+							({ name, artists, album }, i) => `
+							<div class="row track denser">
+								<span class="track-name">${i + 1}. <strong>${name}</strong></span>
+								<span class="artist">
+									${artists.map(({ name }) => name).join(', ')}
+								</span>
+								<img class="album-cover" src="${album.images[0].url}" alt="album cover" />
+							</div>
+							`,
+						)
+						.join('')}
 				</div>
 			</div>
 		</details>

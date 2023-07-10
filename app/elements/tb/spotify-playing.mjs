@@ -8,7 +8,6 @@ export default function TbSpotifyPlaying({ html, state: { store } }) {
 	if (!currentlyPlaying?.item) return ''
 
 	const playing = currentlyPlaying.item
-	console.log(playing)
 
 	return html`
 		<style>
