@@ -1,14 +1,22 @@
+/* font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif; */
+
 html {
 	height: 100%;
 }
 
 body {
+	font: 18px/1.5 'Inter', sans-serif;
 	min-height: 100%;
 	max-width: 100%;
 	background-color: #f8f8f8;
 	color: #222;
-	font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
 	font-size: 1.1rem;
+}
+
+@supports (font-variation-settings: normal) {
+	body {
+		font: 18px/1.5 'Inter var', sans-serif;
+	}
 }
 
 main {
@@ -23,8 +31,8 @@ h3,
 h4,
 h5,
 h6 {
+	font-family: 'Inter var', sans-serif;
 	margin: 1rem 0;
-	font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
 	font-weight: 600;
 }
 

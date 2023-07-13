@@ -28,8 +28,9 @@ export default function Head(state) {
 			</noscript>
 			<script type="module" src="/_public/highlighter.mjs" defer></script>
 
-			<link rel="stylesheet" href="/_public/typesafe.css">
-			<link rel="stylesheet" href="/_public/styles.css">
+			<link rel="stylesheet" href="/_public/css/typesafe.css">
+			<link rel="stylesheet" href="/_public/css/styles.css">
+			<link rel="stylesheet" href="/_public/css/font-Inter.css">
 		</head>
 		<body>
 	`

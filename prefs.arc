@@ -1,2 +1,2 @@
 @sandbox
-livereload false # disable reload if testing blog editor
+# livereload false # disable reload if testing blog editor
