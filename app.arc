@@ -20,6 +20,7 @@ post /webhooks/vrite       # vrite incoming
 xterm './node_modules/xterm/css/xterm.css'
 
 @static
+ignore .uploaded-images # blog images
 prune true
 
 @events

@@ -1,6 +1,6 @@
 import { Editor } from '@tiptap/core'
 import Highlight from '@tiptap/extension-highlight'
-import Image from '@tiptap/extension-image'
+import Img from '@tiptap/extension-image'
 import Link from '@tiptap/extension-link'
 import StarterKit from '@tiptap/starter-kit'
 import Superscript from '@tiptap/extension-superscript'
@@ -15,7 +15,7 @@ export class MyEditor extends Editor {
 		extensions = [
 			StarterKit,
 			Highlight,
-			Image.configure({
+			Img.configure({
 				allowBase64: true,
 			}),
 			Link.configure({
@@ -36,6 +36,66 @@ export class MyEditor extends Editor {
 			element,
 			extensions,
 			content,
+			editorProps: {
+				// helpful: https://www.codemzy.com/blog/tiptap-drag-drop-image
+				handleDrop(view, event, slice, moved) {
+					if (
+						!moved &&
+						event.dataTransfer &&
+						event.dataTransfer.files &&
+						event.dataTransfer.files[0]
+					) {
+						const file = event.dataTransfer.files[0]
+						const fileSize = Number((file.size / 1024 / 1024).toFixed(4))
+
+						if (!(file.type === 'image/jpeg' || file.type === 'image/png')) {
+							alert('jpg or png')
+							return true
+						}
+						if (fileSize > 10) {
+							alert('less than 10MB')
+							return true
+						}
+
+						const img = new Image()
+						img.src = URL.createObjectURL(file)
+						img.onload = function () {
+							if (img.width > 5000 || img.height > 5000) {
+								window.alert('less than 5000px wide and tall')
+							} else {
+								// upload and get URL
+								const form = new FormData()
+								form.set('image', file)
+								fetch('/sekret/blog-image', {
+									method: 'POST',
+									body: form,
+								}).then((res) => {
+									if (res.ok) {
+										res.json().then(({ newFileName }) => {
+											console.log('newFileName', newFileName)
+											const url = `/_public/.uploaded-images/${newFileName}`
+											const { schema } = view.state
+											const coordinates = view.posAtCoords({
+												left: event.clientX,
+												top: event.clientY,
+											})
+											const node = schema.nodes.image.create({ src: url })
+											const transaction = view.state.tr.insert(
+												coordinates?.pos || 0,
+												node,
+											)
+											return view.dispatch(transaction)
+										})
+									}
+								})
+							}
+						}
+
+						return true
+					}
+					return false
+				},
+			},
 		})
 	}
 }
