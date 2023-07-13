@@ -5,7 +5,12 @@ const { things } = await arc.tables()
 const typeString = 'vrite:content'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler({ icon = '⛔️', hCards = [], currentlyPlaying, params }) {
+async function getHandler({
+	icon = '⛔️',
+	hCards = [],
+	currentlyPlaying,
+	params,
+}) {
 	const { id } = params
 
 	// assumes published group

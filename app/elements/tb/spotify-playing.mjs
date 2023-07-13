@@ -17,7 +17,7 @@ export default function TbSpotifyPlaying({ html, state: { store } }) {
 				align-items: center;
 				gap: 0.8rem;
 				cursor: pointer;
-				--m: 10;
+				--m: 6;
 				--wavefreq: calc(100ms * var(--m));
 			}
 
