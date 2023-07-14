@@ -15,7 +15,6 @@ export default function TbFooter({ html, state: { store } }) {
 				display: grid;
 				grid-template-columns: 1fr auto 1fr;
 				align-items: center;
-				font-family: var(--font-stack);
 				font-size: 0.9rem;
 			}
 			footer > div.icon {

@@ -1,11 +1,20 @@
+@font-face {
+	font-family: "fallback-inter";
+	ascent-override: 90.20%;
+	descent-override: 22.48%;
+	line-gap-override: 0.00%;
+	size-adjust: 107.40%;
+	src: local("Avenir"), local("Arial");
+}
+
 :root {
 	--fallback-fonts: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
-	--font-stack: 'Inter', var(--fallback-fonts);
+	--font-stack: 'Inter', fallback-inter, var(--fallback-fonts);
 }
 
 @supports (font-variation-settings: normal) {
 	:root {
-		--font-stack: 'Inter var', var(--fallback-fonts);
+		--font-stack: 'Inter var', fallback-inter, var(--fallback-fonts);
 	}
 }
 
@@ -16,21 +25,11 @@ html {
 body {
 	min-height: 100%;
 	max-width: 100%;
-	font-family: var(--fallback-fonts);
+	font-family: var(--font-stack);
 	font-size: 18px;
-	font-weight: 400;
 	line-height: 1.5;
-	letter-spacing: 0.4px;
-	word-spacing: 0.1px;
 	background-color: #f8f8f8;
 	color: #222;
-}
-
-body.fonts-loaded {
-	font-family: var(--font-stack);
-	font-weight: normal;
-	letter-spacing: normal;
-	word-spacing: normal;
 }
 
 main {
@@ -45,7 +44,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--fallback-fonts);
+	font-family: var(--font-stack);
 	margin: 1rem 0;
 	font-weight: 600;
 }
