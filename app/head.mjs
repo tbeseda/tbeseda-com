@@ -31,6 +31,12 @@ export default function Head(state) {
 			<link rel="stylesheet" href="/_public/css/typesafe.css">
 			<link rel="stylesheet" href="/_public/css/styles.css">
 			<link rel="stylesheet" href="/_public/css/font-Inter.css">
+
+			<script>
+				document.fonts.onloadingdone = () => {
+					document.body.classList.add('fonts-loaded')
+				};
+			</script>
 		</head>
 		<body>
 	`

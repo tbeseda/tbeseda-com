@@ -6,7 +6,7 @@ export default function TbFooter({ html, state: { store } }) {
 			:host {
 				display: block;
 				width: 100%;
-				max-width: 94ch;
+				max-width: 66rem;
 				margin: 0 auto;
 				padding: 2rem 1rem 0;
 			}
@@ -15,6 +15,7 @@ export default function TbFooter({ html, state: { store } }) {
 				display: grid;
 				grid-template-columns: 1fr auto 1fr;
 				align-items: center;
+				font-family: var(--font-stack);
 				font-size: 0.9rem;
 			}
 			footer > div.icon {
