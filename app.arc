@@ -6,15 +6,16 @@ enhance/arc-plugin-enhance
 architect/plugin-lambda-invoker
 
 @http
-get /.well-known/webfinger
-get /tbeseda               # ActivityPub actor
-get /api/followers         #      •      followers
-get /api/following         #      •      following
-get /api/inbox             #      •      admin inbox log
-get /api/outbox            #      •      outbox activities
-post /api/inbox            #      •      inbound activity
-post /webmention           # inbound webmention
-post /webhooks/vrite       # vrite incoming
+get  /.well-known/webfinger # ActivityPub webfinger
+get  /tbeseda               #      •      actor
+get  /api/followers         #      •      followers
+get  /api/following         #      •      following
+get  /api/inbox             #      •      admin inbox log
+get  /api/outbox            #      •      outbox activities
+post /api/inbox             #      •      inbound activity
+post /webmention            # inbound webmention
+post /webhooks/vrite        # vrite incoming
+get  /api/skull             # skull drawing experiment
 
 @bundles
 xterm './node_modules/xterm/css/xterm.css'
