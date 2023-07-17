@@ -8,6 +8,8 @@
 }
 
 :root {
+	--background: #f8f8f8;
+	--text: #222;
 	--fallback-fonts: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
 	--font-stack: 'Inter', fallback-inter, var(--fallback-fonts);
 }
@@ -28,8 +30,8 @@ body {
 	font-family: var(--font-stack);
 	font-size: 18px;
 	line-height: 1.5;
-	background-color: #f8f8f8;
-	color: #222;
+	background-color: var(--background);
+	color: var(--text);
 }
 
 main {
@@ -85,9 +87,9 @@ kbd {
 }
 
 @media (prefers-color-scheme: dark) {
-	body {
-		background-color: #151515;
-		color: #ccc;
+	:root {
+		--background: #151515;
+		--text: #ccc;
 	}
 
 	a {
