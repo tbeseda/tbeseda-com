@@ -36,7 +36,7 @@ export default function ExperimentFakeArticleEditor({
 				min-height: 10rem;
 				border-radius: 0.3rem;
 				background-color: #fff;
-				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+				box-shadow: var(--shadow);
 			}
 		</style>
 

@@ -16,7 +16,8 @@ export default function ExperimentSkull({ html }) {
 
 		<h1>Random Skull</h1>
 		<p>
-			Use canvas to draw a skull from the <a href="https://quickdraw.withgoogle.com/data" target="_blank">Quick, Draw!</a> dataset.
+		Use canvas to draw a skull from the <a href="https://quickdraw.withgoogle.com/data" target="_blank">Quick, Draw!</a> dataset.<br>
+		Read <a href="https://tbeseda.com/blog/get-a-random-record-from-json">the blog post here</a>.
 		</p>
 		<code></code>
 		<canvas width="256" height="256"></canvas>
