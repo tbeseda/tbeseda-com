@@ -1,0 +1,28 @@
+h1 This is a .pug file
+
+section
+  p.
+    This template is rendered at request-time by the server.
+    It is not static. Request data is rendered below...
+
+section
+  h2 State Data
+  p
+    | Note that the 
+    code instanceID
+    |  changes on each request.
+  - state.store.hCards.items = ['redacted for brevity']
+  code: pre= JSON.stringify(state, null, 2)
+
+section
+  h2 Web Components + Enhance
+  p
+    | Pug allows raw HTML.
+    | This includes custom elements that can then be rendered by Enhance.
+    br
+    | Here's this site's footer:
+  <tb-footer></tb-footer>
+
+hr
+
+p neat, eh?

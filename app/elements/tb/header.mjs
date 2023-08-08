@@ -1,11 +1,9 @@
-import HCardPresenter from '../../lib/h-card-presenter.mjs'
-
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function TbHeader({ html, state: { store } }) {
-	const {
-		hCards: { items: [myHCard] },
-	} = store
-	const { card } = new HCardPresenter(myHCard)
+	const me = {
+		name: 'Taylor Beseda',
+		url: 'https://tbeseda.com',
+	}
 
 	return html`
 		<style>
@@ -62,10 +60,10 @@ export default function TbHeader({ html, state: { store } }) {
 
 		<header class="h-card">
 			<div class="title">
-				<a href="${card.props.url}" class="u-url">
+				<a href="${me.url}" class="u-url">
 					<img class="u-photo" height="64px" width="64px" src="/_public/me.jpg">
 				</a>
-				<h1><a href="/">${card.name}</a></h1>
+				<h1><a href="/">${me.name}</a></h1>
 			</div>
 
 			<nav>
