@@ -59,10 +59,11 @@ export default function TbFooter({ html, state: { store } }) {
 				&copy; tbeseda ${new Date().getFullYear().toString()}.
 			</div>
 
-			${currentlyPlaying?.item
-			? '<tb-spotify-playing></tb-spotify-playing>'
-			: `<div class="icon">${icon}</div>`
-		}
+			${
+				currentlyPlaying?.item
+					? '<tb-spotify-playing></tb-spotify-playing>'
+					: `<div class="icon">${icon}</div>`
+			}
 
 			<div class="say-hi">
 				<span>Say "hi" on</span>

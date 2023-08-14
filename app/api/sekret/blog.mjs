@@ -6,11 +6,7 @@ export async function get({ query, session }) {
 	let { authorized } = session
 	authorized = !!authorized
 
-	if (!authorized)
-		return {
-			status: 401,
-			json: { error: 'Unauthorized' },
-		}
+	if (!authorized) throw new Error('Unauthorized')
 
 	const { articles } = await arc.tables()
 	const { articleID } = query
@@ -42,11 +38,7 @@ export async function post({ body, session }) {
 	let { authorized } = session
 	authorized = !!authorized
 
-	if (!authorized)
-		return {
-			status: 401,
-			json: { error: 'Unauthorized' },
-		}
+	if (!authorized) throw new Error('Unauthorized')
 
 	const { articles } = await arc.tables()
 	const {

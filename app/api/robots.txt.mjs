@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get(req) {
+export async function get() {
 	const lines = `
 User-agent: *
 Disallow: /sekret
@@ -13,7 +13,5 @@ User-agent: ChatGPT-User
 Disallow: /
 `
 
-	return {
-		text: lines.trim(),
-	}
+	return { text: lines.trim() }
 }

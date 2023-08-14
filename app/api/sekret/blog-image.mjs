@@ -59,6 +59,10 @@ const parse = (event) =>
 	})
 
 export async function post(req) {
+	let { authorized } = req.session
+	authorized = !!authorized
+	if (!authorized) throw new Error('Unauthorized')
+
 	// the body property needs to be swapped out for rawBody
 	const parsedForm = await parse({
 		headers: req.headers,
@@ -79,7 +83,7 @@ export async function post(req) {
 
 		try {
 			mkdirSync(imageDir)
-		} catch (e) { }
+		} catch (e) {}
 
 		writeFileSync(join(imageDir, newFileName), content)
 	} else {
