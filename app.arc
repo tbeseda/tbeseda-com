@@ -16,6 +16,7 @@ post /api/inbox             #      •      inbound activity
 post /webmention            # inbound webmention
 post /webhooks/vrite        # vrite incoming
 get  /api/skull             # skull drawing experiment
+get  /test/python           # python test
 
 @bundles
 xterm './node_modules/xterm/css/xterm.css'
