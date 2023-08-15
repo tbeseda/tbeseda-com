@@ -112,4 +112,4 @@ async function http({ body }) {
 	return { statusCode: 200, body: 'tyvm' }
 }
 
-export const handler = arc.http.async(http)
+export const handler = arc.http(http)

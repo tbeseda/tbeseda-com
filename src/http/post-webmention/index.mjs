@@ -1,6 +1,6 @@
 import arc from '@architect/functions'
 
-export const handler = arc.http.async(async function (req) {
+export const handler = arc.http(async function (req) {
 	const { body, headers } = req
 	const { target, source } = body
 

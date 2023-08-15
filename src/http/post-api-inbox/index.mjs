@@ -1,6 +1,6 @@
 import arc from '@architect/functions'
 
-export const handler = arc.http.async(async (request) => {
+export const handler = arc.http(async (request) => {
 	console.log(`${request.httpMethod} ${request.path}`)
 
 	return {

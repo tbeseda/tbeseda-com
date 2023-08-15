@@ -7,7 +7,7 @@ import arc from '@architect/functions'
 // add the follower to the db
 // send accept to new follower
 
-export const handler = arc.http.async(async function http(request) {
+export const handler = arc.http(async function http(request) {
 	return {
 		statusCode: 200,
 		headers: {

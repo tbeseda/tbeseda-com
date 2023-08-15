@@ -23,4 +23,4 @@ async function http(request) {
 	}
 }
 
-export const handler = arc.http.async(http)
+export const handler = arc.http(http)

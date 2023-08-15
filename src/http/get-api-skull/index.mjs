@@ -6,7 +6,7 @@ import arc from '@architect/functions'
 const filePath = './skulls.ndjson' // 1 skull per line
 const stats = fs.statSync(filePath) // file size is static
 
-export const handler = arc.http.async(getRandomSkull)
+export const handler = arc.http(getRandomSkull)
 
 async function getRandomSkull() {
 	// pick a random position in the file
