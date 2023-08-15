@@ -2,7 +2,7 @@
 
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
 import Busboy from 'busboy'
-import { createID } from '../../lib/create-id.mjs'
+import { createID } from '../../../lib/create-id.mjs'
 
 const { ARC_ENV, ARC_STATIC_BUCKET, AWS_REGION } = process.env
 const isTesting = ARC_ENV === 'testing'
@@ -79,10 +79,15 @@ export async function post(req) {
 		const { join } = await import('node:path')
 		const { fileURLToPath } = await import('node:url')
 		const __dirname = fileURLToPath(new URL('.', import.meta.url))
-		const imageDir = join(__dirname, '..', '..', '..', 'public', imageFolder)
+		const imageDir = join(
+			__dirname,
+			...Array(4).fill('..'),
+			'public',
+			imageFolder,
+		)
 
 		try {
-			mkdirSync(imageDir)
+			mkdirSync(imageDir, { recursive: true })
 		} catch (e) {}
 
 		writeFileSync(join(imageDir, newFileName), content)

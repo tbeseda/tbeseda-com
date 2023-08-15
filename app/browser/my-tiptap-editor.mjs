@@ -66,7 +66,7 @@ export class MyEditor extends Editor {
 								// upload and get URL
 								const form = new FormData()
 								form.set('image', file)
-								fetch('/sekret/blog-image', {
+								fetch('/sekret/blog/image', {
 									method: 'POST',
 									body: form,
 								}).then((res) => {

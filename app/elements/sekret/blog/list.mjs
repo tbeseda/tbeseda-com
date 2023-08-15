@@ -42,7 +42,7 @@ export default function SekretBlogList({ html, state: { store } }) {
 					</td>
 					<td>${article.date}</td>
 					<td>
-						<form action="/sekret/blog">
+						<form action="/sekret/blog/editor">
 							<input type="hidden" name="articleID" value="${article.articleID}">
 							<button type="submit" formmethod="get">Edit</button>
 							<button type="submit" formmethod="post" name="action" value="destroy">Delete</button>

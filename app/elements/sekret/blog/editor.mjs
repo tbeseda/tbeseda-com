@@ -41,7 +41,7 @@ export default function SekretBlogEditor({ html, state: { store } }) {
 
 		<h2>New Blog Post</h2>
 
-		<form class="article-form" action="/sekret/blog" method="post">
+		<form class="article-form" action="/sekret/blog/editor" method="post">
 			<label for="title">ID</label>
 			<input
 				type="text"

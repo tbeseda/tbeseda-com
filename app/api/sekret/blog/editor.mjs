@@ -1,5 +1,5 @@
 import arc from '@architect/functions'
-import { createID } from '../../lib/create-id.mjs'
+import { createID } from '../../../lib/create-id.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function get({ query, session }) {
@@ -13,23 +13,8 @@ export async function get({ query, session }) {
 	let article
 	if (articleID) article = await articles.get({ articleID })
 
-	// TODO: not scan
-	const articleQuery = await articles.scan({
-		Limit: 10,
-		FilterExpression: 'attribute_exists(published)',
-		ProjectionExpression:
-			'articleID, title, published, doc, description, #date',
-		ExpressionAttributeNames: {
-			'#date': 'date',
-		},
-	})
-
-	const sortedArticles = articleQuery.Items.sort(
-		(a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
-	)
-
 	return {
-		json: { authorized, article, articles: sortedArticles },
+		json: { authorized, article },
 	}
 }
 
