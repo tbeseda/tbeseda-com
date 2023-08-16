@@ -20,7 +20,7 @@ post /webhooks/vrite        # vrite incoming
 get  /api/skull             # skull drawing experiment
 get  /test/python           # python test
 get  /test/golang           # golang test
-get  /test/rust             # rust test
+# get  /test/rust             # rust test
 
 @bundles
 xterm './node_modules/xterm/css/xterm.css'
