@@ -4,6 +4,7 @@ tbeseda-com
 @plugins
 enhance/arc-plugin-enhance
 architect/plugin-lambda-invoker
+architect/plugin-rust
 
 @http
 get  /.well-known/webfinger # ActivityPub webfinger
@@ -17,6 +18,7 @@ post /webmention            # inbound webmention
 post /webhooks/vrite        # vrite incoming
 get  /api/skull             # skull drawing experiment
 get  /test/python           # python test
+get  /test/rust             # rust test
 
 @bundles
 xterm './node_modules/xterm/css/xterm.css'

@@ -55,6 +55,7 @@
 	"devDependencies": {
 		"@architect/architect": "^10.14.0-RC.1",
 		"@architect/plugin-lambda-invoker": "^1.0.1",
+		"@architect/plugin-rust": "^0.1.1",
 		"@enhance/types": "^0.6.1",
 		"arcdown": "^2.2.0",
 		"microformats-parser": "^1.4.1",
