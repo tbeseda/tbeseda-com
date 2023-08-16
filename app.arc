@@ -5,6 +5,7 @@ tbeseda-com
 enhance/arc-plugin-enhance
 architect/plugin-lambda-invoker
 architect/plugin-rust
+architect/plugin-go
 
 @http
 get  /.well-known/webfinger # ActivityPub webfinger
@@ -18,6 +19,7 @@ post /webmention            # inbound webmention
 post /webhooks/vrite        # vrite incoming
 get  /api/skull             # skull drawing experiment
 get  /test/python           # python test
+get  /test/golang           # golang test
 get  /test/rust             # rust test
 
 @bundles

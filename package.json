@@ -54,6 +54,7 @@
 	},
 	"devDependencies": {
 		"@architect/architect": "^10.14.0-RC.1",
+		"@architect/plugin-go": "^0.0.2",
 		"@architect/plugin-lambda-invoker": "^1.0.1",
 		"@architect/plugin-rust": "^0.1.1",
 		"@enhance/types": "^0.6.1",

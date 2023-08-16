@@ -1,0 +1,2 @@
+@aws
+runtime lambda-go
