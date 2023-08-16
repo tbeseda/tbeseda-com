@@ -18,8 +18,9 @@ post /api/inbox             #      •      inbound activity
 post /webmention            # inbound webmention
 post /webhooks/vrite        # vrite incoming
 get  /api/skull             # skull drawing experiment
-get  /test/python           # python test
 get  /test/golang           # golang test
+get  /test/python           # python test
+get  /test/ruby             # ruby test
 # get  /test/rust             # rust test
 
 @bundles

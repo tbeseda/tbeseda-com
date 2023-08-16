@@ -5,10 +5,9 @@ import (
 )
 
 func hello() (string, error) {
-	return `{ "ok": true }`, nil
+	return `{ "hello": "world" }`, nil
 }
 
 func main() {
-	// Make the handler available for Remote Procedure Call by AWS Lambda
 	lambda.Start(hello)
 }
