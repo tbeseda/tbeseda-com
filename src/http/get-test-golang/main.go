@@ -5,7 +5,7 @@ import (
 )
 
 func hello() (string, error) {
-	return `{ "hello": "world" }`, nil
+	return `{"hello":"world"}`, nil
 }
 
 func main() {
