@@ -1,7 +1,7 @@
 import addHCards from './add-h-cards.mjs'
 import spotifyPlaying from './spotify-playing.mjs'
 
-function simpleLog(req) {
+async function simpleLog(req) {
 	console.log(req.method, req.path)
 }
 
