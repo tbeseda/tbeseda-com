@@ -14,7 +14,7 @@ export default function ExperimentOmnivoreSaved({ html, state: { store } }) {
 				<h3><a href="${url}" target="_blank">${title}</a></h3>
 				${
 					publishedAt
-						? `<p><small>published: ${new Date(
+						? `<p><small>saved: ${new Date(
 								publishedAt,
 						  ).toLocaleDateString()}</small></p>`
 						: ''
@@ -26,6 +26,8 @@ export default function ExperimentOmnivoreSaved({ html, state: { store } }) {
 
 	return html`
 		<h2>Recently Saved Articles</h2>
-		${omnivoreSaved.map(presentArticle).join('')}
+		<c-grid cols="1_1">
+			${omnivoreSaved.map(presentArticle).join('')}
+		</c-grid>
 	`
 }

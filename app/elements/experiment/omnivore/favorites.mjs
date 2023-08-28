@@ -17,7 +17,7 @@ export default function ExperimentOmnivoreFavorites({
 				<h3><a href="${url}" target="_blank">${title}</a></h3>
 				${
 					publishedAt
-						? `<p><small>published: ${new Date(
+						? `<p><small>favorited: ${new Date(
 								publishedAt,
 						  ).toLocaleDateString()}</small></p>`
 						: ''
@@ -29,6 +29,8 @@ export default function ExperimentOmnivoreFavorites({
 
 	return html`
 		<h2>All-Time Favorites</h2>
-		${omnivoreFavorites.map(presentFav).join('')}
+		<c-grid cols="1">
+			${omnivoreFavorites.map(presentFav).join('')}
+		</c-grid>
 	`
 }

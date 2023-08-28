@@ -10,9 +10,9 @@ export default function ExperimentOmnivoreHighlights({
 	function presentHighlight({ entity: highlight }) {
 		if (!highlight?.page) return html`<p>Missing article data</p>`
 
-		const { createdAt, page, quote, annotation } = highlight
+		const { updatedAt, page, quote, annotation } = highlight
 		const { title, url } = page
-		const date = new Date(createdAt).toLocaleDateString()
+		const date = new Date(updatedAt).toLocaleDateString()
 
 		return `
 			<div class="omnivore-highlight">
@@ -26,6 +26,8 @@ export default function ExperimentOmnivoreHighlights({
 
 	return html`
 		<h2>Recent Highlights</h2>
-		${omnivoreHighlights.map(presentHighlight).join('')}
+		<c-grid cols="1_1">
+			${omnivoreHighlights.map(presentHighlight).join('')}
+		</c-grid>
 	`
 }

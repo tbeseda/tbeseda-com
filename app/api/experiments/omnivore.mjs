@@ -26,14 +26,18 @@ async function getHandler({ icon = '⛔️', hCards = [], currentlyPlaying }) {
 		ExpressionAttributeValues: { ':omnivorePages': 'omnivore:page' },
 	})
 
+	function sort(a, b) {
+		return !a || !b ? 0 : a.updatedAt - b.updatedAt
+	}
+
 	return {
 		json: {
 			icon,
 			hCards,
 			currentlyPlaying,
-			omnivoreFavorites: favoritesQuery.Items,
-			omnivoreHighlights: highlightsQuery.Items,
-			omnivoreSaved: savedQuery.Items,
+			omnivoreHighlights: highlightsQuery.Items.sort(sort),
+			omnivoreSaved: savedQuery.Items.sort(sort),
+			omnivoreFavorites: favoritesQuery.Items.sort(sort),
 		},
 	}
 }
