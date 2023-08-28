@@ -20,7 +20,7 @@ async function getHandler({ icon = '⛔️', hCards = [], currentlyPlaying }) {
 	})
 	const savedQuery = await things.query({
 		IndexName: 'thingsByType',
-		Limit: 5,
+		Limit: 10,
 		KeyConditionExpression: '#type = :omnivorePages',
 		ExpressionAttributeNames: { '#type': 'type' },
 		ExpressionAttributeValues: { ':omnivorePages': 'omnivore:page' },
