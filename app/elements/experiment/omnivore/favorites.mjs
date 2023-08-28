@@ -7,21 +7,15 @@ export default function ExperimentOmnivoreFavorites({
 
 	if (!omnivoreFavorites?.length) return html`<p>No favorites yet.</p>`
 
-	function presentFav({ entity: labelFav }) {
+	function presentFav({ entity: labelFav, updatedAt }) {
 		if (!labelFav?.page) return html`<p>Missing article data</p>`
 
-		const { title, url, description, publishedAt } = labelFav.page
+		const { title, url, description } = labelFav.page
 
 		return `
 			<div class="omnivore-fav">
 				<h3><a href="${url}" target="_blank">${title}</a></h3>
-				${
-					publishedAt
-						? `<p><small>favorited: ${new Date(
-								publishedAt,
-						  ).toLocaleDateString()}</small></p>`
-						: ''
-				}
+				<p><small>favorited: ${new Date(updatedAt).toLocaleDateString()}</small></p>
 				<p>${description}</p>
 			</div>
 		`

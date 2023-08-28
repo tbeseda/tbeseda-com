@@ -7,10 +7,10 @@ export default function ExperimentOmnivoreHighlights({
 
 	if (!omnivoreHighlights?.length) return html`<p>No highlights yet.</p>`
 
-	function presentHighlight({ entity: highlight }) {
+	function presentHighlight({ entity: highlight, updatedAt }) {
 		if (!highlight?.page) return html`<p>Missing article data</p>`
 
-		const { updatedAt, page, quote, annotation } = highlight
+		const { page, quote, annotation } = highlight
 		const { title, url } = page
 		const date = new Date(updatedAt).toLocaleDateString()
 
