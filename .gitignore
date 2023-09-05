@@ -3,6 +3,7 @@ vendor/
 __pycache__/
 .build/
 .enhance/
+vale-styles/
 public/.uploaded-images/
 public/browser/
 public/bundles/
