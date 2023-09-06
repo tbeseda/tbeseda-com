@@ -16,7 +16,10 @@
 		"type": "git",
 		"url": "git+https://github.com/tbeseda/tbeseda-com.git"
 	},
-	"keywords": ["homepage", "enhance"],
+	"keywords": [
+		"homepage",
+		"enhance"
+	],
 	"author": "tbeseda",
 	"license": "ISC",
 	"homepage": "https://tbeseda.com",
@@ -55,7 +58,7 @@
 		"@architect/plugin-go": "^0.0.2",
 		"@architect/plugin-lambda-invoker": "^1.2.0",
 		"@architect/plugin-rust": "^0.1.1",
-		"@biomejs/biome": "^1.0.0",
+		"@biomejs/biome": "^1.1.0",
 		"@enhance/types": "^0.6.1",
 		"@ocular-d/vale-bin": "^2.28.2",
 		"arcdown": "^2.2.0",

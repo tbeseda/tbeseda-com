@@ -2,10 +2,10 @@
 	"$schema": "https://biomejs.dev/schemas/1.0.0/schema.json",
 	"files": {
 		"ignore": [
-			"./node_modules",
+			"*.json",
 			"./.build",
 			"./.enhance",
-			"./public/static.json",
+			"./node_modules",
 			"./public/browser",
 			"./public/bundles"
 		]
@@ -19,7 +19,6 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true,
 			"performance": {
 				"noDelete": "off"
 			}
