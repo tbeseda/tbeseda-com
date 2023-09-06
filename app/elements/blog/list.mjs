@@ -26,11 +26,21 @@ export default function BlogList({ html, state: { store } }) {
 			<a href="https://www.npmjs.com/package/waylon" target="_blank">Waylon Collection</a>
 			tests
 		</h3>
-		<h4><code>list()</code>:</h4>
-		${collection.list(
-			({ title, slug }) => `<a href="/blog/${slug}">${title}</a>`,
-		)}
-		<h4><code>table()</code>:</h4>
-		${collection.table()}
+		<c-grid>
+			<div>
+				<h4><code>ul("title")</code>:</h4>
+				${collection.ul('title')}
+			</div>
+			<div>
+				<h4><code>list(({ title, slug }) => linkString)</code>:</h4>
+				${collection.list(
+					({ title, slug }) => `<a href="/blog/${slug}">${title}</a>`,
+				)}
+			</div>
+			<div>
+				<h4><code>table()</code>:</h4>
+				${collection.table()}
+			</div>
+		</c-grid>
 	`
 }

@@ -21,30 +21,6 @@
 		0px 4px 4px rgba(3, 7, 18, 0.02);
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background-primary: #151515;
-		--background-secondary: #222;
-		--text: #ccc;
-	}
-
-	a {
-		color: #fff;
-	}
-
-	a:visited {
-		color: #fff;
-	}
-
-	a:hover {
-		color: #fff;
-	}
-
-	code {
-		color: aliceblue;
-	}
-}
-
 @supports (font-variation-settings: normal) {
 	:root {
 		--font-stack: 'Inter var', fallback-inter, var(--fallback-fonts);
@@ -118,4 +94,28 @@ kbd {
 
 .hidden {
 	display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background-primary: #151515;
+		--background-secondary: #222;
+		--text: #ccc;
+	}
+
+	a {
+		color: #fff;
+	}
+
+	a:visited {
+		color: #fff;
+	}
+
+	a:hover {
+		color: #fff;
+	}
+
+	code {
+		color: aliceblue;
+	}
 }
