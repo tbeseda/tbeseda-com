@@ -9,64 +9,68 @@ export default function TbSpotifyPlaying({ html, state: { store } }) {
 
 	const playing = currentlyPlaying.item
 
+	const albumCover = playing.album.images.find(
+		({ height }) => height < 301,
+	)?.url
+
 	return html`
 		<style>
 			:host {
-				display: flex;
-				justify-content: center;
+				display: grid;
+				grid-template-columns: 1fr auto 1fr;
 				align-items: center;
-				gap: 0.8rem;
+				gap: 0.666rem;
 				cursor: pointer;
 				--m: 6;
 				--wavefreq: calc(100ms * var(--m));
 			}
 
-			.track {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				font-size: 0.8rem;
+			album-cover {
+				width: 55px;
+				height: 55px;
+				place-items: center;
 			}
-			.track-name-artist {
+			track-info {
 				width: 100%;
 				display: flex;
+				flex-direction: column;
 				justify-content: space-between;
-				gap: 0.5rem;
 			}
-			.track-name {
-				font-weight: 500;
+			track-info track-name {
+				font-weight: 666;
 			}
-			.track-album {
+			track-info track-album {
 				font-weight: 300;
 				font-size: 0.75rem;
 			}
 
-			.waveform {
+			wave-form {
 				display: flex;
-				height: 1.25rem;
-				gap: 2px;
+				height: 25px;
+				gap: 3px;
 			}
-			.bar {
+			wave-bar {
+				display: block;
 				height: 100%;
-				width: 2px;
-				background: #1DB954;
+				width: 3px;
+				background: limegreen;
 				border-radius: 2px;
 				animation: waveform var(--wavefreq)
 									 ease-in-out infinite forwards;
 			}
-			.bar:nth-child(1) {
+			wave-bar:nth-child(1) {
 				--wavefreq: calc(200ms * var(--m));
 			}
-			.bar:nth-child(2) {
+			wave-bar:nth-child(2) {
 				--wavefreq: calc(300ms * var(--m));
 			}
-			.bar:nth-child(3) {
+			wave-bar:nth-child(3) {
 				--wavefreq: calc(400ms * var(--m));
 			}
-			.bar:nth-child(4) {
+			wave-bar:nth-child(4) {
 				--wavefreq: calc(500ms * var(--m));
 			}
-			.bar:nth-child(5) {
+			wave-bar:nth-child(5) {
 				--wavefreq: calc(600ms * var(--m));
 			}
 			@keyframes waveform {
@@ -76,26 +80,30 @@ export default function TbSpotifyPlaying({ html, state: { store } }) {
 			}
 		</style>
 
-		<div class="waveform">
-			<div class="bar"></div>
-			<div class="bar"></div>
-			<div class="bar"></div>
-			<div class="bar"></div>
-			<div class="bar"></div>
-		</div>
+		<album-cover>
+			<img src="${albumCover}" alt="${playing.album.name}"/>
+		</album-cover>
 
-		<div class="track">
-			<span class="track-name-artist">
-				<span class="track-name">"${playing.name}"</span>
-				<span class="track-artist">
-					${playing.artists.map(({ name }) => name).join(', ')}
-				</span>
-			</span>
-			<span class="track-album">
+		<track-info>
+			<track-name>${playing.name}</track-name>
+
+			<track-artist>
+				${playing.artists.map(({ name }) => name).join(', ')}
+			</track-artist>
+
+			<track-album>
 				${playing.album.name}
 				(${playing.album.release_date.slice(0, 4)})
-			</span>
-		</div>
+			</track-album>
+		</track-info>
+
+		<wave-form>
+			<wave-bar></wave-bar>
+			<wave-bar></wave-bar>
+			<wave-bar></wave-bar>
+			<wave-bar></wave-bar>
+			<wave-bar></wave-bar>
+		</wave-form>
 
 		<script type="module">
 			class TbSpotifyPlaying extends HTMLElement {
@@ -104,7 +112,7 @@ export default function TbSpotifyPlaying({ html, state: { store } }) {
 				}
 				connectedCallback() {
 					this.addEventListener('click', () => {
-						window.open('${playing.external_urls.spotify}', '_blank')
+						window.location = '/experiments/spotify'
 					})
 				}
 			}
