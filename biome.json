@@ -1,0 +1,34 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.0.0/schema.json",
+	"files": {
+		"ignore": [
+			"./node_modules",
+			"./.build",
+			"./.enhance",
+			"./public/static.json",
+			"./public/browser",
+			"./public/bundles"
+		]
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"formatter": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"performance": {
+				"noDelete": "off"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "asNeeded"
+		}
+	}
+}

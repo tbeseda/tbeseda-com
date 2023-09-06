@@ -1,6 +1,6 @@
-import { Renderer, AddBreaksToEmptyTextblocks } from 'pm2html'
 import { getSchema } from '@tiptap/core'
 import StarterKit from '@tiptap/starter-kit'
+import { AddBreaksToEmptyTextblocks, Renderer } from 'pm2html'
 
 const schema = getSchema([StarterKit])
 const renderer = new Renderer({

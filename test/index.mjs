@@ -1,6 +1,6 @@
-import test from 'tape'
-import { mf2 } from 'microformats-parser'
 import sandbox from '@architect/sandbox'
+import { mf2 } from 'microformats-parser'
+import test from 'tape'
 
 const PORT = 6661
 const URL = `http://localhost:${PORT}`

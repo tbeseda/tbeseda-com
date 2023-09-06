@@ -51,18 +51,18 @@ class HCardPresenter {
 	}
 	// geo can be p- and/or u-
 	get geo() {
-		return `<span class="p-geo u-geo">${this.props['geo']}</span>`
+		return `<span class="p-geo u-geo">${this.props.geo}</span>`
 	}
-	get ['p-geo']() {
-		return `<span class="p-geo">${this.props['geo']}</span>`
+	get 'p-geo'() {
+		return `<span class="p-geo">${this.props.geo}</span>`
 	}
-	get ['u-geo']() {
-		return `<span class="u-geo">${this.props['geo']}</span>`
+	get 'u-geo'() {
+		return `<span class="u-geo">${this.props.geo}</span>`
 	}
 
 	// helpers
 	get emailAddress() {
-		return this.props['email'].replace('mailto:', '')
+		return this.props.email.replace('mailto:', '')
 	}
 	get fullHonors() {
 		return [
@@ -71,30 +71,30 @@ class HCardPresenter {
 			this.mf['additional-name'],
 			this.mf['family-name'],
 			this.mf['honorific-suffix'],
-			this.props['nickname'] ? `(aka ${this.mf['nickname']})` : null,
+			this.props.nickname ? `(aka ${this.mf.nickname})` : null,
 		].join(' ')
 	}
 	get photoHtml() {
-		return `<img class="u-photo" src="${this.props['photo']}" alt="${this.props['name']}" />`
+		return `<img class="u-photo" src="${this.props.photo}" alt="${this.props.name}" />`
 	}
 	get logoHtml() {
-		return `<img class="u-logo" src="${this.props['logo']}" alt="logo" />`
+		return `<img class="u-logo" src="${this.props.logo}" alt="logo" />`
 	}
 	get nameLinkHtml() {
-		return `<a class="p-name u-url" href="${this.props['url']}">${this.props['name']}</a>`
+		return `<a class="p-name u-url" href="${this.props.url}">${this.props.name}</a>`
 	}
 	get emailLinkHtml() {
-		return `<a class="u-email" href="${this.props['email']}">${this.emailAddress}</a>`
+		return `<a class="u-email" href="${this.props.email}">${this.emailAddress}</a>`
 	}
 	get telLinkHtml() {
-		return `<a class="p-tel" href="tel:${this.props['tel']}">${this.props['tel']}</a>`
+		return `<a class="p-tel" href="tel:${this.props.tel}">${this.props.tel}</a>`
 	}
 	get addressHtml() {
 		return `
 <address class="p-adr">
   ${this.mf['street-address']}<br/>
-  ${this.mf['locality']},
-  ${this.mf['region']}
+  ${this.mf.locality},
+  ${this.mf.region}
   ${this.mf['postal-code']}<br />
   ${this.mf['country-name']}
 </address>`.trim()

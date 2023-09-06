@@ -1,7 +1,7 @@
 import arc from '@architect/functions'
-import getTop from './get-top-type.mjs'
-import getRecentlyPlayed from './get-recently-played.mjs'
 import getCurrentlyPlaying from './get-currently-playing.mjs'
+import getRecentlyPlayed from './get-recently-played.mjs'
+import getTop from './get-top-type.mjs'
 
 const { ARC_ENV } = process.env
 const tokenKey = 'spotify-token'

@@ -3,27 +3,20 @@
 	"version": "2.0.0",
 	"description": "Taylor's homepage",
 	"scripts": {
-		"deploy": "npx arc deploy -v",
-		"deploy.production": "npx arc deploy --production -v",
+		"biome.check": "biome check --apply ./",
+		"biome.format": "biome format --write ./",
 		"deploy.both": "npm run deploy && npm run deploy.production",
-		"rome": "npm run rome.fix && npx rome ci .",
-		"rome.fix": "npm run rome.check.apply && npm run rome.format.write",
-		"rome.check": "npx rome check .",
-		"rome.check.apply": "npx rome check . --apply",
-		"rome.format": "npx rome format .",
-		"rome.format.write": "npx rome format . --write",
-		"start": "npx arc sandbox",
-		"tape": "npx tape ./test/**/*.mjs | tap-arc",
-		"test": "npm run rome && npm run tape"
+		"deploy.production": "arc deploy --production -v",
+		"deploy": "arc deploy -v",
+		"start": "arc sandbox",
+		"tape": "tape ./test/**/*.mjs | tap-arc",
+		"test": "biome ci ./ && npm run tape"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/tbeseda/tbeseda-com.git"
 	},
-	"keywords": [
-		"homepage",
-		"enhance"
-	],
+	"keywords": ["homepage", "enhance"],
 	"author": "tbeseda",
 	"license": "ISC",
 	"homepage": "https://tbeseda.com",
@@ -61,11 +54,11 @@
 		"@architect/plugin-go": "^0.0.2",
 		"@architect/plugin-lambda-invoker": "^1.2.0",
 		"@architect/plugin-rust": "^0.1.1",
+		"@biomejs/biome": "^1.0.0",
 		"@enhance/types": "^0.6.1",
 		"@ocular-d/vale-bin": "^2.28.2",
 		"arcdown": "^2.2.0",
 		"microformats-parser": "^1.5.1",
-		"rome": "^12.1.3",
 		"tap-arc": "^0.4.0",
 		"tape": "^5.6.6"
 	}
