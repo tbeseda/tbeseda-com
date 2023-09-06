@@ -46,6 +46,7 @@
 		"pm2html": "^0.1.10",
 		"pug": "^3.0.2",
 		"rss-to-json": "^2.1.1",
+		"waylon": "^0.0.4",
 		"xterm": "^5.2.1",
 		"xterm-readline": "^1.1.1"
 	},
