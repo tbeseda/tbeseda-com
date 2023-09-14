@@ -19,8 +19,6 @@ export async function post({ body, session }) {
 	const authorized = password === SEKRET
 	const newSession = { ...session, authorized }
 
-	console.log('authorized', authorized)
-
 	return authorized
 		? {
 				status: 302,

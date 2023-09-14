@@ -76,7 +76,7 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 			}
 		</style>
 
-		${!authorized ? '<p><a href="/auth/spotify/login">re-auth</a></p>' : ''}
+		${authorized ? '<p><a href="/auth/spotify/login">re-auth</a></p>' : ''}
 
 		<h2>My Spotify Activity</h2>
 
