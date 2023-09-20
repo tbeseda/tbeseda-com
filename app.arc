@@ -3,6 +3,7 @@ tbeseda-com
 
 @plugins
 enhance/arc-plugin-enhance
+enhance/enhance-plugin-performance-budget
 architect/plugin-lambda-invoker
 architect/plugin-rust
 architect/plugin-go
@@ -26,6 +27,9 @@ get  /test/ruby             # ruby test
 
 @bundles
 xterm './node_modules/xterm/css/xterm.css'
+
+@performance-budget
+payload-size 12000
 
 @static
 ignore .uploaded-images # blog images

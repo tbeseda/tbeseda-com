@@ -6,8 +6,8 @@
 		"biome.check": "biome check --apply ./",
 		"biome.format": "biome format --write ./",
 		"deploy.both": "npm run deploy && npm run deploy.production",
-		"deploy.production": "arc deploy --production -v",
-		"deploy": "arc deploy -v",
+		"deploy.production": "arc deploy --production",
+		"deploy": "arc deploy",
 		"start": "arc sandbox",
 		"tape": "tape ./test/**/*.mjs | tap-arc",
 		"test": "biome ci ./ && npm run tape"
@@ -30,6 +30,7 @@
 		"@architect/functions": "^7.0.0",
 		"@aws-sdk/client-s3": "^3.414.0",
 		"@enhance/arc-plugin-enhance": "^6.2.4",
+		"@enhance/enhance-plugin-performance-budget": "^0.1.0",
 		"@enhance/form-elements": "^1.0.3",
 		"@tiptap/core": "^2.1.10",
 		"@tiptap/extension-highlight": "^2.1.10",
