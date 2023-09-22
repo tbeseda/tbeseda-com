@@ -6,20 +6,24 @@ export default function BlogArticle({ html, state: { store } }) {
 
 	return html`
 		<style>
-			article {
+			:host > article {
 				display: flex;
 				flex-direction: column;
 			}
-			article img {
+			article > * {
+				margin: 0;
+			}
+			article > div img {
 				align-self: center;
 				margin: 1.5rem auto;
 				box-shadow: var(--shadow);
 			}
 		</style>
+
 		<article>
-			<p>${article.date}</p>
 			<h1>${article.title}</h1>
-			${renderer.render(article.doc)}
+			<time>${article.date}</time>
+			<div class="card">${renderer.render(article.doc)}</div>
 		</article>
 	`
 }

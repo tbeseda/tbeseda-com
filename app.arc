@@ -3,7 +3,7 @@ tbeseda-com
 
 @plugins
 enhance/arc-plugin-enhance
-enhance/enhance-plugin-performance-budget
+# enhance/enhance-plugin-performance-budget
 architect/plugin-lambda-invoker
 architect/plugin-rust
 architect/plugin-go

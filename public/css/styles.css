@@ -105,3 +105,10 @@ kbd {
 .hidden {
 	display: none;
 }
+
+.card {
+	display: block;
+	padding: 0.85rem 1rem;
+	background: var(--background-secondary);
+	box-shadow: var(--shadow);
+}

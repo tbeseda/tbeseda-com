@@ -5,42 +5,37 @@ export default function BlogList({ html, state: { store } }) {
 	const { articles = [] } = store
 	const collection = new Collection(articles)
 	return html`
-		<dl>
-			${articles
-				.map(
-					({ title, description, date, slug }) => `
-					<dt>
-						<a href="/blog/${slug}">${title}</a>
-					</dt>
-					<dd>
-						${description}
-						<br>
-						<small>${date}</small>
-					</dd>
-				`,
-				)
-				.join('')}
-		</dl>
+		<style>
+			:host {
+				display: block;
+			}
+			.article {
+				display: flex;
+				flex-direction: column;
+				margin-bottom: 1rem;
+			}
+			.article * {
+				margin: 0;
+			}
+			.article a {
+				font-size: 1.75rem;
+				font-weight: 600;
+			}
+			.article small {
+				margin-bottom: 0.5rem;
+			}
+		</style>
 
-		<h3 style="margin-top: 15rem;">
-			<a href="https://www.npmjs.com/package/waylon" target="_blank">Waylon Collection</a>
-			tests
-		</h3>
 		<c-grid>
-			<div>
-				<h4><code>ul("title")</code>:</h4>
-				${collection.ul('title')}
-			</div>
-			<div>
-				<h4><code>list(({ title, slug }) => linkString)</code>:</h4>
-				${collection.list(
-					({ title, slug }) => `<a href="/blog/${slug}">${title}</a>`,
-				)}
-			</div>
-			<div>
-				<h4><code>table()</code>:</h4>
-				${collection.table()}
-			</div>
+			${collection.render(
+				'div',
+				(i) => i.attrs({ class: 'article' }),
+				(item) => `
+				${item.link(`/blog/${item.i.slug}`, item.i.title)}
+				<time>${item.i.date}</time>
+				<p>${item.i.description}</p>
+			`,
+			)}
 		</c-grid>
 	`
 }
