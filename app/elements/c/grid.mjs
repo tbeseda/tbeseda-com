@@ -8,7 +8,7 @@ export default function Grid({ html, state: { attrs } }) {
 	if (cols)
 		style += `grid-template-columns: ${colDgits
 			.map((digit) => `${digit}fr`)
-			.join(' ')};`
+			.join(' ')}; `
 
 	if (rows)
 		style += `grid-template-rows: ${rowDgits

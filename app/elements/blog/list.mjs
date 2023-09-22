@@ -21,7 +21,8 @@ export default function BlogList({ html, state: { store } }) {
 				font-size: 1.75rem;
 				font-weight: 600;
 			}
-			.article small {
+			.article time {
+				font-size: 0.8em;
 				margin-bottom: 0.5rem;
 			}
 		</style>
@@ -31,10 +32,10 @@ export default function BlogList({ html, state: { store } }) {
 				'div',
 				(i) => i.attrs({ class: 'article' }),
 				(item) => `
-				${item.link(`/blog/${item.i.slug}`, item.i.title)}
-				<time>${item.i.date}</time>
-				<p>${item.i.description}</p>
-			`,
+					${item.link(`/blog/${item.i.slug}`, item.i.title)}
+					<time>${item.i.date}</time>
+					<p>${item.i.description}</p>
+				`,
 			)}
 		</c-grid>
 	`
