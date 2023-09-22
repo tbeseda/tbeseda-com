@@ -11,7 +11,7 @@ async function getHandler({ hCards = [], currentlyPlaying }) {
 			featured: true,
 		},
 		{
-			name: 'AWSLambda Runtimes',
+			name: 'AWS Lambda Runtimes',
 			date: '2023',
 			description: 'A view that fetches a "hello world" from 4 different Lambda runtimes: Ruby, Python, Go, and Rust.',
 			url: '/experiments/runtimes',

@@ -15,7 +15,7 @@ export default function List({ html, state: { store } }) {
 				flex-direction: column;
 			}
 			.experiment.featured {
-				box-shadow: 0 0 3px 1px color-mix(in srgb, var(--accent) 66%, transparent);;
+				box-shadow: 0 0 3px 1px color-mix(in srgb, var(--accent) 66%, transparent);
 			}
 			.experiment * {
 				margin: 0;
