@@ -1,11 +1,12 @@
 import arc from '@architect/functions'
 import { Feed } from 'feed'
+import { renderer } from '../../lib/pm2html-renderer.mjs'
 
 const { articles } = await arc.tables()
 const query = await articles.scan({
 	Limit: 10,
 	FilterExpression: 'attribute_exists(published)',
-	ProjectionExpression: 'title, published, slug, description, #date',
+	ProjectionExpression: 'title, published, slug, description, doc, #date',
 	ExpressionAttributeNames: {
 		'#date': 'date',
 	},
@@ -42,7 +43,7 @@ for (const article of sortedArticles) {
 		id: url,
 		link: url,
 		description: article.description,
-		content: article.description,
+		content: renderer.render(article.doc),
 		author: [
 			{
 				name: 'Taylor Beseda',
