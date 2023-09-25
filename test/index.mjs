@@ -28,7 +28,7 @@ test('smoke and microformats', async (t) => {
 			URL,
 			`${URL}/blog`,
 			`${URL}/blog/gitclean-zsh-command`,
-			// `${URL}/blog/rss`,
+			`${URL}/blog/rss`,
 			`${URL}/experiments`,
 			`${URL}/h-card`,
 		]) {

@@ -28,7 +28,7 @@
 	},
 	"dependencies": {
 		"@architect/functions": "^7.0.0",
-		"@aws-sdk/client-s3": "^3.417.0",
+		"@aws-sdk/client-s3": "^3.418.0",
 		"@enhance/arc-plugin-enhance": "^6.2.4",
 		"@enhance/enhance-plugin-performance-budget": "^0.1.0",
 		"@enhance/form-elements": "^1.0.3",
@@ -64,6 +64,6 @@
 		"arcdown": "^2.2.1",
 		"microformats-parser": "^1.5.2",
 		"tap-arc": "^1.0.1",
-		"tape": "^5.6.6"
+		"tape": "^5.7.0"
 	}
 }

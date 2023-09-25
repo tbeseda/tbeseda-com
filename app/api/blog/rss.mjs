@@ -1,18 +1,28 @@
+import arc from '@architect/functions'
 import { Feed } from 'feed'
-import articlesData from '../../lib/articles-data.mjs'
 
-const articles = articlesData.filter((a) => !a.hidden)
+const { articles } = await arc.tables()
+const query = await articles.scan({
+	Limit: 10,
+	FilterExpression: 'attribute_exists(published)',
+	ProjectionExpression: 'title, published, slug, description, #date',
+	ExpressionAttributeNames: {
+		'#date': 'date',
+	},
+})
+const sortedArticles = query.Items.filter(({ published }) => published).sort(
+	(a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
+)
 
 const feed = new Feed({
-	title: 'tbeseda (Taylor Beseda)',
-	description: "tbeseda's personal website",
-	id: 'http://tbeseda.com/',
-	link: 'http://tbeseda.com/',
+	title: 'tbeseda (Taylor Beseda) blog',
+	description: "tbeseda's personal blog",
+	id: 'https://tbeseda.com/',
+	link: 'https://tbeseda.com/',
 	language: 'en',
-	// image: 'http://tbeseda.com/image.png',
-	favicon: 'http://tbeseda.com/_public/me.jpg',
+	image: 'https://tbeseda.com/_public/me.jpg',
+	favicon: 'https://tbeseda.com/_public/me.jpg',
 	copyright: `All rights reserved ${new Date().getFullYear()}, tbeseda`,
-	// updated: new Date(2013, 6, 14), // optional, default = today
 	generator: 'tbeseda.com via Feed for Node.js',
 	feedLinks: {
 		json: 'https://tbeseda.com/json',
@@ -25,14 +35,14 @@ const feed = new Feed({
 	},
 })
 
-for (const article of articles) {
-	const url = `https://tbeseda.com/${article.path}`
+for (const article of sortedArticles) {
+	const url = `https://tbeseda.com/blog/${article.slug}`
 	feed.addItem({
 		title: article.title,
 		id: url,
 		link: url,
-		description: article.summary,
-		content: article.html,
+		description: article.description,
+		content: article.description,
 		author: [
 			{
 				name: 'Taylor Beseda',
@@ -40,7 +50,7 @@ for (const article of articles) {
 				link: 'https://tbeseda.com/',
 			},
 		],
-		date: new Date(article.published),
+		date: new Date(article.date),
 		// image: article.image,
 	})
 }

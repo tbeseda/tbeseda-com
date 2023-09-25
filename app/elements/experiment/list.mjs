@@ -15,7 +15,8 @@ export default function List({ html, state: { store } }) {
 				flex-direction: column;
 			}
 			.experiment.featured {
-				box-shadow: 0 0 3px 1px color-mix(in srgb, var(--accent) 66%, transparent);
+				box-shadow: 0 0 3px 1px
+					color-mix(in srgb, var(--accent) 66%, transparent);
 			}
 			.experiment * {
 				margin: 0;
@@ -34,7 +35,8 @@ export default function List({ html, state: { store } }) {
 		<c-grid cols="1_1">
 			${collection.render(
 				'div',
-				(i) => i.attrs({ class: `experiment${i.i.featured ? ' featured' : ''}` }),
+				(i) =>
+					i.attrs({ class: `experiment${i.i.featured ? ' featured' : ''}` }),
 				(item) => `
 					${item.link(item.i.url, item.i.name)}
 					<!--<time>${item.i.date}</time>-->

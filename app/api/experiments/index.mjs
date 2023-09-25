@@ -6,14 +6,16 @@ async function getHandler({ hCards = [], currentlyPlaying }) {
 		{
 			name: 'Omnivore.app Linkblog',
 			date: '2023',
-			description: 'My Omnivore.app Reading List. Features recently saved articles, highlights, and all-time favorites.',
+			description:
+				'My Omnivore.app Reading List. Features recently saved articles, highlights, and all-time favorites.',
 			url: '/experiments/omnivore',
 			featured: true,
 		},
 		{
 			name: 'AWS Lambda Runtimes',
 			date: '2023',
-			description: 'A view that fetches a "hello world" from 4 different Lambda runtimes: Ruby, Python, Go, and Rust.',
+			description:
+				'A view that fetches a "hello world" from 4 different Lambda runtimes: Ruby, Python, Go, and Rust.',
 			url: '/experiments/runtimes',
 		},
 		{
@@ -32,33 +34,38 @@ async function getHandler({ hCards = [], currentlyPlaying }) {
 		{
 			name: 'My Spotify Activity',
 			date: '2023',
-			description: 'Live updates from my listening on Spotify! Also my top tracks and artists.',
+			description:
+				'Live updates from my listening on Spotify! Also my top tracks and artists.',
 			url: '/experiments/spotify',
 			featured: true,
 		},
 		{
 			name: 'Article Publishing Demo',
 			date: '2023',
-			description: 'A proof-of-concept for publishing articles to my site. This ended up being the basis for my custom CMS.',
+			description:
+				'A proof-of-concept for publishing articles to my site. This ended up being the basis for my custom CMS.',
 			url: '/experiments/fake-articles',
 		},
 		{
 			name: '$ terminal',
 			date: '2023',
-			description: 'A terminal emulator that runs in the browser. Based on xterm.js.',
+			description:
+				'A terminal emulator that runs in the browser. Based on xterm.js.',
 			url: '/experiments/$',
 			featured: true,
 		},
 		{
 			name: 'Article Publishing with Vrite.io',
 			date: '2023',
-			description: 'I used Vrite.io to author content and automatically ingest and cache it here. (Dependent on Vrite.io API.)',
+			description:
+				'I used Vrite.io to author content and automatically ingest and cache it here. (Dependent on Vrite.io API.)',
 			url: '/experiments/vrite',
 		},
 		{
 			name: 'My Local Air Quality Index',
 			date: '2023',
-			description: 'Raw JSON data from AirNow.gov and IQAir.com for my local AQI.',
+			description:
+				'Raw JSON data from AirNow.gov and IQAir.com for my local AQI.',
 			url: '/experiments/aqi',
 		},
 		{
@@ -74,7 +81,7 @@ async function getHandler({ hCards = [], currentlyPlaying }) {
 			icon: '👨🏻‍🔬',
 			hCards,
 			currentlyPlaying,
-			experiments: experiments.sort((e) => e.featured ? -1 : 1)
+			experiments: experiments.sort((e) => (e.featured ? -1 : 1)),
 		},
 	}
 }
