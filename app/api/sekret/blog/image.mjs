@@ -73,7 +73,7 @@ export async function post(req) {
 	const { content, filename } = parsedForm.files[0]
 
 	// Save the image to S3 bucket (or temp folder for local dev)
-	const newFileName = `${createID()}_${filename}`
+	const newFileName = `${createID()}_${encodeURIComponent(filename)}`
 	if (isTesting) {
 		const { writeFileSync, mkdirSync } = await import('node:fs')
 		const { join } = await import('node:path')

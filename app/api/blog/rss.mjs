@@ -2,9 +2,11 @@ import arc from '@architect/functions'
 import { Feed } from 'feed'
 import { renderer } from '../../lib/pm2html-renderer.mjs'
 
+const TBESEDA = 'https://tbeseda.com'
+
 const { articles } = await arc.tables()
 const query = await articles.scan({
-	Limit: 10,
+	Limit: 100,
 	FilterExpression: 'attribute_exists(published)',
 	ProjectionExpression: 'title, published, slug, description, doc, #date',
 	ExpressionAttributeNames: {
@@ -18,37 +20,38 @@ const sortedArticles = query.Items.filter(({ published }) => published).sort(
 const feed = new Feed({
 	title: 'tbeseda (Taylor Beseda) blog',
 	description: "tbeseda's personal blog",
-	id: 'https://tbeseda.com/',
-	link: 'https://tbeseda.com/',
+	id: TBESEDA,
+	link: TBESEDA,
 	language: 'en',
-	image: 'https://tbeseda.com/_public/me.jpg',
-	favicon: 'https://tbeseda.com/_public/me.jpg',
+	image: `${TBESEDA}/_public/me.jpg`,
+	favicon: `${TBESEDA}/_public/me.jpg`,
 	copyright: `All rights reserved ${new Date().getFullYear()}, tbeseda`,
 	generator: 'tbeseda.com via Feed for Node.js',
-	feedLinks: {
-		json: 'https://tbeseda.com/json',
-		atom: 'https://tbeseda.com/atom',
-	},
 	author: {
 		name: 'Taylor Beseda',
 		// email: 'tbeseda@gmail.com',
-		link: 'https://tbeseda.com/',
+		link: TBESEDA,
 	},
 })
 
 for (const article of sortedArticles) {
-	const url = `https://tbeseda.com/blog/${article.slug}`
+	const content = renderer
+		.render(article.doc)
+		.replace(/src=["']\/([^"']+)["']/g, (_match, src) => {
+			const absoluteUrl = `${TBESEDA}/${src}`
+			return `src="${absoluteUrl}"`
+		})
 	feed.addItem({
 		title: article.title,
-		id: url,
-		link: url,
+		id: article.articleID,
+		link: `${TBESEDA}/blog/${article.slug}`,
 		description: article.description,
-		content: renderer.render(article.doc),
+		content,
 		author: [
 			{
 				name: 'Taylor Beseda',
 				// email: 'tbeseda@gmail.com',
-				link: 'https://tbeseda.com/',
+				link: TBESEDA,
 			},
 		],
 		date: new Date(article.date),
@@ -60,10 +63,11 @@ feed.addCategory('Web development')
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function get() {
+	const age = 10 // minutes
 	return {
 		statusCode: 200,
 		headers: {
-			'cache-control': 'max-age=600, must-revalidate',
+			'cache-control': `max-age=${age * 60}, must-revalidate`,
 			'content-type': 'text/xml; charset=utf-8',
 		},
 		body: feed.rss2(),

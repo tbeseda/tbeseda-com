@@ -11,8 +11,7 @@ export async function get({ session }) {
 
 	// TODO: not scan
 	const articleQuery = await articles.scan({
-		Limit: 10,
-		FilterExpression: 'attribute_exists(published)',
+		Limit: 100,
 		ProjectionExpression:
 			'articleID, title, published, doc, description, #date',
 		ExpressionAttributeNames: {

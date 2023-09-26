@@ -7,7 +7,7 @@ const { articles } = await arc.tables()
 async function getHandler({ icon = '⛔️', hCards = [], currentlyPlaying }) {
 	// TODO: not scan
 	const query = await articles.scan({
-		Limit: 10,
+		Limit: 100,
 		FilterExpression: 'attribute_exists(published)',
 		ProjectionExpression: 'title, published, slug, description, #date',
 		ExpressionAttributeNames: {
