@@ -8,7 +8,7 @@ const { articles } = await arc.tables()
 const query = await articles.scan({
 	Limit: 100,
 	FilterExpression: 'attribute_exists(published)',
-	ProjectionExpression: 'title, published, slug, description, doc, #date',
+	ProjectionExpression: 'articleID, title, published, slug, description, doc, #date',
 	ExpressionAttributeNames: {
 		'#date': 'date',
 	},
@@ -32,6 +32,7 @@ const feed = new Feed({
 		// email: 'tbeseda@gmail.com',
 		link: TBESEDA,
 	},
+	feed: `${TBESEDA}/blog/rss`,
 })
 
 for (const article of sortedArticles) {
@@ -43,7 +44,7 @@ for (const article of sortedArticles) {
 		})
 	feed.addItem({
 		title: article.title,
-		id: article.articleID,
+		// id: article.articleID, // defaults to link value
 		link: `${TBESEDA}/blog/${article.slug}`,
 		description: article.description,
 		content,
