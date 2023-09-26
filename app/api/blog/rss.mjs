@@ -8,7 +8,8 @@ const { articles } = await arc.tables()
 const query = await articles.scan({
 	Limit: 100,
 	FilterExpression: 'attribute_exists(published)',
-	ProjectionExpression: 'articleID, title, published, slug, description, doc, #date',
+	ProjectionExpression:
+		'articleID, title, published, slug, description, doc, #date',
 	ExpressionAttributeNames: {
 		'#date': 'date',
 	},
