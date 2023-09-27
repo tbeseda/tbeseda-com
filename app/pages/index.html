@@ -12,26 +12,20 @@
 	.hero {
 		margin: 5rem 0;
 	}
-	.hero h2.headline {
+	h2.headline {
 		padding-right: 11rem;
 		line-height: 1.25;
 		margin-bottom: 2rem;
 		font-size: 2.25rem;
 		font-weight: 400;
 	}
-	.hero p.personal-statement {
+	p.personal-statement {
 		padding-right: 11rem;
 		font-size: 1.5rem;
 		line-height: 1.5;
-		margin-bottom: 0.5rem;
+		margin-block-end: 2rem;
 	}
-	/* grid 2 equal columns */
-	.hero .showcase {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
-	}
-	.hero .showcase .projects ul {
+	.projects ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
@@ -49,10 +43,6 @@
 		.hero p.personal-statement {
 			padding-right: 0;
 			font-size: 1.1rem;
-		}
-		.hero .showcase {
-			grid-template-columns: auto;
-			gap: 1rem;
 		}
 	}
 </style>
@@ -76,21 +66,22 @@
 			and communicating those ideas to other humans.
 		</p>
 
-		<div class="showcase">
-			<aside class="projects">
+		<c-grid cols="1_1">
+			<aside class="projects card">
 				<h3>Projects</h3>
 				<ul>
 					<li><a href="https://begin.com">Begin</a>: platform for web apps.</li>
 					<li><a href="https://arc.codes">Architect</a>: toolchain for building <a href="https://fwa.dev/">FWAs</a>.</li>
 					<li><a href="https://enhance.dev">Enhance</a>: HTML-first, full stack framework.</li>
 				</ul>
+				<p>More recent work on GitHub: <a href="https://github.com/tbeseda" target="_blank">github.com/tbeseda</a></p>
 			</aside>
 
-			<aside class="recent-article">
+			<aside class="recent-article card">
 				<h3>Recent Article</h3>
 				<blog-recent-article></blog-recent-article>
 			</aside>
-		</div>
+		</c-grid>
 	</section>
 </main>
 

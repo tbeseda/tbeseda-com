@@ -28,7 +28,7 @@
 	},
 	"dependencies": {
 		"@architect/functions": "^7.0.0",
-		"@aws-sdk/client-s3": "^3.418.0",
+		"@aws-sdk/client-s3": "^3.421.0",
 		"@enhance/arc-plugin-enhance": "^6.2.4",
 		"@enhance/enhance-plugin-performance-budget": "^0.1.0",
 		"@enhance/form-elements": "^1.0.3",

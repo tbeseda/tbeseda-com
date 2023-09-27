@@ -20,9 +20,6 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 
 	return html`
 		<style>
-			h3 {
-				margin-top: 2rem;
-			}
 			details {
 				margin-top: 2rem;
 			}
@@ -32,7 +29,6 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 				gap: 1.5rem;
 			}
 			.row {
-				background: rgba(210, 210, 255, 0.1);
 				display: grid;
 				grid-template-columns: auto 1fr auto auto;
 				align-items: center;
@@ -44,7 +40,6 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 			}
 			.row.denser {
 				border-bottom: 1px solid #333;
-				background: none;
 				padding: 0.25rem 0;
 			}
 			.row.track {
@@ -84,78 +79,85 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 
 		${
 			playing
-				? `<h3>Currently Playing</h3>
-					<div class="row track">
-						<img class="album-cover" src="${playing.album.images[0].url}" alt="album cover" />
-						<span class="track-info">
-							<span class="playing-progress">
-								${
-									currentlyPlaying.is_playing
-										? '&#9658;'
-										: '&#9616;&nbsp;&#9612;'
-								}
-								${timestamp(currentlyPlaying.progress_ms)} /
-								${timestamp(playing.duration_ms)}
-							</span><br>
-							<strong class="track-name">${playing.name}</strong>
-							<br>
-							<span class="artist">
-								${playing.artists.map(({ name }) => name).join(', ')}
-							</span>
-						</span>
-						<span class="album-info">
-							${playing.album.name}<br>
-							${playing.album.release_date.split('-')[0]}
-						</span>
-					</div>`
-				: ''
-		}
+					? /*html*/`
+							<h3>Currently Playing</h3>
+							<div class="card">
+								<div class="row track">
+									<img class="album-cover" src="${playing.album.images[0].url}" alt="album cover" />
+									<span class="track-info">
+										<span class="playing-progress">
+											${
+												currentlyPlaying.is_playing
+													? '&#9658;'
+													: '&#9616;&nbsp;&#9612;'
+											}
+											${timestamp(currentlyPlaying.progress_ms)} /
+											${timestamp(playing.duration_ms)}
+										</span><br>
+										<strong class="track-name">${playing.name}</strong><br>
+										<span class="artist">
+											${playing.artists.map(({ name }) => name).join(', ')}
+										</span>
+									</span>
+									<span class="album-info">
+										${playing.album.name}<br>
+										${playing.album.release_date.split('-')[0]}
+									</span>
+								</div>
+							</div>
+						`.trim()
+					: ''
+			}
 
 		<h3>Recently Played</h3>
-		${
-			mostRecent
-				? `<div class="row track">
-						<img class="album-cover" src="${mostRecent.album.images[0].url}" alt="album cover" />
-						<span class="track-info">
-							<strong class="track-name">${mostRecent.name}</strong><br>
-							<span class="artist">
-								${mostRecent.artists.map(({ name }) => name).join(', ')}
-							</span>
-						</span>
-						<span class="album-info">
-							${mostRecent.album.name}<br>
-							${mostRecent.album.release_date.split('-')[0]}
-						</span>
-					</div>`
-				: ''
-		}
-		${
-			nextRecent.length
-				? nextRecent
-						.map(
-							(track) => `
-						<div class="row track dense">
-							<img class="album-cover" src="${track.album.images[0].url}" alt="album cover" />
-							<span class="track-info">
-								<strong class="track-name">${track.name}</strong><br>
-								<span class="artist">
-									${track.artists.map(({ name }) => name).join(', ')}
+		<div class="card">
+			${
+				mostRecent
+					? /*html*/`
+							<div class="row track">
+								<img class="album-cover" src="${mostRecent.album.images[0].url}" alt="album cover" />
+								<span class="track-info">
+									<strong class="track-name">${mostRecent.name}</strong><br>
+									<span class="artist">
+										${mostRecent.artists.map(({ name }) => name).join(', ')}
+									</span>
 								</span>
-							</span>
-							<span class="album-info">
-								${track.album.name}<br>
-								${track.album.release_date.split('-')[0]}
-							</span>
-						</div>
-					`,
-						)
-						.join('')
-				: ''
-		}
+								<span class="album-info">
+									${mostRecent.album.name}<br>
+									${mostRecent.album.release_date.split('-')[0]}
+								</span>
+							</div>
+						`.trim()
+					: ''
+			}
+			${
+				nextRecent.length
+					? nextRecent
+							.map(
+								(track) => /*html*/`
+									<div class="row track dense">
+										<img class="album-cover" src="${track.album.images[0].url}" alt="album cover" />
+										<span class="track-info">
+											<strong class="track-name">${track.name}</strong><br>
+											<span class="artist">
+												${track.artists.map(({ name }) => name).join(', ')}
+											</span>
+										</span>
+										<span class="album-info">
+											${track.album.name}<br>
+											${track.album.release_date.split('-')[0]}
+										</span>
+									</div>
+								`,
+							)
+							.join('')
+					: ''
+			}
+		</div>
 
 		<details>
 			<summary>More Stats</summary>
-			<div>
+			<c-grid cols="1_2">
 				<div>
 					<h3>Top Artists</h3>
 					${topArtists.items
@@ -189,7 +191,7 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 						)
 						.join('')}
 				</div>
-			</div>
+			</c-grid>
 		</details>
 	`
 }

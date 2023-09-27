@@ -17,6 +17,11 @@ export default function Grid({ html, state: { attrs } }) {
 
 	return html`
 		<style>
+			:host {
+				display: block;
+				padding: 0;
+				margin-block: 0;
+			}
 			:host > div {
 				display: grid;
 				gap: 1rem;
