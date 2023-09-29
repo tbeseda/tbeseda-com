@@ -11,6 +11,21 @@ Disallow: /
 
 User-agent: ChatGPT-User
 Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-Agent: FacebookBot
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
 `
 
 	return { text: lines.trim() }
