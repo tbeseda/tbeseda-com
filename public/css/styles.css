@@ -1,4 +1,6 @@
 :root {
+	color-scheme: light dark;
+
 	/* https://github.com/kepano/flexoki/blob/3d2da54682059b9ab2fb7c7ac4998bd056b970a8/css/flexoki.css */
 	--flexoki-black: #100F0F;
 	--flexoki-paper: #FFFCF0;
@@ -35,11 +37,19 @@
 	--flexoki-magenta-600: #A02F6F;
 	--flexoki-magenta-400: #CE5D97;
 
+	/* remove once light-dark is supported ↓ */
 	--background-primary: var(--flexoki-paper);
-	--background-secondary: color-mix(in srgb, var(--flexoki-paper) 20%, white);
+	--background-secondary: color-mix(in srgb, var(--flexoki-paper) 25%, white);
 	--text: var(--flexoki-950);
 	--accent: var(--flexoki-blue-600);
 	--code: var(--flexoki-magenta-600);
+
+	/* light-dark() only works in FF v120+ */
+	--background-primary: light-dark(var(--flexoki-paper), var(--flexoki-black));
+	--background-secondary: light-dark(color-mix(in srgb, var(--flexoki-paper) 25%, white), var(--flexoki-900));
+	--text: light-dark(var(--flexoki-950), var(--flexoki-50));
+	--accent: light-dark(var(--flexoki-blue-600), var(--flexoki-blue-400));
+	--code: light-dark(var(--flexoki-magenta-600), var(--flexoki-magenta-400));
 
 	--font-stack: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 	--shadow: 0px 0px 0px rgba(3, 7, 18, 0.10),
@@ -49,6 +59,7 @@
 		0px 4px 4px rgba(3, 7, 18, 0.02);
 }
 
+/* remove once light-dark is supported ↓ */
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background-primary: var(--flexoki-black);
@@ -71,6 +82,14 @@ body {
 	line-height: 1.5;
 	background-color: var(--background-primary);
 	color: var(--text);
+}
+
+body.dark {
+	color-scheme: dark;
+}
+
+body.light {
+	color-scheme: light;
 }
 
 main {

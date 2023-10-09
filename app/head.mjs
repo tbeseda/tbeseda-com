@@ -14,7 +14,6 @@ export default function Head(state) {
 			<meta charset="utf-8">
 			<meta name="google-site-verification" content="5yKJt5rGoKcFXspMRBIxIQAxHGswrnDiSsaGcNT4TQg" />
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<meta name="color-scheme" content="dark light">
 
 			<title>${title}</title>
 
