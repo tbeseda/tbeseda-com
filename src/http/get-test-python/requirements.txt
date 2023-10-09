@@ -1,0 +1,4 @@
+# --extra-index-url https://test.pypi.org/simple/
+architect-functions
+boto3
+pipdeptree
