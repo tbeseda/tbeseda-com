@@ -31,7 +31,6 @@ export default function Head(state) {
 
 			<link rel="stylesheet" href="/_public/css/typesafe.css">
 			<link rel="stylesheet" href="/_public/css/styles.css">
-			<link rel="stylesheet" href="/_public/css/font-Inter.css">
 		</head>
 		<body>
 	`

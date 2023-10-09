@@ -1,20 +1,47 @@
-@font-face {
-	font-family: "fallback-inter";
-	ascent-override: 90.20%;
-	descent-override: 22.48%;
-	line-gap-override: 0.00%;
-	size-adjust: 107.40%;
-	src: local("Avenir"), local("Arial");
-}
-
 :root {
-	--background-primary: #f3f4f6;
-	--background-secondary: #fff;
-	--text: #222;
-	--accent: #e2565b;
-	--code: navy;
-	--fallback-fonts: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
-	--font-stack: 'Inter', fallback-inter, var(--fallback-fonts);
+	/* https://github.com/kepano/flexoki/blob/3d2da54682059b9ab2fb7c7ac4998bd056b970a8/css/flexoki.css */
+	--flexoki-black: #100F0F;
+	--flexoki-paper: #FFFCF0;
+	--flexoki-950: #1C1B1A;
+	--flexoki-900: #282726;
+	--flexoki-850: #343331;
+	--flexoki-800: #403E3C;
+	--flexoki-700: #575653;
+	--flexoki-600: #6F6E69;
+	--flexoki-500: #878580;
+	--flexoki-300: #B7B5AC;
+	--flexoki-200: #CECDC3;
+	--flexoki-150: #DAD8CE;
+	--flexoki-100: #E6E4D9;
+	--flexoki-50: #F2F0E5;
+	--flexoki-red-600: #AF3029;
+	--flexoki-red-400: #D14D41;
+	--flexoki-orange-600: #BC5215;
+	--flexoki-orange-400: #DA702C;
+	--flexoki-yellow-900: #4D3A0B;
+	--flexoki-yellow-600: #AD8301;
+	--flexoki-yellow-400: #D0A215;
+	--flexoki-yellow-100: #FCEEB8;
+	--flexoki-green-600: #66800B;
+	--flexoki-green-400: #879A39;
+	--flexoki-cyan-950: #142625;
+	--flexoki-cyan-600: #24837B;
+	--flexoki-cyan-400: #3AA99F;
+	--flexoki-cyan-50: #EBF2E7;
+	--flexoki-blue-600: #205EA6;
+	--flexoki-blue-400: #4385BE;
+	--flexoki-purple-600: #5E409D;
+	--flexoki-purple-400: #8B7EC8;
+	--flexoki-magenta-600: #A02F6F;
+	--flexoki-magenta-400: #CE5D97;
+
+	--background-primary: var(--flexoki-paper);
+	--background-secondary: color-mix(in srgb, var(--flexoki-paper) 20%, white);
+	--text: var(--flexoki-950);
+	--accent: var(--flexoki-blue-600);
+	--code: var(--flexoki-magenta-600);
+
+	--font-stack: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 	--shadow: 0px 0px 0px rgba(3, 7, 18, 0.10),
 		0px 1px 1px rgba(3, 7, 18, 0.08),
 		0px 1px 1px rgba(3, 7, 18, 0.06),
@@ -24,16 +51,11 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background-primary: #151515;
-		--background-secondary: #222;
-		--text: #ccc;
-		--code: cornflowerblue;
-	}
-}
-
-@supports (font-variation-settings: normal) {
-	:root {
-		--font-stack: 'Inter var', fallback-inter, var(--fallback-fonts);
+		--background-primary: var(--flexoki-black);
+		--background-secondary: var(--flexoki-950);
+		--text: var(--flexoki-50);
+		--accent: var(--flexoki-blue-400);
+		--code: var(--flexoki-magenta-400);
 	}
 }
 

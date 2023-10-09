@@ -28,8 +28,8 @@
 	},
 	"dependencies": {
 		"@architect/functions": "^7.0.0",
-		"@aws-sdk/client-s3": "^3.421.0",
-		"@enhance/arc-plugin-enhance": "^6.2.4",
+		"@aws-sdk/client-s3": "^3.427.0",
+		"@enhance/arc-plugin-enhance": "^8.0.0",
 		"@enhance/enhance-plugin-performance-budget": "^0.1.0",
 		"@enhance/form-elements": "^1.0.3",
 		"@tiptap/core": "^2.1.11",
@@ -62,8 +62,8 @@
 		"@biomejs/biome": "^1.2.2",
 		"@enhance/types": "^0.6.1",
 		"arcdown": "^2.2.1",
-		"microformats-parser": "^1.5.2",
-		"tap-arc": "^1.0.1",
+		"microformats-parser": "^2.0.1",
+		"tap-arc": "^1.0.2",
 		"tape": "^5.7.0"
 	}
 }

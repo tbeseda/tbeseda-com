@@ -79,7 +79,7 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 
 		${
 			playing
-					? /*html*/`
+				? /*html*/ `
 							<h3>Currently Playing</h3>
 							<div class="card">
 								<div class="row track">
@@ -106,14 +106,14 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 								</div>
 							</div>
 						`.trim()
-					: ''
-			}
+				: ''
+		}
 
 		<h3>Recently Played</h3>
 		<div class="card">
 			${
 				mostRecent
-					? /*html*/`
+					? /*html*/ `
 							<div class="row track">
 								<img class="album-cover" src="${mostRecent.album.images[0].url}" alt="album cover" />
 								<span class="track-info">
@@ -134,7 +134,7 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 				nextRecent.length
 					? nextRecent
 							.map(
-								(track) => /*html*/`
+								(track) => /*html*/ `
 									<div class="row track dense">
 										<img class="album-cover" src="${track.album.images[0].url}" alt="album cover" />
 										<span class="track-info">
