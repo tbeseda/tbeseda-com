@@ -18,8 +18,6 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
   const mostRecent = recentlyPlayed.items?.shift()
   const theRest = recentlyPlayed.items
 
-  console.log(mostRecent)
-
   function presentDate (date) {
     const d = new Date(date)
     const timeZone = 'America/Denver'
