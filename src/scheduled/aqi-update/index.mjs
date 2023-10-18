@@ -6,21 +6,19 @@ const IQAIR_URL = `https://api.airvisual.com/v2/nearest_city?lat=${MY_LAT}&lon=-
 
 const { things } = await arc.tables()
 
-export async function handler() {
-	const iqAirResponse = await fetch(IQAIR_URL)
-	const iqAirData = await iqAirResponse.json()
+export async function handler () {
+  const iqAirResponse = await fetch(IQAIR_URL)
+  const iqAirData = await iqAirResponse.json()
 
-	const airNowResponse = await fetch(AIRNOW_URL)
-	const airNowData = await airNowResponse.json()
+  const airNowResponse = await fetch(AIRNOW_URL)
+  const airNowData = await airNowResponse.json()
 
-	const saved = await things.put({
-		key: 'my-aqi',
-		type: 'aqi',
-		iqAirData,
-		airNowData,
-	})
+  const saved = await things.put({
+    key: 'my-aqi',
+    type: 'aqi',
+    iqAirData,
+    airNowData
+  })
 
-	console.log('saved', saved.key)
-
-	return
+  console.log('saved', saved.key)
 }

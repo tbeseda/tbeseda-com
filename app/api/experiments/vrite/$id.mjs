@@ -5,20 +5,20 @@ const { things } = await arc.tables()
 const typeString = 'vrite:content'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler({
-	icon = '⛔️',
-	hCards = [],
-	currentlyPlaying,
-	params,
+async function getHandler ({
+  icon = '⛔️',
+  hCards = [],
+  currentlyPlaying,
+  params
 }) {
-	const { id } = params
+  const { id } = params
 
-	// assumes published group
-	const content = await things.get({ key: `${typeString}:Published:${id}` })
+  // assumes published group
+  const content = await things.get({ key: `${typeString}:Published:${id}` })
 
-	return {
-		json: { icon, hCards, currentlyPlaying, content },
-	}
+  return {
+    json: { icon, hCards, currentlyPlaying, content }
+  }
 }
 
 export const get = [...standardMiddleware, getHandler]

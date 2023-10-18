@@ -5,81 +5,81 @@ import test from 'tape'
 const PORT = 6661
 const URL = `http://localhost:${PORT}`
 
-async function before() {
-	await sandbox.start({
-		quiet: true,
-		port: PORT,
-	})
-	console.log('Sandbox started')
+async function before () {
+  await sandbox.start({
+    quiet: true,
+    port: PORT
+  })
+  console.log('Sandbox started')
 }
 
 test.onFinish(async () => {
-	await sandbox.end()
-	console.log('Sandbox ended')
+  await sandbox.end()
+  console.log('Sandbox ended')
 })
 
 test('smoke and microformats', async (t) => {
-	await before()
+  await before()
 
-	let parsedHCard
+  let parsedHCard
 
-	t.test('fetches key routes', async (st) => {
-		for (const route of [
-			URL,
-			`${URL}/blog`,
-			`${URL}/blog/gitclean-zsh-command`,
-			`${URL}/blog/rss`,
-			`${URL}/experiments`,
-			`${URL}/h-card`,
-		]) {
-			try {
-				const res = await fetch(route)
-				st.ok(res.ok, `Route ${route} returned status ${res.status}`)
-			} catch (error) {
-				st.fail(`Route ${route} failed with error: ${error.message}`)
-			}
-		}
-	})
+  t.test('fetches key routes', async (st) => {
+    for (const route of [
+      URL,
+      `${URL}/blog`,
+      `${URL}/blog/gitclean-zsh-command`,
+      `${URL}/blog/rss`,
+      `${URL}/experiments`,
+      `${URL}/h-card`
+    ]) {
+      try {
+        const res = await fetch(route)
+        st.ok(res.ok, `Route ${route} returned status ${res.status}`)
+      } catch (error) {
+        st.fail(`Route ${route} failed with error: ${error.message}`)
+      }
+    }
+  })
 
-	t.test('fetches the index and parses an h-card', async (st) => {
-		const res = await fetch(`${URL}/h-card`)
-		const body = await res.text()
-		const parsed = mf2(body, { baseUrl: URL })
-		parsedHCard = parsed.items[0]
+  t.test('fetches the index and parses an h-card', async (st) => {
+    const res = await fetch(`${URL}/h-card`)
+    const body = await res.text()
+    const parsed = mf2(body, { baseUrl: URL })
+    parsedHCard = parsed.items[0]
 
-		st.equal(parsedHCard.type?.[0], 'h-card', 'h-card is an h-card')
-	})
+    st.equal(parsedHCard.type?.[0], 'h-card', 'h-card is an h-card')
+  })
 
-	t.test('matches original h-card data', async (st) => {
-		const { default: myHCardData } = await import(
-			'../app/middleware/add-h-cards.mjs'
-		)
-		const fakeReq = {}
-		await myHCardData(fakeReq)
-		const {
-			hCards: { items: [myHCard] },
-		} = fakeReq
+  t.test('matches original h-card data', async (st) => {
+    const { default: myHCardData } = await import(
+      '../app/middleware/add-h-cards.mjs'
+    )
+    const fakeReq = {}
+    await myHCardData(fakeReq)
+    const {
+      hCards: { items: [myHCard] }
+    } = fakeReq
 
-		for (const key of [
-			'country-name',
-			'email',
-			'locality',
-			'name',
-			// 'nickname', // ?
-			'org',
-			// 'photo',
-			'region',
-			'role',
-			'url',
-		]) {
-			const hCardVal = parsedHCard.properties[key][0]
-			const myHCardVal = myHCard.properties[key][0]
+    for (const key of [
+      'country-name',
+      'email',
+      'locality',
+      'name',
+      // 'nickname', // ?
+      'org',
+      // 'photo',
+      'region',
+      'role',
+      'url'
+    ]) {
+      const hCardVal = parsedHCard.properties[key][0]
+      const myHCardVal = myHCard.properties[key][0]
 
-			st.equal(
-				hCardVal,
-				myHCardVal,
-				`"${key}" match: ${hCardVal} === ${myHCardVal}`,
-			)
-		}
-	})
+      st.equal(
+        hCardVal,
+        myHCardVal,
+        `"${key}" match: ${hCardVal} === ${myHCardVal}`
+      )
+    }
+  })
 })

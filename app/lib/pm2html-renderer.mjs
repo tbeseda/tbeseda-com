@@ -11,24 +11,24 @@ import StarterKit from '@tiptap/starter-kit'
 import { AddBreaksToEmptyTextblocks, Renderer } from 'pm2html'
 
 const schema = getSchema([
-	StarterKit,
-	Highlight,
-	Image.configure({
-		allowBase64: true,
-	}),
-	Link.configure({
-		HTMLAttributes: {
-			target: '_blank',
-		},
-	}),
-	Superscript,
-	Table,
-	TableCell,
-	TableHeader,
-	TableRow,
+  StarterKit,
+  Highlight,
+  Image.configure({
+    allowBase64: true
+  }),
+  Link.configure({
+    HTMLAttributes: {
+      target: '_blank'
+    }
+  }),
+  Superscript,
+  Table,
+  TableCell,
+  TableHeader,
+  TableRow
 ])
 
 export const renderer = new Renderer({
-	schema,
-	transformers: [new AddBreaksToEmptyTextblocks()],
+  schema,
+  transformers: [new AddBreaksToEmptyTextblocks()]
 })

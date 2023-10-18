@@ -1,12 +1,12 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function ({ html, state: { store } }) {
-	const { article } = store
+  const { article } = store
 
-	return html`
-		<style>
+  return html`
+    <style>
 
-		</style>
+    </style>
 
-		${article.html}
-	`
+    ${article.html}
+  `
 }

@@ -1,6 +1,6 @@
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get() {
-	const lines = `
+export async function get () {
+  const lines = `
 User-agent: *
 Disallow: /sekret
 Disallow: /sekret/
@@ -28,5 +28,5 @@ User-agent: Amazonbot
 Disallow: /
 `
 
-	return { text: lines.trim() }
+  return { text: lines.trim() }
 }
