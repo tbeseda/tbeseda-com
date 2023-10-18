@@ -15,8 +15,16 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
     messages
   } = store
   const playing = currentlyPlaying?.item
-  const mostRecent = recentlyPlayed.items?.shift()?.track
-  const nextRecent = recentlyPlayed.items.map(({ track }) => track)
+  const mostRecent = recentlyPlayed.items?.shift()
+  const theRest = recentlyPlayed.items
+
+  console.log(mostRecent)
+
+  function presentDate (date) {
+    const d = new Date(date)
+    const timeZone = 'America/Denver'
+    return `${d.toLocaleString('en', { timeZone })}`
+  }
 
   return html`
     <style>
@@ -85,6 +93,13 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
                 <div class="row track">
                   <img class="album-cover" src="${playing.album.images[0].url}" alt="album cover" />
                   <span class="track-info">
+                    <strong class="track-name">${playing.name}</strong><br>
+                    <span class="artist">
+                      ${playing.artists.map(({ name }) => name).join(', ')}
+                    </span><br>
+                    ${playing.album.name} (${playing.album.release_date.split('-')[0]})
+                  </span>
+                  <span class="album-info">
                     <span class="playing-progress">
                       ${
                         currentlyPlaying.is_playing
@@ -93,15 +108,7 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
                       }
                       ${timestamp(currentlyPlaying.progress_ms)} /
                       ${timestamp(playing.duration_ms)}
-                    </span><br>
-                    <strong class="track-name">${playing.name}</strong><br>
-                    <span class="artist">
-                      ${playing.artists.map(({ name }) => name).join(', ')}
                     </span>
-                  </span>
-                  <span class="album-info">
-                    ${playing.album.name}<br>
-                    ${playing.album.release_date.split('-')[0]}
                   </span>
                 </div>
               </div>
@@ -115,37 +122,37 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
         mostRecent
           ? /* html */ `
               <div class="row track">
-                <img class="album-cover" src="${mostRecent.album.images[0].url}" alt="album cover" />
+                <img class="album-cover" src="${mostRecent.track.album.images[0].url}" alt="album cover" />
                 <span class="track-info">
-                  <strong class="track-name">${mostRecent.name}</strong><br>
+                  <strong class="track-name">${mostRecent.track.name}</strong><br>
                   <span class="artist">
-                    ${mostRecent.artists.map(({ name }) => name).join(', ')}
-                  </span>
+                    ${mostRecent.track.artists.map(({ name }) => name).join(', ')}
+                  </span><br>
+                  ${mostRecent.track.album.name} (${mostRecent.track.album.release_date.split('-')[0]})
                 </span>
                 <span class="album-info">
-                  ${mostRecent.album.name}<br>
-                  ${mostRecent.album.release_date.split('-')[0]}
+                  <span>${presentDate(mostRecent.played_at)}</span>
                 </span>
               </div>
             `.trim()
           : ''
       }
       ${
-        nextRecent.length
-          ? nextRecent
+        theRest.length > 0
+          ? theRest
               .map(
-                (track) => /* html */ `
+                (item) => /* html */ `
                   <div class="row track dense">
-                    <img class="album-cover" src="${track.album.images[0].url}" alt="album cover" />
+                    <img class="album-cover" src="${item.track.album.images[0].url}" alt="album cover" />
                     <span class="track-info">
-                      <strong class="track-name">${track.name}</strong><br>
+                      <strong class="track-name">${item.track.name}</strong><br>
                       <span class="artist">
-                        ${track.artists.map(({ name }) => name).join(', ')}
-                      </span>
+                        ${item.track.artists.map(({ name }) => name).join(', ')}
+                      </span><br>
+                      ${item.track.album.name} (${item.track.album.release_date.split('-')[0]})
                     </span>
                     <span class="album-info">
-                      ${track.album.name}<br>
-                      ${track.album.release_date.split('-')[0]}
+                      <span>${presentDate(item.played_at)}</span>
                     </span>
                   </div>
                 `

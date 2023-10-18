@@ -45,8 +45,8 @@
 	--code: var(--flexoki-magenta-600);
 
 	/* light-dark() only works in FF v120+ */
-	--background-primary: light-dark(var(--flexoki-paper), var(--flexoki-black));
-	--background-secondary: light-dark(color-mix(in srgb, var(--flexoki-paper) 25%, white), var(--flexoki-900));
+	/* --background-primary: light-dark(var(--flexoki-paper), var(--flexoki-black)); */
+	/* --background-secondary: light-dark(color-mix(in srgb, var(--flexoki-paper) 25%, white), var(--flexoki-900)); */
 	--text: light-dark(var(--flexoki-950), var(--flexoki-50));
 	--accent: light-dark(var(--flexoki-blue-600), var(--flexoki-blue-400));
 	--code: light-dark(var(--flexoki-magenta-600), var(--flexoki-magenta-400));
