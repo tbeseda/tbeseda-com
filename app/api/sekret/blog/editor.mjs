@@ -14,7 +14,7 @@ export async function get ({ query, session }) {
   if (articleID) article = await articles.get({ articleID })
 
   return {
-    json: { authorized, article }
+    json: { authorized, article },
   }
 }
 
@@ -34,7 +34,7 @@ export async function post ({ body, session }) {
     description,
     published,
     slug,
-    title
+    title,
   } = body
 
   if (action === 'destroy') {
@@ -48,7 +48,7 @@ export async function post ({ body, session }) {
       description,
       published: !!published,
       slug,
-      title
+      title,
     }
 
     await articles.put(article)
@@ -56,6 +56,6 @@ export async function post ({ body, session }) {
 
   return {
     status: 302,
-    headers: { location: '/sekret/blog' }
+    headers: { location: '/sekret/blog' },
   }
 }

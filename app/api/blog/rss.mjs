@@ -11,11 +11,11 @@ const query = await articles.scan({
   ProjectionExpression:
     'articleID, title, published, slug, description, doc, #date',
   ExpressionAttributeNames: {
-    '#date': 'date'
-  }
+    '#date': 'date',
+  },
 })
 const sortedArticles = query.Items.filter(({ published }) => published).sort(
-  (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+  (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
 )
 
 const feed = new Feed({
@@ -31,9 +31,9 @@ const feed = new Feed({
   author: {
     name: 'Taylor Beseda',
     // email: 'tbeseda@gmail.com',
-    link: TBESEDA
+    link: TBESEDA,
   },
-  feed: `${TBESEDA}/blog/rss`
+  feed: `${TBESEDA}/blog/rss`,
 })
 
 for (const article of sortedArticles) {
@@ -53,10 +53,10 @@ for (const article of sortedArticles) {
       {
         name: 'Taylor Beseda',
         // email: 'tbeseda@gmail.com',
-        link: TBESEDA
-      }
+        link: TBESEDA,
+      },
     ],
-    date: new Date(article.date)
+    date: new Date(article.date),
     // image: article.image,
   })
 }
@@ -70,8 +70,8 @@ export async function get () {
     statusCode: 200,
     headers: {
       'cache-control': `max-age=${age * 60}, must-revalidate`,
-      'content-type': 'text/xml; charset=utf-8'
+      'content-type': 'text/xml; charset=utf-8',
     },
-    body: feed.rss2()
+    body: feed.rss2(),
   }
 }

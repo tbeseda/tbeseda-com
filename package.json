@@ -6,10 +6,11 @@
     "deploy.both": "npm run deploy && npm run deploy.production",
     "deploy.production": "arc deploy --production",
     "deploy": "arc deploy",
-    "lint": "standard --fix",
+    "lint": "eslint --ext .mjs --ext .js .",
+    "lint.fix": "npm run lint -- --fix",
     "start": "arc sandbox",
     "tape": "tape ./test/**/*.mjs | tap-arc",
-    "test": "standard && npm run tape"
+    "test": "npm run lint && npm run tape"
   },
   "repository": {
     "type": "git",
@@ -61,9 +62,25 @@
     "@architect/plugin-rust": "^0.1.1",
     "@enhance/types": "^0.6.1",
     "arcdown": "^2.2.1",
+    "eslint": "^8.52.0",
+    "eslint-config-standard": "^17.1.0",
     "microformats-parser": "^2.0.1",
-    "standard": "^17.1.0",
     "tap-arc": "^1.0.2",
     "tape": "^5.7.1"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "ignorePatterns": [
+      "src/vendor",
+      "public/browser",
+      "public/bundles"
+    ],
+    "rules": {
+      "space-unary-ops": 0,
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ]
+    }
   }
 }

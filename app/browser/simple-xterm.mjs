@@ -8,7 +8,7 @@ export class SimpleXterm {
     user = '👻',
     host = 'localhost',
     symbol = '> ',
-    options = { cursorBlink: true }
+    options = { cursorBlink: true },
   }) {
     if (!elem) throw new Error('No terminal element')
 
@@ -31,7 +31,7 @@ export class SimpleXterm {
       '@',
       chalk.greenBright(this.host),
       ' ',
-      chalk.yellow(this.symbol)
+      chalk.yellow(this.symbol),
     ].join('')
   }
 

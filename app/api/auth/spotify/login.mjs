@@ -22,21 +22,21 @@ export async function get ({ session }) {
     'user-read-email',
     'user-read-private',
     'user-read-recently-played',
-    'user-top-read'
+    'user-top-read',
   ]
   const params = new URLSearchParams({
     state,
     scope: scopes.join(' '),
     response_type: 'code',
     client_id: SPOTIFY_CLIENT,
-    redirect_uri: SPOTIFY_REDIRECT
+    redirect_uri: SPOTIFY_REDIRECT,
   })
 
   return {
     status: 302,
     headers: {
-      location: `https://accounts.spotify.com/authorize?${params.toString()}`
+      location: `https://accounts.spotify.com/authorize?${params.toString()}`,
     },
-    session: { ...session, spotifyState: state }
+    session: { ...session, spotifyState: state },
   }
 }

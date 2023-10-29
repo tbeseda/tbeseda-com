@@ -2,6 +2,6 @@
 export async function get () {
   return {
     status: 302,
-    headers: { location: '/experiments/$' }
+    headers: { location: '/experiments/$' },
   }
 }

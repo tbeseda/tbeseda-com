@@ -8,19 +8,19 @@ async function getHandler ({
   icon = '⛔️',
   hCards = [],
   currentlyPlaying,
-  params
+  params,
 }) {
   const { slug } = params
   const query = await articles.query({
     IndexName: 'articlesBySlug',
     KeyConditionExpression: 'slug = :slug',
     ExpressionAttributeValues: {
-      ':slug': slug
-    }
+      ':slug': slug,
+    },
   })
 
   return {
-    json: { icon, hCards, currentlyPlaying, article: query.Items[0] }
+    json: { icon, hCards, currentlyPlaying, article: query.Items[0] },
   }
 }
 

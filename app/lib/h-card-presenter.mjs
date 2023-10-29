@@ -5,7 +5,7 @@ class HCardPresenter {
   #interface = new Proxy(this, {
     get (obj, key) {
       return obj[key] || obj.mf[key]
-    }
+    },
   })
 
   // properties proxy for #data
@@ -14,7 +14,7 @@ class HCardPresenter {
       return obj.#data[key] && Array.isArray(obj.#data[key])
         ? obj.#data[key][0]
         : null
-    }
+    },
   })
 
   // microformat proxy
@@ -36,7 +36,7 @@ class HCardPresenter {
       } else {
         return null
       }
-    }
+    },
   })
 
   constructor (data) {
@@ -77,7 +77,7 @@ class HCardPresenter {
       this.mf['additional-name'],
       this.mf['family-name'],
       this.mf['honorific-suffix'],
-      this.props.nickname ? `(aka ${this.mf.nickname})` : null
+      this.props.nickname ? `(aka ${this.mf.nickname})` : null,
     ].join(' ')
   }
 
@@ -184,7 +184,7 @@ export const pProperties = new Set([
   'sex',
   'sort-string',
   'street-address',
-  'tel'
+  'tel',
 ])
 export const uProperties = new Set([
   'logo',
@@ -194,11 +194,11 @@ export const uProperties = new Set([
   'impp',
   'email',
   'photo',
-  'url'
+  'url',
 ])
 export const dtProperties = new Set(['anniversary', 'bday'])
 export const properties = new Set([
   ...dtProperties,
   ...pProperties,
-  ...uProperties
+  ...uProperties,
 ])

@@ -48,12 +48,12 @@ async function http ({ body }) {
     key,
     type,
     entity,
-    updatedAt: new Date().toISOString()
+    updatedAt: new Date().toISOString(),
   })
 
   return {
     status: 200,
-    text: 'tyvm'
+    text: 'tyvm',
   }
 }
 

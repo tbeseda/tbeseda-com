@@ -9,7 +9,7 @@ async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
   const query = await articles.scan({})
 
   return {
-    json: { icon, hCards, currentlyPlaying, articles: query.Items }
+    json: { icon, hCards, currentlyPlaying, articles: query.Items },
   }
 }
 
@@ -26,13 +26,13 @@ export async function post ({ body }) {
     published: !!published,
     slug,
     title,
-    ttl: Math.floor(Date.now() / 1000) + 60 * 15
+    ttl: Math.floor(Date.now() / 1000) + 60 * 15,
   }
 
   await articles.put(article)
 
   return {
     status: 302,
-    headers: { location: '/experiments/fake-articles' }
+    headers: { location: '/experiments/fake-articles' },
   }
 }

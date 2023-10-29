@@ -21,11 +21,11 @@ export async function get (req) {
       item.actor === iwSocialRes.id &&
       item.object.type === 'Note' &&
       item.object.inReplyTo === null &&
-      item.object.content
+      item.object.content,
   )
   const recentToot = recentItem.object
 
   return {
-    json: recentToot
+    json: recentToot,
   }
 }

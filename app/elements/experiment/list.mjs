@@ -41,7 +41,7 @@ export default function List ({ html, state: { store } }) {
           ${item.link(item.i.url, item.i.name)}
           <!--<time>${item.i.date}</time>-->
           <p>${item.i.description}</p>
-        `
+        `,
       )}
     </c-grid>
   `

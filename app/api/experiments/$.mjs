@@ -5,7 +5,7 @@ async function getHandler ({
   requestContext,
   icon = '⛔️',
   hCards = [],
-  currentlyPlaying
+  currentlyPlaying,
 }) {
   const userIp = requestContext.http.sourceIp || '127.0.0.1'
   return { json: { userIp, icon, hCards, currentlyPlaying } }

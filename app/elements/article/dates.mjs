@@ -1,7 +1,7 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function ({ html, state: { store } }) {
   const {
-    article: { published, edited }
+    article: { published, edited },
   } = store
 
   function presentDate (string) {
@@ -12,7 +12,7 @@ export default function ({ html, state: { store } }) {
       month: 'long',
       day: 'numeric',
       hour: 'numeric',
-      minute: 'numeric'
+      minute: 'numeric',
     })
   }
 

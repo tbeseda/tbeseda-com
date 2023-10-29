@@ -7,7 +7,7 @@ module.exports = [
     targetPath: '/articles/1986/11/test',
     sourceAuthor: 'Alice',
     sourceTitle: 'Architect',
-    request: { headers: {}, body: {} }
+    request: { headers: {}, body: {} },
   },
   {
     id: 'in:bar',
@@ -16,7 +16,7 @@ module.exports = [
     source: 'https://enhance.dev/docs/',
     targetPath: '/articles/1986/11/test',
     sourceTitle: 'Enhance',
-    request: { headers: {}, body: {} }
+    request: { headers: {}, body: {} },
   },
   {
     id: 'in:baz',
@@ -24,6 +24,6 @@ module.exports = [
     target: 'https://tbeseda.com/articles/1986/11/test',
     source: 'https://begin.com',
     targetPath: '/articles/1986/11/test',
-    request: { headers: {}, body: {} }
-  }
+    request: { headers: {}, body: {} },
+  },
 ]

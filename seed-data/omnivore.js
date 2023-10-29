@@ -52,9 +52,9 @@ module.exports = {
           language: 'English',
           siteIcon: 'https://www.theverge.com/icons/favicon.ico',
           wordsCount: 1416,
-          archivedAt: null
-        }
-      }
+          archivedAt: null,
+        },
+      },
     },
     {
       key: 'omnivore:page:4fb90672-feba-448d-9b45-81db4bdf25cc',
@@ -82,8 +82,8 @@ module.exports = {
         language: 'English',
         siteIcon: 'https://www.theverge.com/icons/favicon.ico',
         wordsCount: 1416,
-        archivedAt: null
-      }
+        archivedAt: null,
+      },
     },
     {
       key: 'omnivore:favorite:4fb90672-feba-448d-9b45-81db4bdf25cc',
@@ -121,9 +121,9 @@ module.exports = {
           language: 'English',
           siteIcon: 'https://www.theverge.com/icons/favicon.ico',
           wordsCount: 1416,
-          archivedAt: null
-        }
-      }
+          archivedAt: null,
+        },
+      },
     },
     {
       key: 'omnivore:highlight:443c2167-0225-4723-854f-968c812b0a7f',
@@ -156,7 +156,7 @@ module.exports = {
           type: 'page',
           url: 'https://bun.sh/blog/bun-v0.8.0',
           userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
-          wordsCount: 545
+          wordsCount: 545,
         },
         pageId: '7dfc1270-3a75-44e7-b764-d8a30ed1b460',
         patch:
@@ -170,10 +170,10 @@ module.exports = {
           'Bun 1.0 is coming on September 7th! Register for the launch stream at https://bun.sh/1.0.',
         type: 'HIGHLIGHT',
         updatedAt: '2023-08-28T02:09:28.913Z',
-        userId: '81f4256e-436d-11ee-afdb-f3959092db7f'
+        userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
       },
       type: 'omnivore:highlight',
-      updatedAt: '2023-08-28T02:09:29.627Z'
+      updatedAt: '2023-08-28T02:09:29.627Z',
     },
     {
       key: 'omnivore:highlight:c977ee3f-2b3c-4892-a070-2cfdf8422938',
@@ -210,7 +210,7 @@ module.exports = {
           type: 'page',
           url: 'https://www.japantimes.co.jp/news/2023/08/18/japan/society/exploring-the-eerie-beauty-of-japans-abandoned-villages?omnivore=true',
           userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
-          wordsCount: 2623
+          wordsCount: 2623,
         },
         pageId: '4d5c9bc5-3b55-4254-af34-888230a5cccd',
         patch:
@@ -223,10 +223,10 @@ module.exports = {
           ' Outside the house is what must have once been a colorfully striped sofa covered in mold. Lying near the home’s entrance amid the dirt and weeds is a weathered 1965 issue of the monthly Denki Keisan magazine, a trade publication for electricians.\n\n',
         type: 'HIGHLIGHT',
         updatedAt: '2023-08-28T02:07:49.389Z',
-        userId: '81f4256e-436d-11ee-afdb-f3959092db7f'
+        userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
       },
       type: 'omnivore:highlight',
-      updatedAt: '2023-08-28T02:07:50.153Z'
+      updatedAt: '2023-08-28T02:07:50.153Z',
     },
     {
       key: 'omnivore:page:c07752b9-c71a-4f69-a106-4a867895fa39',
@@ -253,10 +253,10 @@ module.exports = {
         type: 'page',
         url: 'https://joshcollinsworth.com/blog/antiquated-react?omivore=true',
         userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
-        wordsCount: 8056
+        wordsCount: 8056,
       },
       type: 'omnivore:page',
-      updatedAt: '2023-08-28T00:36:54.425Z'
+      updatedAt: '2023-08-28T00:36:54.425Z',
     },
     {
       key: 'omnivore:favorite:c07752b9-c71a-4f69-a106-4a867895fa39',
@@ -289,14 +289,14 @@ module.exports = {
           type: 'page',
           url: 'https://joshcollinsworth.com/blog/antiquated-react?omivore=true',
           userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
-          wordsCount: 8056
+          wordsCount: 8056,
         },
         pageId: 'c07752b9-c71a-4f69-a106-4a867895fa39',
         type: 'label',
-        userId: '81f4256e-436d-11ee-afdb-f3959092db7f'
+        userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
       },
       type: 'omnivore:favorite',
-      updatedAt: '2023-08-28T02:06:11.108Z'
+      updatedAt: '2023-08-28T02:06:11.108Z',
     },
     {
       key: 'omnivore:page:1df5f2ea-de7f-493c-b954-4f993849648c',
@@ -320,10 +320,10 @@ module.exports = {
         type: 'page',
         url: 'https://www.instantdb.com/essays/datalogjs',
         userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
-        wordsCount: 2782
+        wordsCount: 2782,
       },
       type: 'omnivore:page',
-      updatedAt: '2023-08-28T00:52:03.930Z'
+      updatedAt: '2023-08-28T00:52:03.930Z',
     },
     {
       key: 'omnivore:page:baa4de26-f6c4-4dd3-954b-bd34b5a05484',
@@ -348,10 +348,10 @@ module.exports = {
         type: 'page',
         url: 'https://drillyourownwell.com',
         userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
-        wordsCount: 1266
+        wordsCount: 1266,
       },
       type: 'omnivore:page',
-      updatedAt: '2023-08-28T00:40:59.661Z'
+      updatedAt: '2023-08-28T00:40:59.661Z',
     },
     {
       key: 'omnivore:page:7dfc1270-3a75-44e7-b764-d8a30ed1b460',
@@ -377,10 +377,10 @@ module.exports = {
         type: 'page',
         url: 'https://bun.sh/blog/bun-v0.8.0',
         userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
-        wordsCount: 545
+        wordsCount: 545,
       },
       type: 'omnivore:page',
-      updatedAt: '2023-08-28T00:40:40.979Z'
-    }
-  ]
+      updatedAt: '2023-08-28T00:40:40.979Z',
+    },
+  ],
 }

@@ -8,7 +8,7 @@ async function getHandler ({
   icon = '⛔️',
   hCards = [],
   session,
-  currentlyPlaying
+  currentlyPlaying,
 }) {
   let { authorized } = session
   authorized = !!authorized
@@ -21,7 +21,7 @@ async function getHandler ({
   let topTracks
   try {
     const recentlyPlayedThing = await things.get({
-      key: 'spotify-recently-played'
+      key: 'spotify-recently-played',
     })
     const topArtistsThing = await things.get({ key: 'spotify-top-artists' })
     const topTracksThing = await things.get({ key: 'spotify-top-tracks' })
@@ -48,8 +48,8 @@ async function getHandler ({
       recentlyPlayed,
       topArtists,
       topTracks,
-      messages
-    }
+      messages,
+    },
   }
 }
 

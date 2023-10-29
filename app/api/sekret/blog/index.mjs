@@ -15,15 +15,15 @@ export async function get ({ session }) {
     ProjectionExpression:
       'articleID, title, published, doc, description, #date',
     ExpressionAttributeNames: {
-      '#date': 'date'
-    }
+      '#date': 'date',
+    },
   })
 
   const sortedArticles = articleQuery.Items.sort(
-    (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+    (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
   )
 
   return {
-    json: { authorized, articles: sortedArticles }
+    json: { authorized, articles: sortedArticles },
   }
 }

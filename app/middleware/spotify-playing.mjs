@@ -6,7 +6,7 @@ export default async function spotifyPlaying (req) {
   let currentlyPlaying
   try {
     const currentlyPlayingThing = await things.get({
-      key: 'spotify-currently-playing'
+      key: 'spotify-currently-playing',
     })
 
     currentlyPlaying = currentlyPlayingThing.currentlyPlaying

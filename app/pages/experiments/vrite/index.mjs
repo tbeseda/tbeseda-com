@@ -45,7 +45,7 @@ export default function VriteIndex ({ html, state: { store } }) {
               <a class="title" href="/experiments/vrite/${article.id}">${article.title}</a>
               <p>${article.description}</p>
             </div>
-          `
+          `,
         )
         .join('')}
       <h2>Drafts:</h2>
@@ -57,7 +57,7 @@ export default function VriteIndex ({ html, state: { store } }) {
               <a class="title" href="/experiments/vrite/Drafts/${article.id}">${article.title}</a>
               <p>${article.description}</p>
             </div>
-          `
+          `,
         )
         .join('')}
       <h2>Ideas:</h2>
@@ -69,7 +69,7 @@ export default function VriteIndex ({ html, state: { store } }) {
               <span class="title">${article.title}</span>
               <p>${article.description}</p>
             </div>
-          `
+          `,
         )
         .join('')}
     </main>

@@ -10,8 +10,8 @@ export default async function getCurrentlyPlaying (token) {
       'https://api.spotify.com/v1/me/player/currently-playing',
       {
         method: 'GET',
-        headers: { Authorization: `Bearer ${token.access_token}` }
-      }
+        headers: { Authorization: `Bearer ${token.access_token}` },
+      },
     )
 
     if (response.status === 204) {
@@ -22,7 +22,7 @@ export default async function getCurrentlyPlaying (token) {
 
       if (currentlyPlaying.error) {
         console.error(
-          `${currentlyPlaying.error}: ${currentlyPlaying.error_description}`
+          `${currentlyPlaying.error}: ${currentlyPlaying.error_description}`,
         )
         return
       }
@@ -30,7 +30,7 @@ export default async function getCurrentlyPlaying (token) {
       console.error(
         'me/player/currently-playing unknown response',
         response.status,
-        response.statusText
+        response.statusText,
       )
       return
     }
@@ -38,7 +38,7 @@ export default async function getCurrentlyPlaying (token) {
     const savedCurrentlyPlaying = await things.put({
       key: currentlyPlayingKey,
       currentlyPlaying,
-      created: new Date().toISOString()
+      created: new Date().toISOString(),
     })
 
     console.log(`Saved ${savedCurrentlyPlaying.key}`)

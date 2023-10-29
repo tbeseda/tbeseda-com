@@ -34,14 +34,14 @@ export async function handler () {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: `Basic ${Buffer.from(
-          `${SPOTIFY_CLIENT}:${SPOTIFY_SECRET}`
+          `${SPOTIFY_CLIENT}:${SPOTIFY_SECRET}`,
         ).toString('base64')}`,
-        Accept: 'application/json'
+        Accept: 'application/json',
       },
       body: new URLSearchParams({
         grant_type: 'refresh_token',
-        refresh_token: refreshToken
-      }).toString()
+        refresh_token: refreshToken,
+      }).toString(),
     })
     newToken = await response.json()
 
@@ -54,9 +54,9 @@ export async function handler () {
       key,
       token: {
         ...existingToken,
-        ...newToken
+        ...newToken,
       },
-      created: new Date().toISOString()
+      created: new Date().toISOString(),
     })
 
     console.log(`Saved ${savedToken.key}`)

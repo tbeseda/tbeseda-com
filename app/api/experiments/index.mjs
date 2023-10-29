@@ -9,27 +9,27 @@ async function getHandler ({ hCards = [], currentlyPlaying }) {
       description:
         'My Omnivore.app Reading List. Features recently saved articles, highlights, and all-time favorites.',
       url: '/experiments/omnivore',
-      featured: true
+      featured: true,
     },
     {
       name: 'AWS Lambda Runtimes',
       date: '2023',
       description:
         'A view that fetches a "hello world" from 4 different Lambda runtimes: Ruby, Python, Go, and Rust.',
-      url: '/experiments/runtimes'
+      url: '/experiments/runtimes',
     },
     {
       name: 'Pug Template',
       date: '2023',
       description: 'Render a Pug template in real-time with Enhance.',
-      url: '/experiments/pug-template'
+      url: '/experiments/pug-template',
     },
     {
       name: 'Random Skull from "Quick, Draw!"',
       date: '2023',
       description: 'Use canvas to draw a skull from the Quick, Draw! dataset.',
       url: '/experiments/skull',
-      featured: true
+      featured: true,
     },
     {
       name: 'My Spotify Activity',
@@ -37,14 +37,14 @@ async function getHandler ({ hCards = [], currentlyPlaying }) {
       description:
         'Live updates from my listening on Spotify! Also my top tracks and artists.',
       url: '/experiments/spotify',
-      featured: true
+      featured: true,
     },
     {
       name: 'Article Publishing Demo',
       date: '2023',
       description:
         'A proof-of-concept for publishing articles to my site. This ended up being the basis for my custom CMS.',
-      url: '/experiments/fake-articles'
+      url: '/experiments/fake-articles',
     },
     {
       name: '$ terminal',
@@ -52,28 +52,28 @@ async function getHandler ({ hCards = [], currentlyPlaying }) {
       description:
         'A terminal emulator that runs in the browser. Based on xterm.js.',
       url: '/experiments/$',
-      featured: true
+      featured: true,
     },
     {
       name: 'Article Publishing with Vrite.io',
       date: '2023',
       description:
         'I used Vrite.io to author content and automatically ingest and cache it here. (Dependent on Vrite.io API.)',
-      url: '/experiments/vrite'
+      url: '/experiments/vrite',
     },
     {
       name: 'My Local Air Quality Index',
       date: '2023',
       description:
         'Raw JSON data from AirNow.gov and IQAir.com for my local AQI.',
-      url: '/experiments/aqi'
+      url: '/experiments/aqi',
     },
     {
       name: 'h-card Custom Element',
       date: '2023',
       description: 'h-card Custom Element',
-      url: '/h-card'
-    }
+      url: '/h-card',
+    },
   ]
 
   return {
@@ -81,8 +81,8 @@ async function getHandler ({ hCards = [], currentlyPlaying }) {
       icon: '👨🏻‍🔬',
       hCards,
       currentlyPlaying,
-      experiments: experiments.sort((e) => (e.featured ? -1 : 1))
-    }
+      experiments: experiments.sort((e) => (e.featured ? -1 : 1)),
+    },
   }
 }
 

@@ -9,20 +9,20 @@ async function http (request) {
     if (accept?.split(',').indexOf('text/html') > -1) {
       return {
         status: 302,
-        headers: { location: '/' }
+        headers: { location: '/' },
       }
     }
   }
 
   return {
     headers: {
-      'Content-Type': 'application/jrd+json'
+      'Content-Type': 'application/jrd+json',
     },
     body: JSON.stringify(
       {
         '@context': [
           'https://www.w3.org/ns/activitystreams',
-          { '@language': 'en' }
+          { '@language': 'en' },
         ],
         type: 'Person',
         id: 'https://tbeseda.com/tbeseda',
@@ -36,19 +36,19 @@ async function http (request) {
         icon: {
           type: 'Image',
           mediaType: 'image/jpg',
-          url: 'https://tbeseda.com/_public/me.jpg'
+          url: 'https://tbeseda.com/_public/me.jpg',
         },
         publicKey: {
           '@context': 'https://w3id.org/security/v1',
           '@type': 'Key',
           id: 'https://tbeseda.com/tbeseda#main-key',
           owner: 'https://tbeseda.com/tbeseda',
-          publicKeyPem: 'TODO'
-        }
+          publicKeyPem: 'TODO',
+        },
       },
       null,
-      2
-    )
+      2,
+    ),
   }
 }
 

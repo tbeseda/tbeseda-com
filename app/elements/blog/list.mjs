@@ -35,7 +35,7 @@ export default function BlogList ({ html, state: { store } }) {
           ${item.link(`/blog/${item.i.slug}`, item.i.title)}
           <time>${item.i.date}</time>
           <p>${item.i.description}</p>
-        `
+        `,
       )}
     </c-grid>
   `

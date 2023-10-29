@@ -9,7 +9,7 @@ export async function mentionsByPath (path) {
   const mentions = await webmentions.query({
     IndexName: 'mentionsByPath',
     KeyConditionExpression: 'targetPath = :targetPath',
-    ExpressionAttributeValues: { ':targetPath': path }
+    ExpressionAttributeValues: { ':targetPath': path },
   })
 
   return mentions.Items.filter((mention) => mention.approved)

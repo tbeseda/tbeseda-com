@@ -14,7 +14,7 @@ export const handler = arc.events.subscribe(async (webmentionReq) => {
     target,
     targetPath: targetUrl.pathname,
     approved: false,
-    request: { body }
+    request: { body },
   }
 
   const sourceReq = await fetch(sourceUrl.href)
@@ -48,12 +48,12 @@ export const handler = arc.events.subscribe(async (webmentionReq) => {
       }
     } else {
       result.error = {
-        message: `target URL ${targetUrl.href} not found in source (${sourceUrl.href}) body`
+        message: `target URL ${targetUrl.href} not found in source (${sourceUrl.href}) body`,
       }
     }
   } else {
     result.error = {
-      message: `source URL ${sourceUrl.href} returned ${sourceReq.status}`
+      message: `source URL ${sourceUrl.href} returned ${sourceReq.status}`,
     }
   }
 

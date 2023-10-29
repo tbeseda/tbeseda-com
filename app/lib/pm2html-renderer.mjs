@@ -14,21 +14,21 @@ const schema = getSchema([
   StarterKit,
   Highlight,
   Image.configure({
-    allowBase64: true
+    allowBase64: true,
   }),
   Link.configure({
     HTMLAttributes: {
-      target: '_blank'
-    }
+      target: '_blank',
+    },
   }),
   Superscript,
   Table,
   TableCell,
   TableHeader,
-  TableRow
+  TableRow,
 ])
 
 export const renderer = new Renderer({
   schema,
-  transformers: [new AddBreaksToEmptyTextblocks()]
+  transformers: [new AddBreaksToEmptyTextblocks()],
 })

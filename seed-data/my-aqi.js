@@ -8,41 +8,41 @@ module.exports = {
           AQI: 58,
           Category: {
             Name: 'Moderate',
-            Number: 2
+            Number: 2,
           },
           DateObserved: '2023-06-08 ',
           HourObserved: 10,
           LocalTimeZone: 'MST',
           ParameterName: 'O3',
           ReportingArea: 'Denver-Boulder',
-          StateCode: 'CO'
+          StateCode: 'CO',
         },
         {
           AQI: 23,
           Category: {
             Name: 'Good',
-            Number: 1
+            Number: 1,
           },
           DateObserved: '2023-06-08 ',
           HourObserved: 10,
           LocalTimeZone: 'MST',
           ParameterName: 'PM2.5',
           ReportingArea: 'Denver-Boulder',
-          StateCode: 'CO'
+          StateCode: 'CO',
         },
         {
           AQI: 27,
           Category: {
             Name: 'Good',
-            Number: 1
+            Number: 1,
           },
           DateObserved: '2023-06-08 ',
           HourObserved: 10,
           LocalTimeZone: 'MST',
           ParameterName: 'PM10',
           ReportingArea: 'Denver-Boulder',
-          StateCode: 'CO'
-        }
+          StateCode: 'CO',
+        },
       ],
       iqAirData: {
         data: {
@@ -54,7 +54,7 @@ module.exports = {
               aqius: 4,
               maincn: 'p2',
               mainus: 'p2',
-              ts: '2023-06-08T17:00:00.000Z'
+              ts: '2023-06-08T17:00:00.000Z',
             },
             weather: {
               hu: 48,
@@ -63,16 +63,16 @@ module.exports = {
               tp: 22,
               ts: '2023-06-08T17:00:00.000Z',
               wd: 70,
-              ws: 2.06
-            }
+              ws: 2.06,
+            },
           },
           location: {
-            type: 'Point'
+            type: 'Point',
           },
-          state: 'Colorado'
+          state: 'Colorado',
         },
-        status: 'success'
-      }
-    }
-  ]
+        status: 'success',
+      },
+    },
+  ],
 }

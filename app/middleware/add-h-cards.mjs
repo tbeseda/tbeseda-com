@@ -23,9 +23,9 @@ export default async function (req) {
           region: ['Colorado Front Range'],
           role: ['DevEx Engineer'],
           // tel: ['+1.818.555.1212'],
-          url: ['https://tbeseda.com']
-        }
-      }
-    ]
+          url: ['https://tbeseda.com'],
+        },
+      },
+    ],
   }
 }

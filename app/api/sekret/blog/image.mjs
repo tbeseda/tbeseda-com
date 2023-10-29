@@ -14,8 +14,8 @@ const parse = (event) =>
     const busboy = Busboy({
       headers: {
         'content-type':
-          event.headers['content-type'] || event.headers['Content-Type']
-      }
+          event.headers['content-type'] || event.headers['Content-Type'],
+      },
     })
     /** @type {{files: Array<Record<string, any>>}} */
     const result = { files: [] }
@@ -68,7 +68,7 @@ export async function post (req) {
     headers: req.headers,
     encoding: req.encoding,
     isBase64Encoded: req.isBase64Encoded,
-    body: req.rawBody
+    body: req.rawBody,
   })
   const { content, filename } = parsedForm.files[0]
 
@@ -83,7 +83,7 @@ export async function post (req) {
       __dirname,
       ...Array(4).fill('..'),
       'public',
-      imageFolder
+      imageFolder,
     )
 
     try {
@@ -96,13 +96,13 @@ export async function post (req) {
     const command = new PutObjectCommand({
       Bucket: ARC_STATIC_BUCKET,
       Key: `${imageFolder}/${newFileName}`,
-      Body: content
+      Body: content,
     })
 
     await client.send(command)
   }
 
   return {
-    json: { newFileName }
+    json: { newFileName },
   }
 }

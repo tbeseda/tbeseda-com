@@ -16,20 +16,20 @@ export class MyEditor extends Editor {
       StarterKit,
       Highlight,
       Img.configure({
-        allowBase64: true
+        allowBase64: true,
       }),
       Link.configure({
         HTMLAttributes: {
-          target: '_blank'
-        }
+          target: '_blank',
+        },
       }),
       Superscript,
       Table,
       TableCell,
       TableHeader,
-      TableRow
+      TableRow,
     ],
-    content
+    content,
   }) {
     if (!element) throw new Error('No element provided')
     super({
@@ -68,7 +68,7 @@ export class MyEditor extends Editor {
                 form.set('image', file)
                 fetch('/sekret/blog/image', {
                   method: 'POST',
-                  body: form
+                  body: form,
                 }).then((res) => {
                   if (res.ok) {
                     res.json().then(({ newFileName }) => {
@@ -77,12 +77,12 @@ export class MyEditor extends Editor {
                       const { schema } = view.state
                       const coordinates = view.posAtCoords({
                         left: event.clientX,
-                        top: event.clientY
+                        top: event.clientY,
                       })
                       const node = schema.nodes.image.create({ src: url })
                       const transaction = view.state.tr.insert(
                         coordinates?.pos || 0,
-                        node
+                        node,
                       )
                       return view.dispatch(transaction)
                     })
@@ -94,8 +94,8 @@ export class MyEditor extends Editor {
             return true
           }
           return false
-        }
-      }
+        },
+      },
     })
   }
 }

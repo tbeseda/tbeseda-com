@@ -14,7 +14,7 @@ async function getRandomSkull () {
   const fileStream = fs.createReadStream(filePath, {
     start: cursor, // start is likely mid-line
     end: cursor + 2000, // line is typically ~1kb, grab ~2
-    encoding: 'utf8'
+    encoding: 'utf8',
   })
 
   // collect the full length of 2kb
@@ -39,7 +39,7 @@ async function getRandomSkull () {
   } catch (error) {
     return {
       statusCode: 500,
-      json: { error, line, message: 'Failed to parse JSON' }
+      json: { error, line, message: 'Failed to parse JSON' },
     }
   }
 }

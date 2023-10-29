@@ -5,7 +5,7 @@ import { AddBreaksToEmptyTextblocks, Renderer } from 'pm2html'
 const schema = getSchema([StarterKit])
 const renderer = new Renderer({
   schema,
-  transformers: [new AddBreaksToEmptyTextblocks()]
+  transformers: [new AddBreaksToEmptyTextblocks()],
 })
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
@@ -62,7 +62,7 @@ export default function ExperimentFakeArticleList ({ html, state: { store } }) {
             </details>
           </td>
         </tr>
-        `
+        `,
         )
         .join('')}
         ${

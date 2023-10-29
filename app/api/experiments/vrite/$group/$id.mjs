@@ -9,14 +9,14 @@ async function getHandler ({
   icon = '⛔️',
   hCards = [],
   currentlyPlaying,
-  params
+  params,
 }) {
   const { group, id } = params
 
   const content = await things.get({ key: `${typeString}:${group}:${id}` })
 
   return {
-    json: { icon, hCards, currentlyPlaying, content }
+    json: { icon, hCards, currentlyPlaying, content },
   }
 }
 

@@ -1,7 +1,7 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function ExperimentFakeArticleEditor ({
   html,
-  state: { store }
+  state: { store },
 }) {
   return html`
     <style>

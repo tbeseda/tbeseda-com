@@ -10,25 +10,25 @@ async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
     IndexName: 'thingsByType',
     KeyConditionExpression: '#type = :type',
     ExpressionAttributeNames: {
-      '#type': 'type'
+      '#type': 'type',
     },
     ExpressionAttributeValues: {
-      ':type': typeString
-    }
+      ':type': typeString,
+    },
   })
 
   const published = contentPieces.filter((item) =>
-    item.key.startsWith(`${typeString}:Published:`)
+    item.key.startsWith(`${typeString}:Published:`),
   )
   const drafts = contentPieces.filter((item) =>
-    item.key.startsWith(`${typeString}:Drafts:`)
+    item.key.startsWith(`${typeString}:Drafts:`),
   )
   const ideas = contentPieces.filter((item) =>
-    item.key.startsWith(`${typeString}:Ideas:`)
+    item.key.startsWith(`${typeString}:Ideas:`),
   )
 
   return {
-    json: { icon, hCards, currentlyPlaying, published, drafts, ideas }
+    json: { icon, hCards, currentlyPlaying, published, drafts, ideas },
   }
 }
 

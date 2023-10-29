@@ -12,115 +12,115 @@ module.exports = {
             content: [
               {
                 type: 'text',
-                text: 'The last couple years have seen the rise of third party database providers, Database as a Service (DBaaS).'
-              }
-            ]
+                text: 'The last couple years have seen the rise of third party database providers, Database as a Service (DBaaS).',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'Instead of hosting your database on the same box as your primary application server, developers can use an external db host.'
-              }
-            ]
+                text: 'Instead of hosting your database on the same box as your primary application server, developers can use an external db host.',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'Often called "serverless" databases, these offerings offload the responsibility of maintaining a database appliance.'
-              }
-            ]
+                text: 'Often called "serverless" databases, these offerings offload the responsibility of maintaining a database appliance.',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'Providers also often offer useful dashboards, data browsing, branching, schema versioning, and more.'
-              }
-            ]
+                text: 'Providers also often offer useful dashboards, data browsing, branching, schema versioning, and more.',
+              },
+            ],
           },
           {
             type: 'heading',
             content: [
               {
                 type: 'text',
-                text: 'Selecting a Database'
-              }
+                text: 'Selecting a Database',
+              },
             ],
             attrs: {
-              level: 2
-            }
+              level: 2,
+            },
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'When adding a data layer to any application, choosing a database type, engine, and, now, provider is an important choice.'
-              }
-            ]
+                text: 'When adding a data layer to any application, choosing a database type, engine, and, now, provider is an important choice.',
+              },
+            ],
           },
           {
             type: 'heading',
             content: [
               {
                 type: 'text',
-                text: 'Database Paradigm + Speed'
-              }
+                text: 'Database Paradigm + Speed',
+              },
             ],
             attrs: {
-              level: 3
-            }
+              level: 3,
+            },
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'Probably the most important factor when choosing a database is deciding on "relational" tables like SQL or "document" storage, often called NoSQL.'
-              }
-            ]
+                text: 'Probably the most important factor when choosing a database is deciding on "relational" tables like SQL or "document" storage, often called NoSQL.',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: "But for this experiment, we'll set that aside and focus on the second most important consideration: access speed."
-              }
-            ]
+                text: "But for this experiment, we'll set that aside and focus on the second most important consideration: access speed.",
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: "Specifically, we'll look at how fast the simplest queries are from a Lambda (deployed to AWS with the vanilla Node.js runtime) to various third party db vendors."
-              }
-            ]
+                text: "Specifically, we'll look at how fast the simplest queries are from a Lambda (deployed to AWS with the vanilla Node.js runtime) to various third party db vendors.",
+              },
+            ],
           },
           {
             type: 'heading',
             content: [
               {
                 type: 'text',
-                text: 'The Tests'
-              }
+                text: 'The Tests',
+              },
             ],
             attrs: {
-              level: 2
-            }
+              level: 2,
+            },
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: "I've created an "
+                text: "I've created an ",
               },
               {
                 type: 'text',
@@ -131,14 +131,14 @@ module.exports = {
                     attrs: {
                       class: null,
                       href: 'https://arc.codes',
-                      target: '_blank'
-                    }
-                  }
-                ]
+                      target: '_blank',
+                    },
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: " application (hosted on Begin) that's made up of several functions: one for testing each provider and one to provide a web view of embedded "
+                text: " application (hosted on Begin) that's made up of several functions: one for testing each provider and one to provide a web view of embedded ",
               },
               {
                 type: 'text',
@@ -146,43 +146,43 @@ module.exports = {
                 marks: [
                   {
                     type: 'code',
-                    attrs: {}
-                  }
-                ]
+                    attrs: {},
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: ' with the results of each.'
-              }
-            ]
+                text: ' with the results of each.',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'Each test implementation performs essentially the same query:'
-              }
-            ]
+                text: 'Each test implementation performs essentially the same query:',
+              },
+            ],
           },
           {
             type: 'codeBlock',
             content: [
               {
                 type: 'text',
-                text: 'SELECT * FROM things'
-              }
+                text: 'SELECT * FROM things',
+              },
             ],
             attrs: {
-              lang: 'sql'
-            }
+              lang: 'sql',
+            },
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'The code and more technical explanation is available on '
+                text: 'The code and more technical explanation is available on ',
               },
               {
                 type: 'text',
@@ -193,36 +193,36 @@ module.exports = {
                     attrs: {
                       class: null,
                       href: 'https://awaken-un3.begin.app/',
-                      target: '_blank'
-                    }
-                  }
-                ]
+                      target: '_blank',
+                    },
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: ':'
-              }
-            ]
+                text: ':',
+              },
+            ],
           },
           {
             type: 'image',
             attrs: {
               alt: 'sample data',
               width: '100%',
-              src: 'https://assets.vrite.io/648a405da2da16eedd81ef95/cZ1CBRoHvvOzzSboefT6f.png'
-            }
+              src: 'https://assets.vrite.io/648a405da2da16eedd81ef95/cZ1CBRoHvvOzzSboefT6f.png',
+            },
           },
           {
             type: 'heading',
             content: [
               {
                 type: 'text',
-                text: 'Sampled Speeds'
-              }
+                text: 'Sampled Speeds',
+              },
             ],
             attrs: {
-              level: 3
-            }
+              level: 3,
+            },
           },
           {
             type: 'table',
@@ -238,15 +238,15 @@ module.exports = {
                         content: [
                           {
                             type: 'text',
-                            text: 'Provider'
-                          }
-                        ]
-                      }
+                            text: 'Provider',
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableHeader',
@@ -256,15 +256,15 @@ module.exports = {
                         content: [
                           {
                             type: 'text',
-                            text: 'Driver'
-                          }
-                        ]
-                      }
+                            text: 'Driver',
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableHeader',
@@ -274,17 +274,17 @@ module.exports = {
                         content: [
                           {
                             type: 'text',
-                            text: 'Approx. Query Time'
-                          }
-                        ]
-                      }
+                            text: 'Approx. Query Time',
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
-                  }
-                ]
+                      rowspan: 1,
+                    },
+                  },
+                ],
               },
               {
                 type: 'tableRow',
@@ -304,14 +304,14 @@ module.exports = {
                                 attrs: {
                                   class: null,
                                   href: 'https://neon.tech',
-                                  target: '_blank'
-                                }
-                              }
-                            ]
+                                  target: '_blank',
+                                },
+                              },
+                            ],
                           },
                           {
                             type: 'text',
-                            text: ' '
+                            text: ' ',
                           },
                           {
                             type: 'text',
@@ -319,17 +319,17 @@ module.exports = {
                             marks: [
                               {
                                 type: 'superscript',
-                                attrs: {}
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                attrs: {},
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -343,17 +343,17 @@ module.exports = {
                             marks: [
                               {
                                 type: 'code',
-                                attrs: {}
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                attrs: {},
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -363,17 +363,17 @@ module.exports = {
                         content: [
                           {
                             type: 'text',
-                            text: '300ms'
-                          }
-                        ]
-                      }
+                            text: '300ms',
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
-                  }
-                ]
+                      rowspan: 1,
+                    },
+                  },
+                ],
               },
               {
                 type: 'tableRow',
@@ -382,13 +382,13 @@ module.exports = {
                     type: 'tableCell',
                     content: [
                       {
-                        type: 'paragraph'
-                      }
+                        type: 'paragraph',
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -402,17 +402,17 @@ module.exports = {
                             marks: [
                               {
                                 type: 'code',
-                                attrs: {}
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                attrs: {},
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -422,17 +422,17 @@ module.exports = {
                         content: [
                           {
                             type: 'text',
-                            text: '100ms'
-                          }
-                        ]
-                      }
+                            text: '100ms',
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
-                  }
-                ]
+                      rowspan: 1,
+                    },
+                  },
+                ],
               },
               {
                 type: 'tableRow',
@@ -452,14 +452,14 @@ module.exports = {
                                 attrs: {
                                   class: null,
                                   href: 'https://supabase.com',
-                                  target: '_blank'
-                                }
-                              }
-                            ]
+                                  target: '_blank',
+                                },
+                              },
+                            ],
                           },
                           {
                             type: 'text',
-                            text: ' '
+                            text: ' ',
                           },
                           {
                             type: 'text',
@@ -467,17 +467,17 @@ module.exports = {
                             marks: [
                               {
                                 type: 'superscript',
-                                attrs: {}
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                attrs: {},
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -491,17 +491,17 @@ module.exports = {
                             marks: [
                               {
                                 type: 'code',
-                                attrs: {}
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                attrs: {},
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -511,17 +511,17 @@ module.exports = {
                         content: [
                           {
                             type: 'text',
-                            text: '450ms'
-                          }
-                        ]
-                      }
+                            text: '450ms',
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
-                  }
-                ]
+                      rowspan: 1,
+                    },
+                  },
+                ],
               },
               {
                 type: 'tableRow',
@@ -530,13 +530,13 @@ module.exports = {
                     type: 'tableCell',
                     content: [
                       {
-                        type: 'paragraph'
-                      }
+                        type: 'paragraph',
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -546,7 +546,7 @@ module.exports = {
                         content: [
                           {
                             type: 'text',
-                            text: 'REST API via '
+                            text: 'REST API via ',
                           },
                           {
                             type: 'text',
@@ -554,17 +554,17 @@ module.exports = {
                             marks: [
                               {
                                 type: 'code',
-                                attrs: {}
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                attrs: {},
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -578,23 +578,23 @@ module.exports = {
                             marks: [
                               {
                                 type: 'highlight',
-                                attrs: {}
-                              }
-                            ]
+                                attrs: {},
+                              },
+                            ],
                           },
                           {
                             type: 'text',
-                            text: ' - 375ms'
-                          }
-                        ]
-                      }
+                            text: ' - 375ms',
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
-                  }
-                ]
+                      rowspan: 1,
+                    },
+                  },
+                ],
               },
               {
                 type: 'tableRow',
@@ -614,18 +614,18 @@ module.exports = {
                                 attrs: {
                                   class: null,
                                   href: 'https://planetscale.com',
-                                  target: '_blank'
-                                }
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                  target: '_blank',
+                                },
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -639,17 +639,17 @@ module.exports = {
                             marks: [
                               {
                                 type: 'code',
-                                attrs: {}
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                attrs: {},
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -659,17 +659,17 @@ module.exports = {
                         content: [
                           {
                             type: 'text',
-                            text: '125ms'
-                          }
-                        ]
-                      }
+                            text: '125ms',
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
-                  }
-                ]
+                      rowspan: 1,
+                    },
+                  },
+                ],
               },
               {
                 type: 'tableRow',
@@ -678,13 +678,13 @@ module.exports = {
                     type: 'tableCell',
                     content: [
                       {
-                        type: 'paragraph'
-                      }
+                        type: 'paragraph',
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -698,17 +698,17 @@ module.exports = {
                             marks: [
                               {
                                 type: 'code',
-                                attrs: {}
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                attrs: {},
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -722,23 +722,23 @@ module.exports = {
                             marks: [
                               {
                                 type: 'highlight',
-                                attrs: {}
-                              }
-                            ]
+                                attrs: {},
+                              },
+                            ],
                           },
                           {
                             type: 'text',
-                            text: ' - 150ms'
-                          }
-                        ]
-                      }
+                            text: ' - 150ms',
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
-                  }
-                ]
+                      rowspan: 1,
+                    },
+                  },
+                ],
               },
               {
                 type: 'tableRow',
@@ -758,18 +758,18 @@ module.exports = {
                                 attrs: {
                                   class: null,
                                   href: 'https://mongodb.com',
-                                  target: '_blank'
-                                }
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                  target: '_blank',
+                                },
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -783,17 +783,17 @@ module.exports = {
                             marks: [
                               {
                                 type: 'code',
-                                attrs: {}
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                attrs: {},
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -803,17 +803,17 @@ module.exports = {
                         content: [
                           {
                             type: 'text',
-                            text: '725ms'
-                          }
-                        ]
-                      }
+                            text: '725ms',
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
-                  }
-                ]
+                      rowspan: 1,
+                    },
+                  },
+                ],
               },
               {
                 type: 'tableRow',
@@ -833,18 +833,18 @@ module.exports = {
                                 attrs: {
                                   class: null,
                                   href: 'https://aws.amazon.com/dynamodb/',
-                                  target: '_blank'
-                                }
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                  target: '_blank',
+                                },
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -858,17 +858,17 @@ module.exports = {
                             marks: [
                               {
                                 type: 'code',
-                                attrs: {}
-                              }
-                            ]
-                          }
-                        ]
-                      }
+                                attrs: {},
+                              },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
+                      rowspan: 1,
+                    },
                   },
                   {
                     type: 'tableCell',
@@ -882,25 +882,25 @@ module.exports = {
                             marks: [
                               {
                                 type: 'highlight',
-                                attrs: {}
-                              }
-                            ]
+                                attrs: {},
+                              },
+                            ],
                           },
                           {
                             type: 'text',
-                            text: 'ms'
-                          }
-                        ]
-                      }
+                            text: 'ms',
+                          },
+                        ],
+                      },
                     ],
                     attrs: {
                       colspan: 1,
-                      rowspan: 1
-                    }
-                  }
-                ]
-              }
-            ]
+                      rowspan: 1,
+                    },
+                  },
+                ],
+              },
+            ],
           },
           {
             type: 'paragraph',
@@ -911,29 +911,29 @@ module.exports = {
                 marks: [
                   {
                     type: 'superscript',
-                    attrs: {}
-                  }
-                ]
+                    attrs: {},
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: ' This does not include the cold start.'
+                text: ' This does not include the cold start.',
               },
               {
-                type: 'hardBreak'
-              },
-              {
-                type: 'text',
-                text: 'The "wake" time can exceed 5s (5,000ms), but once active is 0.'
-              },
-              {
-                type: 'hardBreak'
+                type: 'hardBreak',
               },
               {
                 type: 'text',
-                text: 'Neon is in early access and is working on various (paid) ways to manage this penalty.'
-              }
-            ]
+                text: 'The "wake" time can exceed 5s (5,000ms), but once active is 0.',
+              },
+              {
+                type: 'hardBreak',
+              },
+              {
+                type: 'text',
+                text: 'Neon is in early access and is working on various (paid) ways to manage this penalty.',
+              },
+            ],
           },
           {
             type: 'paragraph',
@@ -944,13 +944,13 @@ module.exports = {
                 marks: [
                   {
                     type: 'superscript',
-                    attrs: {}
-                  }
-                ]
+                    attrs: {},
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: " Supabase's "
+                text: " Supabase's ",
               },
               {
                 type: 'text',
@@ -958,41 +958,41 @@ module.exports = {
                 marks: [
                   {
                     type: 'code',
-                    attrs: {}
-                  }
-                ]
+                    attrs: {},
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: " was not tested as it requires a build step on install (my CD environment, Lambda, doesn't have node-gyp). "
+                text: " was not tested as it requires a build step on install (my CD environment, Lambda, doesn't have node-gyp). ",
               },
               {
-                type: 'hardBreak'
+                type: 'hardBreak',
               },
               {
                 type: 'text',
-                text: 'I expect it would perform similarly to their REST API.'
-              }
-            ]
+                text: 'I expect it would perform similarly to their REST API.',
+              },
+            ],
           },
           {
             type: 'heading',
             content: [
               {
                 type: 'text',
-                text: 'Regional Differences'
-              }
+                text: 'Regional Differences',
+              },
             ],
             attrs: {
-              level: 3
-            }
+              level: 3,
+            },
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'The above sampling is for tests where the database provider is '
+                text: 'The above sampling is for tests where the database provider is ',
               },
               {
                 type: 'text',
@@ -1000,24 +1000,24 @@ module.exports = {
                 marks: [
                   {
                     type: 'italic',
-                    attrs: {}
-                  }
-                ]
+                    attrs: {},
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: ' in a different US region from the Lambdas that connect to them.'
-              }
-            ]
+                text: ' in a different US region from the Lambdas that connect to them.',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'The only provider sharing a region with the Lambda is Dynamo since both resources will naturally be created in the same AWS region.'
-              }
-            ]
+                text: 'The only provider sharing a region with the Lambda is Dynamo since both resources will naturally be created in the same AWS region.',
+              },
+            ],
           },
           {
             type: 'paragraph',
@@ -1028,22 +1028,22 @@ module.exports = {
                 marks: [
                   {
                     type: 'bold',
-                    attrs: {}
-                  }
-                ]
+                    attrs: {},
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: ' when in the same region as your Lambda and using the "native" driver.'
-              }
-            ]
+                text: ' when in the same region as your Lambda and using the "native" driver.',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'For example, when both Lambda and Supabase are in '
+                text: 'For example, when both Lambda and Supabase are in ',
               },
               {
                 type: 'text',
@@ -1051,13 +1051,13 @@ module.exports = {
                 marks: [
                   {
                     type: 'code',
-                    attrs: {}
-                  }
-                ]
+                    attrs: {},
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: ', the same query with '
+                text: ', the same query with ',
               },
               {
                 type: 'text',
@@ -1065,45 +1065,45 @@ module.exports = {
                 marks: [
                   {
                     type: 'code',
-                    attrs: {}
-                  }
-                ]
+                    attrs: {},
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: ' takes ~50ms: 9x faster 🔥'
-              }
-            ]
+                text: ' takes ~50ms: 9x faster 🔥',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: '(Limited tests were conducted in shared regions but are not demonstrated live.)'
-              }
-            ]
+                text: '(Limited tests were conducted in shared regions but are not demonstrated live.)',
+              },
+            ],
           },
           {
             type: 'heading',
             content: [
               {
                 type: 'text',
-                text: 'Considerations'
-              }
+                text: 'Considerations',
+              },
             ],
             attrs: {
-              level: 3
-            }
+              level: 3,
+            },
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'These tests do not:'
-              }
-            ]
+                text: 'These tests do not:',
+              },
+            ],
           },
           {
             type: 'bulletList',
@@ -1116,11 +1116,11 @@ module.exports = {
                     content: [
                       {
                         type: 'text',
-                        text: 'attempt to pool or keep-alive connections'
-                      }
-                    ]
-                  }
-                ]
+                        text: 'attempt to pool or keep-alive connections',
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 type: 'listItem',
@@ -1130,11 +1130,11 @@ module.exports = {
                     content: [
                       {
                         type: 'text',
-                        text: 'snapshot results or track variance over time'
-                      }
-                    ]
-                  }
-                ]
+                        text: 'snapshot results or track variance over time',
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 type: 'listItem',
@@ -1144,11 +1144,11 @@ module.exports = {
                     content: [
                       {
                         type: 'text',
-                        text: 'test subsequent queries'
-                      }
-                    ]
-                  }
-                ]
+                        text: 'test subsequent queries',
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 type: 'listItem',
@@ -1158,11 +1158,11 @@ module.exports = {
                     content: [
                       {
                         type: 'text',
-                        text: 'use a large dataset or a variety of DB operations'
-                      }
-                    ]
-                  }
-                ]
+                        text: 'use a large dataset or a variety of DB operations',
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 type: 'listItem',
@@ -1172,50 +1172,50 @@ module.exports = {
                     content: [
                       {
                         type: 'text',
-                        text: 'thoroughly consider resource regions'
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
+                        text: 'thoroughly consider resource regions',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
           },
           {
             type: 'heading',
             content: [
               {
                 type: 'text',
-                text: 'Conclusions'
-              }
+                text: 'Conclusions',
+              },
             ],
             attrs: {
-              level: 2
-            }
+              level: 2,
+            },
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: "Not surprisingly, AWS's own DynamoDB is the fastest way to query data from a Lambda-based application."
-              }
-            ]
+                text: "Not surprisingly, AWS's own DynamoDB is the fastest way to query data from a Lambda-based application.",
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: "Its repeatable 10ms query latency is 2.5 times better than the closest competitor's best results."
-              }
-            ]
+                text: "Its repeatable 10ms query latency is 2.5 times better than the closest competitor's best results.",
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: "We acknowledge that it may be intimidating to get started with a NoSQL database, and that's why we provide "
+                text: "We acknowledge that it may be intimidating to get started with a NoSQL database, and that's why we provide ",
               },
               {
                 type: 'text',
@@ -1226,23 +1226,23 @@ module.exports = {
                     attrs: {
                       class: null,
                       href: 'https://www.npmjs.com/package/@begin/data',
-                      target: '_blank'
-                    }
-                  }
-                ]
+                      target: '_blank',
+                    },
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: ' as an abstraction layer on top of DynamoDB.'
-              }
-            ]
+                text: ' as an abstraction layer on top of DynamoDB.',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'For folks who want to learn more about DynamoDB we recommend '
+                text: 'For folks who want to learn more about DynamoDB we recommend ',
               },
               {
                 type: 'text',
@@ -1253,53 +1253,53 @@ module.exports = {
                     attrs: {
                       class: null,
                       href: 'https://www.dynamodbbook.com/',
-                      target: '_blank'
-                    }
-                  }
-                ]
+                      target: '_blank',
+                    },
+                  },
+                ],
               },
               {
                 type: 'text',
-                text: '.'
-              }
-            ]
+                text: '.',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'That said, all tested provider queries are less than half a second (except MongoDB - however, their paid tiers do reach that 500ms threshold)!'
-              }
-            ]
+                text: 'That said, all tested provider queries are less than half a second (except MongoDB - however, their paid tiers do reach that 500ms threshold)!',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: 'Ultimately any database is better than no database.'
-              }
-            ]
+                text: 'Ultimately any database is better than no database.',
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
                 type: 'text',
-                text: "Don't be paralyzed or resort to throwing the kitchen sink at the problem. Pick one and get to building the initial implementation."
-              }
-            ]
+                text: "Don't be paralyzed or resort to throwing the kitchen sink at the problem. Pick one and get to building the initial implementation.",
+              },
+            ],
           },
           {
             type: 'paragraph',
             content: [
               {
-                type: 'hardBreak'
-              }
-            ]
-          }
-        ]
+                type: 'hardBreak',
+              },
+            ],
+          },
+        ],
       },
       contentGroupId: '648a4065a2da16eedd81ef9c',
       coverAlt: '',
@@ -1320,13 +1320,13 @@ module.exports = {
             email: 'tbeseda@gmail.com',
             fullName: 'Taylor Beseda',
             id: '648a405da2da16eedd81ef93',
-            username: 'tbeseda'
-          }
-        }
+            username: 'tbeseda',
+          },
+        },
       ],
       slug: 'tested-database-providers-on-lambda',
       tags: [],
-      title: 'Tested: Database Providers on Lambda'
+      title: 'Tested: Database Providers on Lambda',
     },
     {
       key: 'vrite:content:Drafts:648e584f9106221f30798432',
@@ -1341,13 +1341,13 @@ module.exports = {
                     content: [
                       {
                         text: 'Enhance builds on top of Architect.',
-                        type: 'text'
-                      }
+                        type: 'text',
+                      },
                     ],
-                    type: 'paragraph'
-                  }
+                    type: 'paragraph',
+                  },
                 ],
-                type: 'listItem'
+                type: 'listItem',
               },
               {
                 content: [
@@ -1355,13 +1355,13 @@ module.exports = {
                     content: [
                       {
                         text: 'Arc has some powerful (opt-in) features.',
-                        type: 'text'
-                      }
+                        type: 'text',
+                      },
                     ],
-                    type: 'paragraph'
-                  }
+                    type: 'paragraph',
+                  },
                 ],
-                type: 'listItem'
+                type: 'listItem',
               },
               {
                 content: [
@@ -1369,13 +1369,13 @@ module.exports = {
                     content: [
                       {
                         text: 'Enhance gets these features for free!',
-                        type: 'text'
-                      }
+                        type: 'text',
+                      },
                     ],
-                    type: 'paragraph'
-                  }
+                    type: 'paragraph',
+                  },
                 ],
-                type: 'listItem'
+                type: 'listItem',
               },
               {
                 content: [
@@ -1383,90 +1383,90 @@ module.exports = {
                     content: [
                       {
                         text: 'Powerful combo: Dynamo-powered cache + scheduled functions',
-                        type: 'text'
-                      }
+                        type: 'text',
+                      },
                     ],
-                    type: 'paragraph'
-                  }
+                    type: 'paragraph',
+                  },
                 ],
-                type: 'listItem'
-              }
+                type: 'listItem',
+              },
             ],
-            type: 'bulletList'
+            type: 'bulletList',
           },
           {
             content: [
               {
                 text: 'With wildfire season well upon us in North America, it’s a good idea to keep an eye on local air quality. Let’s get some real time data from the US EPA’s AirNow program. Even with a limited API request budget, we can get snappy results by scheduling updates, caching, and refreshing data on demand. All with features already built into Enhance.',
-                type: 'text'
-              }
+                type: 'text',
+              },
             ],
-            type: 'paragraph'
+            type: 'paragraph',
           },
           {
             attrs: {
-              level: 2
+              level: 2,
             },
             content: [
               {
                 text: 'AirNow API',
-                type: 'text'
-              }
+                type: 'text',
+              },
             ],
-            type: 'heading'
+            type: 'heading',
           },
           {
             attrs: {
-              lang: 'plaintext'
+              lang: 'plaintext',
             },
             content: [
               {
                 text: 'https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=90210&API_KEY=ABC123',
-                type: 'text'
-              }
+                type: 'text',
+              },
             ],
-            type: 'codeBlock'
+            type: 'codeBlock',
           },
           {
             content: [
               {
                 text: 'That’s it, that’s the URL we’ll use to request the air quality index (AQI) for any given US zip code',
-                type: 'text'
+                type: 'text',
               },
               {
                 marks: [
                   {
                     attrs: {},
-                    type: 'superscript'
-                  }
+                    type: 'superscript',
+                  },
                 ],
                 text: '1',
-                type: 'text'
+                type: 'text',
               },
               {
                 text: '. We get back an array of one to three measurements if a weather station is found near the requested zip code.',
-                type: 'text'
-              }
+                type: 'text',
+              },
             ],
-            type: 'paragraph'
+            type: 'paragraph',
           },
           {
             attrs: {
-              lang: 'javascript'
+              lang: 'javascript',
             },
             content: [
               {
                 text: "{\n  AQI: 58,\n  Category: {\n    Name: 'Moderate',\n    Number: 2,\n  },\n  DateObserved: '2023-06-08 ',\n  HourObserved: 10,\n  LocalTimeZone: 'MST',\n  ParameterName: 'O3',\n  ReportingArea: 'Denver-Boulder',\n  StateCode: 'CO',\n}",
-                type: 'text'
-              }
+                type: 'text',
+              },
             ],
-            type: 'codeBlock'
+            type: 'codeBlock',
           },
           {
             content: [
               {
                 text: 'We’ll need to keep in mind that ',
-                type: 'text'
+                type: 'text',
               },
               {
                 marks: [
@@ -1474,20 +1474,20 @@ module.exports = {
                     attrs: {
                       class: null,
                       href: 'https://docs.airnowapi.org/faq#rateLimits',
-                      target: '_blank'
+                      target: '_blank',
                     },
-                    type: 'link'
-                  }
+                    type: 'link',
+                  },
                 ],
                 text: 'this API limits us to 500 requests per hour',
-                type: 'text'
+                type: 'text',
               },
               {
                 text: ', however the docs also let us know that most datapoints are updated once each hour. So if our application caches its copy of that data for 30 min, we can query 250 unique zip codes each hour - probably a good start, at least until it goes viral 😉',
-                type: 'text'
-              }
+                type: 'text',
+              },
             ],
-            type: 'paragraph'
+            type: 'paragraph',
           },
           {
             content: [
@@ -1495,15 +1495,15 @@ module.exports = {
                 marks: [
                   {
                     attrs: {},
-                    type: 'superscript'
-                  }
+                    type: 'superscript',
+                  },
                 ],
                 text: '1',
-                type: 'text'
+                type: 'text',
               },
               {
                 text: 'For simplicity, I’m sticking with US data, but international data is available. I recommend checking out ',
-                type: 'text'
+                type: 'text',
               },
               {
                 marks: [
@@ -1511,53 +1511,53 @@ module.exports = {
                     attrs: {
                       class: null,
                       href: 'https://api-docs.iqair.com/',
-                      target: '_blank'
+                      target: '_blank',
                     },
-                    type: 'link'
-                  }
+                    type: 'link',
+                  },
                 ],
                 text: 'IQAir',
-                type: 'text'
+                type: 'text',
               },
               {
                 text: '.',
-                type: 'text'
-              }
+                type: 'text',
+              },
             ],
-            type: 'paragraph'
+            type: 'paragraph',
           },
           {
             attrs: {
-              level: 2
+              level: 2,
             },
             content: [
               {
                 text: 'Enhance App with DynamoDB',
-                type: 'text'
-              }
+                type: 'text',
+              },
             ],
-            type: 'heading'
+            type: 'heading',
           },
           {
-            type: 'paragraph'
+            type: 'paragraph',
           },
           {
             attrs: {
-              level: 2
+              level: 2,
             },
             content: [
               {
                 text: 'Add a Scheduled Function',
-                type: 'text'
-              }
+                type: 'text',
+              },
             ],
-            type: 'heading'
+            type: 'heading',
           },
           {
-            type: 'paragraph'
-          }
+            type: 'paragraph',
+          },
         ],
-        type: 'doc'
+        type: 'doc',
       },
       contentGroupId: '648a4065a2da16eedd81ef9c',
       coverUrl:
@@ -1575,14 +1575,14 @@ module.exports = {
             email: 'tbeseda@gmail.com',
             fullName: 'Taylor Beseda',
             id: '648a405da2da16eedd81ef93',
-            username: 'tbeseda'
-          }
-        }
+            username: 'tbeseda',
+          },
+        },
       ],
       slug: 'enhance-aqi-example',
       tags: [],
       title: 'WIP: AQI Example',
-      updatedAt: '2023-06-18T01:35:42.531Z'
+      updatedAt: '2023-06-18T01:35:42.531Z',
     },
     {
       key: 'vrite:content:Ideas:648e7f6e9106221f3079843f',
@@ -1591,7 +1591,7 @@ module.exports = {
         content: [
           {
             attrs: {
-              start: 1
+              start: 1,
             },
             content: [
               {
@@ -1600,13 +1600,13 @@ module.exports = {
                     content: [
                       {
                         text: 'Roll a new Enhance app with an item for sale',
-                        type: 'text'
-                      }
+                        type: 'text',
+                      },
                     ],
-                    type: 'paragraph'
-                  }
+                    type: 'paragraph',
+                  },
                 ],
-                type: 'listItem'
+                type: 'listItem',
               },
               {
                 content: [
@@ -1614,14 +1614,14 @@ module.exports = {
                     content: [
                       {
                         text: 'Set up Stripe',
-                        type: 'text'
-                      }
+                        type: 'text',
+                      },
                     ],
-                    type: 'paragraph'
+                    type: 'paragraph',
                   },
                   {
                     attrs: {
-                      start: 1
+                      start: 1,
                     },
                     content: [
                       {
@@ -1630,13 +1630,13 @@ module.exports = {
                             content: [
                               {
                                 text: 'Product with payment link in Test Mode. Copy.',
-                                type: 'text'
-                              }
+                                type: 'text',
+                              },
                             ],
-                            type: 'paragraph'
-                          }
+                            type: 'paragraph',
+                          },
                         ],
-                        type: 'listItem'
+                        type: 'listItem',
                       },
                       {
                         content: [
@@ -1644,13 +1644,13 @@ module.exports = {
                             content: [
                               {
                                 text: 'Endpoints for confirmation.',
-                                type: 'text'
-                              }
+                                type: 'text',
+                              },
                             ],
-                            type: 'paragraph'
-                          }
+                            type: 'paragraph',
+                          },
                         ],
-                        type: 'listItem'
+                        type: 'listItem',
                       },
                       {
                         content: [
@@ -1658,13 +1658,13 @@ module.exports = {
                             content: [
                               {
                                 text: 'Duplicate to Production Mode.',
-                                type: 'text'
-                              }
+                                type: 'text',
+                              },
                             ],
-                            type: 'paragraph'
-                          }
+                            type: 'paragraph',
+                          },
                         ],
-                        type: 'listItem'
+                        type: 'listItem',
                       },
                       {
                         content: [
@@ -1672,19 +1672,19 @@ module.exports = {
                             content: [
                               {
                                 text: 'Copy the keys.',
-                                type: 'text'
-                              }
+                                type: 'text',
+                              },
                             ],
-                            type: 'paragraph'
-                          }
+                            type: 'paragraph',
+                          },
                         ],
-                        type: 'listItem'
-                      }
+                        type: 'listItem',
+                      },
                     ],
-                    type: 'orderedList'
-                  }
+                    type: 'orderedList',
+                  },
                 ],
-                type: 'listItem'
+                type: 'listItem',
               },
               {
                 content: [
@@ -1692,14 +1692,14 @@ module.exports = {
                     content: [
                       {
                         text: 'Update Enhance app',
-                        type: 'text'
-                      }
+                        type: 'text',
+                      },
                     ],
-                    type: 'paragraph'
+                    type: 'paragraph',
                   },
                   {
                     attrs: {
-                      start: 1
+                      start: 1,
                     },
                     content: [
                       {
@@ -1708,13 +1708,13 @@ module.exports = {
                             content: [
                               {
                                 text: 'Add link to purchase button',
-                                type: 'text'
-                              }
+                                type: 'text',
+                              },
                             ],
-                            type: 'paragraph'
-                          }
+                            type: 'paragraph',
+                          },
                         ],
-                        type: 'listItem'
+                        type: 'listItem',
                       },
                       {
                         content: [
@@ -1722,19 +1722,19 @@ module.exports = {
                             content: [
                               {
                                 text: 'Create confirmation route',
-                                type: 'text'
-                              }
+                                type: 'text',
+                              },
                             ],
-                            type: 'paragraph'
-                          }
+                            type: 'paragraph',
+                          },
                         ],
-                        type: 'listItem'
-                      }
+                        type: 'listItem',
+                      },
                     ],
-                    type: 'orderedList'
-                  }
+                    type: 'orderedList',
+                  },
                 ],
-                type: 'listItem'
+                type: 'listItem',
               },
               {
                 content: [
@@ -1742,14 +1742,14 @@ module.exports = {
                     content: [
                       {
                         text: 'Back to Stripe',
-                        type: 'text'
-                      }
+                        type: 'text',
+                      },
                     ],
-                    type: 'paragraph'
+                    type: 'paragraph',
                   },
                   {
                     attrs: {
-                      start: 1
+                      start: 1,
                     },
                     content: [
                       {
@@ -1758,19 +1758,19 @@ module.exports = {
                             content: [
                               {
                                 text: 'Checkout completed webhook',
-                                type: 'text'
-                              }
+                                type: 'text',
+                              },
                             ],
-                            type: 'paragraph'
-                          }
+                            type: 'paragraph',
+                          },
                         ],
-                        type: 'listItem'
-                      }
+                        type: 'listItem',
+                      },
                     ],
-                    type: 'orderedList'
-                  }
+                    type: 'orderedList',
+                  },
                 ],
-                type: 'listItem'
+                type: 'listItem',
               },
               {
                 content: [
@@ -1778,14 +1778,14 @@ module.exports = {
                     content: [
                       {
                         text: 'Augment Enhance app',
-                        type: 'text'
-                      }
+                        type: 'text',
+                      },
                     ],
-                    type: 'paragraph'
+                    type: 'paragraph',
                   },
                   {
                     attrs: {
-                      start: 1
+                      start: 1,
                     },
                     content: [
                       {
@@ -1794,13 +1794,13 @@ module.exports = {
                             content: [
                               {
                                 text: 'Add API for webhook',
-                                type: 'text'
-                              }
+                                type: 'text',
+                              },
                             ],
-                            type: 'paragraph'
-                          }
+                            type: 'paragraph',
+                          },
                         ],
-                        type: 'listItem'
+                        type: 'listItem',
                       },
                       {
                         content: [
@@ -1808,29 +1808,29 @@ module.exports = {
                             content: [
                               {
                                 text: 'Send an email or similar',
-                                type: 'text'
-                              }
+                                type: 'text',
+                              },
                             ],
-                            type: 'paragraph'
-                          }
+                            type: 'paragraph',
+                          },
                         ],
-                        type: 'listItem'
-                      }
+                        type: 'listItem',
+                      },
                     ],
-                    type: 'orderedList'
-                  }
+                    type: 'orderedList',
+                  },
                 ],
-                type: 'listItem'
-              }
+                type: 'listItem',
+              },
             ],
-            type: 'orderedList'
+            type: 'orderedList',
           },
           {
             content: [],
-            type: 'paragraph'
-          }
+            type: 'paragraph',
+          },
         ],
-        type: 'doc'
+        type: 'doc',
       },
       contentGroupId: '648f3bae2af481ed2909d69a',
       coverUrl:
@@ -1847,14 +1847,14 @@ module.exports = {
             email: 'tbeseda@gmail.com',
             fullName: 'Taylor Beseda',
             id: '648a405da2da16eedd81ef93',
-            username: 'tbeseda'
-          }
-        }
+            username: 'tbeseda',
+          },
+        },
       ],
       slug: 'enhance-with-stripe-checkout',
       tags: [],
       title: 'Enhance with Stripe Checkout',
-      updatedAt: '2023-06-18T18:23:11.576Z'
-    }
-  ]
+      updatedAt: '2023-06-18T18:23:11.576Z',
+    },
+  ],
 }

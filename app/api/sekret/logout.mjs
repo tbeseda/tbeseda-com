@@ -2,6 +2,6 @@
 export async function get () {
   return {
     json: { authorized: false },
-    session: {}
+    session: {},
   }
 }

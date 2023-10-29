@@ -17,7 +17,7 @@ export default function ({ html, state: { store } }) {
               <small>${m.sourceAuthor ? `(${m.sourceAuthor})` : ''}</small>
               <details><pre>${JSON.stringify(m, null, 2)}</pre></details>
             </li>
-          `
+          `,
         )
         .join('')}
     </ul>

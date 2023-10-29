@@ -1,7 +1,7 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function ExperimentOmnivoreHighlights ({
   html,
-  state: { store }
+  state: { store },
 }) {
   const { omnivoreHighlights } = store
 

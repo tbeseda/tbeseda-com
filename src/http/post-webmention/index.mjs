@@ -23,16 +23,16 @@ export const handler = arc.http(async function (req) {
   if (errors.length > 0) {
     return {
       code: 400,
-      json: { errors }
+      json: { errors },
     }
   }
 
   await arc.events.publish({
     name: 'webmention-receive',
-    payload: { body, headers }
+    payload: { body, headers },
   })
   return {
     code: 202,
-    text: 'accepted'
+    text: 'accepted',
   }
 })

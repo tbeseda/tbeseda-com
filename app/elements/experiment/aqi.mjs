@@ -3,11 +3,11 @@ export default function ExperimentAqi ({ html, state: { store } }) {
   const { myAqi } = store
   const { airNowData } = myAqi || { airNowData: [] }
   const pm25 = airNowData?.find(
-    ({ ParameterName }) => ParameterName === 'PM2.5'
+    ({ ParameterName }) => ParameterName === 'PM2.5',
   ) || {
     ParameterName: '?',
     AQI: 'unknown',
-    Category: { Name: '?' }
+    Category: { Name: '?' },
   }
 
   return html`

@@ -31,7 +31,7 @@ async function http ({ body }) {
     console.log('Error fetching content groups', JSON.stringify(error, null, 2))
     return {
       statusCode: 200, // return success to webhook
-      body: 'Error fetching content groups'
+      body: 'Error fetching content groups',
     }
   }
 
@@ -44,7 +44,7 @@ async function http ({ body }) {
     contentPiece = await vrite.contentPieces.get({
       id,
       content: true,
-      description: 'text'
+      description: 'text',
     })
   } catch (error) {
     console.log('Error fetching content piece', JSON.stringify(error, null, 2))
@@ -70,7 +70,7 @@ async function http ({ body }) {
             key: `${typeString}:${currentContentGroupName}:${id}`,
             type: typeString,
             updatedAt: new Date().toISOString(),
-            ...newContent
+            ...newContent,
           })
 
           console.log(`Saved "${saved.key}"`)
@@ -78,7 +78,7 @@ async function http ({ body }) {
           console.log(
             'Error saving content to db',
             JSON.stringify(newContent, null, 2),
-            JSON.stringify(err, null, 2)
+            JSON.stringify(err, null, 2),
           )
         }
       } else {
@@ -95,7 +95,7 @@ async function http ({ body }) {
           } catch (error) {
             console.log(
               'Error deleting content',
-              JSON.stringify(error, null, 2)
+              JSON.stringify(error, null, 2),
             )
           }
         }
@@ -103,7 +103,7 @@ async function http ({ body }) {
     } else {
       console.log(
         'Unkonwn content group name',
-        JSON.stringify(contentPiece, null, 2)
+        JSON.stringify(contentPiece, null, 2),
       )
     }
   } else {

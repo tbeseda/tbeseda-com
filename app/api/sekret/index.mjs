@@ -9,7 +9,7 @@ export async function get ({ session }) {
 
   return {
     json: { authorized },
-    session
+    session,
   }
 }
 
@@ -23,11 +23,11 @@ export async function post ({ body, session }) {
     ? {
         status: 302,
         headers: { location: '/sekret' },
-        session: newSession
+        session: newSession,
       }
     : {
         status: 401,
         json: { error: 'Unauthorized' },
-        session: newSession
+        session: newSession,
       }
 }

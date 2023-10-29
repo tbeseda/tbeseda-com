@@ -12,7 +12,7 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
     recentlyPlayed = { items: [] },
     topArtists = { items: [] },
     topTracks = { items: [] },
-    messages
+    messages,
   } = store
   const playing = currentlyPlaying?.item
   const mostRecent = recentlyPlayed.items?.shift()
@@ -153,7 +153,7 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
                       <span>${presentDate(item.played_at)}</span>
                     </span>
                   </div>
-                `
+                `,
               )
               .join('')
           : ''
@@ -176,7 +176,7 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
                     : ''
                 }
               </div>
-            `
+            `,
             )
             .join('')}
         </div>
@@ -192,7 +192,7 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
                 </span>
                 <img class="album-cover" src="${album.images[0].url}" alt="album cover" />
               </div>
-              `
+              `,
             )
             .join('')}
         </div>

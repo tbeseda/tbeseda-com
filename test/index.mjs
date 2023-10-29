@@ -8,7 +8,7 @@ const URL = `http://localhost:${PORT}`
 async function before () {
   await sandbox.start({
     quiet: true,
-    port: PORT
+    port: PORT,
   })
   console.log('Sandbox started')
 }
@@ -30,7 +30,7 @@ test('smoke and microformats', async (t) => {
       `${URL}/blog/gitclean-zsh-command`,
       `${URL}/blog/rss`,
       `${URL}/experiments`,
-      `${URL}/h-card`
+      `${URL}/h-card`,
     ]) {
       try {
         const res = await fetch(route)
@@ -57,7 +57,7 @@ test('smoke and microformats', async (t) => {
     const fakeReq = {}
     await myHCardData(fakeReq)
     const {
-      hCards: { items: [myHCard] }
+      hCards: { items: [myHCard] },
     } = fakeReq
 
     for (const key of [
@@ -70,7 +70,7 @@ test('smoke and microformats', async (t) => {
       // 'photo',
       'region',
       'role',
-      'url'
+      'url',
     ]) {
       const hCardVal = parsedHCard.properties[key][0]
       const myHCardVal = myHCard.properties[key][0]
@@ -78,7 +78,7 @@ test('smoke and microformats', async (t) => {
       st.equal(
         hCardVal,
         myHCardVal,
-        `"${key}" match: ${hCardVal} === ${myHCardVal}`
+        `"${key}" match: ${hCardVal} === ${myHCardVal}`,
       )
     }
   })

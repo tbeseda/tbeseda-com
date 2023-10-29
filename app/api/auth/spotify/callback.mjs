@@ -25,15 +25,15 @@ export async function get ({ query, session }) {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: `Basic ${Buffer.from(
-          `${SPOTIFY_CLIENT}:${SPOTIFY_SECRET}`
+          `${SPOTIFY_CLIENT}:${SPOTIFY_SECRET}`,
         ).toString('base64')}`,
-        Accept: 'application/json'
+        Accept: 'application/json',
       },
       body: new URLSearchParams({
         code,
         grant_type: 'authorization_code',
-        redirect_uri: SPOTIFY_REDIRECT
-      }).toString()
+        redirect_uri: SPOTIFY_REDIRECT,
+      }).toString(),
     })
     token = await response.json()
 
@@ -42,7 +42,7 @@ export async function get ({ query, session }) {
     const savedToken = await things.put({
       key: 'spotify-token',
       token,
-      created: new Date().toISOString()
+      created: new Date().toISOString(),
     })
 
     console.log(`Saved ${savedToken.key}`)
@@ -52,6 +52,6 @@ export async function get ({ query, session }) {
 
   return {
     status: 302,
-    headers: { location: '/experiments/spotify' }
+    headers: { location: '/experiments/spotify' },
   }
 }

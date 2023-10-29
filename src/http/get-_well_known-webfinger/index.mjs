@@ -3,7 +3,7 @@ import arc from '@architect/functions'
 async function http (request) {
   return {
     headers: {
-      'Content-Type': 'application/jrd+json'
+      'Content-Type': 'application/jrd+json',
     },
     body: JSON.stringify(
       {
@@ -13,13 +13,13 @@ async function http (request) {
           {
             rel: 'self',
             type: 'application/activity+json',
-            href: 'https://tbeseda.com/tbeseda'
-          }
-        ]
+            href: 'https://tbeseda.com/tbeseda',
+          },
+        ],
       },
       null,
-      2
-    )
+      2,
+    ),
   }
 }
 

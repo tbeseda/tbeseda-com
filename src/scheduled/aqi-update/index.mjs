@@ -17,7 +17,7 @@ export async function handler () {
     key: 'my-aqi',
     type: 'aqi',
     iqAirData,
-    airNowData
+    airNowData,
   })
 
   console.log('saved', saved.key)

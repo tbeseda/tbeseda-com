@@ -57,7 +57,7 @@ export default function SekretBlogList ({ html, state: { store } }) {
             </details>
           </td>
         </tr>
-        `
+        `,
         )
         .join('')}
         ${

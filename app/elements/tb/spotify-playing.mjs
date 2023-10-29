@@ -10,7 +10,7 @@ export default function TbSpotifyPlaying ({ html, state: { store } }) {
   const playing = currentlyPlaying.item
 
   const albumCover = playing.album.images.find(
-    ({ height }) => height < 301
+    ({ height }) => height < 301,
   )?.url
 
   return html`

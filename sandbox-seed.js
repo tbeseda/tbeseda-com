@@ -7,5 +7,5 @@ const webmentions = require('./seed-data/webmentions')
 module.exports = {
   articles,
   webmentions,
-  things: [...omnivore.things, ...vrite.things, ...myAqi.things]
+  things: [...omnivore.things, ...vrite.things, ...myAqi.things],
 }

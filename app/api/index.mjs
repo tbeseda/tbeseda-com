@@ -11,16 +11,16 @@ async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
     FilterExpression: 'attribute_exists(published)',
     ProjectionExpression: 'title, published, slug, description, #date',
     ExpressionAttributeNames: {
-      '#date': 'date'
-    }
+      '#date': 'date',
+    },
   })
 
   const sortedArticles = query.Items.filter(({ published }) => published).sort(
-    (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+    (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
   )
 
   return {
-    json: { icon, hCards, currentlyPlaying, recentArticle: sortedArticles[0] }
+    json: { icon, hCards, currentlyPlaying, recentArticle: sortedArticles[0] },
   }
 }
 
