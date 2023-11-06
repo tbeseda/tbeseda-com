@@ -1,14 +1,11 @@
 import arc from '@architect/functions'
-import HeaderTimers from 'header-timers'
 import standardMiddleware from '../../middleware/common.mjs'
 
 const { articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
-  const timers = HeaderTimers()
-
-  timers.start('dynamo', 'get articles')
+async function getHandler ({ timers, icon = '⛔️', hCards = [], currentlyPlaying }) {
+  timers.start('dynamo', 'tb-articles-query')
   // TODO: not scan
   const query = await articles.scan({
     Limit: 100,
@@ -20,12 +17,11 @@ async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
   })
   timers.stop('dynamo')
 
-  timers.start('sort', 'articles sort')
   const sortedArticles = query.Items.filter(({ published }) => published).sort(
     (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
   )
-  timers.stop('sort')
 
+  timers.stop('total')
   return {
     headers: { ...timers.toObject() },
     json: { icon, hCards, currentlyPlaying, articles: sortedArticles },

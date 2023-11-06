@@ -5,12 +5,14 @@ const { articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler ({
+  timers,
   icon = '⛔️',
   hCards = [],
   currentlyPlaying,
   params,
 }) {
   const { slug } = params
+  timers.start('dynamo', 'tb-article-query')
   const query = await articles.query({
     IndexName: 'articlesBySlug',
     KeyConditionExpression: 'slug = :slug',
@@ -18,9 +20,18 @@ async function getHandler ({
       ':slug': slug,
     },
   })
+  const queryTime = timers.stop('dynamo')
 
+  timers.stop('total')
   return {
-    json: { icon, hCards, currentlyPlaying, article: query.Items[0] },
+    headers: { ...timers.toObject() },
+    json: {
+      icon,
+      hCards,
+      currentlyPlaying,
+      article: query.Items[0],
+      queryTime,
+    },
   }
 }
 

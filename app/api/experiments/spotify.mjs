@@ -5,6 +5,7 @@ const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler ({
+  timers,
   icon = '⛔️',
   hCards = [],
   session,
@@ -19,10 +20,9 @@ async function getHandler ({
   let recentlyPlayed
   let topArtists
   let topTracks
+  timers.start('dynamo', 'tb-spotify-get')
   try {
-    const recentlyPlayedThing = await things.get({
-      key: 'spotify-recently-played',
-    })
+    const recentlyPlayedThing = await things.get({ key: 'spotify-recently-played' })
     const topArtistsThing = await things.get({ key: 'spotify-top-artists' })
     const topTracksThing = await things.get({ key: 'spotify-top-tracks' })
 
@@ -38,8 +38,11 @@ async function getHandler ({
     const token = await things.get({ key: 'spotify-token' }) // double check token
     if (token) { messages.push(`Spotify access token found, created ${token.created}`) } else messages.push('No Spotify access token found')
   }
+  timers.stop('dynamo')
 
+  timers.stop('total')
   return {
+    headers: { ...timers.toObject() },
     json: {
       authorized,
       icon,
