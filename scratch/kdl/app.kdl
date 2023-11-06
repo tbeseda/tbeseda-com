@@ -1,0 +1,21 @@
+name "tbeseda"
+
+plugins {
+  "enhance/arc-plugin-enhance"
+  // enhance/enhance-plugin-performance-budget
+  "architect/plugin-rust"
+}
+
+http {
+  get "/tbeseda"
+  post "/api" {
+    src "/another/dir"
+  }
+}
+
+tables {
+  things {
+    thingID "*String"
+    ttl "TTL"
+  }
+}
