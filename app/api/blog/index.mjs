@@ -27,9 +27,7 @@ async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
   timers.stop('sort')
 
   return {
-    headers: {
-      [timers.headerKey]: timers.headerValue(),
-    },
+    headers: { ...timers.toObject() },
     json: { icon, hCards, currentlyPlaying, articles: sortedArticles },
   }
 }
