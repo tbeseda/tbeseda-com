@@ -71,7 +71,7 @@ things
 
 @aws
 region us-east-1
-runtime nodejs18.x
+runtime nodejs20.x
 architecture arm64
 
 @begin
