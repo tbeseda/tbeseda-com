@@ -27,6 +27,7 @@ export default function Head (state) {
         <link rel="stylesheet" href="${hljsThemeCss}"/>
       </noscript>
       <script type="module" src="/_public/highlighter.mjs" defer></script>
+      <script type="module" src="/_public/bundles/server-timings.mjs"></script>
 
       <link rel="stylesheet" href="/_public/css/typesafe.css">
       <link rel="stylesheet" href="/_public/css/styles.css">

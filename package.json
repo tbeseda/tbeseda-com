@@ -9,7 +9,7 @@
     "lint": "eslint --ext .mjs --ext .js .",
     "lint.fix": "npm run lint -- --fix",
     "start": "arc sandbox",
-    "test": "npm run lint && node test/index.mjs"
+    "test": "npm run lint && node --test test/"
   },
   "repository": {
     "type": "git",
@@ -44,6 +44,7 @@
     "header-timers": "^0.2.0",
     "pm2html": "^0.1.12",
     "pug": "^3.0.2",
+    "server-timings-elem": "^1.0.0",
     "waylon": "^0.3.1",
     "xterm": "^5.3.0",
     "xterm-readline": "^1.1.1"

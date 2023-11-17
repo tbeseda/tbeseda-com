@@ -28,6 +28,7 @@ get  /test/ruby             # ruby test
 
 @bundles
 xterm './node_modules/xterm/css/xterm.css'
+server-timings node_modules/server-timings-elem/server-timings.js
 
 @performance-budget
 payload-size 12000

@@ -11,7 +11,6 @@ test('sandbox', async (t) => {
     quiet: true,
     port: PORT,
   })
-  console.log('Sandbox started')
 })
 
 test('smoke and microformats', async (t) => {
@@ -78,7 +77,7 @@ test('smoke and microformats', async (t) => {
   })
 })
 
-test('sandbox stop', async (t) => {
+test('sandbox stop', async () => {
   await sandbox.end()
-  console.log('Sandbox ended')
+  process.exit()
 })

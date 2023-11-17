@@ -9,13 +9,13 @@ export default function TbFooter ({ html, state: { store } }) {
         max-width: 66rem;
         margin: 0 auto;
         padding: 2rem 1rem 0;
+        font-size: 0.9rem;
       }
       footer {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
         display: grid;
         grid-template-columns: 1fr auto 1fr;
         align-items: center;
-        font-size: 0.9rem;
       }
       footer > div.icon {
         text-align: center;
@@ -23,6 +23,32 @@ export default function TbFooter ({ html, state: { store } }) {
       }
       footer > div.say-hi {
         text-align: right;
+      }
+
+      server-timings {
+        display: block;
+        padding: 0.5rem;
+        font-family: monospace;
+        font-size: 0.6rem;
+        color: darksalmon;
+      }
+      server-timings ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      server-timings li {
+        border-right: 1px solid #ccc;
+        padding-right: 0.75rem;
+      }
+      server-timings li:last-child {
+        border-right: none;
+        padding-right: 0;
       }
 
       @media (max-width: 600px) {
@@ -70,5 +96,7 @@ export default function TbFooter ({ html, state: { store } }) {
         <a rel="me" href="https://indieweb.social/@tbeseda">Mastodon</a>
       </div>
     </footer>
+
+    <server-timings exclude="fingerprint,total"></server-timings>
   `
 }
