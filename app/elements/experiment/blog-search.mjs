@@ -1,6 +1,6 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function BlogSearch ({ html, state: { store } }) {
-  const { results } = store
+  const { q, results } = store
 
   return html`
     <style>
@@ -13,7 +13,7 @@ export default function BlogSearch ({ html, state: { store } }) {
     <p>Search the blog for articles containing a word or phrase.</p>
 
     <form>
-      <input type="search" name="q" placeholder="Search" />
+      <input type="search" name="q" value="${q || ''}" placeholder="Search" />
       <button type="submit">Search</button>
     </form>
 

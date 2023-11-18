@@ -8,12 +8,9 @@ const { articles: table } = await arc.tables()
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler ({ query, icon = '⛔️', hCards = [], currentlyPlaying, timers }) {
   const { q } = query
+  const response = { results: [], q, icon, hCards, currentlyPlaying }
 
-  if (!q) {
-    return {
-      json: { results: [] },
-    }
-  }
+  if (!q) return { json: response }
 
   timers.start('db', 'tb-articles')
   // * get all articles
@@ -56,12 +53,7 @@ async function getHandler ({ query, icon = '⛔️', hCards = [], currentlyPlayi
 
   return {
     headers: { ...timers.toObject() },
-    json: {
-      icon,
-      hCards,
-      currentlyPlaying,
-      results,
-    },
+    json: { ...response, results },
   }
 }
 
