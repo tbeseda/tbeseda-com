@@ -31,6 +31,11 @@ export default function TbFooter ({ html, state: { store } }) {
         font-family: monospace;
         font-size: 0.6rem;
         color: darksalmon;
+        opacity: 0.5;
+      }
+      server-timings:hover {
+        opacity: 1;
+        cursor: none;
       }
       server-timings ul {
         margin: 0;
@@ -73,12 +78,6 @@ export default function TbFooter ({ html, state: { store } }) {
         }
       }
     </style>
-    <style scope="global">
-      body {
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-      }
-    </style>
 
     <footer>
       <div class="copyright">
@@ -97,6 +96,6 @@ export default function TbFooter ({ html, state: { store } }) {
       </div>
     </footer>
 
-    <server-timings exclude="fingerprint,total"></server-timings>
+    <server-timings sep=": " top="3" exclude="fingerprint,total"></server-timings>
   `
 }
