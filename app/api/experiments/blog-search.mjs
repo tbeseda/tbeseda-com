@@ -1,12 +1,20 @@
 import arc from '@architect/functions'
 import MiniSearch from 'minisearch'
-import { simpleLog, timers as addTimers } from '../../middleware/common.mjs'
+import standardMiddleware from '../../middleware/common.mjs'
 import { renderer } from '../../lib/pm2html-renderer.mjs'
 
 const { articles: table } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler ({ query, timers }) {
+async function getHandler ({ query, icon = '⛔️', hCards = [], currentlyPlaying, timers }) {
+  const { q } = query
+
+  if (!q) {
+    return {
+      json: { results: [] },
+    }
+  }
+
   timers.start('db', 'tb-articles')
   // * get all articles
   const scan = await table.scan({
@@ -25,12 +33,12 @@ async function getHandler ({ query, timers }) {
   // * convert ProseMirror doc to text
   // TODO: go straight to text, skip HTML
   articles = articles.map(({ doc, ...article }) => {
-    const html = renderer.render(doc).replace(/(<([^>]+)>)/gi, '')
+    const html = renderer.render(doc).replace(/(<([^>]+)>)/gi, ' ')
     return { html, ...article }
   })
   timers.stop('render')
 
-  timers.start('minisearch', 'tb-minisearch')
+  timers.start('minisearch', 'tb-index')
   // * create a search index
   const miniSearch = new MiniSearch({
     fields: ['title', 'html'],
@@ -39,23 +47,22 @@ async function getHandler ({ query, timers }) {
   miniSearch.addAll(articles)
   timers.stop('minisearch')
 
-  const { q } = query
-  let results = []
-  if (q) {
-    timers.start('search', 'tb-search')
-    // * search the index
-    results = miniSearch.search(q, { prefix: true })
-    timers.stop('search')
-  }
+  // index can be saved to file with miniSearch.toJSON()
+
+  timers.start('search', 'tb-search')
+  // * search the index
+  const results = miniSearch.search(q, { prefix: true })
+  timers.stop('search')
 
   return {
     headers: { ...timers.toObject() },
     json: {
+      icon,
+      hCards,
+      currentlyPlaying,
       results,
-      index: miniSearch.toJSON(),
-      articles,
     },
   }
 }
 
-export const get = [addTimers, simpleLog, getHandler]
+export const get = [...standardMiddleware, getHandler]

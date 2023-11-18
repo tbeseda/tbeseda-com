@@ -4,6 +4,14 @@ import standardMiddleware from '../../middleware/common.mjs'
 async function getHandler ({ hCards = [], currentlyPlaying }) {
   const experiments = [
     {
+      name: 'Blog Search',
+      date: '2023-11-18',
+      description:
+        'WIP: Search my blog for articles containing a word or phrase.',
+      url: '/experiments/blog-search',
+      featured: true,
+    },
+    {
       name: 'Omnivore.app Linkblog',
       date: '2023',
       description:
@@ -52,7 +60,6 @@ async function getHandler ({ hCards = [], currentlyPlaying }) {
       description:
         'A terminal emulator that runs in the browser. Based on xterm.js.',
       url: '/experiments/$',
-      featured: true,
     },
     {
       name: 'Article Publishing with Vrite.io',
