@@ -26,11 +26,10 @@ export default function Grid ({ html, state: { attrs } }) {
       }
       :host > div {
         display: grid;
-        gap: 1rem;
+        gap: 1.5rem;
       }
       :host > div > * {
         display: block;
-        padding: 0.85rem 1rem;
         background: var(--background-secondary);
         box-shadow: var(--shadow);
       }

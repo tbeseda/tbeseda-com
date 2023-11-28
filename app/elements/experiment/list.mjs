@@ -22,10 +22,6 @@ export default function List ({ html, state: { store } }) {
         margin: 0;
         padding: 0;
       }
-      .experiment a {
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
       .experiment time {
         font-size: 0.8em;
         margin-bottom: 0.5rem;
@@ -38,7 +34,7 @@ export default function List ({ html, state: { store } }) {
         (i) =>
           i.attrs({ class: `experiment${i.i.featured ? ' featured' : ''}` }),
         (item) => `
-          ${item.link(item.i.url, item.i.name)}
+          <h3>${item.link(item.i.url, item.i.name)}</h3>
           <!--<time>${item.i.date}</time>-->
           <p>${item.i.description}</p>
         `,

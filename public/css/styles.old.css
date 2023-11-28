@@ -1,0 +1,157 @@
+:root {
+  color-scheme: light dark;
+
+  /* https://github.com/kepano/flexoki/blob/3d2da54682059b9ab2fb7c7ac4998bd056b970a8/css/flexoki.css */
+  --flexoki-black: #100F0F;
+  --flexoki-paper: #FFFCF0;
+  --flexoki-950: #1C1B1A;
+  --flexoki-900: #282726;
+  --flexoki-850: #343331;
+  --flexoki-800: #403E3C;
+  --flexoki-700: #575653;
+  --flexoki-600: #6F6E69;
+  --flexoki-500: #878580;
+  --flexoki-300: #B7B5AC;
+  --flexoki-200: #CECDC3;
+  --flexoki-150: #DAD8CE;
+  --flexoki-100: #E6E4D9;
+  --flexoki-50: #F2F0E5;
+  --flexoki-red-600: #AF3029;
+  --flexoki-red-400: #D14D41;
+  --flexoki-orange-600: #BC5215;
+  --flexoki-orange-400: #DA702C;
+  --flexoki-yellow-900: #4D3A0B;
+  --flexoki-yellow-600: #AD8301;
+  --flexoki-yellow-400: #D0A215;
+  --flexoki-yellow-100: #FCEEB8;
+  --flexoki-green-600: #66800B;
+  --flexoki-green-400: #879A39;
+  --flexoki-cyan-950: #142625;
+  --flexoki-cyan-600: #24837B;
+  --flexoki-cyan-400: #3AA99F;
+  --flexoki-cyan-50: #EBF2E7;
+  --flexoki-blue-600: #205EA6;
+  --flexoki-blue-400: #4385BE;
+  --flexoki-purple-600: #5E409D;
+  --flexoki-purple-400: #8B7EC8;
+  --flexoki-magenta-600: #A02F6F;
+  --flexoki-magenta-400: #CE5D97;
+
+  /* remove once light-dark is supported ↓ */
+  --background-primary: var(--flexoki-paper);
+  --background-secondary: color-mix(in srgb, var(--flexoki-paper) 25%, white);
+  --text: var(--flexoki-950);
+  --accent: var(--flexoki-blue-600);
+  --code: var(--flexoki-magenta-600);
+
+  /* light-dark() only works in FF v120+ */
+  /* --background-primary: light-dark(var(--flexoki-paper), var(--flexoki-black)); */
+  /* --background-secondary: light-dark(color-mix(in srgb, var(--flexoki-paper) 25%, white), var(--flexoki-900)); */
+  --text: light-dark(var(--flexoki-950), var(--flexoki-50));
+  --accent: light-dark(var(--flexoki-blue-600), var(--flexoki-blue-400));
+  --code: light-dark(var(--flexoki-magenta-600), var(--flexoki-magenta-400));
+
+  --font-stack: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+  --shadow: 0px 0px 0px rgba(3, 7, 18, 0.10),
+    0px 1px 1px rgba(3, 7, 18, 0.08),
+    0px 1px 1px rgba(3, 7, 18, 0.06),
+    0px 3px 3px rgba(3, 7, 18, 0.04),
+    0px 4px 4px rgba(3, 7, 18, 0.02);
+}
+
+/* remove once light-dark is supported ↓ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-primary: var(--flexoki-black);
+    --background-secondary: var(--flexoki-950);
+    --text: var(--flexoki-50);
+    --accent: var(--flexoki-blue-400);
+    --code: var(--flexoki-magenta-400);
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100%;
+  max-width: 100%;
+  font-family: var(--font-stack);
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: var(--background-primary);
+  color: var(--text);
+}
+
+body.dark {
+  color-scheme: dark;
+}
+
+body.light {
+  color-scheme: light;
+}
+
+main {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 60rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-stack);
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+a {
+  color: var(--text);
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 0.15rem;
+}
+
+a:visited,
+a:hover {
+  color: var(--text);
+}
+
+pre {
+  border: none;
+}
+
+code {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  color: var(--code);
+}
+
+kbd {
+  display: inline-block;
+  min-width: 0.75rem;
+  margin: 0 0.2rem;
+  padding: 0.2rem 0.3rem 0.1rem;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  line-height: 1;
+  color: #333;
+  background-color: #eee;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+.card {
+  display: block;
+  padding: 0.85rem 1rem;
+  background: var(--background-secondary);
+  box-shadow: var(--shadow);
+}

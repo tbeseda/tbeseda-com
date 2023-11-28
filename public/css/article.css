@@ -1,0 +1,102 @@
+article {
+  width: 100%;
+  padding: 1.5rem 0;
+
+  --gap: clamp(1rem, 6vw, 3rem);
+  --full: minmax(var(--gap), 1fr);
+  --content: min(var(--article-width), 100% - var(--gap) * 2);
+  --popout: minmax(0, 2rem);
+  --feature: minmax(0, 5rem);
+
+  display: grid;
+  grid-template-columns:
+    [full-start] var(--full)
+    [feature-start] var(--feature)
+    [popout-start] var(--popout)
+    [content-start] var(--content) [content-end]
+    var(--popout) [popout-end]
+    var(--feature) [feature-end]
+    var(--full) [full-end];
+}
+
+article > * {
+  grid-column: content-start / content-end;
+  margin-bottom: 1rem;
+}
+
+article > .full {
+  grid-column: full-start / full-end;
+}
+
+article > .feature {
+  grid-column: feature-start / feature-end;
+}
+
+article > .popout {
+  grid-column: popout-start / popout-end;
+}
+
+article > .content {
+  grid-column: content-start / content-end;
+}
+
+article p {
+  margin-bottom: 0.5rem;
+}
+
+article > blockquote {
+  grid-column: popout-start / popout-end;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--light-text-color);
+}
+article > blockquote p {
+  margin: 0;
+}
+article > blockquote cite {
+  display: block;
+  padding: 0 1rem;
+  font-size: 0.9rem;
+  font-style: normal;
+}
+
+article > pre {
+  grid-column: popout-start / popout-end;
+  margin: 0 0 0.5rem;
+  color: var(--light-text-color);
+  overflow-x: auto;
+  box-shadow: var(--box-shadow);
+}
+article > pre code {
+  display: block;
+  font-size: 0.9rem;
+  font-family: var(--font-family);
+  white-space: pre;
+}
+
+article > ul, ol {
+  margin: 0 0 0.5rem;
+  padding: 0 1rem;
+  /* list-style-position: inside; */
+}
+
+article > table {
+  grid-column: feature-start / feature-end;
+  margin-bottom: 1rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+article > table th, table td {
+  border: 1px solid var(--border-color);
+  padding: 0.25rem;
+}
+article > table th {
+  font-family: var(--font-family-header)
+}
+
+article > img,
+article > figure {
+  grid-column: feature-start / feature-end;
+  margin-bottom: 1rem;
+}

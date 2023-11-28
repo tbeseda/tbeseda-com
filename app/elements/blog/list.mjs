@@ -7,36 +7,30 @@ export default function BlogList ({ html, state: { store } }) {
   return html`
     <style>
       :host {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
       }
       .article {
         display: flex;
         flex-direction: column;
-        margin-bottom: 1rem;
       }
       .article * {
         margin: 0;
       }
-      .article a {
-        font-size: 1.75rem;
-        font-weight: 600;
-      }
       .article time {
-        font-size: 0.8em;
-        margin-bottom: 0.5rem;
+        font-size: 0.9em;
       }
     </style>
 
-    <c-grid>
-      ${collection.render(
-        'div',
-        (i) => i.attrs({ class: 'article' }),
-        (item) => `
-          ${item.link(`/blog/${item.i.slug}`, item.i.title)}
-          <time>${item.i.date}</time>
-          <p>${item.i.description}</p>
-        `,
-      )}
-    </c-grid>
+    ${collection.render(
+      'div',
+      (i) => i.attrs({ class: 'article' }),
+      (item) => `
+        <h3>${item.link(`/blog/${item.i.slug}`, item.i.title)}</h3>
+        <time>${item.i.date}</time>
+        <p>${item.i.description}</p>
+      `,
+    )}
   `
 }

@@ -1,157 +1,99 @@
-:root {
-  color-scheme: light dark;
-
-  /* https://github.com/kepano/flexoki/blob/3d2da54682059b9ab2fb7c7ac4998bd056b970a8/css/flexoki.css */
-  --flexoki-black: #100F0F;
-  --flexoki-paper: #FFFCF0;
-  --flexoki-950: #1C1B1A;
-  --flexoki-900: #282726;
-  --flexoki-850: #343331;
-  --flexoki-800: #403E3C;
-  --flexoki-700: #575653;
-  --flexoki-600: #6F6E69;
-  --flexoki-500: #878580;
-  --flexoki-300: #B7B5AC;
-  --flexoki-200: #CECDC3;
-  --flexoki-150: #DAD8CE;
-  --flexoki-100: #E6E4D9;
-  --flexoki-50: #F2F0E5;
-  --flexoki-red-600: #AF3029;
-  --flexoki-red-400: #D14D41;
-  --flexoki-orange-600: #BC5215;
-  --flexoki-orange-400: #DA702C;
-  --flexoki-yellow-900: #4D3A0B;
-  --flexoki-yellow-600: #AD8301;
-  --flexoki-yellow-400: #D0A215;
-  --flexoki-yellow-100: #FCEEB8;
-  --flexoki-green-600: #66800B;
-  --flexoki-green-400: #879A39;
-  --flexoki-cyan-950: #142625;
-  --flexoki-cyan-600: #24837B;
-  --flexoki-cyan-400: #3AA99F;
-  --flexoki-cyan-50: #EBF2E7;
-  --flexoki-blue-600: #205EA6;
-  --flexoki-blue-400: #4385BE;
-  --flexoki-purple-600: #5E409D;
-  --flexoki-purple-400: #8B7EC8;
-  --flexoki-magenta-600: #A02F6F;
-  --flexoki-magenta-400: #CE5D97;
-
-  /* remove once light-dark is supported ↓ */
-  --background-primary: var(--flexoki-paper);
-  --background-secondary: color-mix(in srgb, var(--flexoki-paper) 25%, white);
-  --text: var(--flexoki-950);
-  --accent: var(--flexoki-blue-600);
-  --code: var(--flexoki-magenta-600);
-
-  /* light-dark() only works in FF v120+ */
-  /* --background-primary: light-dark(var(--flexoki-paper), var(--flexoki-black)); */
-  /* --background-secondary: light-dark(color-mix(in srgb, var(--flexoki-paper) 25%, white), var(--flexoki-900)); */
-  --text: light-dark(var(--flexoki-950), var(--flexoki-50));
-  --accent: light-dark(var(--flexoki-blue-600), var(--flexoki-blue-400));
-  --code: light-dark(var(--flexoki-magenta-600), var(--flexoki-magenta-400));
-
-  --font-stack: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-  --shadow: 0px 0px 0px rgba(3, 7, 18, 0.10),
-    0px 1px 1px rgba(3, 7, 18, 0.08),
-    0px 1px 1px rgba(3, 7, 18, 0.06),
-    0px 3px 3px rgba(3, 7, 18, 0.04),
-    0px 4px 4px rgba(3, 7, 18, 0.02);
-}
-
-/* remove once light-dark is supported ↓ */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-primary: var(--flexoki-black);
-    --background-secondary: var(--flexoki-950);
-    --text: var(--flexoki-50);
-    --accent: var(--flexoki-blue-400);
-    --code: var(--flexoki-magenta-400);
-  }
-}
-
-html {
-  height: 100%;
-}
-
 body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -.04em;
+}
+
+/* grid layout help: https://ryanmulligan.dev/blog/layout-breakouts/ */
+body > * {
+  --gap: clamp(1rem, 6vw, 3rem);
+  --full: minmax(var(--gap), 1fr);
+  --section: min(var(--section-width), 100% - var(--gap));
+
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100%;
-  max-width: 100%;
-  font-family: var(--font-stack);
-  font-size: 18px;
-  line-height: 1.5;
-  background-color: var(--background-primary);
-  color: var(--text);
+  grid-template-columns:
+    [full-start] var(--full)
+    [section-start] var(--section) [section-end]
+    var(--full) [full-end];
 }
-
-body.dark {
-  color-scheme: dark;
-}
-
-body.light {
-  color-scheme: light;
-}
-
-main {
-  width: 100%;
+body > *.narrow { /* for narrow content */
+  width: var(--section-width);
   margin: 0 auto;
-  max-width: 60rem;
+}
+body > * > * {
+  grid-column: section-start / section-end;
+}
+body > * > .full {
+  grid-column: full-start / full-end;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-stack);
-  margin: 1rem 0;
-  font-weight: 600;
+body a {
+  color: var(--link-color);
+  text-decoration-color: var(--accent-color);
 }
 
-a {
-  color: var(--text);
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 0.15rem;
+h1, h2, h3, h4 {
+  font-family: var(--font-family-header);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
 }
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 1.0rem; }
 
-a:visited,
-a:hover {
-  color: var(--text);
+form {
+  display: flex;
+  flex-direction: column;
 }
-
-pre {
-  border: none;
+form > label {
+  margin-bottom: 0.5rem;
 }
-
-code {
-  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
-  color: var(--code);
+form > input,
+form > textarea,
+form > select {
+  margin-bottom: 1rem
 }
-
-kbd {
-  display: inline-block;
-  min-width: 0.75rem;
-  margin: 0 0.2rem;
-  padding: 0.2rem 0.3rem 0.1rem;
-  border: 1px solid rgb(204, 204, 204);
+form label {
+  color: var(--label-color);
+}
+form input,
+form textarea,
+form select {
+  color: var(--input-color);
+  background-color: var(--input-background-color);
+  border: 1px solid var(--border-color);
   border-radius: 0.25rem;
-  font-size: 0.8rem;
-  line-height: 1;
-  color: #333;
-  background-color: #eee;
-  text-shadow: 0 1px 0 #fff;
+  padding: 0.5rem;
 }
-
-.hidden {
+form input::placeholder,
+form textarea::placeholder,
+form select::placeholder {
+  color: var(--input-placeholder-color);
+}
+form input:focus,
+form textarea:focus,
+form select:focus {
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+button,
+form input[type="submit"] {
+  color: var(--button-color);
+  background-color: var(--button-background-color);
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+script,
+style {
   display: none;
-}
-
-.card {
-  display: block;
-  padding: 0.85rem 1rem;
-  background: var(--background-secondary);
-  box-shadow: var(--shadow);
 }

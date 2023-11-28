@@ -4,12 +4,8 @@ export default function TbFooter ({ html, state: { store } }) {
   return html`
     <style>
       :host {
-        display: block;
-        width: 100%;
-        max-width: 66rem;
-        margin: 0 auto;
-        padding: 2rem 1rem 0;
-        font-size: 0.9rem;
+        margin-top: auto;
+        padding: 5rem 3rem 1rem;
       }
       footer {
         margin-bottom: 0.5rem;
@@ -79,7 +75,7 @@ export default function TbFooter ({ html, state: { store } }) {
       }
     </style>
 
-    <footer>
+    <footer class="full">
       <div class="copyright">
         &copy; tbeseda ${new Date().getFullYear().toString()}.
       </div>

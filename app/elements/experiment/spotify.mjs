@@ -87,7 +87,7 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
       playing
         ? /* html */ `
               <h3>Currently Playing</h3>
-              <div class="card">
+              <div class="">
                 <div class="row track">
                   <img class="album-cover" src="${playing.album.images[0].url}" alt="album cover" />
                   <span class="track-info">
@@ -115,7 +115,7 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
     }
 
     <h3>Recently Played</h3>
-    <div class="card">
+    <div class="">
       ${
         mostRecent
           ? /* html */ `
