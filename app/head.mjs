@@ -4,6 +4,8 @@ export default function Head ({ req: { path } }) {
   const hljsThemeCss =
     'https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/night-owl.min.css'
 
+  const isWinter = [10, 11, 0, 1].includes(new Date().getMonth())
+
   return /* html */ `
     <!DOCTYPE html>
     <html lang="en">
@@ -25,6 +27,7 @@ export default function Head ({ req: { path } }) {
       </noscript>
       <script type="module" src="/_public/highlighter.mjs" defer></script>
       <script type="module" src="/_public/bundles/server-timings.mjs"></script>
+      ${isWinter && '<script type="module" src="/_public/bundles/snow-fall.mjs"></script>'}
 
       <link rel="stylesheet" href="/_public/css/reset.css">
       <link rel="stylesheet" href="/_public/css/vars.css">
@@ -40,5 +43,6 @@ export default function Head ({ req: { path } }) {
       </style>
     </head>
     <body>
+    ${isWinter && '<snow-fall></snow-fall>'}
   `
 }

@@ -27,8 +27,9 @@ get  /test/ruby             # ruby test
 # get  /test/rust             # rust test
 
 @bundles
-xterm './node_modules/xterm/css/xterm.css'
+xterm /node_modules/xterm/css/xterm.css
 server-timings node_modules/server-timings-elem/server-timings.js
+snow-fall 'node_modules/@zachleat/snow-fall/snow-fall.js'
 
 @performance-budget
 payload-size 12000
