@@ -1,6 +1,6 @@
 import arc from '@architect/functions'
 
-const recentlyPlayedKey = 'spotify-recently-played'
+const key = 'spotify-recently-played'
 const { things } = await arc.tables()
 
 export default async function getRecentlyPlayed (token) {
@@ -26,7 +26,8 @@ export default async function getRecentlyPlayed (token) {
     }
 
     const savedRecentlyPlayed = await things.put({
-      key: recentlyPlayedKey,
+      key,
+      type: 'spotify',
       recentlyPlayed,
       created: new Date().toISOString(),
     })

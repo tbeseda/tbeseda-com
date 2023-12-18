@@ -46,6 +46,7 @@ webmention-receive
 aqi-update rate(1 hour)
 spotify-update rate(1 minute)
 spotify-token-refresh rate(50 minutes)
+tomorrow-io-update rate(10 minutes)
 
 @tables
 articles

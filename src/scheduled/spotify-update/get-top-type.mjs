@@ -9,7 +9,7 @@ const { things } = await arc.tables()
  * @returns {Promise<void>}
  */
 export default async function getTop (type, token) {
-  const topTypeKey = `spotify-top-${type}`
+  const key = `spotify-top-${type}`
   try {
     const params = new URLSearchParams({
       time_range: 'short_term',
@@ -30,7 +30,8 @@ export default async function getTop (type, token) {
     }
 
     const savedTopTypes = await things.put({
-      key: topTypeKey,
+      key,
+      type: 'spotify',
       [`top${type[0].toUpperCase() + type.slice(1)}`]: topTypes,
       created: new Date().toISOString(),
     })

@@ -13,12 +13,11 @@ export async function handler () {
   const airNowResponse = await fetch(AIRNOW_URL)
   const airNowData = await airNowResponse.json()
 
-  const saved = await things.put({
+  await things.put({
     key: 'my-aqi',
-    type: 'aqi',
+    type: 'weather',
     iqAirData,
     airNowData,
+    created: new Date().toISOString(),
   })
-
-  console.log('saved', saved.key)
 }
