@@ -25,7 +25,7 @@ export async function handler () {
     const thing = await things.put({
       key: 'airnow',
       type: 'weather',
-      ...data,
+      data,
       created: new Date().toISOString(),
     })
 

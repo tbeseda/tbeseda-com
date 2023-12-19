@@ -72,7 +72,7 @@ async function getHandler ({ hCards = [], currentlyPlaying }) {
       name: 'My Local Weather and Air Quality',
       date: '2023',
       description:
-        'Raw JSON data from Tomorrow.io, AirNow.gov, and IQAir.com.',
+        'Recent data from Tomorrow.io, AirNow.gov, and IQAir.com.',
       url: '/experiments/my-weather',
     },
     {
