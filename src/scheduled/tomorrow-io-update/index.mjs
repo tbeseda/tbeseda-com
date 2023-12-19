@@ -10,15 +10,23 @@ const TOMORROW_IO_URL = [
 const { things } = await arc.tables()
 
 export async function handler () {
-  const response = await fetch(TOMORROW_IO_URL)
-  const { data } = await response.json()
+  let result
 
-  if (response.ok) {
-    await things.put({
-      key: 'my-weather',
-      type: 'weather',
-      ...data,
-      created: new Date().toISOString(),
-    })
+  try {
+    const response = await fetch(TOMORROW_IO_URL)
+    const { data } = await response.json()
+
+    if (response.ok) {
+      result = await things.put({
+        key: 'tomorrow-io',
+        type: 'weather',
+        ...data,
+        created: new Date().toISOString(),
+      })
+    }
+  } catch (error) {
+    console.error('Error fetching Tomorrow.io data', error)
   }
+
+  return result
 }

@@ -69,11 +69,11 @@ async function getHandler ({ hCards = [], currentlyPlaying }) {
       url: '/experiments/vrite',
     },
     {
-      name: 'My Local Air Quality Index',
+      name: 'My Local Weather and Air Quality',
       date: '2023',
       description:
-        'Raw JSON data from AirNow.gov and IQAir.com for my local AQI.',
-      url: '/experiments/aqi',
+        'Raw JSON data from Tomorrow.io, AirNow.gov, and IQAir.com.',
+      url: '/experiments/my-weather',
     },
     {
       name: 'h-card Custom Element',

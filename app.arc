@@ -43,7 +43,7 @@ prune true
 webmention-receive
 
 @scheduled
-aqi-update rate(1 hour)
+aqi-update rate(30 minutes)
 spotify-update rate(1 minute)
 spotify-token-refresh rate(50 minutes)
 tomorrow-io-update rate(10 minutes)
