@@ -3,7 +3,8 @@ import arc from '@architect/functions'
 const { MY_LAT, MY_LON, TOMORROW_IO_KEY } = process.env
 const TOMORROW_IO_URL = [
   'https://api.tomorrow.io/v4/weather/realtime',
-  `?location=${MY_LAT},${MY_LON}`,
+  `?location=${MY_LAT},-${MY_LON}`,
+  // '&units=imperial',
   `&apikey=${TOMORROW_IO_KEY}`,
 ].join('')
 
