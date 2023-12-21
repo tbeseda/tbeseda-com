@@ -28,5 +28,10 @@ User-agent: Amazonbot
 Disallow: /
 `
 
-  return { text: lines.trim() }
+  return {
+    headers: {
+      'Cache-Control': 'public, max-age=86400',
+    },
+    text: lines.trim(),
+  }
 }

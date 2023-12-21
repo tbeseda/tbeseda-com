@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "cli-table3": "0.6.3",
+    "enquirer": "^2.4.1",
     "kdljs": "^0.2.0"
   }
 }
