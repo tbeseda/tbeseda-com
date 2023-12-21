@@ -87,7 +87,7 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
       playing
         ? /* html */ `
               <h3>Currently Playing</h3>
-              <div class="">
+              <div>
                 <div class="row track">
                   <img class="album-cover" src="${playing.album.images[0].url}" alt="album cover" />
                   <span class="track-info">
@@ -95,7 +95,10 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
                     <span class="artist">
                       ${playing.artists.map(({ name }) => name).join(', ')}
                     </span><br>
-                    ${playing.album.name} (${playing.album.release_date.split('-')[0]})
+                    ${playing.album.name} (${playing.album.release_date.split('-')[0]})<br>
+                    <audio controls="controls">
+                      <source src="${playing.preview_url}" type="audio/mpeg"/>
+                    </audio>
                   </span>
                   <span class="album-info">
                     <span class="playing-progress">
