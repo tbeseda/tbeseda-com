@@ -1,10 +1,10 @@
 import arc from '@architect/functions'
-import standardMiddleware from '../middleware/common.mjs'
 
 const { articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
+async function getHandler () {
+  console.log('API 📡')
   // TODO: not scan
   const query = await articles.scan({
     Limit: 10,
@@ -20,8 +20,8 @@ async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
   )
 
   return {
-    json: { icon, hCards, currentlyPlaying, recentArticle: sortedArticles[0] },
+    json: { recentArticle: sortedArticles[0] },
   }
 }
 
-export const get = [...standardMiddleware, getHandler]
+export const get = getHandler

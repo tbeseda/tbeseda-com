@@ -1,6 +1,6 @@
 /** @type {import('@enhance/types').EnhanceHeadFn} */
-export default function Head ({ req: { path } }) {
-  const title = `Taylor Beseda ${path}`
+export default function Head ({ store }) {
+  const { title } = store
   const hljsThemeCss =
     'https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/night-owl.min.css'
 

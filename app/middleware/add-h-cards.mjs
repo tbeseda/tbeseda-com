@@ -1,5 +1,5 @@
-export default async function (req) {
-  req.hCards = {
+export default async function (data) {
+  data.hCards = {
     items: [
       {
         type: ['h-card'],
