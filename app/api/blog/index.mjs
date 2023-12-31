@@ -3,8 +3,8 @@ import arc from '@architect/functions'
 const { articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export const get = async function ({ store: { timers } }) {
-  timers.start('dynamo', 'tb-articles-query')
+export const get = async function ({ timers }) {
+  timers.start('articles-query', 'tb-articles-query')
   // TODO: not scan
   const query = await articles.scan({
     Limit: 100,
@@ -14,7 +14,7 @@ export const get = async function ({ store: { timers } }) {
       '#date': 'date',
     },
   })
-  timers.stop('dynamo')
+  timers.stop('articles-query')
 
   const sortedArticles = query.Items.filter(({ published }) => published).sort(
     (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),

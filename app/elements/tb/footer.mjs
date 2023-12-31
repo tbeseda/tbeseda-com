@@ -92,6 +92,6 @@ export default function TbFooter ({ html, state: { store } }) {
       </div>
     </footer>
 
-    <server-timings sep=": " top="3" exclude="cdn-*,elements,api,html,fingerprint"></server-timings>
+    <server-timings sep=": " top="3" exclude="cdn-*,elements,api,html,preflight"></server-timings>
   `
 }

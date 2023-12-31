@@ -2,9 +2,9 @@ import arc from '@architect/functions'
 
 const { things } = await arc.tables()
 
-export default async function spotifyPlaying (_req, data) {
+export default async function spotifyPlaying ({ timers }, data) {
   let currentlyPlaying
-  data.timers.start('spotify', 'tb-spotify-playing')
+  timers.start('spotify-playing', 'tb-spotify-playing')
   try {
     const currentlyPlayingThing = await things.get({
       key: 'spotify-currently-playing',
@@ -14,7 +14,7 @@ export default async function spotifyPlaying (_req, data) {
   } catch (error) {
     // nbd
   }
-  data.timers.stop('spotify')
+  timers.stop('spotify-playing')
 
   data.currentlyPlaying = currentlyPlaying
 }
