@@ -1,4 +1,4 @@
-import standardMiddleware from './middleware/common.mjs'
+import standardMiddleware from './middleware/index.mjs'
 
 export default async function Preflight ({ req }) {
   const title = `Taylor Beseda ${req.path}`

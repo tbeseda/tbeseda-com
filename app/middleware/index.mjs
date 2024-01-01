@@ -17,4 +17,11 @@ async function randomIcon (_req, data) {
   data.icon = emojis[(emojis.length * Math.random()) | 0]
 }
 
-export default [log, timers, addHCards, randomIcon, myWeather, spotifyPlaying]
+export default [
+  log,
+  timers,
+  addHCards,
+  randomIcon,
+  myWeather,
+  spotifyPlaying,
+]
