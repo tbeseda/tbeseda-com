@@ -1,9 +1,9 @@
 import HeaderTimers from 'header-timers'
 import addHCards from './add-h-cards.mjs'
 import spotifyPlaying from './spotify-playing.mjs'
+import myWeather from './my-weather.mjs'
 
 function log (req) {
-  req.foo = 'bar'
   console.log(req.method, req.path)
 }
 
@@ -17,4 +17,4 @@ async function randomIcon (_req, data) {
   data.icon = emojis[(emojis.length * Math.random()) | 0]
 }
 
-export default [log, timers, addHCards, randomIcon, spotifyPlaying]
+export default [log, timers, addHCards, randomIcon, myWeather, spotifyPlaying]
