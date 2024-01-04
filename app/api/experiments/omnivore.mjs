@@ -4,6 +4,8 @@ const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export const get = async function () {
+  // TODO: paginate these queries
+  // ? can i filter by updatedAt and then LIMIT?
   const favoritesQuery = await things.query({
     IndexName: 'thingsByType',
     KeyConditionExpression: '#type = :omnivoreFavs',
@@ -12,14 +14,12 @@ export const get = async function () {
   })
   const highlightsQuery = await things.query({
     IndexName: 'thingsByType',
-    Limit: 5,
     KeyConditionExpression: '#type = :omnivoreHighlights',
     ExpressionAttributeNames: { '#type': 'type' },
     ExpressionAttributeValues: { ':omnivoreHighlights': 'omnivore:highlight' },
   })
   const savedQuery = await things.query({
     IndexName: 'thingsByType',
-    Limit: 10,
     KeyConditionExpression: '#type = :omnivorePages',
     ExpressionAttributeNames: { '#type': 'type' },
     ExpressionAttributeValues: { ':omnivorePages': 'omnivore:page' },
@@ -28,6 +28,8 @@ export const get = async function () {
   function sort (a, b) {
     return !a || !b ? 0 : a.updatedAt - b.updatedAt
   }
+
+  // TODO: trim lists
 
   return {
     json: {
