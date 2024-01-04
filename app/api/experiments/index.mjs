@@ -1,7 +1,5 @@
-import standardMiddleware from '../../middleware/common.mjs'
-
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler ({ hCards = [], currentlyPlaying }) {
+export const get = async function () {
   const experiments = [
     {
       name: 'Blog Search',
@@ -85,12 +83,8 @@ async function getHandler ({ hCards = [], currentlyPlaying }) {
 
   return {
     json: {
-      icon: '👨🏻‍🔬',
-      hCards,
-      currentlyPlaying,
+      icon: '👨🏻‍🔬', // overrides preflight
       experiments: experiments.sort((e) => (e.featured ? -1 : 1)),
     },
   }
 }
-
-export const get = [...standardMiddleware, getHandler]

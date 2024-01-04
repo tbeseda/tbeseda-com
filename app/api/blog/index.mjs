@@ -1,11 +1,10 @@
 import arc from '@architect/functions'
-import standardMiddleware from '../../middleware/common.mjs'
 
 const { articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler ({ timers, icon = '⛔️', hCards = [], currentlyPlaying }) {
-  timers.start('dynamo', 'tb-articles-query')
+export const get = async function ({ timers }) {
+  timers.start('articles-query', 'tb-articles-query')
   // TODO: not scan
   const query = await articles.scan({
     Limit: 100,
@@ -15,7 +14,7 @@ async function getHandler ({ timers, icon = '⛔️', hCards = [], currentlyPlay
       '#date': 'date',
     },
   })
-  timers.stop('dynamo')
+  timers.stop('articles-query')
 
   const sortedArticles = query.Items.filter(({ published }) => published).sort(
     (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
@@ -24,8 +23,6 @@ async function getHandler ({ timers, icon = '⛔️', hCards = [], currentlyPlay
   timers.stop('total')
   return {
     headers: { ...timers.toObject() },
-    json: { icon, hCards, currentlyPlaying, articles: sortedArticles },
+    json: { articles: sortedArticles },
   }
 }
-
-export const get = [...standardMiddleware, getHandler]

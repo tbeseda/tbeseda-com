@@ -1,7 +1,6 @@
 import arc from '@architect/functions'
 import HeaderTimers from 'header-timers'
 import MiniSearch from 'minisearch'
-import standardMiddleware from '../../middleware/common.mjs'
 import { renderer } from '../../lib/pm2html-renderer.mjs'
 
 const { articles: table } = await arc.tables()
@@ -40,9 +39,9 @@ miniSearch.addAll(articles)
 timers.stop('articles-index')
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler ({ query, icon = '⛔️', hCards = [], currentlyPlaying }) {
+export const get = async function ({ query }) {
   const { q } = query
-  const response = { results: [], q, icon, hCards, currentlyPlaying }
+  const response = { results: [], q }
 
   if (!q) return { json: response }
 
@@ -58,5 +57,3 @@ async function getHandler ({ query, icon = '⛔️', hCards = [], currentlyPlayi
     json: { ...response, results },
   }
 }
-
-export const get = [...standardMiddleware, getHandler]

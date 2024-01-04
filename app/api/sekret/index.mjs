@@ -15,6 +15,8 @@ export async function get ({ session }) {
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function post ({ body, session }) {
+  if (!SEKRET) throw new Error('SEKRET not set')
+
   const { password } = body
   const authorized = password === SEKRET
   const newSession = { ...session, authorized }

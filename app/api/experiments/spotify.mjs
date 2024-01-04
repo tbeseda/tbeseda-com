@@ -1,26 +1,17 @@
 import arc from '@architect/functions'
-import standardMiddleware from '../../middleware/common.mjs'
 
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler ({
-  timers,
-  icon = '⛔️',
-  hCards = [],
-  session,
-  currentlyPlaying,
-}) {
+export const get = async function ({ timers, session }) {
   let { authorized } = session
   authorized = !!authorized
 
   const messages = []
-  if (!currentlyPlaying) messages.push('Nothing currently playing')
-
   let recentlyPlayed
   let topArtists
   let topTracks
-  timers.start('dynamo', 'tb-spotify-get')
+  timers.start('spotify-stats', 'tb-spotify-stats')
   try {
     const recentlyPlayedThing = await things.get({ key: 'spotify-recently-played' })
     const topArtistsThing = await things.get({ key: 'spotify-top-artists' })
@@ -38,16 +29,13 @@ async function getHandler ({
     const token = await things.get({ key: 'spotify-token' }) // double check token
     if (token) { messages.push(`Spotify access token found, created ${token.created}`) } else messages.push('No Spotify access token found')
   }
-  timers.stop('dynamo')
+  timers.stop('spotify-stats')
 
   timers.stop('total')
   return {
     headers: { ...timers.toObject() },
     json: {
       authorized,
-      icon,
-      hCards,
-      currentlyPlaying,
       recentlyPlayed,
       topArtists,
       topTracks,
@@ -55,5 +43,3 @@ async function getHandler ({
     },
   }
 }
-
-export const get = [...standardMiddleware, getHandler]

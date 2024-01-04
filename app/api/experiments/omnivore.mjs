@@ -1,10 +1,9 @@
 import arc from '@architect/functions'
-import standardMiddleware from '../../middleware/common.mjs'
 
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
+export const get = async function () {
   const favoritesQuery = await things.query({
     IndexName: 'thingsByType',
     KeyConditionExpression: '#type = :omnivoreFavs',
@@ -32,14 +31,9 @@ async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
 
   return {
     json: {
-      icon,
-      hCards,
-      currentlyPlaying,
       omnivoreHighlights: highlightsQuery.Items.sort(sort),
       omnivoreSaved: savedQuery.Items.sort(sort),
       omnivoreFavorites: favoritesQuery.Items.sort(sort),
     },
   }
 }
-
-export const get = [...standardMiddleware, getHandler]

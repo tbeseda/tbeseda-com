@@ -1,19 +1,16 @@
 import arc from '@architect/functions'
 import { createID } from '../../lib/create-id.mjs'
-import standardMiddleware from '../../middleware/common.mjs'
 
 const { 'experiment-articles': articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
+export const get = async function () {
   const query = await articles.scan({})
 
   return {
-    json: { icon, hCards, currentlyPlaying, articles: query.Items },
+    json: { articles: query.Items },
   }
 }
-
-export const get = [...standardMiddleware, getHandler]
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function post ({ body }) {

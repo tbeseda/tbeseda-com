@@ -6,9 +6,9 @@ export default function BlogArticle ({ html, state: { store } }) {
   const { article, queryTime } = store
   const timers = HeaderTimers()
 
-  timers.start('render', 'tb-article-render')
+  timers.start('article-render', 'tb-article-render')
   const rendered = renderer.render(article.doc)
-  const renderTime = timers.stop('render') || 0
+  const renderTime = timers.stop('article-render') || 0
   const totalTime = queryTime + renderTime
 
   return html`
@@ -22,7 +22,7 @@ export default function BlogArticle ({ html, state: { store } }) {
         <small>
           from DynamoDB (${queryTime.toPrecision(2).toString()}ms)
           to HTML (${renderTime?.toPrecision(2).toString()}ms)
-          in ${`${totalTime}`}ms
+          in ${`${totalTime.toPrecision(2).toString()}`}ms
         </small>
       </p>
     </article>

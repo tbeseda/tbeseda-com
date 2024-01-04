@@ -1,11 +1,10 @@
 import arc from '@architect/functions'
-import standardMiddleware from '../../../middleware/common.mjs'
 
 const typeString = 'vrite:content'
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
+export const get = async function () {
   const { Items: contentPieces } = await things.query({
     IndexName: 'thingsByType',
     KeyConditionExpression: '#type = :type',
@@ -28,8 +27,6 @@ async function getHandler ({ icon = '⛔️', hCards = [], currentlyPlaying }) {
   )
 
   return {
-    json: { icon, hCards, currentlyPlaying, published, drafts, ideas },
+    json: { published, drafts, ideas },
   }
 }
-
-export const get = [...standardMiddleware, getHandler]
