@@ -9,13 +9,13 @@ architect/plugin-rust
 architect/plugin-go
 
 @http
-get  /.well-known/webfinger # ActivityPub webfinger
-get  /tbeseda               #      •      actor
-get  /api/followers         #      •      followers
-get  /api/following         #      •      following
-get  /api/inbox             #      •      admin inbox log
-get  /api/outbox            #      •      outbox activities
-post /api/inbox             #      •      inbound activity
+# get  /.well-known/webfinger # ActivityPub webfinger
+# get  /tbeseda               #      •      actor
+# get  /api/followers         #      •      followers
+# get  /api/following         #      •      following
+# get  /api/inbox             #      •      admin inbox log
+# get  /api/outbox            #      •      outbox activities
+# post /api/inbox             #      •      inbound activity
 post /webmention            # inbound webmention
 post /webhooks/vrite        # vrite incoming
 post /webhooks/omnivore     # omnivore incoming
