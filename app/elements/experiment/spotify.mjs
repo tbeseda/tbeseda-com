@@ -79,6 +79,8 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
 
     ${authorized ? '<p><a href="/auth/spotify/login">re-auth</a></p>' : ''}
 
+    ${playing ? '<tb-album-background></tb-album-background>' : ''}
+
     <h2>My Spotify Activity</h2>
 
     ${messages?.map((message) => `<p>${message}</p>`).join('')}

@@ -1,7 +1,9 @@
+import process from 'node:process'
 // import arc from '@architect/functions'
 
 const { SEKRET } = process.env
 
+// TODO: move to preflight
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function get ({ session }) {
   let { authorized } = session

@@ -4,7 +4,6 @@ const { articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler () {
-  console.log('API 📡')
   // TODO: not scan
   const query = await articles.scan({
     Limit: 10,
