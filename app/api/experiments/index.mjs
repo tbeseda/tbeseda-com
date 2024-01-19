@@ -2,12 +2,21 @@
 export const get = async function () {
   const experiments = [
     {
+      name: 'Enhance SSR Playground',
+      date: '2024-01-18',
+      description:
+        'A browser-based playground for testing Enhance SSR.',
+      url: '/experiments/enhance-ssr-playground',
+      wip: true,
+    },
+    {
       name: 'Blog Search',
       date: '2023-11-18',
       description:
-        'WIP: Search my blog for articles containing a word or phrase.',
+        'Search my blog for articles containing a word or phrase.',
       url: '/experiments/blog-search',
       featured: true,
+      wip: true,
     },
     {
       name: 'Omnivore.app Linkblog',
@@ -81,10 +90,19 @@ export const get = async function () {
     },
   ]
 
+  // sort by featured and then date
+  const sortedExperiments = experiments.sort((a, b) => {
+    if (a.featured && !b.featured) return -1
+    if (!a.featured && b.featured) return 1
+    if (a.date > b.date) return -1
+    if (a.date < b.date) return 1
+    return 0
+  })
+
   return {
     json: {
       icon: '👨🏻‍🔬', // overrides preflight
-      experiments: experiments.sort((e) => (e.featured ? -1 : 1)),
+      experiments: sortedExperiments,
     },
   }
 }

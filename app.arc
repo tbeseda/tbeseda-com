@@ -31,6 +31,7 @@ xterm /node_modules/xterm/css/xterm.css
 server-timings node_modules/server-timings-elem/server-timings.js
 snow-fall 'node_modules/@zachleat/snow-fall/snow-fall.js'
 my-milkdown-editor /app/lib/my-milkdown-editor.mjs
+create-enhance-html /app/lib/create-enhance-html.mjs
 
 @performance-budget
 payload-size 12000

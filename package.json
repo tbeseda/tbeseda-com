@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Taylor's homepage",
   "scripts": {
-    "deploy.both": "npm run deploy && npm run deploy.production",
+    "deploy.both": "npm run deploy.staging && npm run deploy.production",
     "deploy.production": "arc deploy --production",
     "deploy.staging": "arc deploy",
     "lint": "eslint --ext .mjs --ext .js .",
