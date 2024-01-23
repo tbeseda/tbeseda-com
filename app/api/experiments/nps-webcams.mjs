@@ -1,3 +1,5 @@
+import process from 'node:process'
+
 // https://www.nps.gov/subjects/developer/api-documentation.htm#/webcams
 
 const { NPS_KEY } = process.env
