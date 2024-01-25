@@ -1,3 +1,7 @@
+// * Most of this is adapted from @chrisburnell
+// * https://chrisburnell.com/svg-sparkline/
+// * https://github.com/chrisburnell/svg-sparkline/blob/main/svg-sparkline.js (MIT)
+
 const observedAttributes = ['values', 'width', 'height', 'color', 'curve', 'endpoint', 'endpoint-color', 'endpoint-width', 'fill', 'gradient', 'fill-color', 'gradient-color', 'line-width', 'start-label', 'end-label', 'animation-duration', 'animation-delay']
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
