@@ -25,7 +25,11 @@ export default function Sparkline ({ html, state: { attrs, instanceID } }) {
     const key = k.replace(/-([a-z])/g, g => g[1].toUpperCase())
 
     if (key === 'values') {
-      a[key] = val.split(',').map(v => Number(v))
+      if (val === 'random') {
+        a[key] = Array.from({ length: 12 }, () => Math.floor(Math.random() * 10))
+      } else {
+        a[key] = val.split(',').map(v => Number(v))
+      }
     } else if (val === 'true') {
       a[key] = true
     } else if (val === 'false') {
