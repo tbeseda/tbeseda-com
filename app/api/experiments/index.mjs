@@ -2,6 +2,14 @@
 export const get = async function () {
   const experiments = [
     {
+      name: 'Custom Element Sparklines',
+      date: '2024-01-24',
+      description:
+        "Inspired by Chris Burnell's work: A server-rendered custom element for sparkline graphs.",
+      url: '/experiments/custom-element-sparklines',
+      wip: true,
+    },
+    {
       name: 'Enhance SSR Playground',
       date: '2024-01-18',
       description:
