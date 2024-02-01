@@ -24,7 +24,7 @@
   "license": "ISC",
   "homepage": "https://tbeseda.com",
   "dependencies": {
-    "@architect/functions": "^7.0.0",
+    "@architect/functions": "^8.0.0-RC.3",
     "@aws-lite/client": "^0.15.2",
     "@aws-lite/s3": "^0.1.16",
     "@aws-sdk/client-s3": "^3.504.0",
@@ -58,7 +58,7 @@
     "xterm-readline": "^1.1.1"
   },
   "devDependencies": {
-    "@architect/architect": "^10.16.3",
+    "@architect/architect": "^11.0.0-RC.4",
     "@architect/plugin-go": "^0.0.2",
     "@architect/plugin-lambda-invoker": "^1.2.0",
     "@architect/plugin-rust": "^0.1.1",
