@@ -39,6 +39,7 @@
   --box-shadow-vertical: 0 5px 0 #00000005;
   --success-color: #1ea837;
   --danger-color: #d1663d;
+  --shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,5 +61,6 @@
     --box-shadow-vertical: 0 5px 0 #00000017;
     --success-color: #29a03e;
     --danger-color: #d1663d;
+    --shadow: rgba(109, 130, 166, 0.25) 0px 1px 1px, rgba(109, 130, 166, 0.13) 0px 0px 1px 1px
   }
 }

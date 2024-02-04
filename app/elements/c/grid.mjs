@@ -31,7 +31,6 @@ export default function Grid ({ html, state: { attrs } }) {
       :host > div > * {
         display: block;
         background: var(--background-secondary);
-        box-shadow: var(--shadow);
       }
     </style>
 

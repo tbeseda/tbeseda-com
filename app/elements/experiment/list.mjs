@@ -17,7 +17,7 @@ export default function List ({ html, state: { store } }) {
         border-radius: 0.5rem;
       }
       .experiment.featured {
-        box-shadow: 0px 0px 10px 0px rgba(255,155,45,0.25);
+        box-shadow: var(--shadow);
       }
       .experiment * {
         margin: 0;

@@ -35,7 +35,6 @@ export default function SekretBlogEditor ({ html, state: { store } }) {
         min-height: 10rem;
         border-radius: 0.3rem;
         background-color: #fff;
-        box-shadow: var(--shadow);
       }
     </style>
 
