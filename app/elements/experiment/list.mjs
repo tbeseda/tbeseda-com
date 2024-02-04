@@ -13,14 +13,27 @@ export default function List ({ html, state: { store } }) {
       .experiment {
         display: flex;
         flex-direction: column;
+        padding: 1rem;
+        border-radius: 0.5rem;
       }
       .experiment.featured {
-        box-shadow: 0 0 3px 1px
-          color-mix(in srgb, var(--accent) 66%, transparent);
+        box-shadow: 0px 0px 10px 0px rgba(255,155,45,0.25);
       }
       .experiment * {
         margin: 0;
         padding: 0;
+      }
+      .experiment h3 {
+        margin-bottom: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+      }
+      .experiment h3 mark {
+        font-size: 0.8rem;
+        background-color: dodgerblue;
+        color: white;
+        padding: 0.25rem;
+        border-radius: 0.25rem;
       }
       .experiment time {
         font-size: 0.8em;
@@ -34,8 +47,11 @@ export default function List ({ html, state: { store } }) {
         (i) =>
           i.attrs({ class: `experiment${i.i.featured ? ' featured' : ''}` }),
         (item) => `
-          <h3>${item.link(item.i.url, item.i.name)}</h3>
-          <!--<time>${item.i.date}</time>-->
+          <h3>
+            ${item.link(item.i.url, item.i.name)}
+            ${item.i.wip ? '<mark>WIP</mark>' : ''}
+          </h3>
+          <time>${item.i.date}</time>
           <p>${item.i.description}</p>
         `,
       )}

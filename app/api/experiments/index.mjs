@@ -2,6 +2,13 @@
 export const get = async function () {
   const experiments = [
     {
+      name: 'Passkeys',
+      date: '2024-02-04',
+      description: 'Simple user registration + login with webauthn.',
+      url: '/experiments/passkeys',
+      wip: true,
+    },
+    {
       name: 'Custom Element Sparklines',
       date: '2024-01-24',
       description:
