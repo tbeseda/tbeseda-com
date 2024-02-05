@@ -27,6 +27,7 @@ export default function List ({ html, state: { store } }) {
         margin-bottom: 0.5rem;
         display: flex;
         justify-content: space-between;
+        align-items: start;
       }
       .experiment h3 mark {
         font-size: 0.8rem;

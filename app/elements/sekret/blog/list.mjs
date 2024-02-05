@@ -1,5 +1,3 @@
-import { renderer } from '../../../lib/pm2html-renderer.mjs'
-
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function SekretBlogList ({ html, state: { store } }) {
   const { articles = [] } = store
@@ -9,16 +7,10 @@ export default function SekretBlogList ({ html, state: { store } }) {
       :host {
         display: block;
       }
-      tr {
-        border-bottom: none;
-      }
-      thead tr,
-      tr:has(td[colspan]) {
-        border-bottom: 1px solid #ccc;
+      table {
+        width: 100%;
       }
     </style>
-
-    <h2>Blog Post List</h2>
 
     <table>
       <thead>
@@ -34,7 +26,10 @@ export default function SekretBlogList ({ html, state: { store } }) {
         .map(
           (article) => /* html */ `
         <tr>
-          <td>${article.title}</td>
+          <td>
+            <h3>${article.title}</h3>
+            <p>${article.description}</p>
+          </td>
           <td>
             <input type="checkbox" disabled ${
               article.published ? 'checked' : ''
@@ -47,14 +42,6 @@ export default function SekretBlogList ({ html, state: { store } }) {
               <button type="submit" formmethod="get">Edit</button>
               <button type="submit" formmethod="post" name="action" value="destroy">Delete</button>
             </form>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="5">
-            <details>
-              <summary>${article.description}</summary>
-              ${renderer.render(article.doc)}
-            </details>
           </td>
         </tr>
         `,

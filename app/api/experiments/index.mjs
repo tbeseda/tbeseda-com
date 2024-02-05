@@ -2,9 +2,9 @@
 export const get = async function () {
   const experiments = [
     {
-      name: 'Passkeys',
+      name: 'Passkeys with Node.js and WebAuthn',
       date: '2024-02-04',
-      description: 'Simple user registration + login with webauthn.',
+      description: 'Simple user registration + login with webauthn and Node.',
       url: '/experiments/passkeys',
       wip: true,
     },

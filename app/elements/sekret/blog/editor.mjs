@@ -8,19 +8,6 @@ export default function SekretBlogEditor ({ html, state: { store } }) {
       :host {
         display: block;
       }
-      form.article-form {
-        max-width: 44ch;
-        display: grid;
-        gap: 0.5rem;
-        grid-template-columns: 1fr 2fr;
-      }
-      form.article-form label {
-        text-align: right;
-      }
-      form.article-form input[type="checkbox"],
-      form.article-form input[type="submit"] {
-        justify-self: start;
-      }
       .editor-container {
         margin-top: 2rem;
         width: 100%;
@@ -37,8 +24,6 @@ export default function SekretBlogEditor ({ html, state: { store } }) {
         background-color: #fff;
       }
     </style>
-
-    <h2>New Blog Post</h2>
 
     <form class="article-form" action="/sekret/blog/editor" method="post">
       <label for="title">ID</label>
@@ -77,9 +62,9 @@ export default function SekretBlogEditor ({ html, state: { store } }) {
     <div class="editor-container"></div>
 
     <dl>
-      <dt>Keyboard shortcuts</dt>
+      <dt>Keyboard shortcuts:</dt>
       <dd><kbd>⌘</kbd> + <kbd>b</kbd> | <kbd>i</kbd> | <kbd>.</kbd></dd>
-      <dt>Markdown-ish</dt>
+      <dt>Markdown-ish:</dt>
       <dd><code>></code> blockquote</dd>
       <dd><code>-</code> list</dd>
       <dd><code>1.</code> list</dd>
