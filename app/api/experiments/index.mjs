@@ -2,6 +2,14 @@
 export const get = async function () {
   const experiments = [
     {
+      name: 'jQuery with Enhance',
+      date: '2024-02-08',
+      description: 'jQuery 4.0 in a web component served by Enhance.',
+      url: '/experiments/jquery-enhance',
+      // featured: true,
+      wip: true,
+    },
+    {
       name: 'Passkeys with Node.js and WebAuthn',
       date: '2024-02-04',
       description: 'Simple user registration + login with webauthn and Node.',
