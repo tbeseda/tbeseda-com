@@ -3,14 +3,14 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/_static/fonts/SpaceMono-Regular.ttf) format("truetype")
+  src: url(/_public/fonts/SpaceMono-Regular.ttf) format("truetype")
 }
 @font-face {
   font-family: Space Mono;
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/_static/fonts/SpaceMono-Bold.ttf) format("truetype")
+  src: url(/_public/fonts/SpaceMono-Bold.ttf) format("truetype")
 }
 
 :root {
