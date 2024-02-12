@@ -1,0 +1,95 @@
+<tb-header></tb-header>
+
+<main>
+  <h2>Custom Element Sparklines</h2>
+  <h3>
+    <em>
+      Based Chris Burnell's
+      <a href="https://github.com/chrisburnell/svg-sparkline">
+        <code>&lt;svg-sparkline&gt;</code>
+      </a>
+    </em>
+  </h3>
+  <p>These sparkline graphs are server rendered custom elements. Zero JavaScript.</p>
+  <p>•</p>
+
+  <c-grid cols="1_1_1_1">
+    <div>
+      <h4>Baseline</h4>
+      <experiment-sparkline values="random"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Curve</h4>
+      <experiment-sparkline values="random" curve="true"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Animate</h4>
+      <experiment-sparkline values="random" animate="true"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Color</h4>
+      <experiment-sparkline values="random" color="red"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Gradient</h4>
+      <experiment-sparkline values="random" gradient="true"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Gradient Color</h4>
+      <experiment-sparkline values="random" gradient="true" gradient-color="orange"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Fill</h4>
+      <experiment-sparkline values="random" fill="true"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Fill Color</h4>
+      <experiment-sparkline values="random" fill="true" fill-color="rebeccapurple"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Endpoint Color</h4>
+      <experiment-sparkline values="random" endpoint-color="red"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Endpoint Width</h4>
+      <experiment-sparkline values="random" endpoint-width="12"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>No Endpoint</h4>
+      <experiment-sparkline values="random" endpoint="false"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Line Width</h4>
+      <experiment-sparkline values="random" line-width="6"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Width & Height</h4>
+      <experiment-sparkline values="random" width="150" height="200"></experiment-sparkline>
+    </div>
+    <div>
+      <h4>Kitchen Sink</h4>
+      <experiment-sparkline
+        values="random"
+        curve="true"
+        -animate="true"
+        animation-duration="1000"
+        animation-delay="500"
+        color="salmon"
+        gradient="true"
+        gradient-color="rebeccapurple"
+        fill="true"
+        fill-color="crimson"
+        endpoint-color="red"
+        endpoint-width="12"
+        endpoint="false"
+        line-width="6"
+        width="400"
+        height="200"
+        start-label="Start"
+        end-label="End"
+      ></experiment-sparkline>
+    </div>
+  </c-grid>
+</main>
+
+<tb-footer></tb-footer>

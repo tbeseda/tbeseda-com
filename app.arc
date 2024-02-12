@@ -2,10 +2,10 @@
 tbeseda-com
 
 @plugins
-enhance/arc-plugin-enhance
+# enhance/arc-plugin-enhance
 architect/plugin-lambda-invoker
-architect/plugin-rust
-architect/plugin-go
+# architect/plugin-rust
+# architect/plugin-go
 
 @http
 # get  /.well-known/webfinger # ActivityPub webfinger
@@ -21,9 +21,11 @@ post /webhooks/omnivore     # omnivore incoming
 get  /api/skull             # skull drawing experiment
 get  /pong                  # ping
 # get  /test/golang           # golang test
-get  /test/python           # python test
-get  /test/ruby             # ruby test
+# get  /test/python           # python test
+# get  /test/ruby             # ruby test
 # get  /test/rust             # rust test
+any /*
+get /_public/*
 
 @bundles
 xterm /node_modules/xterm/css/xterm.css
