@@ -35,6 +35,7 @@ my-milkdown-editor /app/lib/my-milkdown-editor.mjs
 create-enhance-html /app/lib/create-enhance-html.mjs
 
 @static
+fingerprint true
 ignore .uploaded-images # blog images
 prune true
 

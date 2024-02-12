@@ -4,10 +4,10 @@ import { fileURLToPath } from 'node:url'
 import arc from '@architect/functions'
 import importTransform from '@enhance/import-transform'
 import styleTransform from '@enhance/enhance-style-transform'
+// import { createRouter, htmlSkeleton, c } from 'enhance-app-core'
 
-import { createRouter, htmlSkeleton, c } from 'enhance-app-core'
-// import { createRouter, htmlSkeleton, c } from './enhance-app-core/src/index.js'
-
+import { createRouter, htmlSkeleton, c } from './enhance-app-core/src/index.js'
+import { fingerprintPublicRefs } from './transformer.mjs'
 import head from './app/head.mjs'
 import preflight from './app/preflight.mjs'
 
@@ -43,6 +43,8 @@ ${htmlSkeleton(response?.html)}
 ${c.pink('──────────────────────────────')}
       `)
     }
+
+    response.html = fingerprintPublicRefs(response.html)
 
     return response
   } catch (err) {
