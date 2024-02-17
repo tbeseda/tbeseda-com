@@ -4,54 +4,51 @@ import { fileURLToPath } from 'node:url'
 import arc from '@architect/functions'
 import importTransform from '@enhance/import-transform'
 import styleTransform from '@enhance/enhance-style-transform'
-// import { createRouter, htmlSkeleton, c } from 'enhance-app-core'
 
-import { createRouter, htmlSkeleton, c } from './enhance-app-core/src/index.js'
-import { fingerprintPublicRefs } from './transformer.mjs'
+import enhanceApp from '@enhance/app-core'
+import enhanceConfigLoader from '@enhance/app-loader'
+import { mergeTimingHeaders } from '@enhance/arc-plugin-enhance/src/http/any-catchall/util.mjs'
+
+import fingerprintPaths from './fingerprint-paths.mjs'
 import head from './app/head.mjs'
 import preflight from './app/preflight.mjs'
 
 const debug = 0
 
-const thisDir = dirname(fileURLToPath(import.meta.url))
-const router = createRouter({
-  basePath: join(thisDir, 'app'),
-  apiPath: '/api',
-  pagesPath: '/pages',
-  elementsPath: '/elements',
-  componentsPath: '/components',
+const here = dirname(fileURLToPath(import.meta.url))
+const config = await enhanceConfigLoader({
+  basePath: join(here, 'app'),
+  debug: debug > 1,
+})
+const app = enhanceApp({
+  ...config,
   ssrOptions: {
     scriptTransforms: [importTransform({ lookup: arc.static })],
     styleTransforms: [styleTransform],
   },
   state: {},
   head,
-  debug: debug > 0,
+  debug: debug > 1,
 })
 
-if (debug > 1) router.report()
+if (debug > 0) app.report()
 
 async function http (req) {
   try {
     const moreState = await preflight({ req })
-    const response = await router.routeAndRender(req, moreState)
+    const response = await app.routeAndRender(req, moreState)
 
-    if (debug > 1) {
-      console.log(`
-${c.pink('───')} ${c.orange('HTML')} 💀 ${c.pink('───────────────────')}
-${htmlSkeleton(response?.html)}
-${c.pink('──────────────────────────────')}
-      `)
-    }
+    let { html, headers } = response
 
-    response.html = fingerprintPublicRefs(response.html)
+    html = fingerprintPaths(html)
+    headers = mergeTimingHeaders(headers, config.timers)
 
-    return response
+    return { ...response, html, headers }
   } catch (err) {
     console.error(err)
     return {
       statusCode: Number(err.message),
-      html: await router.render(`
+      html: await app.render(`
         <main>
           <h1>${err.message}</h1>
           ${err.cause && `<h2>${err.cause}</h2>`}

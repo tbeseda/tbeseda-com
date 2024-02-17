@@ -35,6 +35,20 @@ export default function Head ({ store }) {
       <link rel="stylesheet" href="/_public/css/article.css">
 
       <style>
+        @font-face {
+          font-family: Space Mono;
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url(/_public/fonts/SpaceMono-Regular.woff2) format("woff2")
+        }
+        @font-face {
+          font-family: Space Mono;
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url(/_public/fonts/SpaceMono-Bold.woff2) format("woff2")
+        }
         .title {
           margin-bottom: 2rem;
           font-size: 1.8rem;

@@ -3,6 +3,7 @@ tbeseda-com
 
 @plugins
 # enhance/arc-plugin-enhance
+architect/plugin-bundles # temporary while building Core and Loader
 architect/plugin-lambda-invoker
 # architect/plugin-rust
 # architect/plugin-go
@@ -35,7 +36,7 @@ my-milkdown-editor /app/lib/my-milkdown-editor.mjs
 create-enhance-html /app/lib/create-enhance-html.mjs
 
 @static
-fingerprint true
+fingerprint true # required by Enhance
 ignore .uploaded-images # blog images
 prune true
 

@@ -5,12 +5,12 @@ import { fileURLToPath } from 'node:url'
 
 const isTesting = env.ARC_ENV === 'testing'
 
-const thisDir = dirname(fileURLToPath(import.meta.url))
-const staticPath = join(thisDir, 'node_modules', '@architect', 'shared', 'static.json')
+const here = dirname(fileURLToPath(import.meta.url))
+const staticPath = join(here, 'node_modules', '@architect', 'shared', 'static.json')
 
 let staticMapped // chache
 
-export function fingerprintPublicRefs (str) {
+export default function fingerprintPublicRefs (str) {
   if (!str) return
   if (isTesting) return str
 
@@ -32,7 +32,7 @@ export function fingerprintPublicRefs (str) {
   return replaceEvery(str, staticMapped)
 }
 
-function replaceEvery (str, staticMapped) {
+export function replaceEvery (str, staticMapped) {
   const re = new RegExp(
     Object.keys(staticMapped)
       .sort()
