@@ -32,8 +32,8 @@ get /_public/*
 xterm /node_modules/xterm/css/xterm.css
 server-timings node_modules/server-timings-elem/server-timings.js
 snow-fall 'node_modules/@zachleat/snow-fall/snow-fall.js'
-my-milkdown-editor /app/lib/my-milkdown-editor.mjs
-create-enhance-html /app/lib/create-enhance-html.mjs
+my-milkdown-editor src/http/any-catchall/app/lib/my-milkdown-editor.mjs
+create-enhance-html src/http/any-catchall/app/lib/create-enhance-html.mjs
 
 @static
 fingerprint true # required by Enhance
