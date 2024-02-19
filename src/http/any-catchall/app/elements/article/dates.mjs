@@ -4,7 +4,7 @@ export default function ({ html, state: { store } }) {
     article: { published, edited },
   } = store
 
-  function presentDate (string) {
+  function presentDate(string) {
     return new Date(string).toLocaleString('en-US', {
       timeZone: 'MST',
       weekday: 'long',

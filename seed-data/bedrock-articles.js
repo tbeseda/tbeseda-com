@@ -11,7 +11,8 @@ module.exports = [
       ],
     },
     date: '2024-02-07T18:02:13.125Z',
-    description: "React: The Future of Web Development\n\nAs a web developer, I'm always on the lookout for the latest a",
+    description:
+      "React: The Future of Web Development\n\nAs a web developer, I'm always on the lookout for the latest a",
     published: true,
     slug: 'react--the-future-of',
     title: 'React: The Future of',
@@ -28,7 +29,8 @@ module.exports = [
       ],
     },
     date: '2024-02-07T18:02:26.579Z',
-    description: 'Hey there, fellow web developers!\n\nAs we all know, the web development landscape is constantly evolv',
+    description:
+      'Hey there, fellow web developers!\n\nAs we all know, the web development landscape is constantly evolv',
     published: true,
     slug: 'hey-there--fellow-we',
     title: 'Hey there, fellow we',
@@ -45,7 +47,8 @@ module.exports = [
       ],
     },
     date: '2024-02-07T18:02:39.402Z',
-    description: 'CSS: The Unsung Hero of Web Development\n\nAs web developers, we often find ourselves focusing on the ',
+    description:
+      'CSS: The Unsung Hero of Web Development\n\nAs web developers, we often find ourselves focusing on the ',
     published: true,
     slug: 'css--the-unsung-hero',
     title: 'CSS: The Unsung Hero',
@@ -62,7 +65,8 @@ module.exports = [
       ],
     },
     date: '2024-02-07T18:02:52.977Z',
-    description: 'HTML: The Foundation of Web Development\n\nAs a web developer, you know that HTML is one of the fundam',
+    description:
+      'HTML: The Foundation of Web Development\n\nAs a web developer, you know that HTML is one of the fundam',
     published: true,
     slug: 'html--the-foundation',
     title: 'HTML: The Foundation',
@@ -79,7 +83,8 @@ module.exports = [
       ],
     },
     date: '2024-02-07T18:03:05.879Z',
-    description: 'Hey there, fellow web devs! Today, I want to talk about one of the most important tools in our craft',
+    description:
+      'Hey there, fellow web devs! Today, I want to talk about one of the most important tools in our craft',
     published: true,
     slug: 'hey-there--fellow-we',
     title: 'Hey there, fellow we',
@@ -96,7 +101,8 @@ module.exports = [
       ],
     },
     date: '2024-02-07T18:03:18.616Z',
-    description: "Hey there, fellow web developers! Today, I'm going to talk about something that's near and dear to m",
+    description:
+      "Hey there, fellow web developers! Today, I'm going to talk about something that's near and dear to m",
     published: true,
     slug: 'hey-there--fellow-we',
     title: 'Hey there, fellow we',
@@ -113,7 +119,8 @@ module.exports = [
       ],
     },
     date: '2024-02-07T18:03:31.824Z',
-    description: "Hey there, fellow web developers! Today, I'm excited to talk about one of the most exciting and game",
+    description:
+      "Hey there, fellow web developers! Today, I'm excited to talk about one of the most exciting and game",
     published: true,
     slug: 'hey-there--fellow-we',
     title: 'Hey there, fellow we',
@@ -130,7 +137,8 @@ module.exports = [
       ],
     },
     date: '2024-02-07T18:03:44.612Z',
-    description: "Hey there, fellow web developers! 👋 As a trendy influencer and capable writer, I'm here to share my",
+    description:
+      "Hey there, fellow web developers! 👋 As a trendy influencer and capable writer, I'm here to share my",
     published: true,
     slug: 'hey-there--fellow-we',
     title: 'Hey there, fellow we',
@@ -147,7 +155,8 @@ module.exports = [
       ],
     },
     date: '2024-02-07T18:03:57.725Z',
-    description: "WebAssembly: The Future of Web Development?\n\nAs a web developer, you're probably no stranger to the ",
+    description:
+      "WebAssembly: The Future of Web Development?\n\nAs a web developer, you're probably no stranger to the ",
     published: true,
     slug: 'webassembly--the-fut',
     title: 'WebAssembly: The Fut',
@@ -164,7 +173,8 @@ module.exports = [
       ],
     },
     date: '2024-02-07T18:04:11.024Z',
-    description: "Serverless: The Future of Web Development?\n\nAs a web developer, you're likely no stranger to the con",
+    description:
+      "Serverless: The Future of Web Development?\n\nAs a web developer, you're likely no stranger to the con",
     published: true,
     slug: 'serverless--the-futu',
     title: 'Serverless: The Futu',
@@ -181,7 +191,8 @@ module.exports = [
       ],
     },
     date: '2024-02-07T18:04:23.942Z',
-    description: "As a web developer, you've likely heard of Progressive Web Apps (PWAs) by now. But what exactly are ",
+    description:
+      "As a web developer, you've likely heard of Progressive Web Apps (PWAs) by now. But what exactly are ",
     published: true,
     slug: 'as-a-web-developer--',
     title: 'As a web developer, ',

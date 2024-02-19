@@ -1,7 +1,7 @@
 import arc from '@architect/functions'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get ({ session }) {
+export async function get({ session }) {
   let { authorized } = session
   authorized = !!authorized
 
@@ -12,8 +12,7 @@ export async function get ({ session }) {
   // TODO: not scan
   const articleQuery = await articles.scan({
     Limit: 100,
-    ProjectionExpression:
-      'articleID, title, published, doc, description, #date',
+    ProjectionExpression: 'articleID, title, published, doc, description, #date',
     ExpressionAttributeNames: {
       '#date': 'date',
     },

@@ -10,12 +10,12 @@ const distributionsTable = new Table({
   head: ['Id', 'Status', 'Domain', 'Aliases', 'Origins'],
 })
 
-function printAliases (aliases) {
+function printAliases(aliases) {
   if (!aliases) return ''
   return aliases.Items?.CNAME
 }
 
-function printOrigins (origins) {
+function printOrigins(origins) {
   if (!origins) return ''
   return origins.Items?.Origin?.Id
 }
@@ -76,7 +76,12 @@ for (const start of [hourAgo, dayAgo, weekAgo, monthAgo]) {
 
   const row = [start.toLocaleString(), endString]
   if (Array.isArray(member)) {
-    row.push(member.map(({ Sum }) => Number(Sum)).reduce((a, b) => a + b, 0).toString())
+    row.push(
+      member
+        .map(({ Sum }) => Number(Sum))
+        .reduce((a, b) => a + b, 0)
+        .toString(),
+    )
   } else if (member) {
     row.push(Number(member.Sum || 0).toString())
   } else {

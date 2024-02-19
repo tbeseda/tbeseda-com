@@ -7,7 +7,7 @@ const NPS_API = 'https://developer.nps.gov/api/v1'
 const NPS_WEBCAMS = new URL(`${NPS_API}/webcams`)
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get ({ query: { stateCode = 'CO' } = {} }) {
+export async function get({ query: { stateCode = 'CO' } = {} }) {
   if (!NPS_KEY) throw new Error('Missing NPS_KEY')
 
   const qs = new URLSearchParams({
@@ -20,7 +20,7 @@ export async function get ({ query: { stateCode = 'CO' } = {} }) {
 
   let cams = json?.data || []
   cams = cams
-    .filter(cam => cam.status === 'Active')
+    .filter((cam) => cam.status === 'Active')
     .filter(({ url }) => url.startsWith('https://www.nps.gov/media/webcam/view.htm'))
 
   for await (const cam of cams) {
@@ -28,7 +28,7 @@ export async function get ({ query: { stateCode = 'CO' } = {} }) {
     const htmlString = await response.text()
     // search for <img id="webcamRefreshImage"
     const imgLines = linesAround(htmlString, 'id="webcamRefreshImage"', 3)
-    const srcLine = imgLines.find(line => line.includes('src='))
+    const srcLine = imgLines.find((line) => line.includes('src='))
     const src = srcLine.match(/src="([^"]+)"/)[1]
     cam.src = src
   }
@@ -38,7 +38,7 @@ export async function get ({ query: { stateCode = 'CO' } = {} }) {
   }
 }
 
-function linesAround (body, substr, nLines) {
+function linesAround(body, substr, nLines) {
   const lines = body.split('\n')
   let foundI = -1
 

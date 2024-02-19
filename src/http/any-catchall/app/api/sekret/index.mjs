@@ -5,7 +5,7 @@ const { SEKRET } = process.env
 
 // TODO: move to preflight
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get ({ session }) {
+export async function get({ session }) {
   let { authorized } = session
   authorized = !!authorized
 
@@ -16,7 +16,7 @@ export async function get ({ session }) {
 }
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function post ({ body, session }) {
+export async function post({ body, session }) {
   if (!SEKRET) throw new Error('SEKRET not set')
 
   const { password } = body

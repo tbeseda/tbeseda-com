@@ -10,7 +10,7 @@ const staticPath = join(here, 'node_modules', '@architect', 'shared', 'static.js
 
 let staticMapped // chache
 
-export default function fingerprintPublicRefs (str) {
+export default function fingerprintPublicRefs(str) {
   if (!str) return
   if (isTesting) return str
 
@@ -24,25 +24,27 @@ export default function fingerprintPublicRefs (str) {
     }
 
     staticMapped = {}
-    Object.entries(staticJson).forEach(file => {
+    for (const file of Object.entries(staticJson)) {
       staticMapped[`_public/${file[0]}`] = `_public/${file[1]}`
-    })
+    }
   }
 
   return replaceEvery(str, staticMapped)
 }
 
-export function replaceEvery (str, staticMapped) {
+export function replaceEvery(str, staticMapped) {
   const re = new RegExp(
     Object.keys(staticMapped)
       .sort()
       .reverse()
-      .map(i => escapeRegExp(i)).join('|'), 'gi',
+      .map((i) => escapeRegExp(i))
+      .join('|'),
+    'gi',
   )
 
   return str.replace(re, (matched) => staticMapped[matched])
 }
 
-function escapeRegExp (string) {
+function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }

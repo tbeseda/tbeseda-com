@@ -4,7 +4,7 @@ import { createID } from '../../lib/create-id.mjs'
 const { 'experiment-articles': articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export const get = async function () {
+export const get = async () => {
   const query = await articles.scan({})
 
   return {
@@ -13,7 +13,7 @@ export const get = async function () {
 }
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function post ({ body }) {
+export async function post({ body }) {
   const { content, date, description, published, slug, title } = body
   const article = {
     articleID: createID(),

@@ -1,8 +1,8 @@
 import arc from '@architect/functions'
 
-async function get (req, ctx) {
+async function get(req, ctx) {
   return {
-    html: /* html */`
+    html: /* html */ `
 <!DOCTYPE html>
 <html lang="en">
 <head>

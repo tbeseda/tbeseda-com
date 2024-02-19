@@ -14,8 +14,7 @@ const scan = await table.scan({
   ProjectionExpression: 'articleID, title, published, slug, doc, #date',
   ExpressionAttributeNames: { '#date': 'date' },
 })
-let articles = scan.Items
-  .filter(({ published }) => published)
+let articles = scan.Items.filter(({ published }) => published)
   .sort((a, b) => b.date - a.date)
   .map(({ articleID, ...article }) => ({ id: articleID, ...article }))
 timers.stop('articles-query')
@@ -39,7 +38,7 @@ miniSearch.addAll(articles)
 timers.stop('articles-index')
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export const get = async function ({ query }) {
+export const get = async ({ query }) => {
   const { q } = query
   const response = { results: [], q }
 

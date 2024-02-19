@@ -1,8 +1,7 @@
 /** @type {import('@enhance/types').EnhanceHeadFn} */
-export default function Head ({ store }) {
+export default function Head({ store }) {
   const { title, myWeather } = store
-  const hljsThemeCss =
-    'https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/night-owl.min.css'
+  const hljsThemeCss = 'https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/night-owl.min.css'
 
   const snowing = myWeather?.values.snowIntensity
 

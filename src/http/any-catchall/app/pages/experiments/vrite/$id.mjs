@@ -1,7 +1,7 @@
 import { htmlOutputTransformer } from '@vrite/sdk/transformers'
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function VriteArticle ({ html, state: { store } }) {
+export default function VriteArticle({ html, state: { store } }) {
   const { content } = store
 
   return html`

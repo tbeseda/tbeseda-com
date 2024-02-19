@@ -1,11 +1,11 @@
-function timestamp (duration) {
+function timestamp(duration) {
   const minutes = Math.floor((duration / (1000 * 60)) % 60)
   const seconds = Math.floor((duration / 1000) % 60)
   return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
 }
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExperimentSpotify ({ html, state: { store } }) {
+export default function ExperimentSpotify({ html, state: { store } }) {
   const {
     authorized,
     currentlyPlaying,
@@ -18,7 +18,7 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
   const mostRecent = recentlyPlayed.items?.shift()
   const theRest = recentlyPlayed.items
 
-  function presentDate (date) {
+  function presentDate(date) {
     const d = new Date(date)
     const timeZone = 'America/Denver'
     return `${d.toLocaleString('en', { timeZone })}`
@@ -104,11 +104,7 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
                   </span>
                   <span class="album-info">
                     <span class="playing-progress">
-                      ${
-                        currentlyPlaying.is_playing
-                          ? '&#9658;'
-                          : '&#9616;&nbsp;&#9612;'
-                      }
+                      ${currentlyPlaying.is_playing ? '&#9658;' : '&#9616;&nbsp;&#9612;'}
                       ${timestamp(currentlyPlaying.progress_ms)} /
                       ${timestamp(playing.duration_ms)}
                     </span>
@@ -131,7 +127,9 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
                   <span class="artist">
                     ${mostRecent.track.artists.map(({ name }) => name).join(', ')}
                   </span><br>
-                  ${mostRecent.track.album.name} (${mostRecent.track.album.release_date.split('-')[0]})
+                  ${mostRecent.track.album.name} (${
+                    mostRecent.track.album.release_date.split('-')[0]
+                  })
                 </span>
                 <span class="album-info">
                   <span>${presentDate(mostRecent.played_at)}</span>
@@ -175,11 +173,7 @@ export default function ExperimentSpotify ({ html, state: { store } }) {
               ({ name, images }, i) => `
               <div class="row artist denser">
                 <span>${i + 1}. ${name}</span>
-                ${
-                  images.length
-                    ? `<img src="${images[0].url}" alt="image of ${name}" />`
-                    : ''
-                }
+                ${images.length ? `<img src="${images[0].url}" alt="image of ${name}" />` : ''}
               </div>
             `,
             )

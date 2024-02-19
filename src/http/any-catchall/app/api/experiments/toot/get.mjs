@@ -1,7 +1,7 @@
 const MY_HANDLE = 'tbeseda'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get (req) {
+export async function get(req) {
   const { handle } = req.query
 
   if (!handle || handle !== MY_HANDLE) {

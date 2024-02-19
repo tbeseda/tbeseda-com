@@ -3,7 +3,7 @@ import arc from '@architect/functions'
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export const get = async function () {
+export const get = async () => {
   const weatherQuery = await things.query({
     IndexName: 'thingsByType',
     KeyConditionExpression: '#type = :weather',
@@ -14,8 +14,6 @@ export const get = async function () {
 
   return {
     status: haveData ? 200 : 500,
-    json: haveData
-      ? { weather: weatherQuery.Items }
-      : { error: 'No weather data found' },
+    json: haveData ? { weather: weatherQuery.Items } : { error: 'No weather data found' },
   }
 }

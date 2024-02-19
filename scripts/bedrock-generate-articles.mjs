@@ -32,7 +32,7 @@ const aws = await AwsLite({
   // debug: true,
 })
 
-async function createArticle (topic) {
+async function createArticle(topic) {
   // https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html
   const InvokeModel = await aws({
     service: 'bedrock',

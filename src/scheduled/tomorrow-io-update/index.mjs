@@ -10,7 +10,7 @@ const TOMORROW_IO_URL = [
 
 const { things } = await arc.tables()
 
-export async function handler () {
+export async function handler() {
   let result
 
   try {

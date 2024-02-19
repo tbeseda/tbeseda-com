@@ -3,15 +3,13 @@
 // https://dev.to/rolandixor/css-funstuff-animated-waveforms-4cja
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function TbSpotifyPlaying ({ html, state: { store } }) {
+export default function TbSpotifyPlaying({ html, state: { store } }) {
   const { currentlyPlaying } = store
   if (!currentlyPlaying?.item) return ''
 
   const playing = currentlyPlaying.item
 
-  const albumCover = playing.album.images.find(
-    ({ height }) => height < 301,
-  )?.url
+  const albumCover = playing.album.images.find(({ height }) => height < 301)?.url
 
   return html`
     <style>

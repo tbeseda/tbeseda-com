@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function SekretBlogList ({ html, state: { store } }) {
+export default function SekretBlogList({ html, state: { store } }) {
   const { articles = [] } = store
 
   return html`
@@ -31,9 +31,7 @@ export default function SekretBlogList ({ html, state: { store } }) {
             <p>${article.description}</p>
           </td>
           <td>
-            <input type="checkbox" disabled ${
-              article.published ? 'checked' : ''
-            }>
+            <input type="checkbox" disabled ${article.published ? 'checked' : ''}>
           </td>
           <td>${article.date}</td>
           <td>

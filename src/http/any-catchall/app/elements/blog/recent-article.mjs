@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function BlogRecentArticle ({ html, state: { store } }) {
+export default function BlogRecentArticle({ html, state: { store } }) {
   const { recentArticle } = store
 
   return recentArticle

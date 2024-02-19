@@ -3,7 +3,7 @@ import arc from '@architect/functions'
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export const get = async function ({ timers, session }) {
+export const get = async ({ timers, session }) => {
   let { authorized } = session
   authorized = !!authorized
 
@@ -27,7 +27,9 @@ export const get = async function ({ timers, session }) {
     if (!topTracks) messages.push('No top tracks found')
 
     const token = await things.get({ key: 'spotify-token' }) // double check token
-    if (token) { messages.push(`Spotify access token found, created ${token.created}`) } else messages.push('No Spotify access token found')
+    if (token) {
+      messages.push(`Spotify access token found, created ${token.created}`)
+    } else messages.push('No Spotify access token found')
   }
   timers.stop('spotify-stats')
 

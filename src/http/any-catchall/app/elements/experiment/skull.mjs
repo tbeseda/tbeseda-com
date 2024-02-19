@@ -3,7 +3,7 @@
 // prior art: https://github.com/googlecreativelab/quickdraw-component/blob/master/quickdraw-component.js
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExperimentSkull ({ html }) {
+export default function ExperimentSkull({ html }) {
   return html`
     <style>
       :host {

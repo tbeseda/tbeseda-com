@@ -8,8 +8,7 @@ const { articles } = await arc.tables()
 const query = await articles.scan({
   Limit: 100,
   FilterExpression: 'attribute_exists(published)',
-  ProjectionExpression:
-    'articleID, title, published, slug, description, doc, #date',
+  ProjectionExpression: 'articleID, title, published, slug, description, doc, #date',
   ExpressionAttributeNames: {
     '#date': 'date',
   },
@@ -37,12 +36,10 @@ const feed = new Feed({
 })
 
 for (const article of sortedArticles) {
-  const content = renderer
-    .render(article.doc)
-    .replace(/src=["']\/([^"']+)["']/g, (_match, src) => {
-      const absoluteUrl = `${TBESEDA}/${src}`
-      return `src="${absoluteUrl}"`
-    })
+  const content = renderer.render(article.doc).replace(/src=["']\/([^"']+)["']/g, (_match, src) => {
+    const absoluteUrl = `${TBESEDA}/${src}`
+    return `src="${absoluteUrl}"`
+  })
   feed.addItem({
     title: article.title,
     // id: article.articleID, // defaults to link value
@@ -64,7 +61,7 @@ for (const article of sortedArticles) {
 feed.addCategory('Web development')
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get () {
+export async function get() {
   const age = 10 // minutes
   return {
     statusCode: 200,

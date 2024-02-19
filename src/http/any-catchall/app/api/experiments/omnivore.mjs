@@ -3,7 +3,7 @@ import arc from '@architect/functions'
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export const get = async function () {
+export const get = async () => {
   // TODO: paginate these queries
   // ? can i filter by updatedAt and then LIMIT?
   const favoritesQuery = await things.query({
@@ -25,7 +25,7 @@ export const get = async function () {
     ExpressionAttributeValues: { ':omnivorePages': 'omnivore:page' },
   })
 
-  function sort (a, b) {
+  function sort(a, b) {
     return !a || !b ? 0 : a.updatedAt - b.updatedAt
   }
 

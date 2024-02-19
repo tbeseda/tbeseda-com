@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function TbFooter ({ html, state: { store } }) {
+export default function TbFooter({ html, state: { store } }) {
   const { currentlyPlaying, icon = '' } = store
   return html`
     <style>

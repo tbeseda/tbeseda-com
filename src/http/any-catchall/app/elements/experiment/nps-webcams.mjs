@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function NpsWebcams ({ html, state: { store } }) {
+export default function NpsWebcams({ html, state: { store } }) {
   const { cams } = store
 
   return html`
@@ -12,7 +12,9 @@ export default function NpsWebcams ({ html, state: { store } }) {
     <h1>NPS Webcams</h1>
 
     <c-grid cols="1_1_1">
-      ${cams.map(cam => `
+      ${cams
+        .map(
+          (cam) => `
         <div>
           <h2>
             <a href="${cam.url}" target="_blank" rel="noopener">
@@ -28,11 +30,15 @@ export default function NpsWebcams ({ html, state: { store } }) {
             <li>Status Message: ${cam.statusMessage}</li>
             <li>Streaming: ${cam.isStreaming}</li>
             <li>Tags: ${cam.tags.join(', ')}</li>
-            <li>Park Name: ${cam.relatedParks.map(park => `${park.fullName} - ${park.parkCode}`).join(', ')}</li>
-            <li>Designation: ${cam.relatedParks.map(park => park.designation).join(', ')}</li>
+            <li>Park Name: ${cam.relatedParks
+              .map((park) => `${park.fullName} - ${park.parkCode}`)
+              .join(', ')}</li>
+            <li>Designation: ${cam.relatedParks.map((park) => park.designation).join(', ')}</li>
           </ul>
         </div>
-      `).join('')}
+      `,
+        )
+        .join('')}
     </c-grid>
   `
 }

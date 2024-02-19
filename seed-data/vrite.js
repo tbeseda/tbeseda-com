@@ -1303,8 +1303,7 @@ module.exports = {
       },
       contentGroupId: '648a4065a2da16eedd81ef9c',
       coverAlt: '',
-      coverUrl:
-        'https://assets.vrite.io/648a405da2da16eedd81ef95/SX86EFmCyrX59NZ6f3itP.jpeg',
+      coverUrl: 'https://assets.vrite.io/648a405da2da16eedd81ef95/SX86EFmCyrX59NZ6f3itP.jpeg',
       coverWidth: '100%',
       date: '2023-06-06T22:37:58.720Z',
       description:
@@ -1315,8 +1314,7 @@ module.exports = {
         {
           id: '648a405da2da16eedd81ef99',
           profile: {
-            avatar:
-              'https://assets.vrite.io/648a405da2da16eedd81ef95/5bRmAmx6WdQXcCeBkA1iD.jpeg',
+            avatar: 'https://assets.vrite.io/648a405da2da16eedd81ef95/5bRmAmx6WdQXcCeBkA1iD.jpeg',
             email: 'tbeseda@gmail.com',
             fullName: 'Taylor Beseda',
             id: '648a405da2da16eedd81ef93',
@@ -1560,8 +1558,7 @@ module.exports = {
         type: 'doc',
       },
       contentGroupId: '648a4065a2da16eedd81ef9c',
-      coverUrl:
-        'https://assets.vrite.io/648a405da2da16eedd81ef95/tRhlpxDBpDuF65cW4R-XJ.jpeg',
+      coverUrl: 'https://assets.vrite.io/648a405da2da16eedd81ef95/tRhlpxDBpDuF65cW4R-XJ.jpeg',
       coverWidth: '100%',
       description: '<p>work in progress</p>',
       id: '648e584f9106221f30798432',
@@ -1570,8 +1567,7 @@ module.exports = {
         {
           id: '648a405da2da16eedd81ef99',
           profile: {
-            avatar:
-              'https://assets.vrite.io/648a405da2da16eedd81ef95/5bRmAmx6WdQXcCeBkA1iD.jpeg',
+            avatar: 'https://assets.vrite.io/648a405da2da16eedd81ef95/5bRmAmx6WdQXcCeBkA1iD.jpeg',
             email: 'tbeseda@gmail.com',
             fullName: 'Taylor Beseda',
             id: '648a405da2da16eedd81ef93',
@@ -1833,8 +1829,7 @@ module.exports = {
         type: 'doc',
       },
       contentGroupId: '648f3bae2af481ed2909d69a',
-      coverUrl:
-        'https://assets.vrite.io/648a405da2da16eedd81ef95/pIZeRTKty3u9KSv3ln52g.jpeg',
+      coverUrl: 'https://assets.vrite.io/648a405da2da16eedd81ef95/pIZeRTKty3u9KSv3ln52g.jpeg',
       coverWidth: '100%',
       description: 'work in progress',
       id: '648e7f6e9106221f3079843f',
@@ -1842,8 +1837,7 @@ module.exports = {
         {
           id: '648a405da2da16eedd81ef99',
           profile: {
-            avatar:
-              'https://assets.vrite.io/648a405da2da16eedd81ef95/5bRmAmx6WdQXcCeBkA1iD.jpeg',
+            avatar: 'https://assets.vrite.io/648a405da2da16eedd81ef95/5bRmAmx6WdQXcCeBkA1iD.jpeg',
             email: 'tbeseda@gmail.com',
             fullName: 'Taylor Beseda',
             id: '648a405da2da16eedd81ef93',

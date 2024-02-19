@@ -3,7 +3,7 @@ import arc from '@architect/functions'
 const { articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-async function getHandler () {
+async function getHandler() {
   // TODO: not scan
   const query = await articles.scan({
     Limit: 100,

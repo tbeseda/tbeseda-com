@@ -1,20 +1,16 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function Grid ({ html, state: { attrs } }) {
+export default function Grid({ html, state: { attrs } }) {
   const { cols, rows } = attrs
   const colDgits = cols?.split('_')
   const rowDgits = rows?.split('_')
   let style = ''
 
   if (cols) {
-    style += `grid-template-columns: ${colDgits
-      .map((digit) => `${digit}fr`)
-      .join(' ')}; `
+    style += `grid-template-columns: ${colDgits.map((digit) => `${digit}fr`).join(' ')}; `
   }
 
   if (rows) {
-    style += `grid-template-rows: ${rowDgits
-      .map((digit) => `${digit}fr`)
-      .join(' ')};`
+    style += `grid-template-rows: ${rowDgits.map((digit) => `${digit}fr`).join(' ')};`
   }
 
   return html`

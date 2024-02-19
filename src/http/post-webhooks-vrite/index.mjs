@@ -10,7 +10,7 @@ const typeString = 'vrite:content'
 const { things } = await arc.tables()
 const vrite = createClient({ token: VRITE_KEY })
 
-async function http ({ body }) {
+async function http({ body }) {
   // ? create event in order to respond faster
 
   const { contentGroupId, id, title } = body
@@ -51,8 +51,7 @@ async function http ({ body }) {
   }
 
   if (contentPiece) {
-    const currentContentGroupName =
-      contentGroupsById[contentPiece.contentGroupId].name
+    const currentContentGroupName = contentGroupsById[contentPiece.contentGroupId].name
 
     if (currentContentGroupName) {
       console.log(`Content currently in group "${currentContentGroupName}"`)
@@ -93,18 +92,12 @@ async function http ({ body }) {
           try {
             await things.delete({ key: `${typeString}:${groupName}:${id}` })
           } catch (error) {
-            console.log(
-              'Error deleting content',
-              JSON.stringify(error, null, 2),
-            )
+            console.log('Error deleting content', JSON.stringify(error, null, 2))
           }
         }
       }
     } else {
-      console.log(
-        'Unkonwn content group name',
-        JSON.stringify(contentPiece, null, 2),
-      )
+      console.log('Unkonwn content group name', JSON.stringify(contentPiece, null, 2))
     }
   } else {
     console.log('No content piece found', JSON.stringify(contentPiece, null, 2))

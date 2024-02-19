@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function MilkdownEditor ({ html }) {
+export default function MilkdownEditor({ html }) {
   return html`
 <style>
   #editor {

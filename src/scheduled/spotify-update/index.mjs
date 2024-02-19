@@ -7,7 +7,7 @@ const { ARC_ENV } = process.env
 const tokenKey = 'spotify-token'
 const { things } = await arc.tables()
 
-export async function handler () {
+export async function handler() {
   if (ARC_ENV === 'staging') return
 
   let token

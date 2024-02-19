@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function BlogSearch ({ html, state: { store } }) {
+export default function BlogSearch({ html, state: { store } }) {
   const { q, results } = store
 
   return html`
@@ -18,9 +18,13 @@ export default function BlogSearch ({ html, state: { store } }) {
     </form>
 
     <ul>
-      ${results.map(({ id, title, slug }) => html`
+      ${results
+        .map(
+          ({ id, title, slug }) => html`
         <li><a href="/blog/${slug}">${title}</a></li>
-      `).join('')}
+      `,
+        )
+        .join('')}
     </ul>
 
   `

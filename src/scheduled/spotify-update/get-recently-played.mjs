@@ -3,7 +3,7 @@ import arc from '@architect/functions'
 const key = 'spotify-recently-played'
 const { things } = await arc.tables()
 
-export default async function getRecentlyPlayed (token) {
+export default async function getRecentlyPlayed(token) {
   try {
     const params = new URLSearchParams({
       limit: '6',
@@ -19,9 +19,7 @@ export default async function getRecentlyPlayed (token) {
     const recentlyPlayed = await response.json()
 
     if (recentlyPlayed.error) {
-      console.error(
-        `${recentlyPlayed.error}: ${recentlyPlayed.error_description}`,
-      )
+      console.error(`${recentlyPlayed.error}: ${recentlyPlayed.error_description}`)
       return
     }
 

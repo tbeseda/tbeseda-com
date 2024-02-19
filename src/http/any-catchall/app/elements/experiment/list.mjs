@@ -1,7 +1,7 @@
 import { Collection } from 'waylon'
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function List ({ html, state: { store } }) {
+export default function List({ html, state: { store } }) {
   const { experiments = [] } = store
   const collection = new Collection(experiments)
 
@@ -45,8 +45,7 @@ export default function List ({ html, state: { store } }) {
     <c-grid cols="1_1">
       ${collection.render(
         'div',
-        (i) =>
-          i.attrs({ class: `experiment${i.i.featured ? ' featured' : ''}` }),
+        (i) => i.attrs({ class: `experiment${i.i.featured ? ' featured' : ''}` }),
         (item) => `
           <h3>
             ${item.link(item.i.url, item.i.name)}

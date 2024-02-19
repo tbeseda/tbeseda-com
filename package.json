@@ -6,10 +6,11 @@
     "deploy.both": "npm run deploy.staging && npm run deploy.production",
     "deploy.production": "arc deploy --production",
     "deploy.staging": "arc deploy",
-    "lint": "eslint --ext .mjs --ext .js .",
-    "lint.fix": "npm run lint -- --fix",
+    "check": "biome check --apply ./",
+    "lint": "biome lint --apply ./",
+    "format": "biome format --write ./",
     "start": "arc sandbox",
-    "test": "npm run lint && node --test test/",
+    "test": "npm run check && node --test test/",
     "check-updates": "npx npm-check-updates"
   },
   "repository": {
@@ -56,6 +57,7 @@
     "enhance-app-core": "file:../enhance-app",
     "feed": "^4.2.2",
     "header-timers": "^0.2.1",
+    "html-skelly": "^0.1.0",
     "minisearch": "^6.3.0",
     "pm2html": "^0.1.12",
     "pug": "^3.0.2",
@@ -70,9 +72,8 @@
     "@architect/plugin-lambda-invoker": "^1.2.0",
     "@architect/plugin-rust": "^0.1.1",
     "@aws-lite/dynamodb-types": "^0.3.6",
+    "@biomejs/biome": "^1.5.3",
     "@enhance/types": "^0.7.0",
-    "eslint": "^8.56.0",
-    "eslint-config-standard": "^17.1.0",
     "microformats-parser": "^2.0.2"
   },
   "eslintConfig": {

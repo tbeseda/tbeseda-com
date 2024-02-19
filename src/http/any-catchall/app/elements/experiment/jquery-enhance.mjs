@@ -1,4 +1,4 @@
-export default function JQueryEnhance ({ html }) {
+export default function JQueryEnhance({ html }) {
   return html`
 <h2>jQuery with Enhance</h2>
 <h3>jQuery in a web component served by Enhance</h3>

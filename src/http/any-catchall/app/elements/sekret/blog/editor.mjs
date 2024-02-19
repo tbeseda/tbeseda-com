@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function SekretBlogEditor ({ html, state: { store } }) {
+export default function SekretBlogEditor({ html, state: { store } }) {
   const { article = {} } = store
   const tick = '`'
 

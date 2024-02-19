@@ -2,19 +2,20 @@ import { Buffer } from 'node:buffer'
 import { URLSearchParams } from 'node:url'
 import arc from '@architect/functions'
 
-const { ARC_ENV, SPOTIFY_CLIENT, SPOTIFY_SECRET, SPOTIFY_REDIRECT } =
-  process.env
+const { ARC_ENV, SPOTIFY_CLIENT, SPOTIFY_SECRET, SPOTIFY_REDIRECT } = process.env
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get ({ query, session }) {
+export async function get({ query, session }) {
   if (ARC_ENV === 'staging') return { text: 'Not prod' }
 
-  if (!(SPOTIFY_CLIENT && SPOTIFY_SECRET && SPOTIFY_REDIRECT)) { throw new Error('Missing Spotify environment variables') }
+  if (!(SPOTIFY_CLIENT && SPOTIFY_SECRET && SPOTIFY_REDIRECT)) {
+    throw new Error('Missing Spotify environment variables')
+  }
 
   const { code, state } = query
   const { spotifyState } = session
-  delete session.state
+  session.state = undefined
 
   if (state !== spotifyState) throw new Error('Invalid state')
 
@@ -24,9 +25,9 @@ export async function get ({ query, session }) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Basic ${Buffer.from(
-          `${SPOTIFY_CLIENT}:${SPOTIFY_SECRET}`,
-        ).toString('base64')}`,
+        Authorization: `Basic ${Buffer.from(`${SPOTIFY_CLIENT}:${SPOTIFY_SECRET}`).toString(
+          'base64',
+        )}`,
         Accept: 'application/json',
       },
       body: new URLSearchParams({
@@ -37,7 +38,9 @@ export async function get ({ query, session }) {
     })
     token = await response.json()
 
-    if (token.error) { throw new Error(`${token.error}: ${token.error_description}`) }
+    if (token.error) {
+      throw new Error(`${token.error}: ${token.error_description}`)
+    }
 
     const savedToken = await things.put({
       key: 'spotify-token',

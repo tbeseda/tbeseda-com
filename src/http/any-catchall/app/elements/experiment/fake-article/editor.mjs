@@ -1,8 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExperimentFakeArticleEditor ({
-  html,
-  state: { store },
-}) {
+export default function ExperimentFakeArticleEditor({ html, state: { store } }) {
   return html`
     <style>
       :host {

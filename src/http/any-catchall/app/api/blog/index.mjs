@@ -3,7 +3,7 @@ import arc from '@architect/functions'
 const { articles } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export const get = async function ({ timers }) {
+export const get = async ({ timers }) => {
   timers.start('articles-query', 'tb-articles-query')
   // TODO: not scan
   const query = await articles.scan({

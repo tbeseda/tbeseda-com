@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExperimentToot ({ html }) {
+export default function ExperimentToot({ html }) {
   return html`
     <style>
       /* Mastodon API sends back HTML with classes */

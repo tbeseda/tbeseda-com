@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExperimentTerm ({ html, state: { store } }) {
+export default function ExperimentTerm({ html, state: { store } }) {
   const { userIp } = store
 
   return html`

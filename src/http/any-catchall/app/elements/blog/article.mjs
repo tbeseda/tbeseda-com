@@ -2,7 +2,7 @@ import HeaderTimers from 'header-timers'
 import { renderer } from '../../lib/pm2html-renderer.mjs'
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function BlogArticle ({ html, state: { store } }) {
+export default function BlogArticle({ html, state: { store } }) {
   const { article, queryTime } = store
   const timers = HeaderTimers()
 

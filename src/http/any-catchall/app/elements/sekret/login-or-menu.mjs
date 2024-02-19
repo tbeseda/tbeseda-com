@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function SekretLoginOrMenu ({ html, state: { store } }) {
+export default function SekretLoginOrMenu({ html, state: { store } }) {
   let { authorized } = store
   authorized = !!authorized
 

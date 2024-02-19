@@ -1,7 +1,7 @@
 import { Collection } from 'waylon'
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function BlogList ({ html, state: { store } }) {
+export default function BlogList({ html, state: { store } }) {
   const { articles = [] } = store
   const collection = new Collection(articles)
   return html`

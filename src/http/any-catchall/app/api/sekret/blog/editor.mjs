@@ -2,7 +2,7 @@ import arc from '@architect/functions'
 import { createID } from '../../../lib/create-id.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get ({ query, session }) {
+export async function get({ query, session }) {
   let { authorized } = session
   authorized = !!authorized
 
@@ -19,23 +19,14 @@ export async function get ({ query, session }) {
 }
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function post ({ body, session }) {
+export async function post({ body, session }) {
   let { authorized } = session
   authorized = !!authorized
 
   if (!authorized) throw new Error('Unauthorized')
 
   const { articles } = await arc.tables()
-  const {
-    action,
-    articleID,
-    content,
-    date,
-    description,
-    published,
-    slug,
-    title,
-  } = body
+  const { action, articleID, content, date, description, published, slug, title } = body
 
   if (action === 'destroy') {
     await articles.delete({ articleID })

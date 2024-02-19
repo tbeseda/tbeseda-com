@@ -9,7 +9,7 @@ const html = createHtmlRenderer({
     name: 'Axol',
   },
   elements: {
-    'hello-world': function ({ html, state }) {
+    'hello-world': ({ html, state }) => {
       const { attrs, store } = state
       const { name = 'you' } = store
       const { greeting = 'Hello' } = attrs

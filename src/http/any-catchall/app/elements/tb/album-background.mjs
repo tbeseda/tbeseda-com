@@ -1,6 +1,8 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function AlbumBackground ({ html, state: { store } }) {
-  const { currentlyPlaying: { item } } = store
+export default function AlbumBackground({ html, state: { store } }) {
+  const {
+    currentlyPlaying: { item },
+  } = store
   const images = item.album.images
 
   let image

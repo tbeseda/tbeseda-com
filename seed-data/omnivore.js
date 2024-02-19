@@ -36,8 +36,7 @@ module.exports = {
           slug: 'ifa-2023-could-be-a-moment-for-the-smart-home-shine-the-verge-18a35b4eef5',
           description:
             'IFA is the world’s largest consumer electronics and home appliances show, and it kicks off in Berlin next week, September 1st through 5th.',
-          title:
-            'IFA 2023 could be a moment for the smart home shine - The Verge',
+          title: 'IFA 2023 could be a moment for the smart home shine - The Verge',
           url: 'https://www.theverge.com/2023/8/26/23844529/smart-home-matter-ifa-2023-tech-show',
           pageType: 'ARTICLE',
           hash: '454b404cea84bd8df50bc1c88f168a0a',
@@ -66,8 +65,7 @@ module.exports = {
         slug: 'ifa-2023-could-be-a-moment-for-the-smart-home-shine-the-verge-18a35b4eef5',
         description:
           'IFA is the world’s largest consumer electronics and home appliances show, and it kicks off in Berlin next week, September 1st through 5th.',
-        title:
-          'IFA 2023 could be a moment for the smart home shine - The Verge',
+        title: 'IFA 2023 could be a moment for the smart home shine - The Verge',
         url: 'https://www.theverge.com/2023/8/26/23844529/smart-home-matter-ifa-2023-tech-show',
         pageType: 'ARTICLE',
         hash: '454b404cea84bd8df50bc1c88f168a0a',
@@ -105,8 +103,7 @@ module.exports = {
           slug: 'ifa-2023-could-be-a-moment-for-the-smart-home-shine-the-verge-18a35b4eef5',
           description:
             'IFA is the world’s largest consumer electronics and home appliances show, and it kicks off in Berlin next week, September 1st through 5th.',
-          title:
-            'IFA 2023 could be a moment for the smart home shine - The Verge',
+          title: 'IFA 2023 could be a moment for the smart home shine - The Verge',
           url: 'https://www.theverge.com/2023/8/26/23844529/smart-home-matter-ifa-2023-tech-show',
           pageType: 'ARTICLE',
           hash: '454b404cea84bd8df50bc1c88f168a0a',
@@ -192,21 +189,18 @@ module.exports = {
             'Depopulation and an aging society have turned parts of the countryside into tourist attractions for those eager to explore a forgotten era.',
           hash: '868a9574ef8b5cd073000cdd652add6b',
           id: '4d5c9bc5-3b55-4254-af34-888230a5cccd',
-          image:
-            'https://www.japantimes.co.jp/japantimes/uploads/images/2023/08/18/245987.jpg',
+          image: 'https://www.japantimes.co.jp/japantimes/uploads/images/2023/08/18/245987.jpg',
           language: 'English',
           pageType: 'ARTICLE',
           publishedAt: '2023-08-18T08:57:07.000Z',
           readingProgressAnchorIndex: 0,
           readingProgressPercent: 0,
           savedAt: '2023-08-28T00:38:17.054Z',
-          siteIcon:
-            'https://www.japantimes.co.jp/theme_japantimes/images/favicon.ico',
+          siteIcon: 'https://www.japantimes.co.jp/theme_japantimes/images/favicon.ico',
           siteName: 'The Japan Times',
           slug: 'exploring-the-eerie-beauty-of-japan-s-abandoned-villages-the-jap-18a3993b8de',
           state: 'SUCCEEDED',
-          title:
-            "Exploring the eerie beauty of Japan's abandoned villages - The Japan Times",
+          title: "Exploring the eerie beauty of Japan's abandoned villages - The Japan Times",
           type: 'page',
           url: 'https://www.japantimes.co.jp/news/2023/08/18/japan/society/exploring-the-eerie-beauty-of-japans-abandoned-villages?omnivore=true',
           userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
@@ -237,8 +231,7 @@ module.exports = {
           "If you don't often look beyond established comfortable defaults, you might be surprised to learn just how far the world of frontend has moved away from React, and how big that gap continues to grow.",
         hash: '9bc11fb582dbcd1c6b535726885943b8',
         id: 'c07752b9-c71a-4f69-a106-4a867895fa39',
-        image:
-          'https://joshcollinsworth.com/images/post_images/because-of-react.png',
+        image: 'https://joshcollinsworth.com/images/post_images/because-of-react.png',
         language: 'English',
         pageType: 'ARTICLE',
         readingProgressAnchorIndex: 0,
@@ -248,8 +241,7 @@ module.exports = {
         siteName: 'Josh Collinsworth',
         slug: 'things-you-forgot-or-never-knew-because-of-react-josh-collinswor-18a39926a00',
         state: 'SUCCEEDED',
-        title:
-          'Things you forgot (or never knew) because of React - Josh Collinsworth blog',
+        title: 'Things you forgot (or never knew) because of React - Josh Collinsworth blog',
         type: 'page',
         url: 'https://joshcollinsworth.com/blog/antiquated-react?omivore=true',
         userId: '81f4256e-436d-11ee-afdb-f3959092db7f',
@@ -273,8 +265,7 @@ module.exports = {
             "If you don't often look beyond established comfortable defaults, you might be surprised to learn just how far the world of frontend has moved away from React, and how big that gap continues to grow.",
           hash: '9bc11fb582dbcd1c6b535726885943b8',
           id: 'c07752b9-c71a-4f69-a106-4a867895fa39',
-          image:
-            'https://joshcollinsworth.com/images/post_images/because-of-react.png',
+          image: 'https://joshcollinsworth.com/images/post_images/because-of-react.png',
           language: 'English',
           pageType: 'ARTICLE',
           readingProgressAnchorIndex: 0,
@@ -284,8 +275,7 @@ module.exports = {
           siteName: 'Josh Collinsworth',
           slug: 'things-you-forgot-or-never-knew-because-of-react-josh-collinswor-18a39926a00',
           state: 'SUCCEEDED',
-          title:
-            'Things you forgot (or never knew) because of React - Josh Collinsworth blog',
+          title: 'Things you forgot (or never knew) because of React - Josh Collinsworth blog',
           type: 'page',
           url: 'https://joshcollinsworth.com/blog/antiquated-react?omivore=true',
           userId: '81f4256e-436d-11ee-afdb-f3959092db7f',

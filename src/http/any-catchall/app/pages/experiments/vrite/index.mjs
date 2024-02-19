@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function VriteIndex ({ html, state: { store } }) {
+export default function VriteIndex({ html, state: { store } }) {
   const { published = [], drafts = [], ideas = [] } = store
 
   return html`

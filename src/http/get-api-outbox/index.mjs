@@ -6,7 +6,7 @@ import arc from '@architect/functions'
 // where this server would send out events
 // unsure if that fits this architecture
 
-export const handler = arc.http(async function http (request) {
+export const handler = arc.http(async function http(request) {
   return {
     statusCode: 200,
     headers: {

@@ -44,13 +44,13 @@ test('smoke and microformats', async (t) => {
   })
 
   await t.test('matches original h-card data', async (st) => {
-    const { default: myHCardData } = await import(
-      '../app/middleware/add-h-cards.mjs'
-    )
+    const { default: myHCardData } = await import('../app/middleware/add-h-cards.mjs')
     const fakeReq = {}
     await myHCardData(fakeReq)
     const {
-      hCards: { items: [myHCard] },
+      hCards: {
+        items: [myHCard],
+      },
     } = fakeReq
 
     for (const key of [
@@ -68,11 +68,7 @@ test('smoke and microformats', async (t) => {
       const hCardVal = parsedHCard.properties[key][0]
       const myHCardVal = myHCard.properties[key][0]
 
-      assert.equal(
-        hCardVal,
-        myHCardVal,
-        `"${key}" match: ${hCardVal} === ${myHCardVal}`,
-      )
+      assert.equal(hCardVal, myHCardVal, `"${key}" match: ${hCardVal} === ${myHCardVal}`)
     }
   })
 })

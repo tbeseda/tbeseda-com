@@ -1,6 +1,6 @@
 import arc from '@architect/functions'
 
-async function http (request) {
+async function http(request) {
   return {
     headers: {
       'Content-Type': 'application/jrd+json',

@@ -15,7 +15,7 @@ const IQAIR_URL = [
 
 const { things } = await arc.tables()
 
-export async function handler () {
+export async function handler() {
   const results = []
 
   try {

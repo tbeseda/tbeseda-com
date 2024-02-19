@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function TbHeader ({ html, state: { store } }) {
+export default function TbHeader({ html, state: { store } }) {
   const me = {
     name: 'Taylor Beseda',
     url: 'https://tbeseda.com',

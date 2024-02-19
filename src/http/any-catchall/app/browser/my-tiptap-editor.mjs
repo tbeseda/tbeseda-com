@@ -10,7 +10,7 @@ import TableRow from '@tiptap/extension-table-row'
 import StarterKit from '@tiptap/starter-kit'
 
 export class MyEditor extends Editor {
-  constructor ({
+  constructor({
     element,
     extensions = [
       StarterKit,
@@ -38,7 +38,7 @@ export class MyEditor extends Editor {
       content,
       editorProps: {
         // helpful: https://www.codemzy.com/blog/tiptap-drag-drop-image
-        handleDrop (view, event, slice, moved) {
+        handleDrop(view, event, slice, moved) {
           if (
             !moved &&
             event.dataTransfer &&
@@ -59,7 +59,7 @@ export class MyEditor extends Editor {
 
             const img = new window.Image()
             img.src = URL.createObjectURL(file)
-            img.onload = function () {
+            img.onload = () => {
               if (img.width > 5000 || img.height > 5000) {
                 window.alert('less than 5000px wide and tall')
               } else {
@@ -80,10 +80,7 @@ export class MyEditor extends Editor {
                         top: event.clientY,
                       })
                       const node = schema.nodes.image.create({ src: url })
-                      const transaction = view.state.tr.insert(
-                        coordinates?.pos || 0,
-                        node,
-                      )
+                      const transaction = view.state.tr.insert(coordinates?.pos || 0, node)
                       return view.dispatch(transaction)
                     })
                   }

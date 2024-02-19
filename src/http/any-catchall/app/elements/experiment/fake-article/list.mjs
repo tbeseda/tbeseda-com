@@ -9,7 +9,7 @@ const renderer = new Renderer({
 })
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExperimentFakeArticleList ({ html, state: { store } }) {
+export default function ExperimentFakeArticleList({ html, state: { store } }) {
   const { articles = [] } = store
 
   return html`
@@ -48,9 +48,7 @@ export default function ExperimentFakeArticleList ({ html, state: { store } }) {
           <td>${article.slug}</td>
           <td>${article.articleID}</td>
           <td>
-            <input type="checkbox" disabled ${
-              article.published ? 'checked' : ''
-            } />
+            <input type="checkbox" disabled ${article.published ? 'checked' : ''} />
           </td>
           <td>${article.date}</td>
         </tr>

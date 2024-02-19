@@ -3,7 +3,7 @@ import { Terminal } from 'xterm'
 import { Readline } from 'xterm-readline'
 
 export class SimpleXterm {
-  constructor ({
+  constructor({
     elem,
     user = '👻',
     host = 'localhost',
@@ -25,7 +25,7 @@ export class SimpleXterm {
     this.setPs1()
   }
 
-  setPs1 () {
+  setPs1() {
     this.ps1 = [
       chalk.blueBright(this.user),
       '@',
@@ -35,16 +35,16 @@ export class SimpleXterm {
     ].join('')
   }
 
-  setUser (user) {
+  setUser(user) {
     this.user = user
     this.setPs1()
   }
 
-  write (text) {
+  write(text) {
     this.rl.println(text)
   }
 
-  async run (cmd) {
+  async run(cmd) {
     const [cmdName, ...args] = cmd.split(' ')
 
     try {
@@ -62,15 +62,15 @@ export class SimpleXterm {
     this.write('')
   }
 
-  async processLine (text) {}
+  async processLine(text) {}
 
-  async readLine () {
+  async readLine() {
     const text = await this.rl.read(this.ps1)
     await this.run(text)
     setTimeout(this.readLine.bind(this)) // tick
   }
 
-  init (commands) {
+  init(commands) {
     this.commands = commands
     this.term.loadAddon(this.rl)
     this.term.open(this.elem)

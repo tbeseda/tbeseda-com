@@ -13,8 +13,7 @@ const parse = (event) =>
   new Promise((resolve, reject) => {
     const busboy = Busboy({
       headers: {
-        'content-type':
-          event.headers['content-type'] || event.headers['Content-Type'],
+        'content-type': event.headers['content-type'] || event.headers['Content-Type'],
       },
     })
     /** @type {{files: Array<Record<string, any>>}} */
@@ -51,14 +50,13 @@ const parse = (event) =>
       resolve(result)
     })
 
-    const encoding =
-      event.encoding || (event.isBase64Encoded ? 'base64' : 'binary')
+    const encoding = event.encoding || (event.isBase64Encoded ? 'base64' : 'binary')
 
     busboy.write(event.body, encoding)
     busboy.end()
   })
 
-export async function post (req) {
+export async function post(req) {
   let { authorized } = req.session
   authorized = !!authorized
   if (!authorized) throw new Error('Unauthorized')
@@ -79,12 +77,7 @@ export async function post (req) {
     const { join } = await import('node:path')
     const { fileURLToPath } = await import('node:url')
     const __dirname = fileURLToPath(new URL('.', import.meta.url))
-    const imageDir = join(
-      __dirname,
-      ...Array(4).fill('..'),
-      'public',
-      imageFolder,
-    )
+    const imageDir = join(__dirname, ...Array(4).fill('..'), 'public', imageFolder)
 
     try {
       mkdirSync(imageDir, { recursive: true })

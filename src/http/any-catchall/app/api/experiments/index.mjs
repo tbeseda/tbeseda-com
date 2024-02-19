@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export const get = async function () {
+export const get = async () => {
   const experiments = [
     {
       name: 'jQuery with Enhance',
@@ -27,16 +27,14 @@ export const get = async function () {
     {
       name: 'Enhance SSR Playground',
       date: '2024-01-18',
-      description:
-        'A browser-based playground for testing Enhance SSR.',
+      description: 'A browser-based playground for testing Enhance SSR.',
       url: '/experiments/enhance-ssr-playground',
       wip: true,
     },
     {
       name: 'Blog Search',
       date: '2023-11-18',
-      description:
-        'Search my blog for articles containing a word or phrase.',
+      description: 'Search my blog for articles containing a word or phrase.',
       url: '/experiments/blog-search',
       featured: true,
       wip: true,
@@ -72,8 +70,7 @@ export const get = async function () {
     {
       name: 'My Spotify Activity',
       date: '2023',
-      description:
-        'Live updates from my listening on Spotify! Also my top tracks and artists.',
+      description: 'Live updates from my listening on Spotify! Also my top tracks and artists.',
       url: '/experiments/spotify',
       featured: true,
     },
@@ -87,8 +84,7 @@ export const get = async function () {
     {
       name: '$ terminal',
       date: '2023',
-      description:
-        'A terminal emulator that runs in the browser. Based on xterm.js.',
+      description: 'A terminal emulator that runs in the browser. Based on xterm.js.',
       url: '/experiments/$',
     },
     {
@@ -101,8 +97,7 @@ export const get = async function () {
     {
       name: 'My Local Weather and Air Quality',
       date: '2023',
-      description:
-        'Recent data from Tomorrow.io, AirNow.gov, and IQAir.com.',
+      description: 'Recent data from Tomorrow.io, AirNow.gov, and IQAir.com.',
       url: '/experiments/my-weather',
     },
     {

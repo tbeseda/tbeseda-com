@@ -4,7 +4,7 @@ const typeString = 'vrite:content'
 const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export const get = async function () {
+export const get = async () => {
   const { Items: contentPieces } = await things.query({
     IndexName: 'thingsByType',
     KeyConditionExpression: '#type = :type',
@@ -16,15 +16,9 @@ export const get = async function () {
     },
   })
 
-  const published = contentPieces.filter((item) =>
-    item.key.startsWith(`${typeString}:Published:`),
-  )
-  const drafts = contentPieces.filter((item) =>
-    item.key.startsWith(`${typeString}:Drafts:`),
-  )
-  const ideas = contentPieces.filter((item) =>
-    item.key.startsWith(`${typeString}:Ideas:`),
-  )
+  const published = contentPieces.filter((item) => item.key.startsWith(`${typeString}:Published:`))
+  const drafts = contentPieces.filter((item) => item.key.startsWith(`${typeString}:Drafts:`))
+  const ideas = contentPieces.filter((item) => item.key.startsWith(`${typeString}:Ideas:`))
 
   return {
     json: { published, drafts, ideas },

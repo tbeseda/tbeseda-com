@@ -8,7 +8,7 @@ const stats = fs.statSync(filePath) // file size is static
 
 export const handler = arc.http(getRandomSkull)
 
-async function getRandomSkull () {
+async function getRandomSkull() {
   // pick a random position in the file
   const cursor = Math.floor(Math.random() * stats.size)
   const fileStream = fs.createReadStream(filePath, {

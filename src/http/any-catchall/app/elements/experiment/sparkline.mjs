@@ -2,10 +2,28 @@
 // * https://chrisburnell.com/svg-sparkline/
 // * https://github.com/chrisburnell/svg-sparkline/blob/main/svg-sparkline.js (MIT)
 
-const observedAttributes = ['values', 'width', 'height', 'color', 'curve', 'endpoint', 'endpoint-color', 'endpoint-width', 'fill', 'gradient', 'fill-color', 'gradient-color', 'line-width', 'start-label', 'end-label', 'animation-duration', 'animation-delay']
+const observedAttributes = [
+  'values',
+  'width',
+  'height',
+  'color',
+  'curve',
+  'endpoint',
+  'endpoint-color',
+  'endpoint-width',
+  'fill',
+  'gradient',
+  'fill-color',
+  'gradient-color',
+  'line-width',
+  'start-label',
+  'end-label',
+  'animation-duration',
+  'animation-delay',
+]
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function Sparkline ({ html, state: { attrs, instanceID } }) {
+export default function Sparkline({ html, state: { attrs, instanceID } }) {
   if (!attrs.values) return ''
 
   /** @type {Record<string, any>} */
@@ -26,19 +44,19 @@ export default function Sparkline ({ html, state: { attrs, instanceID } }) {
 
     if (!val) continue
 
-    const key = k.replace(/-([a-z])/g, g => g[1].toUpperCase())
+    const key = k.replace(/-([a-z])/g, (g) => g[1].toUpperCase())
 
     if (key === 'values') {
       if (val === 'random') {
         a[key] = Array.from({ length: 12 }, () => Math.floor(Math.random() * 10))
       } else {
-        a[key] = val.split(',').map(v => Number(v))
+        a[key] = val.split(',').map((v) => Number(v))
       }
     } else if (val === 'true') {
       a[key] = true
     } else if (val === 'false') {
       a[key] = false
-    } else if (!isNaN(Number(val))) {
+    } else if (!Number.isNaN(Number(val))) {
       a[key] = parseFloat(val)
     } else {
       a[key] = val
@@ -68,8 +86,14 @@ export default function Sparkline ({ html, state: { attrs, instanceID } }) {
           </linearGradient>
         </defs>
         <path
-            d="${getPath(a.values, a.curve ? bezierCommand : lineCommand)} L ${getFinalX(a.values)} ${getHighestY(a.values)} L 0 ${getHighestY(a.values)} Z"
-            fill="${a.fill ? `var(--svg-sparkline-gradient-color, ${a.gradientColor})` : `url('#svg-sparkline-gradient-${gradientID}')`}"
+            d="${getPath(a.values, a.curve ? bezierCommand : lineCommand)} L ${getFinalX(
+              a.values,
+            )} ${getHighestY(a.values)} L 0 ${getHighestY(a.values)} Z"
+            fill="${
+              a.fill
+                ? `var(--svg-sparkline-gradient-color, ${a.gradientColor})`
+                : `url('#svg-sparkline-gradient-${gradientID}')`
+            }"
             stroke="transparent"
         />
       `)
@@ -91,7 +115,9 @@ export default function Sparkline ({ html, state: { attrs, instanceID } }) {
   if (a.endpoint) {
     content.push(`
         <svg width="${a.width}px" height="${a.height}px" viewBox="0 0 ${a.width} ${a.height}" preserveAspectRatio="xMaxYMid meet">
-          <circle " r="${a.endpointWidth / 2}" cx="${a.width}" cy="${(a.height / getHighestY(a.values)) * getFinalY(a.values)}" fill="var(--svg-sparkline-endpoint-color, ${a.endpointColor})"></circle>
+          <circle " r="${a.endpointWidth / 2}" cx="${a.width}" cy="${
+            (a.height / getHighestY(a.values)) * getFinalY(a.values)
+          }" fill="var(--svg-sparkline-endpoint-color, ${a.endpointColor})"></circle>
         </svg>
       `)
   }
@@ -163,35 +189,35 @@ ${content.join('\n')}
   `
 }
 
-function maxDecimals (value, decimals = 2) {
+function maxDecimals(value, decimals = 2) {
   return +value.toFixed(decimals)
 }
 
-function getViewBox (values) {
+function getViewBox(values) {
   return `0 0 ${values.length - 1} ${Math.max(...values) + 2}`
 }
 
-function lineCommand (point, i, a) {
+function lineCommand(point, i, a) {
   return `L ${i},${point}`
 }
 
-function line (ax, ay, bx, by) {
+function line(ax, ay, bx, by) {
   const lengthX = bx - ax
   const lengthY = by - ay
 
   return {
-    length: Math.sqrt(Math.pow(lengthX, 2) + Math.pow(lengthY, 2)),
+    length: Math.sqrt(lengthX ** 2 + lengthY ** 2),
     angle: Math.atan2(lengthY, lengthX),
   }
 }
 
-function controlPoint (cx, cy, px, py, nx, ny, reverse) {
+function controlPoint(cx, cy, prevX, prevY, nextX, nextY, reverse) {
   // When the current is the first or last point of the array, previous and
   // next don't exist. Replace with current.
-  px = px || cx
-  py = py || cy
-  nx = nx || cx
-  ny = ny || cy
+  const px = prevX || cx
+  const py = prevY || cy
+  const nx = nextX || cx
+  const ny = nextY || cy
 
   const smoothing = 0.2
 
@@ -206,31 +232,35 @@ function controlPoint (cx, cy, px, py, nx, ny, reverse) {
   return [x, y]
 }
 
-function bezierCommand (point, i, a) {
+function bezierCommand(point, i, a) {
   const [csx, csy] = controlPoint(i - 1, a[i - 1], i - 2, a[i - 2], i, point)
   const [cex, cey] = controlPoint(i, point, i - 1, a[i - 1], i + 1, a[i + 1], true)
 
-  return `C ${maxDecimals(csx)},${maxDecimals(csy)} ${maxDecimals(cex)},${maxDecimals(cey)} ${i},${point}`
+  return `C ${maxDecimals(csx)},${maxDecimals(csy)} ${maxDecimals(cex)},${maxDecimals(
+    cey,
+  )} ${i},${point}`
 }
 
-function getPath (values, command = lineCommand) {
-  return values
-    // flips each point in the vertical range
-    .map((point) => Math.max(...values) - point + 1)
-    // generate a string
-    .reduce((acc, point, i, a) => {
-      return i < 1 ? `M 0,${point}` : `${acc} ${command(point, i, a)}`
-    }, '')
+function getPath(values, command = lineCommand) {
+  return (
+    values
+      // flips each point in the vertical range
+      .map((point) => Math.max(...values) - point + 1)
+      // generate a string
+      .reduce((acc, point, i, a) => {
+        return i < 1 ? `M 0,${point}` : `${acc} ${command(point, i, a)}`
+      }, '')
+  )
 }
 
-function getFinalX (values) {
+function getFinalX(values) {
   return values.length - 1
 }
 
-function getFinalY (values) {
+function getFinalY(values) {
   return Math.max(...values) - values[values.length - 1] + 1
 }
 
-function getHighestY (values) {
+function getHighestY(values) {
   return Math.max(...values) + 2
 }
