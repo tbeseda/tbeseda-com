@@ -1,0 +1,132 @@
+<tb-header></tb-header>
+
+<main>
+  <article>
+    <h2>VSCode Webview UI Toolkit</h2>
+    <p>
+      Testing the web components offered by
+      <a href="https://github.com/microsoft/vscode-webview-ui-toolkit">the VSCode Webview UI Toolkit</a>.
+      These are not server rendered.
+      The library is imported from esm.sh.
+    </p>
+
+    <div
+      class="popout"
+      style="margin-top: 2rem; display: flex; flex-direction: column; align-items: start; gap: 1rem;"
+    >
+      <vscode-tag>Demo</vscode-tag>
+
+      <vscode-divider role="separator"></vscode-divider>
+
+      <vscode-button id="howdy">Howdy!</vscode-button>
+
+      <vscode-divider role="separator"></vscode-divider>
+
+      <vscode-data-grid aria-label="Basic">
+        <vscode-data-grid-row row-type="header">
+          <vscode-data-grid-cell cell-type="columnheader" grid-column="1">Header 1</vscode-data-grid-cell>
+          <vscode-data-grid-cell cell-type="columnheader" grid-column="2">Header 2</vscode-data-grid-cell>
+          <vscode-data-grid-cell cell-type="columnheader" grid-column="3">Header 3</vscode-data-grid-cell>
+          <vscode-data-grid-cell cell-type="columnheader" grid-column="4">Header 4</vscode-data-grid-cell>
+        </vscode-data-grid-row>
+        <vscode-data-grid-row>
+          <vscode-data-grid-cell grid-column="1">Cell Data</vscode-data-grid-cell>
+          <vscode-data-grid-cell grid-column="2">Cell Data</vscode-data-grid-cell>
+          <vscode-data-grid-cell grid-column="3">Cell Data</vscode-data-grid-cell>
+          <vscode-data-grid-cell grid-column="4">Cell Data</vscode-data-grid-cell>
+        </vscode-data-grid-row>
+        <vscode-data-grid-row>
+          <vscode-data-grid-cell grid-column="1">Cell Data</vscode-data-grid-cell>
+          <vscode-data-grid-cell grid-column="2">Cell Data</vscode-data-grid-cell>
+          <vscode-data-grid-cell grid-column="3">Cell Data</vscode-data-grid-cell>
+          <vscode-data-grid-cell grid-column="4">Cell Data</vscode-data-grid-cell>
+        </vscode-data-grid-row>
+        <vscode-data-grid-row>
+          <vscode-data-grid-cell grid-column="1">Cell Data</vscode-data-grid-cell>
+          <vscode-data-grid-cell grid-column="2">Cell Data</vscode-data-grid-cell>
+          <vscode-data-grid-cell grid-column="3">Cell Data</vscode-data-grid-cell>
+          <vscode-data-grid-cell grid-column="4">Cell Data</vscode-data-grid-cell>
+        </vscode-data-grid-row>
+      </vscode-data-grid>
+
+      <vscode-divider role="separator"></vscode-divider>
+
+      <vscode-panels>
+        <vscode-panel-tab id="tab-1">
+          PROBLEMS
+          <vscode-badge>1</vscode-badge>
+        </vscode-panel-tab>
+        <vscode-panel-tab id="tab-2">
+          OUTPUT
+          <vscode-badge>2</vscode-badge>
+        </vscode-panel-tab>
+        <vscode-panel-tab id="tab-3">
+          DEBUG CONSOLE
+          <vscode-badge>3</vscode-badge>
+        </vscode-panel-tab>
+        <vscode-panel-tab id="tab-4">
+          TERMINAL
+        </vscode-panel-tab>
+        <vscode-panel-view id="view-1">
+          <section style="display: flex; flex-direction: column; width: 100%;">
+            <h1 style="margin-top: 0;">Smoothie Maker 🍓</h1>
+            <vscode-checkbox>Apples</vscode-checkbox>
+            <vscode-checkbox>Oranges</vscode-checkbox>
+            <vscode-checkbox>Grapes</vscode-checkbox>
+            <vscode-checkbox disabled>Blueberries</vscode-checkbox>
+            <vscode-checkbox>Pineapple</vscode-checkbox>
+            <vscode-checkbox>Mango</vscode-checkbox>
+            <vscode-checkbox checked>Lemon</vscode-checkbox>
+            <vscode-button>Make Smoothie!</vscode-button>
+          </section>
+        </vscode-panel-view>
+        <vscode-panel-view id="view-2"> Output Content </vscode-panel-view>
+        <vscode-panel-view id="view-3"> Debug Console Content </vscode-panel-view>
+        <vscode-panel-view id="view-4"> Terminal Content </vscode-panel-view>
+      </vscode-panels>
+
+      <vscode-divider role="separator"></vscode-divider>
+
+      <vscode-text-area cols="50" resize="both" placeholder="Type something">Text Area Label</vscode-text-area>
+    </div>
+  </article>
+</main>
+
+<tb-footer></tb-footer>
+
+<script type="module">
+  import {
+    provideVSCodeDesignSystem,
+    vsCodeTag,
+    vsCodeButton,
+    vsCodeDivider,
+    vsCodeDataGrid,
+    vsCodeDataGridCell,
+    vsCodeDataGridRow,
+    vsCodePanels,
+    vsCodePanelTab,
+    vsCodePanelView,
+    vsCodeBadge,
+    vsCodeCheckbox,
+    vsCodeTextArea,
+  } from 'https://esm.sh/@vscode/webview-ui-toolkit@1.4.0'
+
+  const system = provideVSCodeDesignSystem()
+  // console.log(system)
+  const button = vsCodeButton()
+  // console.log(button)
+  system.register(
+    vsCodeTag(),
+    button,
+    vsCodeDivider(),
+    vsCodeDataGrid(),
+    vsCodeDataGridCell(),
+    vsCodeDataGridRow(),
+    vsCodePanels(),
+    vsCodePanelTab(),
+    vsCodePanelView(),
+    vsCodeBadge(),
+    vsCodeCheckbox(),
+    vsCodeTextArea(),
+  )
+</script>

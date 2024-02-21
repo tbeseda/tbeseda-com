@@ -2,6 +2,12 @@
 export const get = async () => {
   const experiments = [
     {
+      name: 'VS Code Web Components',
+      date: '2024-02-20',
+      description: 'Use @vscode/webview-ui-toolkit in a webpage.',
+      url: '/experiments/vscode-webview-ui-toolkit',
+    },
+    {
       name: 'jQuery with Enhance',
       date: '2024-02-08',
       description: 'jQuery 4.0 in a web component served by Enhance.',
