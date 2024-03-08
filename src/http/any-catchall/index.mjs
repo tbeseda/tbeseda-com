@@ -6,9 +6,8 @@ import arc from '@architect/functions'
 import styleTransform from '@enhance/enhance-style-transform'
 import importTransform from '@enhance/import-transform'
 
-import enhanceApp from '@enhance/app-core'
-import enhanceConfigLoader from '@enhance/app-loader'
-import { mergeTimingHeaders } from '@enhance/arc-plugin-enhance/src/http/any-catchall/util.mjs'
+import enhanceApp from '@enhance/core'
+import enhanceConfigLoader from '@enhance/loader'
 import skelly from 'html-skelly'
 
 import head from './app/head.mjs'
@@ -68,7 +67,7 @@ async function http(req) {
     let { html, headers } = response
 
     html = fingerprintPaths(html)
-    headers = mergeTimingHeaders(headers, timers)
+    // headers = mergeTimingHeaders(headers, timers)
 
     if (debug > 0) console.log(skelly('HTML', html))
 

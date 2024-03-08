@@ -16,6 +16,7 @@ architect/plugin-lambda-invoker
 # get  /api/inbox             #      •      admin inbox log
 # get  /api/outbox            #      •      outbox activities
 # post /api/inbox             #      •      inbound activity
+get  /robots.txt
 post /webmention            # inbound webmention
 post /webhooks/vrite        # vrite incoming
 post /webhooks/omnivore     # omnivore incoming
@@ -49,6 +50,7 @@ aqi-update rate(30 minutes)
 spotify-update rate(1 minute)
 spotify-token-refresh rate(50 minutes)
 tomorrow-io-update rate(10 minutes)
+get-dark-visitors rate(1 day)
 
 @tables
 articles
