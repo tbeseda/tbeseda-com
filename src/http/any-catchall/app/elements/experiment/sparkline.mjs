@@ -57,7 +57,7 @@ export default function Sparkline({ html, state: { attrs, instanceID } }) {
     } else if (val === 'false') {
       a[key] = false
     } else if (!Number.isNaN(Number(val))) {
-      a[key] = parseFloat(val)
+      a[key] = Number.parseFloat(val)
     } else {
       a[key] = val
     }

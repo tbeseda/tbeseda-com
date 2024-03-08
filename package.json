@@ -17,39 +17,36 @@
     "type": "git",
     "url": "git+https://github.com/tbeseda/tbeseda-com.git"
   },
-  "keywords": [
-    "homepage",
-    "enhance"
-  ],
+  "keywords": ["homepage", "enhance"],
   "author": "tbeseda",
   "license": "ISC",
   "homepage": "https://tbeseda.com",
   "dependencies": {
     "@architect/asap": "^7.0.7",
     "@architect/functions": "^8.0.4",
-    "@aws-lite/client": "^0.17.2",
+    "@aws-lite/client": "^0.19.0",
     "@aws-lite/dynamodb": "^0.3.4",
-    "@aws-lite/s3": "^0.1.18",
-    "@aws-sdk/client-s3": "^3.515.0",
     "@enhance/core": "^0.1.0-alpha.0",
     "@enhance/enhance-style-transform": "^0.1.2",
-    "@enhance/import-transform": "^4.0.0",
     "@enhance/loader": "^0.1.0-alpha.0",
+    "@aws-lite/s3": "^0.1.20",
+    "@aws-sdk/client-s3": "^3.529.1",
+    "@enhance/import-transform": "^4.0.1",
     "@milkdown/core": "^7.3.5",
     "@milkdown/plugin-listener": "^7.3.5",
     "@milkdown/preset-commonmark": "^7.3.5",
-    "@tiptap/core": "^2.2.3",
-    "@tiptap/extension-highlight": "^2.2.3",
-    "@tiptap/extension-image": "^2.2.3",
-    "@tiptap/extension-link": "^2.2.3",
-    "@tiptap/extension-superscript": "^2.2.3",
-    "@tiptap/extension-table": "^2.2.3",
-    "@tiptap/extension-table-cell": "^2.2.3",
-    "@tiptap/extension-table-header": "^2.2.3",
-    "@tiptap/extension-table-row": "^2.2.3",
-    "@tiptap/pm": "^2.2.3",
-    "@tiptap/starter-kit": "^2.2.3",
-    "@vrite/sdk": "^0.4.0",
+    "@tiptap/core": "^2.2.4",
+    "@tiptap/extension-highlight": "^2.2.4",
+    "@tiptap/extension-image": "^2.2.4",
+    "@tiptap/extension-link": "^2.2.4",
+    "@tiptap/extension-superscript": "^2.2.4",
+    "@tiptap/extension-table": "^2.2.4",
+    "@tiptap/extension-table-cell": "^2.2.4",
+    "@tiptap/extension-table-header": "^2.2.4",
+    "@tiptap/extension-table-row": "^2.2.4",
+    "@tiptap/pm": "^2.2.4",
+    "@tiptap/starter-kit": "^2.2.4",
+    "@vrite/sdk": "^0.4.1",
     "@zachleat/snow-fall": "^1.0.2",
     "busboy": "^1.6.0",
     "chalk": "^5.3.0",
@@ -71,23 +68,16 @@
     "@architect/plugin-lambda-invoker": "^1.2.0",
     "@architect/plugin-rust": "^0.1.1",
     "@aws-lite/dynamodb-types": "^0.3.6",
-    "@biomejs/biome": "^1.5.3",
+    "@biomejs/biome": "^1.6.0",
     "@enhance/types": "^0.7.0",
     "microformats-parser": "^2.0.2"
   },
   "eslintConfig": {
     "extends": "standard",
-    "ignorePatterns": [
-      "src/vendor",
-      "public/browser",
-      "public/bundles"
-    ],
+    "ignorePatterns": ["src/vendor", "public/browser", "public/bundles"],
     "rules": {
       "space-unary-ops": 0,
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ]
+      "comma-dangle": ["error", "always-multiline"]
     }
   }
 }

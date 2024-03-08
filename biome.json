@@ -1,10 +1,10 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.6.0/schema.json",
   "organizeImports": {
     "enabled": true
   },
   "files": {
-    "ignore": ["public/browser/**/*", "public/bundles/**/*"],
+    "ignore": ["public/browser/**/*", "public/bundles/**/*", "scratch/**/*"],
     "ignoreUnknown": true
   },
   "linter": {
