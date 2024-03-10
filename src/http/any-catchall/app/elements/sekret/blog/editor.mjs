@@ -84,7 +84,7 @@ export default function SekretBlogEditor({ html, state: { store } }) {
     <p><strong>WIP</strong>: Image upload and table editor</p>
 
     <script type="module">
-      import { MyEditor } from '/_public/browser/my-tiptap-editor.mjs'
+      import { MyEditor } from '/_public/bundles/my-tiptap-editor.mjs'
 
       class SekretBlogEditor extends HTMLElement {
         constructor() {

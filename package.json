@@ -17,7 +17,10 @@
     "type": "git",
     "url": "git+https://github.com/tbeseda/tbeseda-com.git"
   },
-  "keywords": ["homepage", "enhance"],
+  "keywords": [
+    "homepage",
+    "enhance"
+  ],
   "author": "tbeseda",
   "license": "ISC",
   "homepage": "https://tbeseda.com",
@@ -74,10 +77,16 @@
   },
   "eslintConfig": {
     "extends": "standard",
-    "ignorePatterns": ["src/vendor", "public/browser", "public/bundles"],
+    "ignorePatterns": [
+      "src/vendor",
+      "public/bundles"
+    ],
     "rules": {
       "space-unary-ops": 0,
-      "comma-dangle": ["error", "always-multiline"]
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ]
     }
   }
 }

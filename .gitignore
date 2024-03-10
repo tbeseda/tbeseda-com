@@ -4,7 +4,6 @@ __pycache__/
 .build/
 .enhance/
 public/.uploaded-images/
-public/browser/
 public/bundles/
 public/static.json
 public/style.css

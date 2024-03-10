@@ -36,6 +36,6 @@ export default function EnhanceSsrPlayground({ html }) {
 
 <pre><code class="language-js">${codeString}</code></pre>
 
-<script type="module" src="/_public/browser/enhance-ssr-playground.mjs"></script>
+<script type="module" src="/_public/bundles/enhance-ssr-playground.mjs"></script>
 `
 }

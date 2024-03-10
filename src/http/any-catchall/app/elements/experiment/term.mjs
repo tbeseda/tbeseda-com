@@ -8,7 +8,7 @@ export default function ExperimentTerm({ html, state: { store } }) {
     <tb-xterm></tb-xterm>
 
     <script type="module">
-      import { SimpleXterm } from '/_public/browser/simple-xterm.mjs'
+      import { SimpleXterm } from '/_public/bundles/simple-xterm.mjs'
 
       class ExperimentTerm extends HTMLElement {
         constructor() {
