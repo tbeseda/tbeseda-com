@@ -32,9 +32,8 @@ get /_public/*
 @bundles
 my-tiptap-editor /src/browser/my-tiptap-editor.mjs
 simple-xterm /src/browser/simple-xterm.mjs
-# enhance-ssr-playground /src/browser/enhance-ssr-playground.mjs
+enhance-ssr-playground /src/browser/enhance-ssr-playground.mjs
 my-milkdown-editor /src/browser/my-milkdown-editor.mjs
-# create-enhance-html /src/browser/create-enhance-html.mjs
 server-timings node_modules/server-timings-elem/server-timings.js
 snow-fall 'node_modules/@zachleat/snow-fall/snow-fall.js'
 xterm /node_modules/xterm/css/xterm.css

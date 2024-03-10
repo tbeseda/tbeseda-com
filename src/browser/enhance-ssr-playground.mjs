@@ -1,5 +1,15 @@
-// eslint-disable-next-line import/no-absolute-path
-import createHtmlRenderer from '/_public/bundles/create-enhance-html.mjs'
+import styleTransform from '@enhance/enhance-style-transform'
+import enhance from '@enhance/ssr'
+
+function createHtmlRenderer({ elements, initialState }) {
+  const html = enhance({
+    styleTransforms: [styleTransform],
+    elements,
+    initialState,
+  })
+
+  return html
+}
 
 const $preview = document.getElementById('preview')
 $preview.src = 'about:blank' // establish same-origin
