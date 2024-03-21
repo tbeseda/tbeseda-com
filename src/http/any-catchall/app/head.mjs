@@ -1,9 +1,27 @@
 /** @type {import('@enhance/types').EnhanceHeadFn} */
-export default function Head({ store }) {
-  const { title, myWeather } = store
+export default function Head({ req, store }) {
+  const { path } = req
+  const { title, myWeather, article } = store
   const hljsThemeCss = 'https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/night-owl.min.css'
 
   const snowing = myWeather?.values.snowIntensity
+
+  let ogTags = ''
+  if (article) {
+    ogTags = /* html */ `
+      <meta property="og:title" content="${article.title}" />
+      <meta property="og:description" content="${article.description}" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://tbeseda.com${path}" />
+      <meta property="og:image" content="https://tbeseda.com/og-img/${article.slug}" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content="tbeseda.com" />
+      <meta property="og:locale" content="en_US" />
+      <meta property="article:author" content="Taylor Beseda" />
+      <meta property="article:published_time" content="${article.date}" />
+    `.trim()
+  }
 
   return /* html */ `
     <!DOCTYPE html>
@@ -19,6 +37,8 @@ export default function Head({ store }) {
       <link rel="icon" href="/_public/favicon.ico">
       <link rel="alternate" type="application/rss+xml" title="tbeseda.com Articles" href="/blog/rss">
       <link rel="webmention" href="https://tbeseda.com/webmention">
+
+      ${ogTags}
 
       <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="${hljsThemeCss}"/>
       <noscript>
@@ -57,5 +77,5 @@ export default function Head({ store }) {
     </head>
     <body>
     ${snowing > 0 ? '<snow-fall></snow-fall>' : ''}
-  `
+  `.trim()
 }
