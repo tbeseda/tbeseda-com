@@ -31,4 +31,4 @@ const canvas = createCanvas(250, 50)
 flow.renderToCanvas(rootElement, canvas, /* optional density: */ 2)
 
 // Save your image
-canvas.createPNGStream().pipe(fs.createWriteStream(new URL('hello.png', import.meta.url)))
+canvas.createPNGStream().pipe(fs.createWriteStream(new URL('dropflow.png', import.meta.url)))

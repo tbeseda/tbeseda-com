@@ -33,6 +33,7 @@
     "@milkdown/core": "^7.3.5",
     "@milkdown/plugin-listener": "^7.3.5",
     "@milkdown/preset-commonmark": "^7.3.5",
+    "@resvg/resvg-js": "^2.6.0",
     "@tiptap/core": "^2.2.4",
     "@tiptap/extension-highlight": "^2.2.4",
     "@tiptap/extension-image": "^2.2.4",
@@ -54,6 +55,7 @@
     "minisearch": "^6.3.0",
     "pm2html": "^0.1.12",
     "pug": "^3.0.2",
+    "satori": "^0.10.13",
     "server-timings-elem": "^1.1.0",
     "waylon": "^0.3.1",
     "xterm": "^5.3.0",
@@ -66,7 +68,7 @@
     "@architect/plugin-lambda-invoker": "^1.2.0",
     "@architect/plugin-rust": "^0.1.1",
     "@aws-lite/dynamodb-types": "^0.3.6",
-    "@biomejs/biome": "^1.6.0",
+    "@biomejs/biome": "^1.6.1",
     "@enhance/types": "^0.7.0",
     "microformats-parser": "^2.0.2"
   }
