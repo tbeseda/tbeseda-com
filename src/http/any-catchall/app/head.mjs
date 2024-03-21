@@ -20,6 +20,13 @@ export default function Head({ req, store }) {
       <meta property="og:locale" content="en_US" />
       <meta property="article:author" content="Taylor Beseda" />
       <meta property="article:published_time" content="${article.date}" />
+
+      <meta name="twitter:card" content="summary_large_image">
+      <meta property="twitter:domain" content="tbeseda.com">
+      <meta property="twitter:url" content="https://tbeseda.com${path}">
+      <meta name="twitter:title" content="${article.title}">
+      <meta name="twitter:description" content="${article.description}">
+      <meta name="twitter:image" content="https://tbeseda.com/og-img/${article.slug}">
     `.trim()
   }
 
