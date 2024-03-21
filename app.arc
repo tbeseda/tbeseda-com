@@ -28,6 +28,7 @@ get  /pong                  # ping
 # get  /test/rust             # rust test
 any /*
 get /_public/*
+get /og-img/:slug
 
 @bundles
 my-tiptap-editor /src/browser/my-tiptap-editor.mjs

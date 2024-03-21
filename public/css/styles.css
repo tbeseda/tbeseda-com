@@ -1,10 +1,14 @@
+:root {
+  /* https://jameshfisher.com/2024/03/12/a-formula-for-responsive-font-size/ */
+  font-size: calc(1rem + 0.25vw);
+}
+
 body {
   display: flex;
   flex-direction: column;
   background-color: var(--background-color);
   font-family: var(--font-family);
   color: var(--text-color);
-  font-size: 15px;
   font-weight: 400;
   letter-spacing: -.04em;
 }
@@ -17,11 +21,10 @@ body > * {
 
   display: grid;
   grid-template-columns:
-    [full-start] var(--full)
-    [section-start] var(--section) [section-end]
-    var(--full) [full-end];
+    [full-start] var(--full) [section-start] var(--section) [section-end] var(--full) [full-end];
 }
-body > *.narrow { /* for narrow content */
+body > *.narrow {
+  /* for narrow content */
   width: var(--section-width);
   margin: 0 auto;
 }
@@ -44,10 +47,18 @@ h1, h2, h3, h4 {
   line-height: 1.2;
   margin-bottom: 0.8rem;
 }
-h1 { font-size: 1.6rem; }
-h2 { font-size: 1.4rem; }
-h3 { font-size: 1.2rem; }
-h4 { font-size: 1.0rem; }
+h1 {
+  font-size: 1.6rem;
+}
+h2 {
+  font-size: 1.4rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+h4 {
+  font-size: 1.0rem;
+}
 
 form {
   display: flex;

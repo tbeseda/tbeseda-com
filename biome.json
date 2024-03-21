@@ -4,10 +4,7 @@
     "enabled": true
   },
   "files": {
-    "ignore": [
-      "public/bundles/**/*",
-      "scratch/**/*"
-    ],
+    "ignore": ["public/bundles/**/*", "scratch/**/*"],
     "ignoreUnknown": true
   },
   "linter": {

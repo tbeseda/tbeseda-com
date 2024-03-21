@@ -6,21 +6,16 @@
     "deploy.both": "npm run deploy.staging && npm run deploy.production",
     "deploy.production": "arc deploy --production",
     "deploy.staging": "arc deploy",
-    "check": "biome check --apply ./",
-    "lint": "biome lint --apply ./",
-    "format": "biome format --write ./",
+    "biome": "biome check --apply ./",
     "start": "arc sandbox",
-    "test": "npm run check && node --test test/",
+    "test": "biome ci ./ && node --test test/",
     "check-updates": "npx npm-check-updates"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tbeseda/tbeseda-com.git"
   },
-  "keywords": [
-    "homepage",
-    "enhance"
-  ],
+  "keywords": ["homepage", "enhance"],
   "author": "tbeseda",
   "license": "ISC",
   "homepage": "https://tbeseda.com",
@@ -29,12 +24,12 @@
     "@architect/functions": "^8.0.4",
     "@aws-lite/client": "^0.19.0",
     "@aws-lite/dynamodb": "^0.3.4",
-    "@enhance/core": "^0.1.0-alpha.0",
-    "@enhance/enhance-style-transform": "^0.1.2",
-    "@enhance/loader": "^0.1.0-alpha.0",
     "@aws-lite/s3": "^0.1.20",
     "@aws-sdk/client-s3": "^3.529.1",
+    "@enhance/core": "^0.1.0-alpha.0",
+    "@enhance/enhance-style-transform": "^0.1.2",
     "@enhance/import-transform": "^4.0.1",
+    "@enhance/loader": "^0.1.0-alpha.0",
     "@milkdown/core": "^7.3.5",
     "@milkdown/plugin-listener": "^7.3.5",
     "@milkdown/preset-commonmark": "^7.3.5",
@@ -74,19 +69,5 @@
     "@biomejs/biome": "^1.6.0",
     "@enhance/types": "^0.7.0",
     "microformats-parser": "^2.0.2"
-  },
-  "eslintConfig": {
-    "extends": "standard",
-    "ignorePatterns": [
-      "src/vendor",
-      "public/bundles"
-    ],
-    "rules": {
-      "space-unary-ops": 0,
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ]
-    }
   }
 }
