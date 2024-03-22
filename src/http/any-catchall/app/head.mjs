@@ -11,12 +11,12 @@ export default function Head({ req, store }) {
     ogTags = /* html */ `
       <meta property="og:title" content="${article.title}" />
       <meta property="og:description" content="${article.description}" />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content="article" />
       <meta property="og:url" content="https://tbeseda.com${path}" />
       <meta property="og:image" content="https://tbeseda.com/og-img/${article.slug}" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content="tbeseda.com" />
+      <meta property="og:site_name" content="tbeseda" />
       <meta property="og:locale" content="en_US" />
       <meta property="article:author" content="Taylor Beseda" />
       <meta property="article:published_time" content="${article.date}" />
