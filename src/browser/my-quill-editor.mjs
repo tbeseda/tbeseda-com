@@ -22,7 +22,5 @@ export class MyEditor {
         toolbar: toolbarOptions,
       },
     })
-
-    console.log('Editor created', this.quill)
   }
 }
