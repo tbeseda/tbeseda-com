@@ -35,6 +35,9 @@ my-tiptap-editor /src/browser/my-tiptap-editor.mjs
 simple-xterm /src/browser/simple-xterm.mjs
 enhance-ssr-playground /src/browser/enhance-ssr-playground.mjs
 my-milkdown-editor /src/browser/my-milkdown-editor.mjs
+my-quill-editor /src/browser/my-quill-editor.mjs
+quill.core /node_modules/quill/dist/quill.core.css
+quill.snow /node_modules/quill/dist/quill.snow.css
 server-timings node_modules/server-timings-elem/server-timings.js
 snow-fall 'node_modules/@zachleat/snow-fall/snow-fall.js'
 xterm /node_modules/xterm/css/xterm.css
