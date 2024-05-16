@@ -53,7 +53,7 @@ webmention-receive
 
 @scheduled
 aqi-update rate(30 minutes)
-spotify-update rate(1 minute)
+spotify-update rate(3 minutes)
 spotify-token-refresh rate(50 minutes)
 tomorrow-io-update rate(10 minutes)
 get-dark-visitors rate(1 day)
