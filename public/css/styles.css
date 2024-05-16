@@ -19,6 +19,10 @@
   size-adjust: 300%;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 body {
   font-family: "emoji", sans-serif;
 }
