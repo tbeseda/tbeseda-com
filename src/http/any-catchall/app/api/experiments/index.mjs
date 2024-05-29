@@ -2,6 +2,14 @@
 export const get = async () => {
   const experiments = [
     {
+      name: 'Encode + Compress JSON in a URL',
+      date: '2024-06-28',
+      description: 'Encode and compress JSON in a URL.',
+      url: '/experiments/encoded-url',
+      // featured: true,
+      wip: true,
+    },
+    {
       name: 'VS Code Web Components',
       date: '2024-02-20',
       description: 'Use @vscode/webview-ui-toolkit in a webpage.',

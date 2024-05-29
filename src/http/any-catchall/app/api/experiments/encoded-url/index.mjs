@@ -17,7 +17,7 @@ export async function post(req) {
   return {
     status: 302,
     headers: {
-      location: `/experiments/json-url/${blob}`,
+      location: `/experiments/encoded-url/${blob}`,
     },
   }
 }
