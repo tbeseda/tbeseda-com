@@ -17,7 +17,10 @@
     "type": "git",
     "url": "git+https://github.com/tbeseda/tbeseda-com.git"
   },
-  "keywords": ["homepage", "enhance"],
+  "keywords": [
+    "homepage",
+    "enhance"
+  ],
   "author": "tbeseda",
   "license": "ISC",
   "homepage": "https://tbeseda.com",
@@ -56,6 +59,7 @@
     "highlight.js": "^11.9.0",
     "html-skelly": "^0.1.0",
     "i": "^0.3.7",
+    "lz-string": "^1.5.0",
     "minisearch": "^6.3.0",
     "pm2html": "^0.1.12",
     "pug": "^3.0.2",
