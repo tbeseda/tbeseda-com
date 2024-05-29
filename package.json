@@ -4,6 +4,7 @@
   "description": "Taylor's homepage",
   "scripts": {
     "postinstall": "vendurl",
+    "create-styles": "enhance-styles --config=./enhance-styles.json --output=./public/css/enhance-styles.css",
     "deploy.both": "npm run deploy.staging && npm run deploy.production",
     "deploy.production": "arc deploy --production",
     "deploy.staging": "arc deploy",
@@ -74,6 +75,7 @@
     "@aws-lite/dynamodb-types": "^0.3.6",
     "@begin/deploy": "^0.22.4",
     "@biomejs/biome": "^1.7.3",
+    "@enhance/styles": "^6.5.0",
     "@enhance/types": "^0.7.0",
     "microformats-parser": "^2.0.2",
     "vendurl": "^0.3.0"
