@@ -70,6 +70,9 @@ things # misc storage
 experiment-articles # /experiments/fake-articles
   articleID *String
   ttl TTL
+users
+  email *String
+  ttl TTL
 
 @tables-indexes
 articles
