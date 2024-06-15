@@ -59,50 +59,27 @@ export async function post(req) {
   const { challenge: sessionChallenge } = session
   const { email, id, rawId, type, clientDataJSON, attestationObject } = body
 
-  // check if user exists
   const user = await users.get({ email })
   if (user) throw new Error('User already exists!')
 
   const clientData = JSON.parse(base64url.decode(clientDataJSON))
-  const { challenge: clientChallenge } = clientData
-
-  if (clientChallenge !== sessionChallenge) {
+  if (clientData.challenge !== sessionChallenge) {
     throw new Error('Invalid challenge!')
   }
 
-  // Convert attestation object to ArrayBuffer
   const attestationBuffer = base64url.toBuffer(attestationObject)
-
-  // Decode attestation object
   const attestation = cbor.decodeFirstSync(attestationBuffer)
-  const authData = attestation.authData || attestation.authData
+  const { authData } = attestation
 
-  if (!authData) {
-    throw new Error('Auth data not found in attestation object!')
-  }
-
-  // Parse authData
   const buffer = Buffer.from(authData)
-  const rpIdHash = buffer.slice(0, 32)
-  const flagsBuf = buffer.slice(32, 33)
-  const flags = flagsBuf[0]
-  const counterBuf = buffer.slice(33, 37)
-  const counter = counterBuf.readUInt32BE(0)
-
-  const aaguid = buffer.slice(37, 53)
-  const credIdLenBuf = buffer.slice(53, 55)
-  const credIdLen = credIdLenBuf.readUInt16BE(0)
-  const credId = buffer.slice(55, 55 + credIdLen)
+  const credIdLen = buffer.readUInt16BE(53)
   const cosePublicKey = buffer.slice(55 + credIdLen)
-
-  // Convert COSE key to Base64URL
-  const publicKey = base64url.encode(cosePublicKey)
 
   const credential = {
     type,
     id,
     rawId,
-    publicKey,
+    publicKey: base64url.encode(cosePublicKey),
   }
 
   const newUser = await users.put({

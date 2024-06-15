@@ -85,18 +85,7 @@ export async function post(req) {
   }
 
   const cosePublicKey = base64url.toBuffer(existingUser.credential.publicKey)
-  console.log('COSE Public Key (Base64URL):', existingUser.credential.publicKey)
-  console.log('COSE Public Key (Buffer):', cosePublicKey)
-
-  let publicKey
-  try {
-    publicKey = coseToPem(cosePublicKey)
-  } catch (error) {
-    console.error('Error converting COSE key to PEM:', error)
-    throw new Error('Failed to convert COSE key to PEM format')
-  }
-
-  console.log({ authenticatorData, clientDataJSON, signature, publicKey })
+  const publicKey = coseToPem(cosePublicKey)
 
   const clientDataHash = crypto
     .createHash('SHA256')
@@ -121,36 +110,16 @@ export async function post(req) {
   }
 }
 
-// Utility function to convert COSE key to PEM format
 const coseToPem = (coseKeyBuffer) => {
-  console.log('Decoding COSE Key Buffer:', coseKeyBuffer)
-  let coseKey
-  try {
-    coseKey = cbor.decodeFirstSync(coseKeyBuffer)
-  } catch (error) {
-    console.error('Error decoding COSE key:', error)
-    throw new Error('Failed to decode COSE key')
-  }
-
-  console.log('Decoded COSE Key:', coseKey)
-
-  // Ensure the key has the necessary parameters
-  if (!coseKey || !coseKey.get(-2) || !coseKey.get(-3)) {
-    throw new Error('Invalid COSE key format')
-  }
+  const coseKey = cbor.decodeFirstSync(coseKeyBuffer)
 
   const x = coseKey.get(-2)
   const y = coseKey.get(-3)
 
-  console.log('COSE Key X Coordinate:', x)
-  console.log('COSE Key Y Coordinate:', y)
-
-  // Ensure x and y are buffers
   if (!(x instanceof Buffer) || !(y instanceof Buffer)) {
     throw new Error('Invalid COSE key parameters')
   }
 
-  // Construct the PEM key
   const pemKey = Buffer.concat([
     Buffer.from('3059301306072a8648ce3d020106082a8648ce3d03010703420004', 'hex'),
     x,
