@@ -17,10 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/tbeseda/tbeseda-com.git"
   },
-  "keywords": [
-    "homepage",
-    "enhance"
-  ],
+  "keywords": ["homepage", "enhance"],
   "author": "tbeseda",
   "license": "ISC",
   "homepage": "https://tbeseda.com",
@@ -39,6 +36,7 @@
     "@milkdown/plugin-listener": "^7.3.6",
     "@milkdown/preset-commonmark": "^7.3.6",
     "@resvg/resvg-wasm": "^2.6.2",
+    "@simplewebauthn/server": "^10.0.0",
     "@tiptap/core": "^2.4.0",
     "@tiptap/extension-highlight": "^2.4.0",
     "@tiptap/extension-image": "^2.4.0",
@@ -52,9 +50,7 @@
     "@tiptap/starter-kit": "^2.4.0",
     "@vrite/sdk": "^0.4.7",
     "@zachleat/snow-fall": "^1.0.2",
-    "base64url": "^3.0.1",
     "busboy": "^1.6.0",
-    "cbor": "^9.0.2",
     "chalk": "^5.3.0",
     "feed": "^4.2.2",
     "header-timers": "^0.2.1",

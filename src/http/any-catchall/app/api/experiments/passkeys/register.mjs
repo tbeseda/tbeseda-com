@@ -1,7 +1,15 @@
-import crypto from 'node:crypto'
+import process from 'node:process'
 import arc from '@architect/functions'
-import base64url from 'base64url'
-import cbor from 'cbor'
+import { generateRegistrationOptions, verifyRegistrationResponse } from '@simplewebauthn/server'
+
+const { ARC_ENV } = process.env
+const rpIDs = {
+  production: 'tbeseda.com',
+  staging: 'staging.tbeseda.com',
+  testing: 'localhost',
+}
+const rpID = rpIDs[ARC_ENV] || rpIDs.testing
+const origin = ARC_ENV === 'testing' ? 'http://localhost:3333' : `https://${rpID}`
 
 const { users } = await arc.tables()
 
@@ -18,35 +26,24 @@ export async function get(req) {
   // TODO: proceed to sign in if user exists
   if (existingUser) throw new Error('User already exists!')
 
-  // Generate a challenge
-  const challenge = crypto.randomBytes(32).toString('base64url')
-
-  // Store challenge in session
-  session.challenge = challenge
-
-  // Send registration options
-  const registrationOptions = {
-    challenge: challenge,
-    rp: {
-      name: 'tbeseda',
-      id: 'localhost', // TODO: change to actual domain
+  const options = await generateRegistrationOptions({
+    rpName: rpID,
+    rpID,
+    userID: new Uint8Array(Buffer.from(email)),
+    userName: email,
+    attestationType: 'indirect',
+    authenticatorSelection: {
+      userVerification: 'preferred',
     },
-    user: {
-      id: crypto.createHash('sha256').update(email).digest('base64url'),
-      name: email,
-      displayName: email,
-    },
-    pubKeyCredParams: [
-      { type: 'public-key', alg: -7 }, // ES256
-      { type: 'public-key', alg: -257 }, // RS256
-    ],
-    timeout: 60000,
-    attestation: 'direct',
-  }
+    supportedAlgorithmIDs: [-7, -257], // ES256, RS256
+  })
+
+  // Store the challenge in the session for verification
+  session.challenge = options.challenge
 
   return {
     session,
-    json: { registrationOptions },
+    json: { registrationOptions: options },
   }
 }
 
@@ -56,30 +53,27 @@ export async function get(req) {
  **/
 export async function post(req) {
   const { session, body } = req
-  const { challenge: sessionChallenge } = session
-  const { email, id, rawId, type, clientDataJSON, attestationObject } = body
+  const { challenge: expectedChallenge } = session
+  const { email, attestationResponse } = body
 
   const user = await users.get({ email })
   if (user) throw new Error('User already exists!')
 
-  const clientData = JSON.parse(base64url.decode(clientDataJSON))
-  if (clientData.challenge !== sessionChallenge) {
-    throw new Error('Invalid challenge!')
-  }
+  const verification = await verifyRegistrationResponse({
+    response: attestationResponse,
+    expectedChallenge,
+    expectedOrigin: origin,
+    expectedRPID: rpID,
+  })
 
-  const attestationBuffer = base64url.toBuffer(attestationObject)
-  const attestation = cbor.decodeFirstSync(attestationBuffer)
-  const { authData } = attestation
+  if (!verification.verified) throw new Error('Verification failed!')
+  if (!verification.registrationInfo) throw new Error('Registration info empty!')
 
-  const buffer = Buffer.from(authData)
-  const credIdLen = buffer.readUInt16BE(53)
-  const cosePublicKey = buffer.slice(55 + credIdLen)
+  const { credentialID, credentialPublicKey } = verification.registrationInfo
 
   const credential = {
-    type,
-    id,
-    rawId,
-    publicKey: base64url.encode(cosePublicKey),
+    id: credentialID,
+    publicKey: Buffer.from(credentialPublicKey).toString('base64'),
   }
 
   const newUser = await users.put({

@@ -1,7 +1,15 @@
-import crypto from 'node:crypto'
+import process from 'node:process'
 import arc from '@architect/functions'
-import base64url from 'base64url'
-import cbor from 'cbor'
+import { generateAuthenticationOptions, verifyAuthenticationResponse } from '@simplewebauthn/server'
+
+const { ARC_ENV } = process.env
+const rpIDs = {
+  production: 'tbeseda.com',
+  staging: 'staging.tbeseda.com',
+  testing: 'localhost',
+}
+const rpID = rpIDs[ARC_ENV] || rpIDs.testing
+const origin = ARC_ENV === 'testing' ? 'http://localhost:3333' : `https://${rpID}`
 
 const { users } = await arc.tables()
 
@@ -15,11 +23,7 @@ export async function get(req) {
   const { email: qEmail } = query
 
   // already signed in
-  if (user) {
-    return {
-      json: { user },
-    }
-  }
+  if (user) return { json: { user } }
 
   // if there's a qEmail, the user is starting sign in
   if (qEmail) {
@@ -27,21 +31,19 @@ export async function get(req) {
     if (!existingUser?.credential) {
       throw new Error('User not found!')
     }
-    const challenge = crypto.randomBytes(32).toString('base64url')
-    session.challenge = challenge
 
-    const authOptions = {
-      challenge: challenge,
+    const authOptions = await generateAuthenticationOptions({
+      rpID,
+      userVerification: 'required',
       allowCredentials: [
         {
           id: existingUser.credential.id,
-          type: 'public-key',
-          transports: ['usb', 'ble', 'nfc'],
+          transports: ['internal', 'usb', 'ble', 'nfc'],
         },
       ],
-      timeout: 60000,
-      userVerification: 'preferred',
-    }
+    })
+
+    session.challenge = authOptions.challenge
 
     return {
       session,
@@ -59,72 +61,40 @@ export async function get(req) {
  **/
 export async function post(req) {
   const { session, body } = req
+
   if (body.action === 'sign out') {
     session.user = null
     return { session }
   }
 
-  const { challenge: sessionChallenge } = session
-  if (body.action === 'sign out') {
-    session.user = null
-    return { session }
-  }
+  const { email, assertionResponse } = body
+  const user = await users.get({ email })
+  if (!user?.credential) throw new Error('User not found!')
 
-  const { email, id, authenticatorData, clientDataJSON, signature } = body
-  const existingUser = await users.get({ email })
-  if (!existingUser?.credential) {
-    throw new Error('User not found!')
-  }
-  if (id !== existingUser.credential.id) {
-    throw new Error('Credential mismatch!')
-  }
+  const credentialID = user.credential.id
+  const credentialPublicKey = Uint8Array.from(Buffer.from(user.credential.publicKey, 'base64'))
 
-  const clientData = JSON.parse(base64url.decode(clientDataJSON))
-  if (clientData.challenge !== sessionChallenge) {
-    throw new Error('Challenge mismatch!')
-  }
+  if (assertionResponse.id !== credentialID) throw new Error('Credential mismatch!')
 
-  const cosePublicKey = base64url.toBuffer(existingUser.credential.publicKey)
-  const publicKey = coseToPem(cosePublicKey)
+  const { challenge: expectedChallenge } = session
+  const verification = await verifyAuthenticationResponse({
+    response: assertionResponse,
+    expectedChallenge,
+    expectedOrigin: origin,
+    expectedRPID: rpID,
+    authenticator: {
+      credentialPublicKey,
+      credentialID,
+      counter: 0,
+    },
+  })
 
-  const clientDataHash = crypto
-    .createHash('SHA256')
-    .update(base64url.toBuffer(clientDataJSON))
-    .digest()
-  const signedData = Buffer.concat([base64url.toBuffer(authenticatorData), clientDataHash])
+  if (!verification.verified) throw new Error('Verification failed!')
 
-  const verify = crypto.createVerify('SHA256')
-  verify.update(signedData)
-
-  const valid = verify.verify(publicKey, base64url.toBuffer(signature))
-
-  if (!valid) {
-    throw new Error('Invalid signature!')
-  }
-
-  session.user = existingUser
+  session.user = user
 
   return {
     session,
-    json: { user: existingUser },
+    json: { user },
   }
-}
-
-const coseToPem = (coseKeyBuffer) => {
-  const coseKey = cbor.decodeFirstSync(coseKeyBuffer)
-
-  const x = coseKey.get(-2)
-  const y = coseKey.get(-3)
-
-  if (!(x instanceof Buffer) || !(y instanceof Buffer)) {
-    throw new Error('Invalid COSE key parameters')
-  }
-
-  const pemKey = Buffer.concat([
-    Buffer.from('3059301306072a8648ce3d020106082a8648ce3d03010703420004', 'hex'),
-    x,
-    y,
-  ])
-
-  return `-----BEGIN PUBLIC KEY-----\n${pemKey.toString('base64')}\n-----END PUBLIC KEY-----\n`
 }
