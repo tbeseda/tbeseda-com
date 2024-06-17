@@ -26,9 +26,9 @@ export const get = async () => {
     {
       name: 'Passkeys with Node.js and WebAuthn',
       date: '2024-02-04',
-      description: 'Simple user registration + login with webauthn and Node.',
-      url: '/experiments/passkeys',
-      wip: true,
+      description:
+        'Simple user registration + login with webauthn and Node. [Now implemented site-wide.]',
+      // url: '/experiments/passkeys',
     },
     {
       name: 'Custom Element Sparklines',
@@ -37,6 +37,7 @@ export const get = async () => {
         "Inspired by Chris Burnell's work: A server-rendered custom element for sparkline graphs.",
       url: '/experiments/custom-element-sparklines',
       wip: true,
+      featured: true,
     },
     {
       name: 'Enhance SSR Playground',
@@ -59,7 +60,6 @@ export const get = async () => {
       description:
         'My Omnivore.app Reading List. Features recently saved articles, highlights, and all-time favorites.',
       url: '/experiments/omnivore',
-      featured: true,
     },
     {
       name: 'AWS Lambda Runtimes',
@@ -82,7 +82,7 @@ export const get = async () => {
       featured: true,
     },
     {
-      name: 'My Spotify Activity',
+      name: '🎧 My Spotify Activity',
       date: '2023',
       description: 'Live updates from my listening on Spotify! Also my top tracks and artists.',
       url: '/experiments/spotify',
@@ -98,8 +98,8 @@ export const get = async () => {
     {
       name: '$ terminal',
       date: '2023',
-      description: 'A terminal emulator that runs in the browser. Based on xterm.js.',
-      url: '/experiments/$',
+      description: '(Broken) A terminal emulator that runs in the browser. Based on xterm.js.',
+      url: '/experiments/terminal',
     },
     {
       name: 'Article Publishing with Vrite.io',

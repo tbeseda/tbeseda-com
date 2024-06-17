@@ -58,9 +58,9 @@ const parse = (event) =>
   })
 
 export async function post(req) {
-  let { authorized } = req.session
-  authorized = !!authorized
-  if (!authorized) throw new Error('Unauthorized')
+  let { admin } = req.session
+  admin = !!admin
+  if (!admin) throw new Error('Unauthorized')
 
   // the body property needs to be swapped out for rawBody
   const parsedForm = await parse({

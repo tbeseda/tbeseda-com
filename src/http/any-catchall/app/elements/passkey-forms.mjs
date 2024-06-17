@@ -6,10 +6,8 @@ export default function Passkeys({ state: { store } }) {
     return /*html*/ `
 <h4>You're signed in</h4>
 
-<form action="/experiments/passkeys" method="post">
-  <input type="hidden" name="action" value="sign out">
-  <input type="hidden" name="email" value="${user.email}">
-  <button type="submit">Sign out ${user.email}</button>
+<form action="/logout" method="get">
+  <button type="submit">Log out ${user.email}</button>
 </form>
     `
 
@@ -25,7 +23,7 @@ export default function Passkeys({ state: { store } }) {
   if (options) {
     const attestationResponse = await startRegistration(options)
 
-    const verifyResponse = await fetch('/experiments/passkeys/register', {
+    const verifyResponse = await fetch('/auth/passkeys/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +36,11 @@ export default function Passkeys({ state: { store } }) {
     })
 
     if (verifyResponse.ok)
-      window.location.replace('/experiments/passkeys')
+      window.location.replace('/auth/passkeys')
+    else {
+      alert('Registration failed!')
+      window.location.replace('/auth/passkeys')
+    }
   }
 </script>
     `
@@ -54,7 +56,7 @@ export default function Passkeys({ state: { store } }) {
   if (options) {
     const assertionResponse = await startAuthentication(options)
 
-    const verifyResponse = await fetch('/experiments/passkeys', {
+    const verifyResponse = await fetch('/auth/passkeys', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -67,8 +69,11 @@ export default function Passkeys({ state: { store } }) {
     })
 
     if (verifyResponse.ok)
-      window.location.replace('/experiments/passkeys')
-
+      window.location.replace('/auth/passkeys')
+    else {
+      alert('Sign in failed!')
+      window.location.replace('/auth/passkeys')
+    }
   }
 </script>
   `
@@ -76,11 +81,11 @@ export default function Passkeys({ state: { store } }) {
   return /*html*/ `
 <h4>Register or sign in</h4>
 
-<form action="/experiments/passkeys">
+<form action="/auth/passkeys">
   <input type="email" name="email" placeholder="email" required>
   <div>
     <!-- TODO: reduce to one action/button -->
-    <button type="submit" formaction="/experiments/passkeys/register">Register</button>
+    <button type="submit" formaction="/auth/passkeys/register">Register</button>
     <button type="submit">Sign in</button>
   </div>
 </form>

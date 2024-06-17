@@ -7,7 +7,7 @@ function timestamp(duration) {
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function ExperimentSpotify({ html, state: { store } }) {
   const {
-    authorized,
+    admin,
     currentlyPlaying,
     recentlyPlayed = { items: [] },
     topArtists = { items: [] },
@@ -77,7 +77,7 @@ export default function ExperimentSpotify({ html, state: { store } }) {
       }
     </style>
 
-    ${authorized ? '<p><a href="/auth/spotify/login">re-auth</a></p>' : ''}
+    ${admin ? '<p><a href="/auth/spotify/login">re-auth</a></p>' : ''}
 
     ${playing ? '<tb-album-background></tb-album-background>' : ''}
 

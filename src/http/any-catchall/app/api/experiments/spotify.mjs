@@ -4,8 +4,8 @@ const { things } = await arc.tables()
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export const get = async ({ timers, session }) => {
-  let { authorized } = session
-  authorized = !!authorized
+  let { admin } = session
+  admin = !!admin
 
   const messages = []
   let recentlyPlayed
@@ -37,7 +37,7 @@ export const get = async ({ timers, session }) => {
   return {
     headers: { ...timers.toObject() },
     json: {
-      authorized,
+      admin,
       recentlyPlayed,
       topArtists,
       topTracks,

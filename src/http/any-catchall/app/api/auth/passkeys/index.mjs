@@ -2,7 +2,7 @@ import process from 'node:process'
 import arc from '@architect/functions'
 import { generateAuthenticationOptions, verifyAuthenticationResponse } from '@simplewebauthn/server'
 
-const { ARC_ENV } = process.env
+const { ARC_ENV, MY_EMAIL } = process.env
 const rpIDs = {
   production: 'tbeseda.com',
   staging: 'staging.tbeseda.com',
@@ -92,6 +92,8 @@ export async function post(req) {
   if (!verification.verified) throw new Error('Verification failed!')
 
   session.user = user
+
+  if (email === MY_EMAIL) session.admin = true
 
   return {
     session,

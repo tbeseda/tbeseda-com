@@ -3,10 +3,10 @@ import { createID } from '../../../lib/create-id.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function get({ query, session }) {
-  let { authorized } = session
-  authorized = !!authorized
+  let { admin } = session
+  admin = !!admin
 
-  if (!authorized) throw new Error('Unauthorized')
+  if (!admin) throw new Error('Unauthorized')
 
   const { articles } = await arc.tables()
   const { articleID } = query
@@ -14,16 +14,16 @@ export async function get({ query, session }) {
   if (articleID) article = await articles.get({ articleID })
 
   return {
-    json: { authorized, article },
+    json: { admin, article },
   }
 }
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function post({ body, session }) {
-  let { authorized } = session
-  authorized = !!authorized
+  let { admin } = session
+  admin = !!admin
 
-  if (!authorized) throw new Error('Unauthorized')
+  if (!admin) throw new Error('Unauthorized')
 
   const { articles } = await arc.tables()
   const { action, articleID, content, date, description, published, slug, title } = body

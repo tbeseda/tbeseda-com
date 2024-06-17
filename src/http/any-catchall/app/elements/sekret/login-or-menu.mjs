@@ -1,25 +1,21 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function SekretLoginOrMenu({ html, state: { store } }) {
-  let { authorized } = store
-  authorized = !!authorized
+  let { admin } = store
+  admin = !!admin
 
   const menu = [
     { href: '/sekret/blog', text: 'Blog Admin' },
     { href: '/auth/spotify/login', text: 'Spotify Auth' },
+    { href: '/logout', text: 'Log out' },
   ]
 
   return html`
     <h1>Sekret</h1>
 
     ${
-      authorized
+      admin
         ? menu.map(({ href, text }) => `<a href="${href}">${text}</a>`).join('')
-        : /* html */ `
-          <form method="post">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="password" />
-            <button type="submit">Submit</button>
-          </form>`
+        : '<a href="/auth/passkeys">Sign in</a>'
     }
   `
 }
