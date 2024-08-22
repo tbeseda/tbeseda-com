@@ -86,5 +86,15 @@ export default function Head({ req, store }) {
     </head>
     <body>
     ${snowing > 0 ? '<snow-fall></snow-fall>' : ''}
+    <script type="speculationrules">
+      {
+        "prefetch": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
   `.trim()
 }

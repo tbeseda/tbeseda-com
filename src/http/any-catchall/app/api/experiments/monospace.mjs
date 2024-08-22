@@ -8,7 +8,7 @@ export async function get() {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monospace CSS</title>
   <link rel="stylesheet" href="/_public/css/monospace.css">
-</head>`
-    }
+</head>`,
+    },
   }
 }
