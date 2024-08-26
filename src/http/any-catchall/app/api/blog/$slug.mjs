@@ -14,7 +14,7 @@ export const get = async ({ timers, params: { slug } }) => {
 
   timers.stop('total')
   return {
-    headers: { ...timers.toObject() },
+    headers: { ...timers.object() },
     json: {
       article: query.Items[0],
       queryTime,

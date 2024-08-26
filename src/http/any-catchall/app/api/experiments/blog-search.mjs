@@ -52,7 +52,7 @@ export const get = async ({ query }) => {
   timers.stop('index-search')
 
   return {
-    headers: { ...timers.toObject() },
+    headers: { ...timers.object() },
     json: { ...response, results },
   }
 }

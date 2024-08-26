@@ -35,7 +35,7 @@ export const get = async ({ timers, session }) => {
 
   timers.stop('total')
   return {
-    headers: { ...timers.toObject() },
+    headers: { ...timers.object() },
     json: {
       admin,
       recentlyPlayed,

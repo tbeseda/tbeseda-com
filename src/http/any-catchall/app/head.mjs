@@ -9,6 +9,7 @@ export default function Head({ req, store }) {
   const snowing = myWeather?.values.snowIntensity
 
   let ogTags = ''
+  let articleLdJson = ''
   if (article) {
     ogTags = /* html */ `
       <meta property="og:title" content="${article.title}" />
@@ -30,6 +31,22 @@ export default function Head({ req, store }) {
       <meta name="twitter:description" content="${article.description}">
       <meta name="twitter:image" content="https://tbeseda.com/og-img/${article.slug}">
     `.trim()
+    articleLdJson = `<script type="application/ld+json">
+      ${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        '@id': `https://tbeseda.com${path}`,
+        url: `https://tbeseda.com${path}`,
+        headline: article.title,
+        description: article.description,
+        datePublished: article.date,
+        image: `https://tbeseda.com/og-img/${article.slug}`,
+        author: {
+          '@type': 'Person',
+          name: 'Taylor Beseda',
+        },
+      })}
+    </script>`
   }
 
   return /* html */ `
@@ -48,6 +65,7 @@ export default function Head({ req, store }) {
       <link rel="webmention" href="https://tbeseda.com/webmention">
 
       ${ogTags}
+      ${articleLdJson}
 
       <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="${hljsThemeCss}"/>
       <noscript>

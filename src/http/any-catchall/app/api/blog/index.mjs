@@ -22,7 +22,7 @@ export const get = async ({ timers }) => {
 
   timers.stop('total')
   return {
-    headers: { ...timers.toObject() },
+    headers: { ...timers.object() },
     json: { articles: sortedArticles },
   }
 }
