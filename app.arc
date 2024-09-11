@@ -2,8 +2,7 @@
 tbeseda-com
 
 @plugins
-# enhance/arc-plugin-enhance
-architect/plugin-bundles # temporary while building Core and Loader
+enhance/arc-plugin-enhance
 architect/plugin-lambda-invoker
 # architect/plugin-rust
 # architect/plugin-go
@@ -26,8 +25,6 @@ get  /pong                  # ping
 # get  /test/python           # python test
 # get  /test/ruby             # ruby test
 # get  /test/rust             # rust test
-any /*
-get /_public/*
 get /og-img/:slug
 
 @bundles
