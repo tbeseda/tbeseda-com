@@ -15,13 +15,6 @@ architect/plugin-lambda-invoker
 # architect/plugin-rust
 
 @http
-# get  /.well-known/webfinger # ActivityPub webfinger
-# get  /tbeseda               #      •      actor
-# get  /api/followers         #      •      followers
-# get  /api/following         #      •      following
-# get  /api/inbox             #      •      admin inbox log
-# get  /api/outbox            #      •      outbox activities
-# post /api/inbox             #      •      inbound activity
 get  /robots.txt
 post /webmention            # inbound webmention
 post /webhooks/vrite        # vrite incoming
