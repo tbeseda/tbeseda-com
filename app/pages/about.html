@@ -1,60 +1,41 @@
-<style>
-  article > * {
-    margin-bottom: 2rem;
-  }
-  article > * > p {
-    margin-bottom: 1.5rem;
-  }
-  .tbeseda-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-  }
-</style>
+<blockquote>
+  <p>
+    "I love putting the pieces together. Existing parts, services
+    I've built, or teaching others how; making things work better
+    for people."
+  </p>
+  <cite>-me, fairly recently</cite>
+</blockquote>
 
-<tb-header></tb-header>
+<section class="grid">
+  <div class="tbeseda-link">
+    <h4>
+      <a href="https://github.com/tbeseda" target="_blank">
+        github.com/tbeseda
+      </a>
+    </h4>
+    <span>Public and open source work.</span>
+  </div>
+  <div class="tbeseda-link">
+    <h4>
+      <a href="https://indieweb.social/@tbeseda" target="_blank">
+        indieweb.social/@tbeseda
+      </a>
+    </h4>
+    <span>In the Fediverse on Mastodon.</span>
+  </div>
+  <div class="tbeseda-link">
+    <h4>
+      <a href="https://www.linkedin.com/in/tbeseda/" target="_blank">
+        linkedin.com/in/tbeseda
+      </a>
+    </h4>
+    <span>Because I'm a professional!</span>
+  </div>
+</section>
 
-<article>
-  <blockquote>
-    <p>
-      "I love putting the pieces together. Existing parts, services
-      I've built, or teaching others how; making things work better
-      for people."
-    </p>
-    <cite>-me, fairly recently</cite>
-  </blockquote>
-
-  <section class="feature">
-    <c-grid cols="1_1_1">
-      <div class="tbeseda-link">
-        <h4>
-          <a href="https://github.com/tbeseda" target="_blank">
-            github.com/tbeseda
-          </a>
-        </h4>
-        <span>Public and open source work.</span>
-      </div>
-      <div class="tbeseda-link">
-        <h4>
-          <a href="https://indieweb.social/@tbeseda" target="_blank">
-            indieweb.social/@tbeseda
-          </a>
-        </h4>
-        <span>In the Fediverse on Mastodon.</span>
-      </div>
-      <div class="tbeseda-link">
-        <h4>
-          <a href="https://www.linkedin.com/in/tbeseda/" target="_blank">
-            linkedin.com/in/tbeseda
-          </a>
-        </h4>
-        <span>Better than Twitter, I guess.</span>
-      </div>
-    </c-grid cols="1_1_1">
-  </section>
-
-  <section>
+<section class="grid">
+  <div>
     <h3>
       Server-side Javascript
     </h3>
@@ -65,7 +46,9 @@
       ever since: monolithic web APIs, serverless architecture,
       new runtimes, et. all.
     </p>
+  </div>
 
+  <div>
     <h3>
       Technical Writing
     </h3>
@@ -76,7 +59,9 @@
       like to create reference material to help other developers
       understand a piece of software.
     </p>
+  </div>
 
+  <div>
     <h3>
       System Integration
     </h3>
@@ -86,7 +71,9 @@
       From one platform to another. Custom or off-the-shelf, I make
       sure orgs have the right information in the right place.
     </p>
+  </div>
 
+  <div>
     <h3>
       Interactive Applications
     </h3>
@@ -97,7 +84,7 @@
       From robust customer-facing apps to slim command line interfaces
       for developers.
     </p>
-  </section>
-</article>
+  </div>
+</section>
 
 <tb-footer></tb-footer>

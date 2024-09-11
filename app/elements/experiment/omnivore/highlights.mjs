@@ -23,8 +23,6 @@ export default function ExperimentOmnivoreHighlights({ html, state: { store } })
 
   return html`
     <h2>Recent Highlights</h2>
-    <c-grid cols="1_1">
-      ${omnivoreHighlights.map(presentHighlight).join('')}
-    </c-grid>
+    ${omnivoreHighlights.map(presentHighlight).join('')}
   `
 }

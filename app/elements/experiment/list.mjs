@@ -42,19 +42,17 @@ export default function List({ html, state: { store } }) {
       }
     </style>
 
-    <c-grid cols="1_1">
-      ${collection.render(
-        'div',
-        (i) => i.attrs({ class: `experiment${i.i.featured ? ' featured' : ''}` }),
-        (item) => `
-          <h3>
-            ${item.link(item.i.url, item.i.name)}
-            ${item.i.wip ? '<mark>WIP</mark>' : ''}
-          </h3>
-          <time>${item.i.date}</time>
-          <p>${item.i.description}</p>
-        `,
-      )}
-    </c-grid>
+    ${collection.render(
+      'div',
+      (i) => i.attrs({ class: `experiment${i.i.featured ? ' featured' : ''}` }),
+      (item) => `
+        <h3>
+          ${item.link(item.i.url, item.i.name)}
+          ${item.i.wip ? '<mark>WIP</mark>' : ''}
+        </h3>
+        <time>${item.i.date}</time>
+        <p>${item.i.description}</p>
+      `,
+    )}
   `
 }

@@ -11,10 +11,9 @@ export default function NpsWebcams({ html, state: { store } }) {
 
     <h1>NPS Webcams</h1>
 
-    <c-grid cols="1_1_1">
-      ${cams
-        .map(
-          (cam) => `
+    ${cams
+      .map(
+        (cam) => `
         <div>
           <h2>
             <a href="${cam.url}" target="_blank" rel="noopener">
@@ -37,8 +36,7 @@ export default function NpsWebcams({ html, state: { store } }) {
           </ul>
         </div>
       `,
-        )
-        .join('')}
-    </c-grid>
+      )
+      .join('')}
   `
 }

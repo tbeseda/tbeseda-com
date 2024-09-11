@@ -16,10 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/tbeseda/tbeseda-com.git"
   },
-  "keywords": [
-    "homepage",
-    "enhance"
-  ],
+  "keywords": ["homepage", "architect", "enhance"],
   "author": "tbeseda",
   "license": "ISC",
   "homepage": "https://tbeseda.com",
@@ -82,6 +79,10 @@
     "packages": {
       "monospace.css": {
         "specifier": "https://raw.githubusercontent.com/800147/monospace/main/src/monospace.css",
+        "destination": "./public/css"
+      },
+      "pico.css": {
+        "specifier": "@picocss/pico@2.0.6/css/pico.min.css",
         "destination": "./public/css"
       }
     }

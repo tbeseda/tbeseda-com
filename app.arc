@@ -1,11 +1,18 @@
 @app
 tbeseda-com
 
+@aws
+region us-east-1
+runtime nodejs20.x
+architecture arm64
+
 @plugins
 enhance/arc-plugin-enhance
 architect/plugin-lambda-invoker
-# architect/plugin-rust
 # architect/plugin-go
+# architect/plugin-python
+# architect/plugin-ruby
+# architect/plugin-rust
 
 @http
 # get  /.well-known/webfinger # ActivityPub webfinger
@@ -28,16 +35,16 @@ get  /pong                  # ping
 get /og-img/:slug
 
 @bundles
-my-tiptap-editor /src/browser/my-tiptap-editor.mjs
-simple-xterm /src/browser/simple-xterm.mjs
-enhance-ssr-playground /src/browser/enhance-ssr-playground.mjs
-my-milkdown-editor /src/browser/my-milkdown-editor.mjs
-my-quill-editor /src/browser/my-quill-editor.mjs
-quill.core /node_modules/quill/dist/quill.core.css
-quill.snow /node_modules/quill/dist/quill.snow.css
-server-timings node_modules/server-timings-elem/server-timings.js
+enhance-ssr-playground 'src/browser/enhance-ssr-playground.mjs'
+my-milkdown-editor 'src/browser/my-milkdown-editor.mjs'
+my-quill-editor 'src/browser/my-quill-editor.mjs'
+my-tiptap-editor 'src/browser/my-tiptap-editor.mjs'
+simple-xterm 'src/browser/simple-xterm.mjs'
+quill.core 'node_modules/quill/dist/quill.core.css'
+quill.snow 'node_modules/quill/dist/quill.snow.css'
+server-timings 'node_modules/server-timings-elem/server-timings.js'
 snow-fall 'node_modules/@zachleat/snow-fall/snow-fall.js'
-xterm /node_modules/xterm/css/xterm.css
+xterm 'node_modules/xterm/css/xterm.css'
 
 @static
 fingerprint true # required by Enhance
@@ -81,11 +88,6 @@ webmentions
 things
   type *String
   name thingsByType
-
-@aws
-region us-east-1
-runtime nodejs20.x
-architecture arm64
 
 @begin
 # appID D1M9ZCD5

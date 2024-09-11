@@ -16,22 +16,12 @@ export default function TbHeader({ html, state: { store } }) {
     justify-content: space-between;
     align-items: center;
   }
-  .title {
+  .hinge {
     display: flex;
-    align-items: center;
-    gap: 1rem;
   }
   img {
     border-radius: 50%;
     box-shadow: var(--box-shadow);
-  }
-  h1 {
-    margin: 0;
-    font-size: 1.85rem;
-    font-weight: 500;
-  }
-  h1 a {
-    text-decoration: none;
   }
   nav {
     display: flex;
@@ -120,18 +110,18 @@ export default function TbHeader({ html, state: { store } }) {
   }
 </style>
 
-<header class="h-card full">
-  <div class="title hinge">
-    <a href="${me.url}" class="u-url">
-      <img class="u-photo" height="64px" width="64px" src="/_public/me.jpg">
+<header>
+  <div class="hinge">
+    <a href="${me.url}">
+      <img height="64px" width="64px" src="/_public/me.jpg">
     </a>
     <h1><a href="/">${me.name}</a></h1>
   </div>
 
   <nav>
-    <div><a href="/">home</a></div>
-    <div><a href="/about">/about</a></div>
-    <div><a href="/experiments">/experiments</a></div>
+    <a href="/">home</a>
+    <a href="/about">/about</a>
+    <a href="/experiments">/experiments</a>
     <div>
       <a href="/blog">/blog</a>
       <a href="/blog/rss">
@@ -140,7 +130,7 @@ export default function TbHeader({ html, state: { store } }) {
         </svg>
       </a>
     </div>
-    <!--<div><a href="/knowledge">/knowledge</a></div>-->
+    <!--<a href="/knowledge">/knowledge</a>-->
   </nav>
 </header>
 
@@ -148,8 +138,8 @@ export default function TbHeader({ html, state: { store } }) {
   class TbHeader extends HTMLElement {
     constructor () {
       super()
-      this.$me = this.querySelector('img.u-photo')
-      this.$title = this.querySelector('div.title')
+      this.$me = this.querySelector('div.hinge a img')
+      this.$title = this.querySelector('div.hinge')
     }
 
     connectedCallback () {

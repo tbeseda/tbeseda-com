@@ -165,9 +165,8 @@ export default function ExperimentSpotify({ html, state: { store } }) {
 
     <details>
       <summary>More Stats</summary>
-      <c-grid cols="1_2">
-        <div>
-          <h3>Top Artists</h3>
+      <div>
+        <h3>Top Artists</h3>
           ${topArtists.items
             .map(
               ({ name, images }, i) => `
@@ -194,8 +193,7 @@ export default function ExperimentSpotify({ html, state: { store } }) {
               `,
             )
             .join('')}
-        </div>
-      </c-grid>
+      </div>
     </details>
   `
 }

@@ -20,8 +20,6 @@ export default function ExperimentOmnivoreFavorites({ html, state: { store } }) 
 
   return html`
     <h2>All-Time Favorites</h2>
-    <c-grid cols="1">
-      ${omnivoreFavorites.map(presentFav).join('')}
-    </c-grid>
+    ${omnivoreFavorites.map(presentFav).join('')}
   `
 }

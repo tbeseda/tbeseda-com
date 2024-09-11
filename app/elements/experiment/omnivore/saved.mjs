@@ -20,8 +20,6 @@ export default function ExperimentOmnivoreSaved({ html, state: { store } }) {
 
   return html`
     <h2>Recently Saved Articles</h2>
-    <c-grid cols="1_1">
-      ${omnivoreSaved.map(presentArticle).join('')}
-    </c-grid>
+    ${omnivoreSaved.map(presentArticle).join('')}
   `
 }
