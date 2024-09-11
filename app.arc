@@ -9,6 +9,7 @@ architecture arm64
 @plugins
 enhance/arc-plugin-enhance
 architect/plugin-lambda-invoker
+architect/plugin-bundles
 # architect/plugin-go
 # architect/plugin-python
 # architect/plugin-ruby
@@ -28,7 +29,7 @@ get  /pong                  # ping
 get /og-img/:slug
 
 @bundles
-enhance-ssr-playground 'src/browser/enhance-ssr-playground.mjs'
+# enhance-ssr-playground 'src/browser/enhance-ssr-playground.mjs'
 my-milkdown-editor 'src/browser/my-milkdown-editor.mjs'
 my-quill-editor 'src/browser/my-quill-editor.mjs'
 my-tiptap-editor 'src/browser/my-tiptap-editor.mjs'

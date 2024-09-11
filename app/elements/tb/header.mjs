@@ -1,15 +1,7 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function TbHeader({ html, state: { store } }) {
-  const me = {
-    name: 'Taylor Beseda',
-    url: 'https://tbeseda.com',
-  }
-
   return html`
 <style>
-  :host {
-    margin-bottom: 1rem;
-  }
   header {
     padding: 1.5rem 3rem;
     display: flex;
@@ -18,6 +10,7 @@ export default function TbHeader({ html, state: { store } }) {
   }
   .hinge {
     display: flex;
+    gap: 0.5rem;
   }
   img {
     border-radius: 50%;
@@ -112,10 +105,12 @@ export default function TbHeader({ html, state: { store } }) {
 
 <header>
   <div class="hinge">
-    <a href="${me.url}">
+    <a href="/">
       <img height="64px" width="64px" src="/_public/me.jpg">
     </a>
-    <h1><a href="/">${me.name}</a></h1>
+    <h1>
+      <a class="contrast" href="/">Taylor Beseda</a>
+    </h1>
   </div>
 
   <nav>

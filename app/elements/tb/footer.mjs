@@ -3,6 +3,12 @@ export default function TbFooter({ html, state: { store } }) {
   const { currentlyPlaying, icon = '' } = store
   return html`
     <style>
+      footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
       server-timings {
         display: block;
         margin-top: 0.5rem;
@@ -27,6 +33,7 @@ export default function TbFooter({ html, state: { store } }) {
         gap: 0.75rem;
       }
       server-timings li {
+        list-style: none;
         border-right: 1px solid #ccc;
         padding-right: 0.75rem;
       }
@@ -36,7 +43,7 @@ export default function TbFooter({ html, state: { store } }) {
       }
     </style>
 
-    <footer class="grid">
+    <footer>
       <div>
         &copy; tbeseda ${new Date().getFullYear().toString()}.
       </div>
@@ -45,7 +52,7 @@ export default function TbFooter({ html, state: { store } }) {
 
       <div class="say-hi">
         Say "hi" on
-        <a rel="me" href="https://indieweb.social/@tbeseda">Mastodon</a>
+        <a class="secondary" rel="me" href="https://indieweb.social/@tbeseda">Mastodon</a>
       </div>
     </footer>
 
