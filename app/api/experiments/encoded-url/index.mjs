@@ -1,4 +1,5 @@
-import { urlsafeEncode } from '@architect/shared/urlsafe-encode.mjs'
+import { urlsafeEncode } from './urlsafe-encode.mjs'
+
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function post(req) {
   const {

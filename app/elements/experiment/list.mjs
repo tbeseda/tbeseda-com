@@ -8,7 +8,14 @@ export default function List({ html, state: { store } }) {
   return html`
     <style>
       :host {
-        display: block;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media screen and (max-width: 767px) {
+        :host {
+          grid-template-columns: 1fr;
+        }
       }
       .experiment {
         display: flex;
@@ -17,11 +24,7 @@ export default function List({ html, state: { store } }) {
         border-radius: 0.5rem;
       }
       .experiment.featured {
-        box-shadow: var(--shadow);
-      }
-      .experiment * {
-        margin: 0;
-        padding: 0;
+        border: 1px solid navy;
       }
       .experiment h3 {
         margin-bottom: 0.5rem;
@@ -35,10 +38,6 @@ export default function List({ html, state: { store } }) {
         color: white;
         padding: 0.25rem;
         border-radius: 0.25rem;
-      }
-      .experiment time {
-        font-size: 0.8em;
-        margin-bottom: 0.5rem;
       }
     </style>
 

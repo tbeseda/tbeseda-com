@@ -18,7 +18,6 @@ architect/plugin-bundles
 @http
 get  /robots.txt
 post /webmention            # inbound webmention
-post /webhooks/vrite        # vrite incoming
 post /webhooks/omnivore     # omnivore incoming
 get  /api/skull             # skull drawing experiment
 get  /pong                  # ping

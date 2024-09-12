@@ -2,11 +2,23 @@
 export const get = async () => {
   const experiments = [
     {
+      name: 'National Parks Webcams',
+      date: '2024-02-11',
+      description: 'Scraping public webcam images from parks in Colorado.',
+      url: '/experiments/nps-webcams',
+    },
+    {
+      name: 'WYSIWYG Editors',
+      date: '2024',
+      description: 'Testing various editors like TipTap, Milkdown, and Quill.',
+      wip: true,
+    },
+    {
       name: 'Encode + Compress JSON in a URL',
       date: '2024-06-28',
       description: 'Encode and compress JSON in a URL.',
       url: '/experiments/encoded-url',
-      // featured: true,
+      featured: true,
       wip: true,
     },
     {

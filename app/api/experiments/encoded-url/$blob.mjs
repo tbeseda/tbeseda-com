@@ -1,4 +1,4 @@
-import { urlsafeDecode } from '@architect/shared/urlsafe-encode.mjs'
+import { urlsafeDecode } from './urlsafe-encode.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function get(req) {
