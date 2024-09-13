@@ -1,11 +1,11 @@
 import { Buffer } from 'node:buffer'
 import fs from 'node:fs'
+import process from 'node:process'
 import arc from '@architect/functions'
 import { Resvg, initWasm } from '@resvg/resvg-wasm'
+import { createClient } from '@sanity/client'
 import satori from 'satori'
 import { createMarkup } from './article-og-img.mjs'
-import process from 'node:process'
-import { createClient } from '@sanity/client'
 
 const { SANITY_PROJECT_ID } = process.env
 

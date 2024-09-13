@@ -1,7 +1,7 @@
 import HeaderTimers from 'header-timers'
 import MiniSearch from 'minisearch'
-import { client } from '../../lib/sanity-client.mjs'
 import { renderArticle } from '../../lib/article-renderer.mjs'
+import { client } from '../../lib/sanity-client.mjs'
 
 const timers = HeaderTimers()
 

@@ -1,6 +1,6 @@
 import { Feed } from 'feed'
-import { client } from '../../lib/sanity-client.mjs'
 import { renderArticle } from '../../lib/article-renderer.mjs'
+import { client } from '../../lib/sanity-client.mjs'
 
 const TBESEDA = 'https://tbeseda.com'
 
