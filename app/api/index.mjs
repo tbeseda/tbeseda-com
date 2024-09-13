@@ -1,25 +1,11 @@
-import arc from '@architect/functions'
-
-const { articles } = await arc.tables()
+import { getMostRecentArticle } from '../lib/sanity-client.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 async function getHandler() {
-  // TODO: not scan
-  const query = await articles.scan({
-    Limit: 100,
-    FilterExpression: 'attribute_exists(published)',
-    ProjectionExpression: 'title, published, slug, description, #date',
-    ExpressionAttributeNames: {
-      '#date': 'date',
-    },
-  })
-
-  const sortedArticles = query.Items.filter(({ published }) => published).sort(
-    (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
-  )
+  const recentArticle = await getMostRecentArticle()
 
   return {
-    json: { recentArticle: sortedArticles[0] },
+    json: { recentArticle },
   }
 }
 

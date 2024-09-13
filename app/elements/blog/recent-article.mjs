@@ -10,9 +10,9 @@ export default function BlogRecentArticle({ html, state: { store } }) {
       }
     </style>
     <h4>
-      <a class="secondary" href="/blog/${recentArticle.slug}">${recentArticle.title}</a>
+      <a class="secondary" href="/blog/${recentArticle.slug.current}">${recentArticle.title}</a>
     </h4>
     <p>${recentArticle.description}</p>
   `
-    : html`<p>no recent article</p>`
+    : html`<p>🫥</p>`
 }

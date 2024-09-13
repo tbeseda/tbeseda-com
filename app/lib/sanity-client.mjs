@@ -42,7 +42,7 @@ export async function getMostRecentArticle() {
 }
 
 export async function getArticleBySlug(slug) {
-  const query = `*[_type == 'article' && slug.current == $slug] {
+  const query = `*[_type == 'article' && slug.current == $slug] [0] {
     title,
     slug,
     publishedAt,
@@ -50,5 +50,5 @@ export async function getArticleBySlug(slug) {
     content,
   }`
   const article = await client.fetch(query, { slug })
-  return article[0]
+  return article
 }

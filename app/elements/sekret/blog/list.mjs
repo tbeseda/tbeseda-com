@@ -7,9 +7,6 @@ export default function SekretBlogList({ html, state: { store } }) {
       :host {
         display: block;
       }
-      table {
-        width: 100%;
-      }
     </style>
 
     <table>
@@ -27,7 +24,7 @@ export default function SekretBlogList({ html, state: { store } }) {
           (article) => /* html */ `
         <tr>
           <td>
-            <h3>${article.title}</h3>
+            <strong>${article.title}</strong>
             <p>${article.description}</p>
           </td>
           <td>

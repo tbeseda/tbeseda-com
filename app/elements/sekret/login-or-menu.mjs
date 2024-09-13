@@ -12,10 +12,14 @@ export default function SekretLoginOrMenu({ html, state: { store } }) {
   return html`
     <h1>Sekret</h1>
 
-    ${
-      admin
-        ? menu.map(({ href, text }) => `<a href="${href}">${text}</a>`).join('')
-        : '<a href="/auth/passkeys">Sign in</a>'
-    }
+    <nav>
+      <ul>
+        ${
+          admin
+            ? menu.map(({ href, text }) => `<li><a href="${href}">${text}</a></li>`).join('')
+            : '<li><a href="/auth/passkeys">Sign in</a></li>'
+        }
+      </ul>
+    </nav>
   `
 }

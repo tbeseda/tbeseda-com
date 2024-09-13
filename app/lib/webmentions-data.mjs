@@ -1,7 +1,6 @@
 import arc from '@architect/functions'
 
-const data = await arc.tables()
-const webmentions = data.webmentions
+const { webmentions } = await arc.tables()
 
 export default webmentions
 
