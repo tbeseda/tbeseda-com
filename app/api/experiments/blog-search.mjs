@@ -1,31 +1,29 @@
-import arc from '@architect/functions'
 import HeaderTimers from 'header-timers'
 import MiniSearch from 'minisearch'
-import { renderer } from '../../lib/pm2html-renderer.mjs'
+import { client } from '../../lib/sanity-client.mjs'
+import { renderArticle } from '../../lib/article-renderer.mjs'
 
-const { articles: table } = await arc.tables()
 const timers = HeaderTimers()
 
 timers.start('articles-query', 'query articles')
 // * get all articles
-const scan = await table.scan({
-  Limit: 100,
-  FilterExpression: 'attribute_exists(published)',
-  ProjectionExpression: 'articleID, title, published, slug, doc, #date',
-  ExpressionAttributeNames: { '#date': 'date' },
-})
-let articles = scan.Items.filter(({ published }) => published)
-  .sort((a, b) => b.date - a.date)
-  .map(({ articleID, ...article }) => ({ id: articleID, ...article }))
+let articles = await client.fetch(
+  `*[_type == 'article' && publishedAt < now()]
+    | order(publishedAt desc)
+    { title, slug, publishedAt, content }`,
+)
+
 timers.stop('articles-query')
 
 timers.start('articles-render', 'render articles')
 // * convert ProseMirror doc to text
 // TODO: go straight to text, skip HTML
-articles = articles.map(({ doc, ...article }) => {
-  const html = renderer.render(doc).replace(/(<([^>]+)>)/gi, ' ')
-  return { html, ...article }
-})
+articles = articles.map(({ slug, content, ...article }) => ({
+  id: slug,
+  html: renderArticle(content).replace(/(<([^>]+)>)/gi, ' '),
+  ...article,
+}))
+
 timers.stop('articles-render')
 
 timers.start('articles-index', 'index articles')
