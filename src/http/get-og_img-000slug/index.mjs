@@ -4,20 +4,29 @@ import arc from '@architect/functions'
 import { Resvg, initWasm } from '@resvg/resvg-wasm'
 import satori from 'satori'
 import { createMarkup } from './article-og-img.mjs'
+import process from 'node:process'
+import { createClient } from '@sanity/client'
+
+const { SANITY_PROJECT_ID } = process.env
+
+if (!SANITY_PROJECT_ID) throw 'Missing SANITY_PROJECT_ID'
+
+const client = createClient({
+  projectId: SANITY_PROJECT_ID, // This doesn't need to be secret
+  dataset: 'production',
+  apiVersion: '2024-09-12', // use current date (YYYY-MM-DD) to target the latest API version
+  perspective: 'published', // ensures Sanity "draft."s are not included
+  useCdn: true, // use caching and edge
+})
 
 await initWasm(fs.readFileSync('./node_modules/@resvg/resvg-wasm/index_bg.wasm'))
 
-const { articles } = await arc.tables()
-
 async function get({ pathParameters }) {
   const { slug } = pathParameters
-
-  const query = await articles.query({
-    IndexName: 'articlesBySlug',
-    KeyConditionExpression: 'slug = :slug',
-    ExpressionAttributeValues: { ':slug': slug },
-  })
-  const article = query.Items[0]
+  const query = `*[_type == 'article' && slug.current == $slug] [0] {
+    title, slug, publishedAt, description,
+  }`
+  const article = await client.fetch(query, { slug })
 
   if (!article) return { statusCode: 404 }
 

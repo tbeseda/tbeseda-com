@@ -69,7 +69,7 @@ export function createMarkup(article) {
               color: '#5b5c5f',
               'font-size': '2rem',
             },
-            children: `tbeseda.com/blog/${article.slug}`,
+            children: `tbeseda.com/blog/${article.slug.current}`,
           },
         },
       ],
