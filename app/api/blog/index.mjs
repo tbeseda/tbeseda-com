@@ -1,28 +1,14 @@
-import arc from '@architect/functions'
-
-const { articles } = await arc.tables()
+import { getRecentPublishedArticles } from '../../lib/sanity-client.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export const get = async ({ timers }) => {
   timers.start('articles-query', 'tb-articles-query')
-  // TODO: not scan
-  const query = await articles.scan({
-    Limit: 100,
-    FilterExpression: 'attribute_exists(published)',
-    ProjectionExpression: 'title, published, slug, description, #date',
-    ExpressionAttributeNames: {
-      '#date': 'date',
-    },
-  })
+  const articles = await getRecentPublishedArticles()
   timers.stop('articles-query')
-
-  const sortedArticles = query.Items.filter(({ published }) => published).sort(
-    (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
-  )
 
   timers.stop('total')
   return {
     headers: { ...timers.object() },
-    json: { articles: sortedArticles },
+    json: { articles },
   }
 }
