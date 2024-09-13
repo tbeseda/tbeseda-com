@@ -1,20 +1,13 @@
-import arc from '@architect/functions'
 import { Feed } from 'feed'
-import { renderer } from '../../lib/pm2html-renderer.mjs'
+import { client } from '../../lib/sanity-client.mjs'
+import { renderArticle } from '../../lib/article-renderer.mjs'
 
 const TBESEDA = 'https://tbeseda.com'
 
-const { articles } = await arc.tables()
-const query = await articles.scan({
-  Limit: 100,
-  FilterExpression: 'attribute_exists(published)',
-  ProjectionExpression: 'articleID, title, published, slug, description, doc, #date',
-  ExpressionAttributeNames: {
-    '#date': 'date',
-  },
-})
-const sortedArticles = query.Items.filter(({ published }) => published).sort(
-  (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
+const articles = await client.fetch(
+  `*[_type == 'article' && publishedAt < now()]
+    | order(publishedAt desc)
+    { title, slug, publishedAt, content }`,
 )
 
 const feed = new Feed({
@@ -35,15 +28,18 @@ const feed = new Feed({
   feed: `${TBESEDA}/blog/rss`,
 })
 
-for (const article of sortedArticles) {
-  const content = renderer.render(article.doc).replace(/src=["']\/([^"']+)["']/g, (_match, src) => {
-    const absoluteUrl = `${TBESEDA}/${src}`
-    return `src="${absoluteUrl}"`
-  })
+for (const article of articles) {
+  const content = renderArticle(article.content).replace(
+    /src=["']\/([^"']+)["']/g,
+    (_match, src) => {
+      const absoluteUrl = `${TBESEDA}/${src}`
+      return `src="${absoluteUrl}"`
+    },
+  )
   feed.addItem({
     title: article.title,
     // id: article.articleID, // defaults to link value
-    link: `${TBESEDA}/blog/${article.slug}`,
+    link: `${TBESEDA}/blog/${article.slug.current}`,
     description: article.description,
     content,
     author: [
@@ -53,7 +49,7 @@ for (const article of sortedArticles) {
         link: TBESEDA,
       },
     ],
-    date: new Date(article.date),
+    date: new Date(article.publishedAt),
     // image: article.image,
   })
 }
