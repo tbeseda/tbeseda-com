@@ -1,7 +1,8 @@
 :root {
   /* https://github.com/system-fonts/modern-font-stacks?tab=readme-ov-file#monospace-code */
-  --font-family: "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
-  --font: 600 16px / 20px var(--font-family);
+  --font-family: "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+    "DejaVu Sans Mono", monospace;
+  --font: 600 16px/20px var(--font-family);
   --bgcolor: #fff;
   --color: #555;
 
@@ -458,7 +459,10 @@ input[type="radio"]:checked::before {
 @supports (top: round(100%, 1lh)) {
   #cursor {
     transform: var(--custom-cursor-switch)
-      translate(round(down, var(--cursorX), 1ch), round(down, var(--cursorY), 1lh));
+      translate(
+        round(down, var(--cursorX), 1ch),
+        round(down, var(--cursorY), 1lh)
+      );
     z-index: 9999;
   }
 }
