@@ -21,6 +21,7 @@ post /webmention            # inbound webmention
 post /webhooks/omnivore     # omnivore incoming
 get  /api/skull             # skull drawing experiment
 get  /pong                  # ping
+get  /groq                  # run a .groq
 # get  /test/golang           # golang test
 # get  /test/python           # python test
 # get  /test/ruby             # ruby test
