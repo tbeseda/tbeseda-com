@@ -8,8 +8,8 @@ const rpIDs = {
   staging: 'staging.tbeseda.com',
   testing: 'localhost',
 }
-const rpID = rpIDs[ARC_ENV] || rpIDs.testing
-const origin = ARC_ENV === 'testing' ? 'http://localhost:3333' : `https://${rpID}`
+const RP_ID = rpIDs[ARC_ENV] || rpIDs.testing
+const ORIGIN = ARC_ENV === 'testing' ? 'http://localhost:3333' : `https://${RP_ID}`
 
 const { users } = await arc.tables()
 
@@ -27,12 +27,13 @@ export async function get(req) {
   if (existingUser) throw new Error('User already exists!')
 
   const options = await generateRegistrationOptions({
-    rpName: rpID,
-    rpID,
+    rpName: RP_ID,
+    rpID: RP_ID,
     userID: new Uint8Array(Buffer.from(email)),
     userName: email,
     attestationType: 'indirect',
     authenticatorSelection: {
+      residentKey: 'required',
       userVerification: 'preferred',
     },
     supportedAlgorithmIDs: [-7, -257], // ES256, RS256
@@ -62,18 +63,19 @@ export async function post(req) {
   const verification = await verifyRegistrationResponse({
     response: attestationResponse,
     expectedChallenge,
-    expectedOrigin: origin,
-    expectedRPID: rpID,
+    expectedOrigin: ORIGIN,
+    expectedRPID: RP_ID,
+    requireUserVerification: false,
   })
 
   if (!verification.verified) throw new Error('Verification failed!')
   if (!verification.registrationInfo) throw new Error('Registration info empty!')
 
-  const { credentialID, credentialPublicKey } = verification.registrationInfo
+  const { credential: registrationCredential } = verification.registrationInfo
 
   const credential = {
-    id: credentialID,
-    publicKey: Buffer.from(credentialPublicKey).toString('base64'),
+    ...registrationCredential,
+    publicKey: Buffer.from(registrationCredential.publicKey).toString('base64'),
   }
 
   const newUser = await users.put({

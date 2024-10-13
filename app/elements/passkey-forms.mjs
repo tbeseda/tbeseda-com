@@ -15,13 +15,12 @@ export default function Passkeys({ state: { store } }) {
     return /*html*/ `
 <h4>Finish registration for ${registrationOptions.user.name}</h4>
 
-<script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.umd.min.js"></script>
 <script type="module">
-  const { startRegistration } = window.SimpleWebAuthnBrowser
+  import { startRegistration } from '/_public/js/simplewebauthn.js'
   const options = ${registrationOptions ? JSON.stringify(registrationOptions) : 'null'}
 
   if (options) {
-    const attestationResponse = await startRegistration(options)
+    const attestationResponse = await startRegistration({ optionsJSON: options })
 
     const verifyResponse = await fetch('/auth/passkeys/register', {
       method: 'POST',
@@ -39,7 +38,7 @@ export default function Passkeys({ state: { store } }) {
       window.location.replace('/auth/passkeys')
     else {
       alert('Registration failed!')
-      window.location.replace('/auth/passkeys')
+      // window.location.replace('/auth/passkeys')
     }
   }
 </script>
@@ -49,12 +48,11 @@ export default function Passkeys({ state: { store } }) {
     return /*html*/ `
 <h4>Finish sign in for ${email}</h4>
 
-<script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.umd.min.js"></script>
 <script type="module">
-  const { startAuthentication } = window.SimpleWebAuthnBrowser
+  import { startAuthentication } from '/_public/js/simplewebauthn.js'
   const options = ${authOptions ? JSON.stringify(authOptions) : 'null'}
   if (options) {
-    const assertionResponse = await startAuthentication(options)
+    const assertionResponse = await startAuthentication({ optionsJSON: options })
 
     const verifyResponse = await fetch('/auth/passkeys', {
       method: 'POST',

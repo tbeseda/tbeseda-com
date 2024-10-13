@@ -113,7 +113,8 @@ export default function Head({ req, store }) {
         {
           "prefetch": [{
             "where": {
-              "href_matches": "/*"
+              "href_matches": "/*",
+              "not": { "href_matches": "/logout" }
             },
             "eagerness": "moderate"
           }]

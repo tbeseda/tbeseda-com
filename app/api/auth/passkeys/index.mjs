@@ -82,9 +82,9 @@ export async function post(req) {
     expectedChallenge,
     expectedOrigin: origin,
     expectedRPID: rpID,
-    authenticator: {
-      credentialPublicKey,
-      credentialID,
+    credential: {
+      publicKey: credentialPublicKey,
+      id: credentialID,
       counter: 0,
     },
   })
