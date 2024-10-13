@@ -63,6 +63,7 @@ export default function Head({ req, store }) {
       <link rel="icon" href="/_public/favicon.ico">
       <link rel="alternate" type="application/rss+xml" title="tbeseda.com Articles" href="/blog/rss">
       <link rel="webmention" href="https://tbeseda.com/webmention">
+      <meta name="fediverse:creator" content="@tbeseda@indieweb.social" />
 
       ${ogTags}
       ${articleLdJson}
@@ -75,12 +76,6 @@ export default function Head({ req, store }) {
       <script type="module" src="/_public/bundles/server-timings.mjs"></script>
       ${snowing > 0 ? '<script type="module" src="/_public/bundles/snow-fall.mjs"></script>' : ''}
 
-      <!--
-      <link rel="stylesheet" href="/_public/css/reset.css">
-      <link rel="stylesheet" href="/_public/css/vars.css">
-      <link rel="stylesheet" href="/_public/css/styles.css">
-      <link rel="stylesheet" href="/_public/css/article.css">
-      -->
       <link rel="stylesheet" href="/_public/css/pico.css">
 
       <style>
