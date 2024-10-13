@@ -8,8 +8,8 @@ const rpIDs = {
   staging: 'staging.tbeseda.com',
   testing: 'localhost',
 }
-const rpID = rpIDs[ARC_ENV] || rpIDs.testing
-const origin = ARC_ENV === 'testing' ? 'http://localhost:3333' : `https://${rpID}`
+const RP_ID = rpIDs[ARC_ENV] || rpIDs.testing
+const ORIGIN = ARC_ENV === 'testing' ? 'http://localhost:3333' : `https://${RP_ID}`
 
 const { users } = await arc.tables()
 
@@ -33,8 +33,8 @@ export async function get(req) {
     }
 
     const authOptions = await generateAuthenticationOptions({
-      rpID,
-      userVerification: 'required',
+      rpID: RP_ID,
+      userVerification: 'preferred',
       allowCredentials: [
         {
           id: existingUser.credential.id,
@@ -80,8 +80,9 @@ export async function post(req) {
   const verification = await verifyAuthenticationResponse({
     response: assertionResponse,
     expectedChallenge,
-    expectedOrigin: origin,
-    expectedRPID: rpID,
+    expectedOrigin: ORIGIN,
+    expectedRPID: RP_ID,
+    requireUserVerification: false,
     credential: {
       publicKey: credentialPublicKey,
       id: credentialID,
