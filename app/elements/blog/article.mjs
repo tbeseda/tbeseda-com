@@ -1,11 +1,11 @@
-import { renderArticle } from '../../lib/article-renderer.mjs'
+import { renderContent } from '../../lib/sanity-content-renderer.mjs'
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function BlogArticle({ html, state: { store } }) {
   const { article, queryTime, timers } = store
 
   timers.start('article-render', 'tb-article-render')
-  const rendered = renderArticle(article)
+  const rendered = renderContent(article.content)
   const renderTime = timers.stop('article-render') || 0
 
   const totalTime = queryTime + renderTime

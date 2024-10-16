@@ -4,15 +4,15 @@ import { client as sanityClient } from './sanity-client.mjs'
 
 const builder = imageUrlBuilder(sanityClient)
 
-export function renderArticle(article) {
-  const rendered = toHTML(article.content, {
+export function renderContent(content) {
+  const rendered = toHTML(content, {
     components: {
       types: {
         image: ({ value }) => {
           return `
             <figure>
               <img src="${builder.image(value).url()}" alt="${value.alt}" />
-              <figcaption>${value.caption}</figcaption>
+              ${value.caption ? `<figcaption>${value.caption}</figcaption>` : ''}
             </figure>
           `.trim()
         },
