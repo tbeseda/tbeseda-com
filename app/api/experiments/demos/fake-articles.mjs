@@ -1,5 +1,5 @@
 import arc from '@architect/functions'
-import { createID } from '../../lib/create-id.mjs'
+import { createID } from '../../../lib/create-id.mjs'
 
 const { 'experiment-articles': articles } = await arc.tables()
 
