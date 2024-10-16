@@ -24,12 +24,12 @@ export default function List({ html, state: { store } }) {
         border-radius: 0.5rem;
       }
       .experiment.featured {
-        border: 1px solid navy;
+        border: 1px solid cornflowerblue;
       }
       .experiment h3 {
         margin-bottom: 0.5rem;
         display: flex;
-        justify-content: space-between;
+        gap: 0.5rem;
         align-items: start;
       }
       .experiment h3 mark {
@@ -43,14 +43,15 @@ export default function List({ html, state: { store } }) {
 
     ${collection.render(
       'div',
-      (i) => i.attrs({ class: `experiment${i.i.featured ? ' featured' : ''}` }),
+      (i) => i.attrs({ class: `experiment${i.i.isFeatured ? ' featured' : ''}` }),
       (item) => `
         <h3>
-          ${item.link(item.i.url, item.i.name)}
-          ${item.i.wip ? '<mark>WIP</mark>' : ''}
+          ${item.link(`/experiments/${item.i.slug.current}`, item.i.title)}
+          ${item.i.isWIP ? '<mark>WIP</mark>' : ''}
         </h3>
-        <time>${item.i.date}</time>
-        <p>${item.i.description}</p>
+        <time>${item.i.publishedAt}</time>
+        <p>${item.i.excerpt}</p>
+
       `,
     )}
   `

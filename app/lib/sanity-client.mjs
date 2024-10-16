@@ -52,3 +52,39 @@ export async function getArticleBySlug(slug) {
   const article = await client.fetch(query, { slug })
   return article
 }
+
+export async function getCodeExperiments() {
+  const query = `*[_type == 'codeExperiment' && isVisible == true] {
+    title,
+    slug,
+    path,
+    publishedAt,
+    updatedAt,
+    excerpt,
+    content,
+    technology,
+    image,
+    isWIP,
+    isFeatured,
+  }`
+  const experiments = await client.fetch(query)
+  return experiments
+}
+
+export async function getCodeExperimentBySlug(slug) {
+  const query = `*[_type == 'codeExperiment' && slug.current == $slug] [0] {
+    title,
+    slug,
+    path,
+    publishedAt,
+    updatedAt,
+    excerpt,
+    content,
+    technology,
+    image,
+    isWIP,
+    isFeatured,
+  }`
+  const experiment = await client.fetch(query, { slug })
+  return experiment
+}
