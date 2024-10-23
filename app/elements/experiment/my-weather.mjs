@@ -1,12 +1,12 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExperimentMyWeather ({ html, state: { store } }) {
+export default function ExperimentMyWeather({ html, state: { store } }) {
   const { weather: weatherData } = store
 
   const weather = weatherData.find(({ key }) => key === 'tomorrow-io')
   const airNow = weatherData.find(({ key }) => key === 'airnow')
   const iqAir = weatherData.find(({ key }) => key === 'iqair')
 
-  function airNowRow (entry) {
+  function airNowRow(entry) {
     const { DateObserved, HourObserved, LocalTimeZone, ParameterName, AQI, Category } = entry
     const { Name } = Category
     const date = new Date(DateObserved)

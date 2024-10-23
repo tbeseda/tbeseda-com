@@ -1,6 +1,6 @@
 import arc from '@architect/functions'
 
-const { MY_LAT, MY_LON, AIRNOW_KEY, IQAIR_KEY } = process.env
+const { ARC_ENV, MY_LAT, MY_LON, AIRNOW_KEY, IQAIR_KEY } = process.env
 const AIRNOW_URL = [
   'https://www.airnowapi.org/aq/observation/latLong/current/',
   '?format=application/json&distance=25',
@@ -15,7 +15,8 @@ const IQAIR_URL = [
 
 const { things } = await arc.tables()
 
-export async function handler () {
+export async function handler() {
+  if (ARC_ENV === 'staging') return
   const results = []
 
   try {

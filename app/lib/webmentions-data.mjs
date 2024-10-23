@@ -1,11 +1,10 @@
 import arc from '@architect/functions'
 
-const data = await arc.tables()
-const webmentions = data.webmentions
+const { webmentions } = await arc.tables()
 
 export default webmentions
 
-export async function mentionsByPath (path) {
+export async function mentionsByPath(path) {
   const mentions = await webmentions.query({
     IndexName: 'mentionsByPath',
     KeyConditionExpression: 'targetPath = :targetPath',

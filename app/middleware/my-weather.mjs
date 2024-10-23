@@ -2,7 +2,7 @@ import arc from '@architect/functions'
 
 const { things } = await arc.tables()
 
-export default async function spotifyPlaying (_, data) {
+export default async function spotifyPlaying(_, data) {
   let myWeather
   try {
     const weatherQuery = await things.query({

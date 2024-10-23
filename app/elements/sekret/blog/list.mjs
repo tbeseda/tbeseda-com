@@ -1,14 +1,11 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function SekretBlogList ({ html, state: { store } }) {
+export default function SekretBlogList({ html, state: { store } }) {
   const { articles = [] } = store
 
   return html`
     <style>
       :host {
         display: block;
-      }
-      table {
-        width: 100%;
       }
     </style>
 
@@ -27,13 +24,11 @@ export default function SekretBlogList ({ html, state: { store } }) {
           (article) => /* html */ `
         <tr>
           <td>
-            <h3>${article.title}</h3>
+            <strong>${article.title}</strong>
             <p>${article.description}</p>
           </td>
           <td>
-            <input type="checkbox" disabled ${
-              article.published ? 'checked' : ''
-            }>
+            <input type="checkbox" disabled ${article.published ? 'checked' : ''}>
           </td>
           <td>${article.date}</td>
           <td>

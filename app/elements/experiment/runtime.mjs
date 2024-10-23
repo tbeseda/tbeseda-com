@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExperimentRuntime ({ html, state: { attrs } }) {
+export default function ExperimentRuntime({ html, state: { attrs } }) {
   const { lang } = attrs
   return html`
     <style>

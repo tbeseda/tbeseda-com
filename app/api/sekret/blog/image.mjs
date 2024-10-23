@@ -1,5 +1,6 @@
 // ty, Ryan: https://begin.com/blog/posts/2023-02-08-upload-files-in-forms-part-1
 
+// TODO use aws-lite/s3
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import Busboy from 'busboy'
 import { createID } from '../../../lib/create-id.mjs'
@@ -13,8 +14,7 @@ const parse = (event) =>
   new Promise((resolve, reject) => {
     const busboy = Busboy({
       headers: {
-        'content-type':
-          event.headers['content-type'] || event.headers['Content-Type'],
+        'content-type': event.headers['content-type'] || event.headers['Content-Type'],
       },
     })
     /** @type {{files: Array<Record<string, any>>}} */
@@ -51,17 +51,16 @@ const parse = (event) =>
       resolve(result)
     })
 
-    const encoding =
-      event.encoding || (event.isBase64Encoded ? 'base64' : 'binary')
+    const encoding = event.encoding || (event.isBase64Encoded ? 'base64' : 'binary')
 
     busboy.write(event.body, encoding)
     busboy.end()
   })
 
-export async function post (req) {
-  let { authorized } = req.session
-  authorized = !!authorized
-  if (!authorized) throw new Error('Unauthorized')
+export async function post(req) {
+  let { admin } = req.session
+  admin = !!admin
+  if (!admin) throw new Error('Unauthorized')
 
   // the body property needs to be swapped out for rawBody
   const parsedForm = await parse({
@@ -79,12 +78,7 @@ export async function post (req) {
     const { join } = await import('node:path')
     const { fileURLToPath } = await import('node:url')
     const __dirname = fileURLToPath(new URL('.', import.meta.url))
-    const imageDir = join(
-      __dirname,
-      ...Array(4).fill('..'),
-      'public',
-      imageFolder,
-    )
+    const imageDir = join(__dirname, ...Array(4).fill('..'), 'public', imageFolder)
 
     try {
       mkdirSync(imageDir, { recursive: true })

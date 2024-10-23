@@ -3,14 +3,15 @@
 import { URLSearchParams } from 'node:url'
 import { createID } from '../../../lib/create-id.mjs'
 
-const { ARC_ENV, SPOTIFY_CLIENT, SPOTIFY_SECRET, SPOTIFY_REDIRECT } =
-  process.env
+const { ARC_ENV, SPOTIFY_CLIENT, SPOTIFY_SECRET, SPOTIFY_REDIRECT } = process.env
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get ({ session }) {
+export async function get({ session }) {
   if (ARC_ENV === 'staging') return { text: 'Not prod' }
 
-  if (!(SPOTIFY_CLIENT && SPOTIFY_SECRET && SPOTIFY_REDIRECT)) { throw new Error('Missing Spotify environment variables') }
+  if (!(SPOTIFY_CLIENT && SPOTIFY_SECRET && SPOTIFY_REDIRECT)) {
+    throw new Error('Missing Spotify environment variables')
+  }
 
   // generate random state
   const state = createID(16, '')

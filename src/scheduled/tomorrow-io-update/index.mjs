@@ -1,6 +1,6 @@
 import arc from '@architect/functions'
 
-const { MY_LAT, MY_LON, TOMORROW_IO_KEY } = process.env
+const { ARC_ENV, MY_LAT, MY_LON, TOMORROW_IO_KEY } = process.env
 const TOMORROW_IO_URL = [
   'https://api.tomorrow.io/v4/weather/realtime',
   `?location=${MY_LAT},-${MY_LON}`,
@@ -10,7 +10,8 @@ const TOMORROW_IO_URL = [
 
 const { things } = await arc.tables()
 
-export async function handler () {
+export async function handler() {
+  if (ARC_ENV === 'staging') return
   let result
 
   try {

@@ -1,13 +1,10 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExperimentOmnivoreHighlights ({
-  html,
-  state: { store },
-}) {
+export default function ExperimentOmnivoreHighlights({ html, state: { store } }) {
   const { omnivoreHighlights } = store
 
   if (!omnivoreHighlights?.length) return html`<p>No highlights yet.</p>`
 
-  function presentHighlight ({ entity: highlight, updatedAt }) {
+  function presentHighlight({ entity: highlight, updatedAt }) {
     if (!highlight?.page) return html`<p>Missing article data</p>`
 
     const { page, quote, annotation } = highlight
@@ -26,8 +23,6 @@ export default function ExperimentOmnivoreHighlights ({
 
   return html`
     <h2>Recent Highlights</h2>
-    <c-grid cols="1_1">
-      ${omnivoreHighlights.map(presentHighlight).join('')}
-    </c-grid>
+    ${omnivoreHighlights.map(presentHighlight).join('')}
   `
 }

@@ -1,28 +1,27 @@
-import HeaderTimers from 'header-timers'
-import { renderer } from '../../lib/pm2html-renderer.mjs'
+import { renderContent } from '../../lib/sanity-content-renderer.mjs'
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function BlogArticle ({ html, state: { store } }) {
-  const { article, queryTime } = store
-  const timers = HeaderTimers()
+export default function BlogArticle({ html, state: { store } }) {
+  const { article, queryTime, timers } = store
 
   timers.start('article-render', 'tb-article-render')
-  const rendered = renderer.render(article.doc)
+  const rendered = renderContent(article.content)
   const renderTime = timers.stop('article-render') || 0
+
   const totalTime = queryTime + renderTime
 
   return html`
     <article>
-      <time>${article.date}</time>
-      <h2 class="title">${article.title}</h2>
+      <time datetime=${article.publishedAt}>${new Date(article.publishedAt).toLocaleDateString()}</time>
+      <h2>${article.title}</h2>
 
       ${rendered}
 
-      <p class="feature" style="text-align: right;">
+      <p style="text-align: right;">
         <small>
-          from DynamoDB (${queryTime.toPrecision(2).toString()}ms)
-          to HTML (${renderTime?.toPrecision(2).toString()}ms)
-          in ${`${totalTime.toPrecision(2).toString()}`}ms
+          from Sanity.io (${queryTime.toFixed(2)}ms)
+          to HTML (${renderTime.toFixed(2)}ms)
+          <!-- in ${`${totalTime.toFixed(2)}`}ms -->
         </small>
       </p>
     </article>

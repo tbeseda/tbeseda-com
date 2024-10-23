@@ -1,6 +1,6 @@
 import arc from '@architect/functions'
 
-async function http (request) {
+async function http(request) {
   const { headers } = request
 
   if ('accept' in headers) {
@@ -20,10 +20,7 @@ async function http (request) {
     },
     body: JSON.stringify(
       {
-        '@context': [
-          'https://www.w3.org/ns/activitystreams',
-          { '@language': 'en' },
-        ],
+        '@context': ['https://www.w3.org/ns/activitystreams', { '@language': 'en' }],
         type: 'Person',
         id: 'https://tbeseda.com/tbeseda',
         outbox: 'https://tbeseda.com/api/outbox',

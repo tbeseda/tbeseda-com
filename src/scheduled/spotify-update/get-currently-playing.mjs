@@ -3,16 +3,13 @@ import arc from '@architect/functions'
 const key = 'spotify-currently-playing'
 const { things } = await arc.tables()
 
-export default async function getCurrentlyPlaying (token) {
+export default async function getCurrentlyPlaying(token) {
   let currentlyPlaying
   try {
-    const response = await fetch(
-      'https://api.spotify.com/v1/me/player/currently-playing',
-      {
-        method: 'GET',
-        headers: { Authorization: `Bearer ${token.access_token}` },
-      },
-    )
+    const response = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${token.access_token}` },
+    })
 
     if (response.status === 204) {
       currentlyPlaying = {}
@@ -21,9 +18,7 @@ export default async function getCurrentlyPlaying (token) {
       currentlyPlaying = await response.json()
 
       if (currentlyPlaying.error) {
-        console.error(
-          `${currentlyPlaying.error}: ${currentlyPlaying.error_description}`,
-        )
+        console.error(`${currentlyPlaying.error}: ${currentlyPlaying.error_description}`)
         return
       }
     } else {

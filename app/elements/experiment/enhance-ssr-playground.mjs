@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function EnhanceSsrPlayground ({ html }) {
+export default function EnhanceSsrPlayground({ html }) {
   const codeString = `const html = createHtmlRenderer({
     initialState: {
       name: 'Axol',
@@ -36,6 +36,6 @@ export default function EnhanceSsrPlayground ({ html }) {
 
 <pre><code class="language-js">${codeString}</code></pre>
 
-<script type="module" src="/_public/browser/enhance-ssr-playground.mjs"></script>
+<script type="module" src="/_public/bundles/enhance-ssr-playground.mjs"></script>
 `
 }

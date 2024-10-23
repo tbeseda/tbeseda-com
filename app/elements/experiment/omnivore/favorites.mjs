@@ -1,13 +1,10 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExperimentOmnivoreFavorites ({
-  html,
-  state: { store },
-}) {
+export default function ExperimentOmnivoreFavorites({ html, state: { store } }) {
   const { omnivoreFavorites } = store
 
   if (!omnivoreFavorites?.length) return html`<p>No favorites yet.</p>`
 
-  function presentFav ({ entity: labelFav, updatedAt }) {
+  function presentFav({ entity: labelFav, updatedAt }) {
     if (!labelFav?.page) return html`<p>Missing article data</p>`
 
     const { title, url, description } = labelFav.page
@@ -23,8 +20,6 @@ export default function ExperimentOmnivoreFavorites ({
 
   return html`
     <h2>All-Time Favorites</h2>
-    <c-grid cols="1">
-      ${omnivoreFavorites.map(presentFav).join('')}
-    </c-grid>
+    ${omnivoreFavorites.map(presentFav).join('')}
   `
 }

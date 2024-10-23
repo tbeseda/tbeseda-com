@@ -1,8 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ExperimentFakeArticleEditor ({
-  html,
-  state: { store },
-}) {
+export default function ExperimentFakeArticleEditor({ html, state: { store } }) {
   return html`
     <style>
       :host {
@@ -72,7 +69,7 @@ export default function ExperimentFakeArticleEditor ({
     </p>
 
     <script type="module">
-      import { MyEditor } from '/_public/browser/my-tiptap-editor.mjs'
+      import { MyEditor } from '/_public/bundles/my-tiptap-editor.mjs'
 
       class ExperimentFakeArticleEditor extends HTMLElement {
         constructor() {

@@ -1,19 +1,18 @@
 import arc from '@architect/functions'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get ({ session }) {
-  let { authorized } = session
-  authorized = !!authorized
+export async function get({ session }) {
+  let { admin } = session
+  admin = !!admin
 
-  if (!authorized) throw new Error('Unauthorized')
+  if (!admin) throw new Error('Unauthorized')
 
   const { articles } = await arc.tables()
 
   // TODO: not scan
   const articleQuery = await articles.scan({
     Limit: 100,
-    ProjectionExpression:
-      'articleID, title, published, doc, description, #date',
+    ProjectionExpression: 'articleID, title, published, doc, description, #date',
     ExpressionAttributeNames: {
       '#date': 'date',
     },
@@ -24,6 +23,6 @@ export async function get ({ session }) {
   )
 
   return {
-    json: { authorized, articles: sortedArticles },
+    json: { admin, articles: sortedArticles },
   }
 }

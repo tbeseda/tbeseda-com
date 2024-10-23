@@ -2,7 +2,7 @@ import arc from '@architect/functions'
 
 const { things } = await arc.tables()
 
-async function http ({ body }) {
+async function http({ body }) {
   const { action } = body
 
   if (action !== 'created') {
@@ -25,14 +25,12 @@ async function http ({ body }) {
   console.log('Found entity', { type, key })
 
   if (entityType === 'page') {
-    delete entity.originalHtml // could be huge
-    delete entity.content // also huge
+    entity.originalHtml // could be huge = undefined // could be huge
+    entity.content // also huge = undefined // also huge
   }
 
   if (entityType === 'label') {
-    const containsFavorite = entity.labels.some(
-      ({ name }) => name.toLowerCase() === 'favorite',
-    )
+    const containsFavorite = entity.labels.some(({ name }) => name.toLowerCase() === 'favorite')
 
     if (!containsFavorite) {
       console.log('No "Favorite" label found; done.')

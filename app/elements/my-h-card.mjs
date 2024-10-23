@@ -1,7 +1,7 @@
 import HCardPresenter from '../lib/h-card-presenter.mjs'
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function Card ({ html, state: { store } }) {
+export default function Card({ html, state: { store } }) {
   const { hCards } = store
   const myHCard = hCards?.items?.length ? hCards.items[0] : {}
 

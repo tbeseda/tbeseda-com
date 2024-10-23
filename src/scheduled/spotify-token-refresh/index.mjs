@@ -4,7 +4,7 @@ const { ARC_ENV, SPOTIFY_CLIENT, SPOTIFY_SECRET } = process.env
 const key = 'spotify-token'
 const { things } = await arc.tables()
 
-export async function handler () {
+export async function handler() {
   if (ARC_ENV === 'staging') return
 
   if (!(SPOTIFY_CLIENT && SPOTIFY_SECRET)) {
@@ -33,9 +33,9 @@ export async function handler () {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Basic ${Buffer.from(
-          `${SPOTIFY_CLIENT}:${SPOTIFY_SECRET}`,
-        ).toString('base64')}`,
+        Authorization: `Basic ${Buffer.from(`${SPOTIFY_CLIENT}:${SPOTIFY_SECRET}`).toString(
+          'base64',
+        )}`,
         Accept: 'application/json',
       },
       body: new URLSearchParams({

@@ -337,7 +337,8 @@ module.exports = [
     },
     updatedAt: '2023-10-28T02:23:59.370Z',
     slug: 'super-helpful-server-timing-http-response-headers',
-    description: 'TIL about the Server-Timing header and the accompanying browser dev tools feature. So I built a quick helper to create and transmit performance timers.',
+    description:
+      'TIL about the Server-Timing header and the accompanying browser dev tools feature. So I built a quick helper to create and transmit performance timers.',
     title: 'Super Helpful: Server-Timing HTTP Response Headers',
   },
   {
@@ -391,7 +392,7 @@ module.exports = [
           content: [
             {
               type: 'text',
-              text: "gitclean() {\n  DIRTY=$(git clean -Xdn | sed 's/Would remove //g')\n  gum style \\\n    --foreground 196 --border thick --border-foreground 88 \\\n    --margin \"1 2\" --padding \"1 3\" \"$DIRTY\"\n  gum confirm \"🧹 Delete these?\" \\\n    && git clean -Xdf \\\n    || echo \"Still dirty.\"\n}",
+              text: 'gitclean() {\n  DIRTY=$(git clean -Xdn | sed \'s/Would remove //g\')\n  gum style \\\n    --foreground 196 --border thick --border-foreground 88 \\\n    --margin "1 2" --padding "1 3" "$DIRTY"\n  gum confirm "🧹 Delete these?" \\\n    && git clean -Xdf \\\n    || echo "Still dirty."\n}',
             },
           ],
           attrs: {
@@ -492,7 +493,7 @@ module.exports = [
             },
             {
               type: 'text',
-              text: " (both are great, btw!). Instead, it's built with super performant elements as close to this site's \"native\" stack as possible:",
+              text: ' (both are great, btw!). Instead, it\'s built with super performant elements as close to this site\'s "native" stack as possible:',
             },
           ],
         },
@@ -689,7 +690,8 @@ module.exports = [
     },
     updatedAt: '2023-09-26T01:56:43.718Z',
     slug: 'new-blog-architecture',
-    description: 'How I built my blog platform from scratch with Enhance, Architect, and built-in AWS services like DynamoDB, S3, and Lambda.',
+    description:
+      'How I built my blog platform from scratch with Enhance, Architect, and built-in AWS services like DynamoDB, S3, and Lambda.',
     title: 'New Blog Architecture',
   },
   {
@@ -1023,7 +1025,8 @@ module.exports = [
     },
     updatedAt: '2023-10-29T18:59:21.723Z',
     slug: 'quick-color-functions-for-a-node-js-cli',
-    description: 'Here are a few functions for adding color to CLI output while respecting the NO_COLOR env variable.',
+    description:
+      'Here are a few functions for adding color to CLI output while respecting the NO_COLOR env variable.',
     title: 'Quick Color Functions for a Node.js CLI',
   },
   {
@@ -1136,7 +1139,7 @@ module.exports = [
             },
             {
               type: 'text',
-              text: "\" htmx from node_modules as \"my-htmx\" (pick whatever name you'd like) in your ",
+              text: '" htmx from node_modules as "my-htmx" (pick whatever name you\'d like) in your ',
             },
             {
               type: 'text',
@@ -1300,7 +1303,8 @@ module.exports = [
     },
     updatedAt: '2023-08-14T17:17:57.783Z',
     slug: 'add-htmx-to-an-enhance-project',
-    description: "Use Enhance @bundles to include htmx and make it available to all of your app's web components.",
+    description:
+      "Use Enhance @bundles to include htmx and make it available to all of your app's web components.",
     title: 'Add htmx to an Enhance Project',
   },
   {
@@ -1945,7 +1949,8 @@ module.exports = [
     },
     updatedAt: '2023-09-27T16:18:26.742Z',
     slug: 'vendurl-vendor-packages-from-a-url-to-your-node-js-project',
-    description: "Some libraries are not available on npm or not published in a way you'd like to consume. Vendor them to your project from a URL with vendurl.",
+    description:
+      "Some libraries are not available on npm or not published in a way you'd like to consume. Vendor them to your project from a URL with vendurl.",
     title: 'vendurl: Vendor Packages from a URL to Your Node.js Project',
   },
   {
@@ -2188,7 +2193,8 @@ module.exports = [
     },
     updatedAt: '2024-01-23T17:53:48.200Z',
     slug: 'compare-node-js-module-sizes-with-a-cli',
-    description: 'While there are many ways to analyze `./node_modules`, I use a CLI utility from npm called `howfat` to compare package install sizes. This is very helpful to keep total project size down and my dependency graph simpler.',
+    description:
+      'While there are many ways to analyze `./node_modules`, I use a CLI utility from npm called `howfat` to compare package install sizes. This is very helpful to keep total project size down and my dependency graph simpler.',
     title: 'Compare Node.js Module Sizes With a CLI',
   },
   {
@@ -2297,7 +2303,8 @@ module.exports = [
     },
     updatedAt: '2023-10-05T15:49:59.448Z',
     slug: 'easy-confirmation-prompt-for-node-js-cli-script',
-    description: "Prompt the user if they'd like to continue when executing a Node.js script from the command line.",
+    description:
+      "Prompt the user if they'd like to continue when executing a Node.js script from the command line.",
     title: 'Easy Confirmation Prompt for Node.js CLI Script',
   },
   {
@@ -2328,7 +2335,8 @@ module.exports = [
     },
     updatedAt: '2023-09-26T00:28:53.626Z',
     slug: 'bison',
-    description: "I added image uploading to my custom blog editor, so here's some AI bison I made with Midjourney.",
+    description:
+      "I added image uploading to my custom blog editor, so here's some AI bison I made with Midjourney.",
     title: 'An Image of Some Bison',
   },
   {
@@ -2465,7 +2473,8 @@ module.exports = [
     },
     updatedAt: '2023-10-28T02:27:14.493Z',
     slug: 'check-if-node-js-file-is-imported-or-run-as-cli',
-    description: 'How to check if a Node.js (ESM) program is being executed on the command line or when imported by a Node.js process.',
+    description:
+      'How to check if a Node.js (ESM) program is being executed on the command line or when imported by a Node.js process.',
     title: 'Check If Node.js File is Imported or Run as CLI',
   },
   {
@@ -3148,7 +3157,8 @@ module.exports = [
     },
     updatedAt: '2023-07-05T05:00:57.535Z',
     slug: '2022-hello-world',
-    description: "Back at it. My first entry on tbeseda.com. I can't remember all the places I've published content, but I'm motivated to centralize it. It may not always look like this, but it will always be here.",
+    description:
+      "Back at it. My first entry on tbeseda.com. I can't remember all the places I've published content, but I'm motivated to centralize it. It may not always look like this, but it will always be here.",
     title: 'Hello, World',
   },
   {
@@ -4590,7 +4600,7 @@ module.exports = [
           content: [
             {
               type: 'text',
-              text: "const LLAMA_ID = 'meta.llama2-13b-chat-v1'\nconst myLlama = models.find(({modelId}) => modelId === LLAMA_ID)\n\nconsole.log(`Using \"${myLlama.modelName}\"`) // Using \"Llama 2 Chat 13B\"\n\nconst PROMPT = 'What is an axolotl?'\nconsole.log(`Question: \"${PROMPT}\"`) // Question: \"What is an axolotl?\"\n\n// https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html\nconst InvokeModel = await aws({\n  service: 'bedrock',\n  host: 'bedrock-runtime.us-east-1.amazonaws.com', \n  // Note: the host differs from the service name, so we provide the full value\n  path: `/model/${myLlama.modelId}/invoke`,\n  // https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html\n  payload: {\n    prompt: PROMPT,\n    temperature: 0.2,\n    top_p: 0.9,\n    max_gen_len: 512,\n  },\n})\nconst { generation } = InvokeModel.payload\n\nconsole.log(generation.trim()) // the answer describing axolotls!",
+              text: 'const LLAMA_ID = \'meta.llama2-13b-chat-v1\'\nconst myLlama = models.find(({modelId}) => modelId === LLAMA_ID)\n\nconsole.log(`Using "${myLlama.modelName}"`) // Using "Llama 2 Chat 13B"\n\nconst PROMPT = \'What is an axolotl?\'\nconsole.log(`Question: "${PROMPT}"`) // Question: "What is an axolotl?"\n\n// https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html\nconst InvokeModel = await aws({\n  service: \'bedrock\',\n  host: \'bedrock-runtime.us-east-1.amazonaws.com\', \n  // Note: the host differs from the service name, so we provide the full value\n  path: `/model/${myLlama.modelId}/invoke`,\n  // https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html\n  payload: {\n    prompt: PROMPT,\n    temperature: 0.2,\n    top_p: 0.9,\n    max_gen_len: 512,\n  },\n})\nconst { generation } = InvokeModel.payload\n\nconsole.log(generation.trim()) // the answer describing axolotls!',
             },
           ],
           attrs: {
@@ -4640,7 +4650,8 @@ module.exports = [
     },
     updatedAt: '2024-02-06T23:30:22.766Z',
     slug: 'aws-bedrock-with-aws-lite',
-    description: "Connect to AWS Bedrock with the latest release of aws-lite. In less than 50 lines, we'll be able to select a model and send a query.",
+    description:
+      "Connect to AWS Bedrock with the latest release of aws-lite. In less than 50 lines, we'll be able to select a model and send a query.",
     title: 'AWS Bedrock with aws-lite',
   },
   {
@@ -4696,7 +4707,7 @@ module.exports = [
           content: [
             {
               type: 'text',
-              text: "alias ll=\"exa --all --header --icons --long\"\nalias lt=\"ll --tree --level=3 --git-ignore --ignore-glob='.git|node_modules'\"",
+              text: 'alias ll="exa --all --header --icons --long"\nalias lt="ll --tree --level=3 --git-ignore --ignore-glob=\'.git|node_modules\'"',
             },
           ],
           attrs: {
@@ -4846,7 +4857,7 @@ module.exports = [
             },
             {
               type: 'text',
-              text: " users had created for Google's \"Quick, Draw!\" Then I found myself with ",
+              text: ' users had created for Google\'s "Quick, Draw!" Then I found myself with ',
             },
             {
               type: 'text',
@@ -5082,7 +5093,8 @@ module.exports = [
     },
     updatedAt: '2023-07-18T18:09:04.046Z',
     slug: 'get-a-random-record-from-json',
-    description: 'How I put a 76MB file in a Lambda and grab a random line without loading the whole thing into memory.',
+    description:
+      'How I put a 76MB file in a Lambda and grab a random line without loading the whole thing into memory.',
     title: 'Get a random record from 126K lines of JSON',
   },
 ]

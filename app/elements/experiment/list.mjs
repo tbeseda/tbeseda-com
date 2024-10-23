@@ -1,14 +1,21 @@
 import { Collection } from 'waylon'
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function List ({ html, state: { store } }) {
+export default function List({ html, state: { store } }) {
   const { experiments = [] } = store
   const collection = new Collection(experiments)
 
   return html`
     <style>
       :host {
-        display: block;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media screen and (max-width: 767px) {
+        :host {
+          grid-template-columns: 1fr;
+        }
       }
       .experiment {
         display: flex;
@@ -17,16 +24,12 @@ export default function List ({ html, state: { store } }) {
         border-radius: 0.5rem;
       }
       .experiment.featured {
-        box-shadow: var(--shadow);
-      }
-      .experiment * {
-        margin: 0;
-        padding: 0;
+        border: 1px solid cornflowerblue;
       }
       .experiment h3 {
         margin-bottom: 0.5rem;
         display: flex;
-        justify-content: space-between;
+        gap: 0.5rem;
         align-items: start;
       }
       .experiment h3 mark {
@@ -36,26 +39,20 @@ export default function List ({ html, state: { store } }) {
         padding: 0.25rem;
         border-radius: 0.25rem;
       }
-      .experiment time {
-        font-size: 0.8em;
-        margin-bottom: 0.5rem;
-      }
     </style>
 
-    <c-grid cols="1_1">
-      ${collection.render(
-        'div',
-        (i) =>
-          i.attrs({ class: `experiment${i.i.featured ? ' featured' : ''}` }),
-        (item) => `
-          <h3>
-            ${item.link(item.i.url, item.i.name)}
-            ${item.i.wip ? '<mark>WIP</mark>' : ''}
-          </h3>
-          <time>${item.i.date}</time>
-          <p>${item.i.description}</p>
-        `,
-      )}
-    </c-grid>
+    ${collection.render(
+      'div',
+      (i) => i.attrs({ class: `experiment${i.i.isFeatured ? ' featured' : ''}` }),
+      (item) => `
+        <h3>
+          ${item.link(`/experiments/${item.i.slug.current}`, item.i.title)}
+          ${item.i.isWIP ? '<mark>WIP</mark>' : ''}
+        </h3>
+        <time>${item.i.publishedAt}</time>
+        <p>${item.i.excerpt}</p>
+
+      `,
+    )}
   `
 }

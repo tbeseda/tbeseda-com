@@ -28,10 +28,7 @@ export const handler = arc.events.subscribe(async (webmentionReq) => {
       const hentry = items.find((i) => i.type?.includes('h-entry'))
       // const hcard = items.find((i) => i.type?.includes('h-card'))
 
-      if (
-        hentry?.properties?.author &&
-        Array.isArray(hentry.properties.author)
-      ) {
+      if (hentry?.properties?.author && Array.isArray(hentry.properties.author)) {
         if (typeof hentry.properties.author[0] === 'string') {
           result.sourceAuthor = hentry.properties.author[0]
         } else if (hentry.properties.author[0].value) {

@@ -1,28 +1,17 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function TbFooter ({ html, state: { store } }) {
+export default function TbFooter({ html, state: { store } }) {
   const { currentlyPlaying, icon = '' } = store
   return html`
     <style>
-      :host {
-        margin-top: auto;
-        padding: 5rem 3rem 1rem;
-      }
       footer {
-        margin-bottom: 0.5rem;
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-      }
-      footer > div.icon {
-        text-align: center;
-        font-size: 2rem;
-      }
-      footer > div.say-hi {
-        text-align: right;
       }
 
       server-timings {
         display: block;
+        margin-top: 0.5rem;
         padding: 0.5rem;
         font-family: monospace;
         font-size: 0.6rem;
@@ -44,6 +33,7 @@ export default function TbFooter ({ html, state: { store } }) {
         gap: 0.75rem;
       }
       server-timings li {
+        list-style: none;
         border-right: 1px solid #ccc;
         padding-right: 0.75rem;
       }
@@ -51,47 +41,21 @@ export default function TbFooter ({ html, state: { store } }) {
         border-right: none;
         padding-right: 0;
       }
-
-      @media (max-width: 600px) {
-        footer {
-          grid-template-columns: 1fr;
-          grid-template-rows: auto auto auto;
-          gap: 1.25rem;
-        }
-        footer > div,
-        footer > div.say-hi {
-          text-align: center;
-        }
-        footer > div.icon,
-        footer > tb-spotify-playing {
-          grid-row: 1;
-        }
-        footer > div.say-hi {
-          grid-row: 2;
-        }
-        footer > div.copyright {
-          grid-row: 3;
-        }
-      }
     </style>
 
-    <footer class="full">
-      <div class="copyright">
+    <footer>
+      <div>
         &copy; tbeseda ${new Date().getFullYear().toString()}.
       </div>
 
-      ${
-        currentlyPlaying?.item
-          ? '<tb-spotify-playing></tb-spotify-playing>'
-          : `<div class="icon">${icon}</div>`
-      }
+      ${currentlyPlaying?.item ? '<tb-spotify-playing></tb-spotify-playing>' : `<div>${icon}</div>`}
 
       <div class="say-hi">
-        <span>Say "hi" on</span>
-        <a rel="me" href="https://indieweb.social/@tbeseda">Mastodon</a>
+        Say "hi" on
+        <a class="secondary" rel="me" href="https://indieweb.social/@tbeseda">Mastodon</a>
       </div>
     </footer>
 
-    <server-timings sep=": " top="3" exclude="cdn-*,elements,api,html,preflight"></server-timings>
+    <server-timings sep=": " top="3" exclude="cdn-*,enhance-*"></server-timings>
   `
 }

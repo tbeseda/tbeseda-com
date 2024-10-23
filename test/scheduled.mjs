@@ -1,7 +1,7 @@
-import 'dotenv/config'
-import test from 'node:test'
 import assert from 'node:assert/strict'
+import test from 'node:test'
 import sandbox from '@architect/sandbox'
+import 'dotenv/config'
 
 test('sandbox start', async () => {
   const started = await sandbox.start({ quiet: true })
