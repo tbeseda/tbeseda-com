@@ -122,7 +122,7 @@ export default function TbHeader({ html }) {
         </svg>
       </a>
     </li>
-    <li><a href="/experiments">/experiments</a></li>
+    <!-- <li><a href="/experiments">/experiments</a></li> -->
     <li><a href="/about">/about</a></li>
     <!--<a href="/knowledge">/knowledge</a>-->
   </nav>

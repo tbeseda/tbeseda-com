@@ -246,8 +246,8 @@ ${content.join('\n')}
         // flips each point in the vertical range
         .map((point) => Math.max(...values) - point + 1)
         // generate a string
-        .reduce((acc, point, i, a) => {
-          return i < 1 ? `M 0,${point}` : `${acc} ${command(point, i, a)}`
+        .reduce((acc, point, i) => {
+          return i < 1 ? `M 0,${point}` : `${acc} ${command(point, i)}`
         }, '')
     )
   }
