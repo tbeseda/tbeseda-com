@@ -62,8 +62,6 @@ export class SimpleXterm {
     this.write('')
   }
 
-  async processLine(text) {}
-
   async readLine() {
     const text = await this.rl.read(this.ps1)
     await this.run(text)

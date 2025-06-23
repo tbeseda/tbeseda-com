@@ -17,7 +17,7 @@ export const client = createClient({
 
 const testGroq = fs.readFileSync('./test.groq').toString()
 
-export async function get(req) {
+export async function get() {
   const data = await client.fetch(testGroq)
 
   return {

@@ -196,7 +196,7 @@ ${content.join('\n')}
     return `0 0 ${values.length - 1} ${Math.max(...values) + 2}`
   }
 
-  function lineCommand(point, i, a) {
+  function lineCommand(point, i) {
     return `L ${i},${point}`
   }
 

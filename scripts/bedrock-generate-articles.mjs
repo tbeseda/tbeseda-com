@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import AwsLite from '@aws-lite/client'
+
 const LLAMA_ID = 'meta.llama2-13b-chat-v1'
 const TOPICS = [
   'React',

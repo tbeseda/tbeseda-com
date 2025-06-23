@@ -6,7 +6,7 @@ import { mf2 } from 'microformats-parser'
 const PORT = 6661
 const URL = `http://localhost:${PORT}`
 
-test('sandbox', async (t) => {
+test('sandbox', async () => {
   await sandbox.start({
     quiet: true,
     port: PORT,
@@ -16,7 +16,7 @@ test('sandbox', async (t) => {
 test('smoke and microformats', async (t) => {
   let parsedHCard
 
-  await t.test('fetches key routes', async (st) => {
+  await t.test('fetches key routes', async () => {
     for (const route of [
       URL,
       `${URL}/blog`,
@@ -34,7 +34,7 @@ test('smoke and microformats', async (t) => {
     }
   })
 
-  await t.test('fetches the index and parses an h-card', async (st) => {
+  await t.test('fetches the index and parses an h-card', async () => {
     const res = await fetch(`${URL}/h-card`)
     const body = await res.text()
     const parsed = mf2(body, { baseUrl: URL })
@@ -43,7 +43,7 @@ test('smoke and microformats', async (t) => {
     assert.equal(parsedHCard.type?.[0], 'h-card', 'h-card is an h-card')
   })
 
-  await t.test('matches original h-card data', async (st) => {
+  await t.test('matches original h-card data', async () => {
     const { default: myHCardData } = await import('../app/middleware/add-h-cards.mjs')
     const fakeReq = {}
     await myHCardData(fakeReq)

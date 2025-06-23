@@ -82,7 +82,7 @@ export async function post(req) {
 
     try {
       mkdirSync(imageDir, { recursive: true })
-    } catch (e) {}
+    } catch {}
 
     writeFileSync(join(imageDir, newFileName), content)
   } else {

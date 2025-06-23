@@ -1,5 +1,5 @@
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function TbHeader({ html, state: { store } }) {
+export default function TbHeader({ html }) {
   return html`
 <style>
   header {

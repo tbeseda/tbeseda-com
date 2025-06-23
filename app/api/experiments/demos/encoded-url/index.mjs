@@ -9,7 +9,7 @@ export async function post(req) {
   let str
   try {
     str = JSON.stringify(JSON.parse(string))
-  } catch (err) {
+  } catch {
     str = string
   }
 

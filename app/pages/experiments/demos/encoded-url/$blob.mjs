@@ -8,7 +8,7 @@ export default function Blob({ html, state }) {
   try {
     JSON.parse(string)
     isJson = true
-  } catch (err) {
+  } catch {
     isJson = false
   }
 

@@ -20,7 +20,7 @@ export default function BlogSearch({ html, state: { store } }) {
     <ul>
       ${results
         .map(
-          ({ id, title, slug }) => html`
+          ({ title, slug }) => html`
         <li><a href="/blog/${slug}">${title}</a></li>
       `,
         )

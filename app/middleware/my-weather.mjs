@@ -12,7 +12,7 @@ export default async function spotifyPlaying(_, data) {
       ExpressionAttributeValues: { ':weather': 'weather' },
     })
     myWeather = weatherQuery.Items.find(({ key }) => key === 'tomorrow-io')
-  } catch (error) {
+  } catch {
     // nbd
   }
 

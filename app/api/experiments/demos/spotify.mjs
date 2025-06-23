@@ -20,7 +20,7 @@ export const get = async ({ timers, session }) => {
     recentlyPlayed = recentlyPlayedThing.recentlyPlayed
     topArtists = topArtistsThing.topArtists
     topTracks = topTracksThing.topTracks
-  } catch (error) {
+  } catch {
     // populate helpful messages
     if (!recentlyPlayed) messages.push('No recently played found')
     if (!topArtists) messages.push('No top artists found')

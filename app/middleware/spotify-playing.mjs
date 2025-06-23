@@ -10,7 +10,7 @@ export default async function spotifyPlaying(_, data) {
     })
 
     currentlyPlaying = currentlyPlayingThing.currentlyPlaying
-  } catch (error) {
+  } catch {
     // nbd
   }
 

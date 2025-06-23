@@ -24,8 +24,8 @@ export function decode(b64) {
   // Add removed at end '='
   // let base64 = b64 + Array(5 - (b64.length % 4)).join('=')
   const base64 = b64
-    .replace(/\-/g, '+') // Convert '-' to '+'
-    .replace(/\_/g, '/') // Convert '_' to '/'
+    .replace(/-/g, '+') // Convert '-' to '+'
+    .replace(/_/g, '/') // Convert '_' to '/'
 
   const string = Buffer.from(base64, 'base64').toString()
   const decompressed = lzString.decompress(string)

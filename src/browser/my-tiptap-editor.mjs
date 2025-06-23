@@ -38,7 +38,7 @@ export class MyEditor extends Editor {
       content,
       editorProps: {
         // helpful: https://www.codemzy.com/blog/tiptap-drag-drop-image
-        handleDrop(view, event, slice, moved) {
+        handleDrop(view, event, _slice, moved) {
           if (
             !moved &&
             event.dataTransfer &&
