@@ -3,7 +3,7 @@ tbeseda-com
 
 @aws
 region us-east-1
-runtime nodejs20.x
+runtime nodejs22.x
 architecture arm64
 
 @plugins

@@ -48,6 +48,15 @@ export async function getArticleBySlug(slug) {
     publishedAt,
     description,
     content,
+    narrationEnabled,
+    narration {
+      asset->{
+        url,
+        originalFilename,
+        size,
+        mimeType
+      }
+    },
   }`
   const article = await client.fetch(query, { slug })
   return article
