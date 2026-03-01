@@ -3,29 +3,19 @@ tbeseda-com
 
 @aws
 region us-east-1
-runtime nodejs22.x
+runtime nodejs24.x
 architecture arm64
 
 @plugins
 enhance/arc-plugin-enhance
 architect/plugin-lambda-invoker
 architect/plugin-bundles
-# architect/plugin-go
-# architect/plugin-python
-# architect/plugin-ruby
-# architect/plugin-rust
 
 @http
+get  /                      # new static homepage
 get  /robots.txt
-post /webmention            # inbound webmention
-post /webhooks/omnivore     # omnivore incoming
 get  /api/skull             # skull drawing experiment
-get  /pong                  # ping
 get  /groq                  # run a .groq
-# get  /test/golang           # golang test
-# get  /test/python           # python test
-# get  /test/ruby             # ruby test
-# get  /test/rust             # rust test
 get /og-img/:slug
 
 @bundles
@@ -45,14 +35,8 @@ fingerprint true # required by Enhance
 ignore .uploaded-images # blog images
 prune true
 
-@events
-# webmention-send
-webmention-receive
-
 @scheduled
 aqi-update rate(30 minutes)
-spotify-update rate(3 minutes)
-spotify-token-refresh rate(50 minutes)
 tomorrow-io-update rate(10 minutes)
 get-dark-visitors rate(1 day)
 
@@ -82,6 +66,3 @@ webmentions
 things
   type *String
   name thingsByType
-
-@begin
-# appID D1M9ZCD5
