@@ -61,7 +61,7 @@ export default function Head({ req, store }) {
 
       <link rel="canonical" href="https://tbeseda.com/">
       <link rel="icon" href="/_public/favicon.ico">
-      <link rel="alternate" type="application/rss+xml" title="tbeseda.com Articles" href="/blog/rss">
+
       <link rel="webmention" href="https://tbeseda.com/webmention">
       <meta name="fediverse:creator" content="@tbeseda@indieweb.social" />
 
